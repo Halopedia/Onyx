@@ -1,0 +1,44 @@
+{
+  "name": "Onyx",
+  "author": "Daniel Beard",
+  "url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
+  "license-name": "GPL-2.0+",
+  "type": "skin",
+
+  "namemsg": "onyx-skin-name",
+  "descriptionmsg": "onyx-skin-desc",
+
+  "ValidSkinNames": {
+    "onyx": "Onyx"
+  },
+
+  "AutoloadClasses": {
+    "SkinOnyx": "includes/SkinOnyx.php",
+    "OnyxTemplate": "includes/OnyxTemplate.php"
+  },
+
+  "MessageDirs": {
+    "Onyx": "i18n"
+  },
+
+  "ResourceModules": {
+    "skins.onyx": {
+      "styles": {
+        "resources/screen.css": { "media": "screen" },
+        "resources/print.css": { "media": "print"}
+      }
+    },
+
+    "skins.onyx.js": {
+      "scripts": [
+        "resources/main.js"
+      ],
+      "position": "top"
+    }
+  },
+
+  "ResourceFileModulePaths": {
+    "localBasePath": "",
+    "remoteSkinPath": "Onyx"
+  }
+}
