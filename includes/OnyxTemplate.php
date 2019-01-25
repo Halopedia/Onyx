@@ -21,7 +21,47 @@ class OnyxTemplate extends BaseTemplate {
     <div id="onyx-page">
       <!-- HEADER -->
       <div id="onyx-page-header">
+        <!-- HEADER LOGO -->
+        <div id="onyx-header-logo">
 
+        </div>
+        <!-- TAGLINE -->
+        <?php if (true /* TODO: implement tagline opt-out */) { ?>
+        <div id="onyx-header-tagline">
+          <h1 id="onyx-tagline-tagline">
+            <?php
+              if($this->data['tagline'] != '') {
+                $this->html('tagline');
+              } else {
+                $this->html('sitename');
+              }
+            ?>
+          </h1>
+        </div>
+        <?php } ?>
+        <!-- TITLE BAR -->
+        <div id="onyx-header-titleBar">
+          <!-- BUTTONS -->
+          <div id="onyx-titleBar-buttons">
+
+          </div>
+          <!-- ARTICLE TITLE -->
+          <div id="onyx-titleBar-title">
+            <h1 id="onyx-title-tile"><?php $this->html('title') ?></h1>
+          </div>
+          <!-- ARTICLE SUBTITLE -->
+          <?php if ($this->data['subtitle']) { ?>
+          <div id="onyx-titleBar-subtitle">
+            <?php $this->html('subtitle'); ?>
+          </div>
+          <?php } ?>
+          <!-- UNDELETE ARTICLE MESSAGE -->
+          <?php if ($this->data['undelete']) { ?>
+          <div id="onyx-titleBar-undelete">
+            <?php $this->html('undelete'); ?>
+          </div>
+          <?php } ?>
+        </div>
       </div>
       <!-- SIDEBAR -->
       <div id="onyx-page-sidebar">
@@ -37,6 +77,7 @@ class OnyxTemplate extends BaseTemplate {
         <?php } ?>
         <!-- ARTICLE CONTENT -->
         <?php $this->html('bodytext'); ?>
+        <!-- CATEGORY LINKS -->
       </div>
     </div>
     <!-- FOOTER -->
@@ -44,27 +85,21 @@ class OnyxTemplate extends BaseTemplate {
 
     </div>
     <!-- FLOATING NOTIFICATIONS -->
-    <?php if(hasFloatingNotifications()) { ?>
-    <div id="onyx-floatingNotifications">
+    <div id="onyx-floating">
       <!-- NEW TALK NOTIFICATION -->
       <?php if($this->data['newtalk']) { ?>
-      <div id="onyx-floatingNotifications-newTalk">
+      <div id="onyx-floating-newTalk">
         <?php $this->html('newtalk'); ?>
       </div>
       <?php } ?>
     </div>
-    <?php } ?>
     <!-- TOOLBOX -->
     <div id="onyx-toolbox">
       
     </div>
   <?php $this->printTrail(); ?>
   </body>
-</html
+</html>
 <?php
-  }
-
-  private function hasFloatingNotifications() {
-    return $this->data['newtalk'];
-  }
+  
 }

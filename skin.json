@@ -24,14 +24,14 @@
   "ResourceModules": {
     "skins.onyx": {
       "styles": {
-        "resources/screen.css": { "media": "screen" },
-        "resources/print.css": { "media": "print"}
+        "resources/onyx-screen.css": { "media": "screen" },
+        "resources/onyx-print.css": { "media": "print"}
       }
     },
 
     "skins.onyx.js": {
       "scripts": [
-        "resources/main.js"
+        "resources/onyx.js"
       ],
       "position": "top"
     }
