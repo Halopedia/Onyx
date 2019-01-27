@@ -8,17 +8,44 @@
 
 class OnyxTemplate extends BaseTemplate {
 
+  /* TODO:
+   * 
+   * - Logo(s) and main page link
+   * - Personal tools
+   * - Content actions
+   * - Sidebar
+   * - Language links
+   * - Search form
+   * - Footer
+   * 
+   * FUTURE EXTENSIONS:
+   * 
+   * - Read Onyx-specific configuration settings from MediaWiki:Onyx-config
+   * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
+   * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
+   * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
+   * - Support VisualEditor
+  */
+
   /**
    * Outputs the entire contents of the page.
    */
-  public function execute() {
-    $this->html('headelement'); ?>
+  public function execute() { ?>
+<!-- START OF PAGE -->
+  <?php $this->html('headelement'); ?>
     <!-- BANNER -->
     <div id="onyx-banner">
+      <div id="onyx-banner-bannerContent">
+        <!-- BANNER LOGO -->
 
+        <!-- BANNER MENU -->
+        <div id="onyx-bannerContent-bannerMenu">
+
+        </div>
+      </div>
     </div>
     <!-- MAIN PAGE -->
-    <div id="onyx-page">
+    <div id="onyx-page" class="mw-body">
       <!-- HEADER -->
       <div id="onyx-page-header">
         <!-- HEADER LOGO -->
@@ -28,12 +55,12 @@ class OnyxTemplate extends BaseTemplate {
         <!-- TAGLINE -->
         <?php if (true /* TODO: implement tagline opt-out */) { ?>
         <div id="onyx-header-tagline">
-          <h1 id="onyx-tagline-tagline">
+          <h1 id="onyx-tagline-text">
             <?php
               if($this->data['tagline'] != '') {
-                $this->html('tagline');
+                $this->msg('tagline');
               } else {
-                $this->html('sitename');
+                $this->text('sitename');
               }
             ?>
           </h1>
@@ -41,9 +68,16 @@ class OnyxTemplate extends BaseTemplate {
         <?php } ?>
         <!-- TITLE BAR -->
         <div id="onyx-header-titleBar">
-          <!-- BUTTONS -->
-          <div id="onyx-titleBar-buttons">
+          <!-- ARTICLe ACTIONS -->
+          <div id="onyx-titleBar-actions">
+            <!-- PAGE STATUS INDICATORS -->
+            <?php echo $this->getIndicators(); ?>
+            <!-- EDIT BUTTON -->
 
+            <!-- TALK BUTTON -->
+
+            <!-- TOGGLE SIDEBAR BUTTON -->
+            
           </div>
           <!-- ARTICLE TITLE -->
           <div id="onyx-titleBar-title">
@@ -78,6 +112,13 @@ class OnyxTemplate extends BaseTemplate {
         <!-- ARTICLE CONTENT -->
         <?php $this->html('bodytext'); ?>
         <!-- CATEGORY LINKS -->
+        <span id="onyx-content-categories">
+          <?php $this->html('catlinks'); ?>
+        </span>
+        <!-- ADDITIONAL CONTENT -->
+        <span id="onyx-content-additionalContent">
+          <?php $this->html('dataAfterContent'); ?>
+        </span>
       </div>
     </div>
     <!-- FOOTER -->
@@ -95,11 +136,17 @@ class OnyxTemplate extends BaseTemplate {
     </div>
     <!-- TOOLBOX -->
     <div id="onyx-toolbox">
-      
+      <ul id="onyx-toolbox-toolList">
+        <?php
+          foreach ($this->getToolbox() as $key => $toolboxItem) {
+            echo $this->makeListItem($key, $toolboxItem);
+          }
+          wfRunHooks('SkinTemplateToolboxEnd', array(&$this));
+        ?>
+      </ul>
     </div>
   <?php $this->printTrail(); ?>
-  </body>
-</html>
+<!-- END OF PAGE -->
 <?php
-  
+  }
 }
