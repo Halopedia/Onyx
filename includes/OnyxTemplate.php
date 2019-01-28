@@ -123,7 +123,40 @@ class OnyxTemplate extends BaseTemplate {
     </div>
     <!-- FOOTER -->
     <div id="onyx-footer">
-
+      <div id="onyx-footer-footerContent">
+        <!-- FOOTER ICONS -->
+        <div id="onyx-footerContent-footerIcons">
+          <ul id="onyx-footerIcons-list">
+            <?php
+              foreach ($this->getFooterIcons('icononly') as $blockName => $footerIcons) {
+            ?>
+            <li class="onyx-footerIcons-listItem">
+              <?php
+                foreach ($footerIcons as $icon) {
+                  echo $this->getSkin()->makeFooterIcon($icon);
+                }
+              ?>
+            </li>
+            <?php } ?>
+          </ul>
+        </div>
+        <!-- FOOTER LINKS -->
+        <div id="onyx-footerContent-footerLinks">
+          <ul id="onyx-footerLinks-list">
+            <?php
+              foreach ($this->getFooterLinks() as $category => $links) {
+            ?>
+            <li class="onyx-footerLinks-listItem">
+              <?php
+                foreach ($links as $key) {
+                  echo $this->html($key);
+                }
+              ?>
+            </li>
+            <?php } ?>
+          </ul>
+        </div>
+      </div>
     </div>
     <!-- FLOATING NOTIFICATIONS -->
     <div id="onyx-floating">
