@@ -16,7 +16,6 @@ class OnyxTemplate extends BaseTemplate {
    * - Sidebar
    * - Language links
    * - Search form
-   * - Footer
    * 
    * FUTURE EXTENSIONS:
    * 
@@ -174,7 +173,12 @@ class OnyxTemplate extends BaseTemplate {
           foreach ($this->getToolbox() as $key => $toolboxItem) {
             echo $this->makeListItem($key, $toolboxItem);
           }
+          /* TODO: Debug - why is this printing the entire HTML doc's content
+                   at the end of the list?
+
           wfRunHooks('SkinTemplateToolboxEnd', array(&$this));
+          
+          */
         ?>
       </ul>
     </div>
