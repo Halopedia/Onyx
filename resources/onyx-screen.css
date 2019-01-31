@@ -1,0 +1,53 @@
+/*
+ * This class is used to place elements in the same vertical strip of the
+ * screen as the fixed-width page itself.
+*/
+.onyx-pageAligned {
+  max-width:90vw;
+  width:1440p;
+  min-width:50vw;
+
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#onyx-banner {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:65px;
+
+  margin:0px;
+
+  background-color:#444444;
+}
+
+#onyx-page {
+  margin-top:90px;
+  margin-bottom:25px;
+
+  background-color:#DDDDDD;
+}
+
+#onyx-footer {
+  width:100vw;
+
+  margin:0px;
+
+  background-color:#777777;
+}
+
+#onyx-floating {
+  position:absolute;
+  bottom:35px;
+  right:10px;
+}
+
+#onyx-toolbox {
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  width:100vw;
+  height:25px;
+}
