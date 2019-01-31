@@ -83,7 +83,7 @@ class OnyxTemplate extends BaseTemplate {
             <!-- EDIT BUTTON -->
 
             <!-- TALK BUTTON -->
-            
+
             <!-- TOGGLE SIDEBAR BUTTON -->
             <div id="onyx-actions-toggleSidebar"
                  class="onyx-button onyx-button-secondary onyx-button-action"
@@ -91,22 +91,22 @@ class OnyxTemplate extends BaseTemplate {
               Sidebar
             </div>
           </div>
-          <!-- ARTICLE TITLE -->
-          <div id="onyx-articleHeader-title">
-            <h1 id="onyx-title-tile"><?php $this->html('title') ?></h1>
+          <!-- ARTICLE TITLE(S) -->
+          <div id="onyx-articleHeader-articleTitle">
+            <h1 id="onyx-articleTitle-tile"><?php $this->html('title') ?></h1>
+            <!-- ARTICLE SUBTITLE -->
+            <?php if ($this->data['subtitle']) { ?>
+            <div id="onyx-articleTitle-subtitle">
+              <?php $this->html('subtitle'); ?>
+            </div>
+            <?php } ?>
+            <!-- UNDELETE ARTICLE MESSAGE -->
+            <?php if ($this->data['undelete']) { ?>
+            <div id="onyx-articleTitle-undelete">
+              <?php $this->html('undelete'); ?>
+            </div>
+            <?php } ?>
           </div>
-          <!-- ARTICLE SUBTITLE -->
-          <?php if ($this->data['subtitle']) { ?>
-          <div id="onyx-articleHeader-subtitle">
-            <?php $this->html('subtitle'); ?>
-          </div>
-          <?php } ?>
-          <!-- UNDELETE ARTICLE MESSAGE -->
-          <?php if ($this->data['undelete']) { ?>
-          <div id="onyx-articleHeader-undelete">
-            <?php $this->html('undelete'); ?>
-          </div>
-          <?php } ?>
         </div>
       </div>
       <!-- SIDEBAR -->
@@ -190,7 +190,7 @@ class OnyxTemplate extends BaseTemplate {
       <?php } ?>
     </div>
     <!-- TOOLBOX -->
-    <div id="onyx-toolbox">
+    <div id="onyx-toolbox" align="center">
       <div id="onyx-toolbox-tools">
         <ul id="onyx-tools-list">
           <?php
