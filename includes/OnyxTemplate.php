@@ -43,7 +43,7 @@ class OnyxTemplate extends BaseTemplate {
         </div>
       </div>
     </div>
-    <!-- MAIN PAGE -->
+    <!-- PAGE -->
     <div id="onyx-page" class="onyx-pageAligned mw-body">
       <!-- HEADER -->
       <div id="onyx-page-header">
@@ -88,7 +88,7 @@ class OnyxTemplate extends BaseTemplate {
             <div id="onyx-actions-toggleSidebar"
                  class="onyx-button onyx-button-secondary onyx-button-action"
                  onclick="onyx_toggleSidebar()">
-              Sidebar
+              <span class="onyx-button-text">Sidebar</span>
             </div>
           </div>
           <!-- ARTICLE TITLE(S) -->
@@ -113,7 +113,7 @@ class OnyxTemplate extends BaseTemplate {
       <div id="onyx-page-sidebar" class="onyx-sidebarAligned">
         <!-- RECENT CHANGES -->
         <div id="onyx-sidebar-recentChanges">
-          <h1 id="onyx-recentChanges-header">Recent Changes</h1>
+          <h2 id="onyx-recentChanges-header">Recent Changes</h2>
           <div id="onyx-recentChanges-content">
             
           </div>
