@@ -58,10 +58,10 @@ class OnyxTemplate extends BaseTemplate {
           <div id="onyx-wikiHeader-tagline">
             <h1 id="onyx-tagline-header">
               <?php
-                if($this->data['tagline'] != '') {
-                  $this->msg('tagline');
-                } else {
+                if($this->data['tagline'] == '') {
                   $this->text('sitename');
+                } else {
+                  $this->msg('tagline');
                 }
               ?>
             </h1>
@@ -83,9 +83,13 @@ class OnyxTemplate extends BaseTemplate {
             <!-- EDIT BUTTON -->
 
             <!-- TALK BUTTON -->
-
-            <!-- TOGGLE SIDEBAR BUTTON -->
             
+            <!-- TOGGLE SIDEBAR BUTTON -->
+            <div id="onyx-actions-toggleSidebar"
+                 class="onyx-button onyx-button-secondary onyx-button-action"
+                 onclick="onyx_toggleSidebar()">
+              Sidebar
+            </div>
           </div>
           <!-- ARTICLE TITLE -->
           <div id="onyx-articleHeader-title">

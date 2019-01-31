@@ -16,6 +16,53 @@ body {
   margin-right:auto;
 }
 
+/*
+ * This class is used to style all buttons on the Onyx skin.
+*/
+.onyx-button {
+  height:30px;
+  
+  padding:10px;
+
+  text-align:center;
+  vertical-align:middle;
+
+  cursor:pointer;
+}
+
+/*
+ * This class is used to style primary buttons in the Onyx skin, which are
+ * those that the user is most likely to click on (Edit, etc).
+*/
+.onyx-button-primary {
+
+}
+
+/*
+ * This class is used to style auxiliary buttons in the Onyx skin.
+*/
+.onyx-button-secondary {
+  border:1px solid #444444;
+
+  transition:0.4s;
+}
+
+.onyx-button-secondary:hover {
+  border:1px solid #AAAAAA;
+
+  transition:0.4s;
+}
+
+/*
+ * This class is used to style the action buttons in the Onyx skin (Edit, Talk,
+ * and Toggle Sidebar).
+*/
+.onyx-button-action {
+  min-width:160px;
+
+  margin:15px;
+}
+
 #onyx-banner {
   position:fixed;
   top:0px;
@@ -33,6 +80,32 @@ body {
   margin-bottom:25px;
 
   background-color:#DDDDDD;
+}
+
+#onyx-header-wikiHeader {
+  width:100%;
+  height:130px;
+}
+
+#onyx-header-articleHeader {
+  width:100%;
+  height:80px;
+}
+
+#onyx-articleHeader-actions {
+  float:right;
+}
+
+#onyx-page-sidebar {
+  display:block;
+  float:right;
+  max-width:30vw;
+  width:360px;
+  height:100%;
+}
+
+#onyx-page-content {
+  overflow:hidden;
 }
 
 #onyx-footer {
