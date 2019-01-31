@@ -29,6 +29,23 @@ ul {
   list-style-type: square;
 }
 
+code {
+  border:none;
+
+  font-family:"Roboto Mono", monospace;
+
+  background-color:#AAAAAA;
+}
+
+pre {
+  border:none;
+  padding:15px;
+
+  font-family:"Roboto Mono", monospace;
+
+  background-color:#AAAAAA;
+}
+
     /* MEDIAWIKI CLASSES */
 
 .toc {
@@ -61,6 +78,18 @@ ul {
 
 .mw-editsection-bracket {
   display:none;
+}
+
+.thumbinner {
+  border:none !important;
+
+  background-color:#AAAAAA !important;
+}
+
+.catlinks {
+  border:none !important;
+
+  background-color:#AAAAAA !important;
 }
 
     /* ONYX CLASSES */
