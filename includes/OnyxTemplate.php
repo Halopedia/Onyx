@@ -76,7 +76,7 @@ class OnyxTemplate extends BaseTemplate {
         </div>
         <!-- ARTICLE HEADER -->
         <div id="onyx-header-articleHeader">
-          <!-- ARTICLe ACTIONS -->
+          <!-- ARTICLE ACTIONS -->
           <div id="onyx-articleHeader-actions">
             <!-- PAGE STATUS INDICATORS -->
             <?php echo $this->getIndicators(); ?>
@@ -91,56 +91,57 @@ class OnyxTemplate extends BaseTemplate {
               <span class="onyx-button-text">Sidebar</span>
             </div>
           </div>
-          <!-- ARTICLE TITLE(S) -->
-          <div id="onyx-articleHeader-articleTitle">
-            <h1 id="onyx-articleTitle-tile"><?php $this->html('title') ?></h1>
-            <!-- ARTICLE SUBTITLE -->
-            <?php if ($this->data['subtitle']) { ?>
-            <div id="onyx-articleTitle-subtitle">
-              <?php $this->html('subtitle'); ?>
-            </div>
-            <?php } ?>
-            <!-- UNDELETE ARTICLE MESSAGE -->
-            <?php if ($this->data['undelete']) { ?>
-            <div id="onyx-articleTitle-undelete">
-              <?php $this->html('undelete'); ?>
-            </div>
-            <?php } ?>
+          <!-- ARTICLE TITLE -->
+          <h1 id="onyx-articleHeader-title"><?php $this->html('title') ?></h1>
+          <!-- ARTICLE SUBTITLE -->
+          <?php if ($this->data['subtitle']) { ?>
+          <div id="onyx-articleHeader-subtitle">
+            <?php $this->html('subtitle'); ?>
           </div>
+          <?php } ?>
+          <!-- UNDELETE ARTICLE MESSAGE -->
+          <?php if ($this->data['undelete']) { ?>
+          <div id="onyx-articleHeader-undelete">
+            <?php $this->html('undelete'); ?>
+           </div>
+          <?php } ?>
         </div>
       </div>
-      <!-- SIDEBAR -->
-      <div id="onyx-page-sidebar" class="onyx-sidebarAligned">
-        <!-- RECENT CHANGES -->
-        <div id="onyx-sidebar-recentChanges">
-          <h2 id="onyx-recentChanges-header">Recent Changes</h2>
-          <div id="onyx-recentChanges-content">
-            
+      <!-- PAGE BODY -->
+      <div id="onyx-page-pageBody">
+        <!-- SIDEBAR -->
+        <div id="onyx-pageBody-sidebar" class="onyx-sidebarAligned">
+          <!-- RECENT CHANGES -->
+          <div id="onyx-sidebar-recentChanges">
+            <h2 id="onyx-recentChanges-header">Recent Changes</h2>
+            <div id="onyx-recentChanges-content">
+              
+            </div>
           </div>
-        </div>
-        <!-- CUSTOM SIDEBAR -->
-        <div id="onyx-sidebar-customContent">
+          <!-- CUSTOM SIDEBAR -->
+          <div id="onyx-sidebar-customContent">
 
+          </div>
         </div>
-      </div>
-      <!-- ARTICLE -->
-      <div id="onyx-page-content">
-        <!-- SITE NOTICE -->
-        <?php if ($this->data['sitenotice']) { ?>
-        <div id="onyx-content-siteNotice">
-          <?php $this->html('sitenotice'); ?>
+        <!-- ARTICLE -->
+        <div id="onyx-pageBody-content">
+          <!-- SITE NOTICE -->
+          <?php if ($this->data['sitenotice']) { ?>
+          <div id="onyx-content-siteNotice">
+            <?php $this->html('sitenotice'); ?>
+          </div>
+          <?php } ?>
+          <!-- ARTICLE CONTENT -->
+          <?php $this->html('bodytext'); ?>
+          <!-- CATEGORY LINKS -->
+          <span id="onyx-content-categories">
+            <?php $this->html('catlinks'); ?>
+          </span>
+          <!-- ADDITIONAL CONTENT -->
+          <span id="onyx-content-additionalContent">
+            <?php $this->html('dataAfterContent'); ?>
+          </span>
         </div>
-        <?php } ?>
-        <!-- ARTICLE CONTENT -->
-        <?php $this->html('bodytext'); ?>
-        <!-- CATEGORY LINKS -->
-        <span id="onyx-content-categories">
-          <?php $this->html('catlinks'); ?>
-        </span>
-        <!-- ADDITIONAL CONTENT -->
-        <span id="onyx-content-additionalContent">
-          <?php $this->html('dataAfterContent'); ?>
-        </span>
       </div>
     </div>
     <!-- FOOTER -->

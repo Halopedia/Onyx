@@ -7,11 +7,17 @@ ul {
   list-style-type: square;
 }
 
-    /* COMMON CLASSES */
+    /* MEDIAWIKI CLASSES */
+
+.mw-editsection-bracket {
+  display:none;
+}
+
+    /* ONYX CLASSES */
 
 /*
- * This class is used to place elements in the same vertical strip of the
- * screen as the fixed-width page itself.
+ * This class is used to align elements with the fixed-width page itself, so
+ * that they are in line with it vertically, and have the same width.
 */
 .onyx-pageAligned {
   max-width:90vw;
@@ -22,6 +28,11 @@ ul {
   margin-right:auto;
 }
 
+/*
+ * This class is used to align elements with the page's sidebar, so that they
+ * are in line with it vertically, and have the same width. This only works if
+ * the element is a child of an element of the onyx-pageAligned class.
+*/
 .onyx-sidebarAligned {
   float:right;
   max-width:30vw;
@@ -32,12 +43,15 @@ ul {
  * This class is used to style all buttons on the Onyx skin.
 */
 .onyx-button {
-  height:30px;
+  height:28px;
   
+  border:1px solid rgba(0.0, 0.0, 0.0, 0.0);
   padding:10px;
 
   text-align:center;
   vertical-align:middle;
+
+  text-transform: uppercase;
 
   cursor:pointer;
 }
@@ -75,6 +89,12 @@ ul {
   margin:15px;
 }
 
+.onyx-button-text {
+  margin:auto;
+
+  vertical-align:middle;
+}
+
     /* BANNER */
 
 #onyx-banner {
@@ -105,28 +125,34 @@ ul {
 
 #onyx-header-articleHeader {
   width:100%;
-  height:80px;
-
-  overflow:hidden;
+  min-height:80px;
 }
 
 #onyx-articleHeader-actions {
   float:right;
 }
 
-#onyx-articleHeader-articleTitle {
-  float:left;
-  
-  width:auto;
-
+#onyx-articleHeader-title {
   margin:15px;
 }
 
-#onyx-page-sidebar {
+#onyx-articleHeader-subtitle {
+  margin:0px 0px 15px 15px;
+  
+  font-style:italic;
+}
+#onyx-articleHeader-undelete {
+  margin:0px 0px 15px 15px;
+
+  font-style:italic;
+}
+
+
+#onyx-pageBody-sidebar {
   height:100%;
 }
 
-#onyx-page-content {
+#onyx-pageBody-content {
   overflow:hidden;
 }
 
@@ -192,5 +218,5 @@ ul {
 }
 
 #onyx-tools-list li:not(:first-child):before {
-  content: " | ";
+  content:" | ";
 }
