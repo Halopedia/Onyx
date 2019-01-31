@@ -187,19 +187,21 @@ class OnyxTemplate extends BaseTemplate {
     </div>
     <!-- TOOLBOX -->
     <div id="onyx-toolbox">
-      <ul id="onyx-toolbox-toolList">
-        <?php
-          foreach ($this->getToolbox() as $key => $toolboxItem) {
-            echo $this->makeListItem($key, $toolboxItem);
-          }
-          /* TODO: Debug - why is this printing the entire HTML doc's content
-                   at the end of the list?
+      <div id="onyx-toolbox-tools">
+        <ul id="onyx-tools-list">
+          <?php
+            foreach ($this->getToolbox() as $key => $toolboxItem) {
+              echo $this->makeListItem($key, $toolboxItem);
+            }
+            /* TODO: Debug - why is this printing the entire HTML doc's content
+                     at the end of the list?
 
-          wfRunHooks('SkinTemplateToolboxEnd', array(&$this));
-          
-          */
-        ?>
-      </ul>
+            wfRunHooks('SkinTemplateToolboxEnd', array(&$this));
+
+            */
+          ?>
+        </ul>
+      </div>
     </div>
   <?php $this->printTrail(); ?>
 <!-- END OF PAGE -->
