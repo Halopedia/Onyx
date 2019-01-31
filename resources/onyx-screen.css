@@ -12,7 +12,7 @@
 }
 
 #onyx-banner {
-  position:absolute;
+  position:fixed;
   top:0px;
   left:0px;
   width:100vw;
@@ -39,13 +39,13 @@
 }
 
 #onyx-floating {
-  position:absolute;
+  position:fixed;
   bottom:35px;
   right:10px;
 }
 
 #onyx-toolbox {
-  position:absolute;
+  position:fixed;
   bottom:0px;
   left:0px;
   width:100vw;
