@@ -1,6 +1,28 @@
 body {
   margin:0px;
   padding:0px;
+
+  font-family:"Roboto", sans-serif;
+}
+
+h1 {
+  padding:15px 15px 5px 5px;
+
+  font-size:36px;
+}
+
+h2 {
+  padding:15px 15px 5px 5px;
+
+  font-size:28px;
+}
+
+h3 {
+  font-size:24px;
+}
+
+h4 {
+  font-size:20px;
 }
 
 ul {
@@ -8,6 +30,34 @@ ul {
 }
 
     /* MEDIAWIKI CLASSES */
+
+.toc {
+  min-width:300px;
+
+  margin:15px;
+  border:none;
+  padding:5px 5px 0px 0px;
+
+  background-color:transparent;
+}
+
+.toctitle {
+  padding:0px 0px 5px 5px;
+
+  border-bottom:1px solid #a2a9b1;
+
+  text-align:left !important;
+}
+
+.toctogglespan {
+  float:right;
+
+  margin:0px 5px;
+}
+
+.tocnumber {
+  color:#444444;
+}
 
 .mw-editsection-bracket {
   display:none;
@@ -45,7 +95,7 @@ ul {
 .onyx-button {
   height:28px;
   
-  border:1px solid rgba(0.0, 0.0, 0.0, 0.0);
+  border:1px solid transparent;
   padding:10px;
 
   text-align:center;
@@ -70,11 +120,15 @@ ul {
 .onyx-button-secondary {
   border:1px solid #444444;
 
+  font-color:#444444;
+
   transition:0.4s;
 }
 
 .onyx-button-secondary:hover {
-  border:1px solid #AAAAAA;
+  border:1px solid #777777;
+
+  color:#777777;
 
   transition:0.4s;
 }
@@ -117,6 +171,7 @@ ul {
 
   background-color:#DDDDDD;
 }
+    /* HEADER */
 
 #onyx-header-wikiHeader {
   width:100%;
@@ -141,19 +196,34 @@ ul {
   
   font-style:italic;
 }
+
 #onyx-articleHeader-undelete {
   margin:0px 0px 15px 15px;
 
   font-style:italic;
 }
 
+    /* SIDEBAR */
 
 #onyx-pageBody-sidebar {
   height:100%;
+
+  padding:15px;
 }
+
+    /* ARTICLE CONTENT */
 
 #onyx-pageBody-content {
   overflow:hidden;
+
+  padding:0px 0px 15px 15px;
+}
+
+#onyx-content-siteNotice {
+  margin:auto 15px;
+  padding:15px 15px 5px 15px;
+
+  background-color:#777777;
 }
 
     /* FOOTER */
