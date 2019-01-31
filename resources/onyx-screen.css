@@ -3,6 +3,12 @@ body {
   padding:0px;
 }
 
+ul {
+  list-style-type: square;
+}
+
+    /* COMMON CLASSES */
+
 /*
  * This class is used to place elements in the same vertical strip of the
  * screen as the fixed-width page itself.
@@ -14,6 +20,12 @@ body {
 
   margin-left:auto;
   margin-right:auto;
+}
+
+.onyx-sidebarAligned {
+  float:right;
+  max-width:30vw;
+  width:360px;
 }
 
 /*
@@ -63,6 +75,8 @@ body {
   margin:15px;
 }
 
+    /* BANNER */
+
 #onyx-banner {
   position:fixed;
   top:0px;
@@ -74,6 +88,8 @@ body {
 
   background-color:#444444;
 }
+
+    /* PAGE */
 
 #onyx-page {
   margin-top:90px;
@@ -107,16 +123,14 @@ body {
 }
 
 #onyx-page-sidebar {
-  display:block;
-  float:right;
-  max-width:30vw;
-  width:360px;
   height:100%;
 }
 
 #onyx-page-content {
   overflow:hidden;
 }
+
+    /* FOOTER */
 
 #onyx-footer {
   width:100%;
@@ -126,11 +140,34 @@ body {
   background-color:#777777;
 }
 
+#onyx-footer-footerContent {
+  margin-bottom:30px;
+  padding:15px;
+}
+
+#onyx-footerIcons-list {
+  list-style:none;
+}
+
+#onyx-footerIcons-list li {
+  display:inline;
+
+  margin-right:15px;
+}
+
+#onyx-footerContent-footerLinks {
+  padding-left:15px;
+}
+
+    /* FLOATING NOTIFICATIONS */
+
 #onyx-floating {
   position:fixed;
   bottom:35px;
   right:10px;
 }
+
+    /* TOOLBOX */
 
 #onyx-toolbox {
   position:fixed;

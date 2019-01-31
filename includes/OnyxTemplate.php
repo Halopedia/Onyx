@@ -110,7 +110,7 @@ class OnyxTemplate extends BaseTemplate {
         </div>
       </div>
       <!-- SIDEBAR -->
-      <div id="onyx-page-sidebar">
+      <div id="onyx-page-sidebar" class="onyx-sidebarAligned">
         <!-- RECENT CHANGES -->
         <div id="onyx-sidebar-recentChanges">
           <h1 id="onyx-recentChanges-header">Recent Changes</h1>
@@ -147,7 +147,7 @@ class OnyxTemplate extends BaseTemplate {
     <div id="onyx-footer">
       <div id="onyx-footer-footerContent" class="onyx-pageAligned">
         <!-- FOOTER ICONS -->
-        <div id="onyx-footerContent-footerIcons">
+        <div id="onyx-footerContent-footerIcons" class="onyx-sidebarAligned" align="right">
           <ul id="onyx-footerIcons-list">
             <?php
               foreach ($this->getFooterIcons('icononly') as $blockName => $footerIcons) {
