@@ -20,7 +20,7 @@
    */
   public function initPage(OutputPage $out) {
     parent::initPage($out);
-    $out->addModules('resources/onyx.js');
+    $out->addModules('skins.onyx.js');
   }
 
   /**
