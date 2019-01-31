@@ -34,7 +34,7 @@ class OnyxTemplate extends BaseTemplate {
   <?php $this->html('headelement'); ?>
     <!-- BANNER -->
     <div id="onyx-banner">
-      <div id="onyx-banner-bannerContent">
+      <div id="onyx-banner-bannerContent" class="onyx-pageAligned">
         <!-- BANNER LOGO -->
 
         <!-- BANNER MENU -->
@@ -44,31 +44,40 @@ class OnyxTemplate extends BaseTemplate {
       </div>
     </div>
     <!-- MAIN PAGE -->
-    <div id="onyx-page" class="mw-body">
+    <div id="onyx-page" class="onyx-pageAligned mw-body">
       <!-- HEADER -->
       <div id="onyx-page-header">
-        <!-- HEADER LOGO -->
-        <div id="onyx-header-logo">
+        <!-- WIKI HEADER -->
+        <div id="onyx-header-wikiHeader">
+          <!-- HEADER LOGO -->
+          <div id="onyx-wikiHeader-logo">
 
+          </div>
+          <!-- TAGLINE -->
+          <?php if (true /* TODO: implement tagline opt-out */) { ?>
+          <div id="onyx-wikiHeader-tagline">
+            <h1 id="onyx-tagline-header">
+              <?php
+                if($this->data['tagline'] != '') {
+                  $this->msg('tagline');
+                } else {
+                  $this->text('sitename');
+                }
+              ?>
+            </h1>
+          </div>
+          <?php } ?>
+          <!-- NAVIGATION -->
+          <div id="onyx-wikiHeader-navigation">
+            <ul id="onyx-navigation-list">
+              
+            </ul>
+          </div>
         </div>
-        <!-- TAGLINE -->
-        <?php if (true /* TODO: implement tagline opt-out */) { ?>
-        <div id="onyx-header-tagline">
-          <h1 id="onyx-tagline-text">
-            <?php
-              if($this->data['tagline'] != '') {
-                $this->msg('tagline');
-              } else {
-                $this->text('sitename');
-              }
-            ?>
-          </h1>
-        </div>
-        <?php } ?>
-        <!-- TITLE BAR -->
-        <div id="onyx-header-titleBar">
+        <!-- ARTICLE HEADER -->
+        <div id="onyx-header-articleHeader">
           <!-- ARTICLe ACTIONS -->
-          <div id="onyx-titleBar-actions">
+          <div id="onyx-articleHeader-actions">
             <!-- PAGE STATUS INDICATORS -->
             <?php echo $this->getIndicators(); ?>
             <!-- EDIT BUTTON -->
@@ -79,18 +88,18 @@ class OnyxTemplate extends BaseTemplate {
             
           </div>
           <!-- ARTICLE TITLE -->
-          <div id="onyx-titleBar-title">
+          <div id="onyx-articleHeader-title">
             <h1 id="onyx-title-tile"><?php $this->html('title') ?></h1>
           </div>
           <!-- ARTICLE SUBTITLE -->
           <?php if ($this->data['subtitle']) { ?>
-          <div id="onyx-titleBar-subtitle">
+          <div id="onyx-articleHeader-subtitle">
             <?php $this->html('subtitle'); ?>
           </div>
           <?php } ?>
           <!-- UNDELETE ARTICLE MESSAGE -->
           <?php if ($this->data['undelete']) { ?>
-          <div id="onyx-titleBar-undelete">
+          <div id="onyx-articleHeader-undelete">
             <?php $this->html('undelete'); ?>
           </div>
           <?php } ?>
@@ -98,7 +107,17 @@ class OnyxTemplate extends BaseTemplate {
       </div>
       <!-- SIDEBAR -->
       <div id="onyx-page-sidebar">
+        <!-- RECENT CHANGES -->
+        <div id="onyx-sidebar-recentChanges">
+          <h1 id="onyx-recentChanges-header">Recent Changes</h1>
+          <div id="onyx-recentChanges-content">
+            
+          </div>
+        </div>
+        <!-- CUSTOM SIDEBAR -->
+        <div id="onyx-sidebar-customContent">
 
+        </div>
       </div>
       <!-- ARTICLE -->
       <div id="onyx-page-content">
@@ -122,7 +141,7 @@ class OnyxTemplate extends BaseTemplate {
     </div>
     <!-- FOOTER -->
     <div id="onyx-footer">
-      <div id="onyx-footer-footerContent">
+      <div id="onyx-footer-footerContent" class="onyx-pageAligned">
         <!-- FOOTER ICONS -->
         <div id="onyx-footerContent-footerIcons">
           <ul id="onyx-footerIcons-list">
