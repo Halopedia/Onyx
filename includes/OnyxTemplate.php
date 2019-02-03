@@ -87,7 +87,7 @@ class OnyxTemplate extends BaseTemplate {
             <!-- TOGGLE SIDEBAR BUTTON -->
             <div id="onyx-actions-toggleSidebar"
                  class="onyx-button onyx-button-secondary onyx-button-action"
-                 onclick="onyx_toggleSidebar()">
+                 onclick="onyx_toggleSidebar();">
               <span class="onyx-button-text">Sidebar</span>
             </div>
           </div>

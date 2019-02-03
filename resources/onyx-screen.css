@@ -140,7 +140,21 @@ pre {
  * those that the user is most likely to click on (Edit, etc).
 */
 .onyx-button-primary {
+  border:1px solid #444444;
 
+  color:#FFFFFF;
+  background-color:#444444;
+
+  transition:0.4s;
+}
+
+.onyx-button-primary:hover {
+  border:1px solid #777777;
+
+  color:#FFFFFF;
+  background-color:#777777;
+
+  transition:0.4s;
 }
 
 /*
@@ -149,7 +163,7 @@ pre {
 .onyx-button-secondary {
   border:1px solid #444444;
 
-  font-color:#444444;
+  color:#444444;
 
   transition:0.4s;
 }
