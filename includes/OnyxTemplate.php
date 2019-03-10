@@ -167,13 +167,11 @@ class OnyxTemplate extends BaseTemplate {
         <div id="onyx-footerContent-footerLinks">
           <ul id="onyx-footerLinks-list">
             <?php
-              foreach ($this->getFooterLinks() as $category => $links) {
+              foreach ($this->getFooterLinks('flat') as $link) {
             ?>
             <li class="onyx-footerLinks-listItem">
               <?php
-                foreach ($links as $key) {
-                  echo $this->html($key);
-                }
+                echo $this->get($link);
               ?>
             </li>
             <?php } ?>
