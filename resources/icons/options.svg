@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg>
+<svg viewBox="0 0 100% 100%" xmlns="http://www.w3.org/2000/svg" version="1.1"  stroke="black" stroke-width="7%" fill="none">
+  <desc>Options icon</desc>
+  <!-- TODO: Finish -->
+  <polygon points="20%,10% 30%,10% 40%,20% 40%,30% 70%,60% 80%,60% 90%,70% 90%,80% 80%,70% 70%,70% 70%,80% 80%,90% 70%,90%"/>
+</svg>

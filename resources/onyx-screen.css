@@ -92,6 +92,16 @@ pre {
   background-color:#AAAAAA !important;
 }
 
+.mw-indicators {
+  display:inline-block;
+  margin-left:15px;
+}
+
+.mw-indicator {
+  display:inline-block;
+  margin:15px 15px 15px 0px;
+}
+
     /* ONYX CLASSES */
 
 /*
@@ -126,6 +136,11 @@ pre {
   
   border:1px solid transparent;
   padding:10px;
+
+  display:inline-flex;
+
+  align-content: center;
+  align-items: center;
 
   text-align:center;
   vertical-align:middle;
@@ -183,7 +198,7 @@ pre {
 .onyx-button-action {
   min-width:160px;
 
-  margin:15px;
+  margin:15px 15px 15px 0px;
 }
 
 .onyx-button-text {
@@ -192,11 +207,17 @@ pre {
   vertical-align:middle;
 }
 
+.onyx-footerIcons-listItem {
+  display:inline-block;
+
+  margin:0px 15px 15px 0px;
+}
+
     /* BANNER */
 
 #onyx-banner {
   position:fixed;
-  z-index:1;
+  z-index:1000;
   top:0px;
   left:0px;
   width:100%;
@@ -215,6 +236,11 @@ pre {
 
   background-color:#DDDDDD;
 }
+
+#onyx-page-pageBody {
+  margin-right:15px;
+}
+
     /* HEADER */
 
 #onyx-header-wikiHeader {
@@ -230,6 +256,67 @@ pre {
 #onyx-articleHeader-actions {
   float:right;
 }
+
+#onyx-actionsList-button {
+  min-width:28px;
+  margin-left:-13px;
+  cursor:auto;
+}
+
+/* TODO: Extract all dropdown styling that is not specific to the content actions dropdown into classes, so it can be reused elsewhere (e.g. nav) */
+
+/* The container <div> - needed to position the dropdown content */
+#onyx-actions-actionsList {
+  position:relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+#onyx-actionsList-list {
+  display: none;
+  position: absolute;
+  right:15px;
+  background-color: #f1f1f1;
+  min-width: 214px;
+  margin:-15px 0px 0px 0px;
+  padding:10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+  z-index:999;
+}
+
+#onyx-actionsList-list > li {
+  margin:0px;
+  padding:0px;
+  list-style:none;
+}
+
+#onyx-actionsList-list > li > a {
+  padding:10px 10px 10px 15px;
+}
+
+#onyx-actionsList-list > li > a:hover {
+  background-color:#DDDDDD;
+}
+
+#onyx-actionsList-list > li:not(:last-child) {
+  border-bottom: 1px solid #a2a9b1;
+}
+
+/* Links inside the dropdown */
+#onyx-actionsList-list a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+#onyx-actionsList-list a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+#onyx-actions-actionsList:hover #onyx-actionsList-list {display: block;}
+
+/* END TODO */
 
 #onyx-articleHeader-title {
   margin:15px;
@@ -252,7 +339,7 @@ pre {
 #onyx-pageBody-sidebar {
   height:100%;
 
-  padding:15px;
+  padding:15px 0px 15px 15px;
 }
 
     /* ARTICLE CONTENT */
@@ -264,7 +351,7 @@ pre {
 }
 
 #onyx-content-siteNotice {
-  margin:auto 15px;
+  margin:0px 15px 15px 15px;
   padding:15px 15px 5px 15px;
 
   background-color:#777777;
@@ -287,12 +374,7 @@ pre {
 
 #onyx-footerIcons-list {
   list-style:none;
-}
-
-#onyx-footerIcons-list li {
-  display:inline;
-
-  margin-right:15px;
+  direction:rtl;
 }
 
 #onyx-footerContent-footerLinks {
@@ -311,6 +393,7 @@ pre {
 
 #onyx-toolbox {
   position:fixed;
+  z-index:1000;
   bottom:0px;
   left:0px;
   width:100%;
@@ -321,6 +404,7 @@ pre {
 
 #onyx-toolbox-tools {
   margin:auto;
+  text-align:center;
 }
 
 #onyx-tools-list {

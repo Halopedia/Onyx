@@ -18,7 +18,7 @@
    * 
    * @param OutputPage $out
    */
-  public function initPage(OutputPage $out) {
+  public function initPage(OutputPage $out) : void {
     parent::initPage($out);
     $out->addModules('skins.onyx.js');
   }
@@ -28,8 +28,8 @@
    * 
    * @param OutputPage $out
    */
-  function setupSkinUserCss(OutputPage $out) {
+  function setupSkinUserCss(OutputPage $out) : void {
     parent::setupSkinUserCss($out);
-    $out->addModuleStyles(array('mediawiki.skinning.interface', 'skins.onyx'));
+    $out->addModuleStyles(array('mediawiki.skinning.interface', 'skins.onyx.styles'));
   }
  }

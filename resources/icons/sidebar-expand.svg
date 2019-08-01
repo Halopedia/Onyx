@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg>
+<svg viewBox="0 0 100% 100%" xmlns="http://www.w3.org/2000/svg" version="1.1"  stroke="black" stroke-width="7%" fill="none">
+  <desc>Expand sidebar icon</desc>
+  <polyline points="90%,10% 55%,10% 55%,90% 90%,90%"/>
+  <line x1="15%" y1="50%" x2="45%" y2="50%"/>
+  <polyline points="25%,35% 10%,50% 25%,65%"/>
+</svg>

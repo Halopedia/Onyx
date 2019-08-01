@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg>
+<svg viewBox="0 0 100% 100%" xmlns="http://www.w3.org/2000/svg" version="1.1"  stroke="black" stroke-width="7%">
+  <desc>List icon</desc>
+  <line x1="10%" y1="20%" x2="20%" y2="20%"/>
+  <line x1="10%" y1="40%" x2="20%" y2="40%"/>
+  <line x1="10%" y1="60%" x2="20%" y2="60%"/>
+  <line x1="10%" y1="80%" x2="20%" y2="80%"/>
+  <line x1="35%" y1="20%" x2="90%" y2="20%"/>
+  <line x1="35%" y1="40%" x2="90%" y2="40%"/>
+  <line x1="35%" y1="60%" x2="90%" y2="60%"/>
+  <line x1="35%" y1="80%" x2="90%" y2="80%"/>
+</svg>

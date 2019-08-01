@@ -22,7 +22,7 @@
   },
 
   "ResourceModules": {
-    "skins.onyx": {
+    "skins.onyx.styles": {
       "styles": {
         "resources/onyx-screen.css": { "media": "screen" },
         "resources/onyx-print.css": { "media": "print"}
@@ -31,8 +31,9 @@
 
     "skins.onyx.js": {
       "scripts": [
-        "onyx.js"
+        "resources/onyx.js"
       ],
+      "dependencies": [],
       "position": "top"
     }
   },
