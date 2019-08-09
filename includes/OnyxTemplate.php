@@ -10,16 +10,14 @@ class OnyxTemplate extends BaseTemplate {
 
   /* TODO:
    * 
-   * - Logo(s) and main page link
    * - Personal tools
-   * - Content actions
-   * - Sidebar
    * - Language links
    * - Search form
    * 
    * FUTURE EXTENSIONS:
    * 
-   * - Read Onyx-specific configuration settings from MediaWiki:Onyx-config
+   * - Implement dark scheme using CSS media query prefers-color-scheme: dark
+   * - Read Onyx-specific configuration settings from MediaWiki:Onyx.ini
    * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
    * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
    * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
@@ -31,20 +29,37 @@ class OnyxTemplate extends BaseTemplate {
    */
   public function execute() : void {
 
+    // TODO: Load config options from MediaWiki:Onyx.ini and, if enabled by the
+    //       wiki, from User:CURRENT_USER/Onyx.ini
+
+    // TODO: Gather all additional data required by the unique features of the
+    //       Onyx skin (recent changes and page contents sidebar modules,
+    //       custom navigation and toolbox, etc) and add it to the data array
+    //       so that those features can be constructed in the same manner as
+    //       the ones using the standard MediaWiki API
+
+    // Initialise HTML string as a empty string
     $html = '';
 
-    $html .= $this->html('headelement');
+    // Concatenate auto-generated head element onto HTML string
+    $html .= $this->get('headelement');
 
+    // Build banner
     $this->buildBanner($html);
 
+    // Build page content
     $this->buildPage($html);
 
+    // Build footer
     $this->buildFooter($html);
 
+    // Build toolbox
     $this->buildToolbox($html);
 
+    // Concatenate auto-generated trail onto HTML string
     $html .= $this->getTrail();
-    
+
+    // Print the entire page's HTML code at once
     echo $html;
 
   }
@@ -256,8 +271,18 @@ class OnyxTemplate extends BaseTemplate {
 
     // Open container div for logo
     $html .= Html::openElement('div', ['id' => 'onyx-wikiHeader-logo']);
-
-    // TODO: Display logo
+    
+    // Open link element
+    $html .= Html::openElement('a',
+        array_merge(['href' => $this->data['nav_urls']['mainpage']['href']],
+            Linker::tooltipAndAccesskeyAttribs('p-logo')));
+    
+    // Insert logo image
+    $html .= Html::rawElement('img', ['id' => 'onyx-logo-image',
+        'src' => $this->get('logopath'), 'alt' => $this->get('sitename')]);
+    
+    // Close link element
+    $html .= Html::closeElement('a');
 
     // Close container div
     $html .= Html::closeElement('div');
@@ -300,7 +325,29 @@ class OnyxTemplate extends BaseTemplate {
     // Open container element for list
     $html .= Html::openElement('ul', ['id' => 'onyx-navigation-list']);
 
-    // TODO: Insert global nav links in the form of a list of li elements
+    // Unset the searh, toolbox and languages options from the sidebar array,
+    // so that only the navigation will be displayed
+    unset($this->data['sidebar']['SEARCH']);
+    unset($this->data['sidebar']['TOOLBOX']);
+    unset($this->data['sidebar']['LANGUAGES']);
+
+    foreach ( $this->getSidebar() as $boxName => $box ) { 
+
+      // In some instances, getSidebar() will include the toolbox even when
+      // data['sidebar']['TOOLBOX'] is unset, so skip any boxNames that don't
+      // equal 'navigation'
+      if ($boxName !== 'navigation') {
+        continue;
+      }
+      
+      if (is_array($box['content'])) {
+        foreach ($box['content'] as $key => $item) {
+          $html .= $this->makeListItem($key, $item);
+        }
+      } else {
+          $html .= Html::rawElement('li', [], $box['content']);
+      }
+    } 
 
     // Close container element for link list
     $html .= Html::closeElement('ul');
@@ -581,7 +628,7 @@ class OnyxTemplate extends BaseTemplate {
     $html .= Html::openElement('div', ['id' => 'onyx-sidebar-stickyModules']);
 
     // Build the article contents navigation module
-    $this->buildContentsNavigationModule($html);
+    $this->buildPageContentsModule($html);
 
     // Build the sticky custom module
     $this->buildStickyCustomModule($html);
@@ -601,11 +648,15 @@ class OnyxTemplate extends BaseTemplate {
    */
   protected function buildStaticCustomModule(string &$html) : void {
     
+    global $wgOut;
+    
     // Open container div for module
     $html .= Html::openElement('div', ['id' => 'onyx-staticModules-custom',
         'class' => 'onyx-sidebarModule onyx-sidebarModule-static']);
     
-    // TODO: Build static custom module content
+    // Have the MediaWiki parser output the Template:Onyx/Sidebar/Static page
+    // and insert it into the page
+    $html .= $wgOut->parse('{{Onyx/Sidebar/Static}}');
 
     // Close container div for module
     $html .= Html::closeElement('div');
@@ -619,6 +670,8 @@ class OnyxTemplate extends BaseTemplate {
    * @param $html string The string onto which the HTML should be appended
    */
   protected function buildRecentChangesModule(string &$html) : void {
+
+    global $wgOut;
     
     // Open container div for module
     $html .= Html::openElement('div',
@@ -633,7 +686,11 @@ class OnyxTemplate extends BaseTemplate {
     // Open container div for module content
     $html .= Html::openElement('div', ['id' => 'onyx-recentChanges-content']);
     
-    // TODO: Build recent changes module content
+    // TODO: Insert recent changes information
+    
+    // Reference for this function:
+
+    // https://github.com/wikimedia/mediawiki-extensions-SocialProfile/blob/master/UserActivity/includes/SiteActivityHook.php
 
     // Close container div for module content
     $html .= Html::closeElement('div');
@@ -650,8 +707,71 @@ class OnyxTemplate extends BaseTemplate {
    * 
    * @param $html string The string onto which the HTML should be appended
    */
-  protected function buildContentsNavigationModule(string &$html) : void {
-    // TODO: Extract contents navigation from main content and place it here
+  protected function buildPageContentsModule(string &$html) : void {
+
+    // HACK: The following function uses messy-looking regexes and is
+    //       generally very inelegant. Ideally, at some point in future, the
+    //       entire OnyxTemplate class should be refactored such that all extra
+    //       data needed by some of Onyx's unique functionalities is extracted
+    //       or otherwise gathered by some helper class, and then added to the
+    //       data array before the page begins being built at all. Then, these
+    //       unique parts of the skin can be constructed in the manner as the
+    //       parts that use the data provided by the default MediaWiki API.
+
+    // Use regexes to extract the raw HTML for every header in the body
+    // content. In order to avoid accidentally matching the header contained in
+    // the table of contents generated by the parser, we specify that
+    // immediately within the header, a span tag must be opened (this is the
+    // case for all headers naturally generated by the parser in the page body)
+    $numHeadings = preg_match_all("/<h[123456][^>]*><span[^>]*>.*<\/h[123456]>/",
+      $this->data['bodycontent'], $headings);
+    
+    // If there are not at least two headings on the page, don't bother to
+    // render the page contents module at all
+    if ($numHeadings <= 2) {
+      return;
+    }
+
+    // Open container div for module
+    $html .= Html::openElement('div',
+        ['id' => 'onyx-stickyModules-pageContents',
+        'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky']);
+    
+    // Insert module title
+    $html .= Html::rawElement('h2', ['id' => 'onyx-pageContents-heading',
+        'class' => 'onyx-sidebarHeading onyx-sidebarHeading-sticky'],
+        'Contents');
+    
+    // Open container div for module content
+    $html .= Html::openElement('div', ['id' => 'onyx-pageContents-content']);
+    
+    // Open ordered list tag for contents list
+    $html .= Html::openElement('ol', ['id' => 'onyx-pageContents-list']);
+
+    // Loop through the headings, delete the unnecessary parts of the raw HTML
+    // using regexes, to isolate only the heading title, then add this as a
+    // list element to the HTML
+
+    // TODO: Add links, and implement code to display subheading as tree
+    //       rather than a flat list
+    for ($i = 0; $i < $numHeadings; $i++) {
+      $headings[0][$i] = preg_replace(
+          "/(<span[^>]*class=\"[^\"]*mw-editsection-bracket[^\"]*\"[^>]*>[^<]*<\/span>)"
+          ."|edit"
+          ."|(<[^>]*>)/",
+           '', $headings[0][$i]);
+      $html .= Html::rawElement('li', [], $headings[0][$i]);
+    }
+
+    // Close unordered list tag for contents lsit
+    $html .= Html::closeElement('ol');
+
+    // Close container div for module content
+    $html .= Html::closeElement('div');
+
+    // Close container div for module
+    $html .= Html::closeElement('div');
+
   }
 
   /**
@@ -661,12 +781,16 @@ class OnyxTemplate extends BaseTemplate {
    * @param $html string The string onto which the HTML should be appended
    */
   protected function buildStickyCustomModule(string &$html) : void {
+
+    global $wgOut;
     
     // Open container div for module
     $html .= Html::openElement('div', ['id' => 'onyx-stickyModules-custom',
         'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky']);
     
-    // TODO: Build sticky custom module content
+    // Have the MediaWiki parser output the Template:Onyx/Sidebar/Sticky page
+    // and insert it into the page
+    $html .= $wgOut->parse('{{Onyx/Sidebar/Sticky}}');
 
     // Close container div for module
     $html .= Html::closeElement('div');
