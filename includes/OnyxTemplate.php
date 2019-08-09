@@ -6,6 +6,8 @@
  * @ingroup Skins
  */
 
+require_once 'Icon.php';
+
 class OnyxTemplate extends BaseTemplate {
 
   /* TODO:
@@ -565,15 +567,13 @@ class OnyxTemplate extends BaseTemplate {
     $html .= Html::openElement('div', ['class' => 'onyx-dropdown',
         'id' => 'onyx-actions-actionsList']);
 
-    // Create a button <div> that will display the list when hovered over (this
+    // Create a button div that will display the list when hovered over (this
     // is achieved via CSS styling of the onyx-dropdown, onyx-dropdown-button
     // and onyx-dropdown-list classes)
-
-    // TODO: Replace 'v' with a dropdown icon
     $html .= Html::rawElement('div', ['class' => 'onyx-button '
         .'onyx-button-primary onyx-button-action onyx-dropdown-button',
         'id' => 'onyx-actionsList-button'],
-        'v');
+          Onyx\Icon::getIcon('dropdown')->makeSvg());
     
     // Open an <ul> element to contain the list itself
     $html .= Html::openElement('ul', ['class' => 'onyx-dropdown-list',
