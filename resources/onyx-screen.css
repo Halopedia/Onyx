@@ -1,28 +1,25 @@
 body {
-	margin:0px;
-	padding:0px;
-
-	font-family:"Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
 }
 
 h1 {
-	padding:15px 15px 5px 5px;
-
-	font-size:36px;
+	padding: 15px 15px 5px 5px;
+	font-size: 36px;
 }
 
 h2 {
-	padding:15px 15px 5px 5px;
-
-	font-size:28px;
+	padding: 15px 15px 5px 5px;
+	font-size: 28px;
 }
 
 h3 {
-	font-size:24px;
+	font-size: 24px;
 }
 
 h4 {
-	font-size:20px;
+	font-size: 20px;
 }
 
 ul {
@@ -30,165 +27,138 @@ ul {
 }
 
 code {
-	border:none;
-
-	font-family:"Roboto Mono", monospace;
-
-	background-color:#AAAAAA;
+	border: none;
+	font-family: "Roboto Mono", monospace;
+	background-color: #aaa;
 }
 
 pre {
-	border:none;
-	padding:15px;
-
-	font-family:"Roboto Mono", monospace;
-
-	background-color:#AAAAAA;
+	border: none;
+	padding: 15px;
+	font-family: "Roboto Mono", monospace;
+	background-color: #aaa;
 }
 
-		/* MEDIAWIKI CLASSES */
-
+/* MEDIAWIKI CLASSES */
 .toc {
-	min-width:300px;
-
-	margin:15px;
-	border:none;
-	padding:5px 5px 0px 0px;
-
-	background-color:transparent;
+	min-width: 300px;
+	margin: 15px;
+	border: none;
+	padding: 5px 5px 0 0;
+	background-color: transparent;
 }
 
 .toctitle {
-	padding:0px 0px 5px 5px;
-
-	border-bottom:1px solid #a2a9b1;
-
-	text-align:left !important;
+	padding: 0 0 5px 5px;
+	border-bottom: 1px solid #a2a9b1;
+	text-align: left !important;
 }
 
 .toctogglespan {
-	float:right;
-
-	margin:0px 5px;
+	float: right;
+	margin: 0 5px;
 }
 
 .tocnumber {
-	color:#444444;
+	color: #444;
 }
 
 .mw-editsection-bracket {
-	display:none;
+	display: none;
 }
 
 .thumbinner {
-	border:none !important;
-
-	background-color:#AAAAAA !important;
+	border: none !important;
+	background-color: #aaa !important;
 }
 
 .catlinks {
-	border:none !important;
-
-	background-color:#AAAAAA !important;
+	border: none !important;
+	background-color: #aaa !important;
 }
 
 .mw-indicators {
-	display:inline-block;
-	margin-left:15px;
+	display: inline-block;
+	margin-left: 15px;
 }
 
 .mw-indicator {
-	display:inline-block;
-	margin:15px 15px 15px 0px;
+	display: inline-block;
+	margin: 15px 15px 15px 0;
 }
 
-		/* ONYX CLASSES */
+/* ONYX CLASSES */
 
 /*
  * This class is used to align elements with the fixed-width page itself, so
  * that they are in line with it vertically, and have the same width.
-*/
+ */
 .onyx-pageAligned {
-	max-width:90vw;
-	width:1440px;
-	min-width:50vw;
-
-	margin-left:auto;
-	margin-right:auto;
+	max-width: 90vw;
+	width: 1440px;
+	min-width: 50vw;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*
  * This class is used to align elements with the page's sidebar, so that they
  * are in line with it vertically, and have the same width. This only works if
  * the element is a child of an element of the onyx-pageAligned class.
-*/
+ */
 .onyx-sidebarAligned {
-	float:right;
-	max-width:30vw;
-	width:360px;
+	float: right;
+	max-width: 30vw;
+	width: 360px;
 }
 
 /*
  * This class is used to style all buttons on the Onyx skin.
-*/
+ */
 .onyx-button {
-	height:28px;
-	
-	border:1px solid transparent;
-	padding:10px;
-
-	display:inline-flex;
-
+	height: 28px;
+	border: 1px solid transparent;
+	padding: 10px;
+	display: inline-flex;
 	align-content: center;
 	align-items: center;
-
-	text-align:center;
-	vertical-align:middle;
-
+	text-align: center;
+	vertical-align: middle;
 	text-transform: uppercase;
-
-	cursor:pointer;
+	cursor: pointer;
 }
 
 /*
  * This class is used to style primary buttons in the Onyx skin, which are
  * those that the user is most likely to click on (Edit, etc).
-*/
+ */
 .onyx-button-primary {
-	border:1px solid #444444;
-
-	color:#FFFFFF;
-	background-color:#444444;
-
-	transition:0.4s;
+	border: 1px solid #444;
+	color: #fff;
+	background-color: #444;
+	transition: 0.4s;
 }
 
 .onyx-button-primary:hover {
-	border:1px solid #777777;
-
-	color:#FFFFFF;
-	background-color:#777777;
-
-	transition:0.4s;
+	border: 1px solid #777;
+	color: #fff;
+	background-color: #777;
+	transition: 0.4s;
 }
 
 /*
  * This class is used to style auxiliary buttons in the Onyx skin.
 */
 .onyx-button-secondary {
-	border:1px solid #444444;
-
-	color:#444444;
-
-	transition:0.4s;
+	border: 1px solid #444;
+	color: #444;
+	transition: 0.4s;
 }
 
 .onyx-button-secondary:hover {
-	border:1px solid #777777;
-
-	color:#777777;
-
-	transition:0.4s;
+	border: 1px solid #777;
+	color: #777;
+	transition: 0.4s;
 }
 
 /*
@@ -196,45 +166,37 @@ pre {
  * and Toggle Sidebar).
 */
 .onyx-button-action {
-	min-width:160px;
-
-	margin:15px 15px 15px 0px;
+	min-width: 160px;
+	margin: 15px 15px 15px 0;
 }
 
 .onyx-button-text {
-	margin:auto;
-
-	vertical-align:middle;
+	margin: auto;
+	vertical-align: middle;
 }
 
 .onyx-footerIcons-listItem {
-	display:inline-block;
-
-	margin:0px 15px 15px 0px;
+	display: inline-block;
+	margin: 0 15px 15px 0;
 }
 
-		/* BANNER */
-
+/* BANNER */
 #onyx-banner {
-	position:fixed;
-	z-index:1000;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:65px;
-
-	margin:0px;
-
-	background-color:#444444;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 65px;
+	margin: 0;
+	background-color: #444;
 }
 
-		/* PAGE */
-
+/* PAGE */
 #onyx-page {
-	margin-top:90px;
-	margin-bottom:25px;
-
-	background-color:#DDDDDD;
+	margin-top: 90px;
+	margin-bottom: 25px;
+	background-color: #ddd;
 }
 
 #onyx-page:after {
@@ -243,70 +205,68 @@ pre {
 	clear: both;
 	visibility: hidden;
 	line-height: 0;
-	height: 0; 
+	height: 0;
 }
 
 #onyx-page-pageBody {
-	margin-right:15px;
+	margin-right: 15px;
 }
 
-		/* HEADER */
-
+/* HEADER */
 #onyx-header-wikiHeader {
-	height:150px;
+	height: 150px;
 }
 
 #onyx-wikiHeader-logo {
-	float:left;
+	float: left;
 }
 
 #onyx-logo-image {
-	width:auto;
-	height:auto;
-	max-height:135px;
-	margin:15px 15px 0px 15px;
+	width: auto;
+	height: auto;
+	max-height: 135px;
+	margin: 15px 15px 0 15px;
 }
 
 #onyx-wikiHeader-tagline {
-	margin-left:15px;
+	margin-left: 15px;
 }
 
 #onyx-wikiHeader-navigation {
-	overflow:hidden;
+	overflow: hidden;
 }
 
 #onyx-navigation-list {
-	list-style:none;
-	display:inline;
-	margin:5px 15px 5px 15px;
+	list-style: none;
+	display: inline;
+	margin: 5px 15px 5px 15px;
 }
 
-#onyx-navigation-list>li {
-	display:inline;
-	margin-right:15px;
+#onyx-navigation-list > li {
+	display: inline;
+	margin-right: 15px;
 }
-
 
 #onyx-header-articleHeader {
-	width:100%;
-	min-height:80px;
+	width: 100%;
+	min-height: 80px;
 }
 
 #onyx-articleHeader-actions {
-	float:right;
+	float: right;
 }
 
 #onyx-actionsList-button {
-	min-width:28px;
-	margin-left:-13px;
-	cursor:auto;
+	min-width: 28px;
+	margin-left: -13px;
+	cursor: auto;
 }
 
 /* TODO: Extract all dropdown styling that is not specific to the content actions dropdown into classes, so it can be reused elsewhere (e.g. nav) */
 
 /* The container <div> - needed to position the dropdown content */
 #onyx-actions-actionsList {
-	position:relative;
+	position: relative;
 	display: inline-block;
 }
 
@@ -314,27 +274,27 @@ pre {
 #onyx-actionsList-list {
 	display: none;
 	position: absolute;
-	right:15px;
+	right: 15px;
 	background-color: #f1f1f1;
 	min-width: 214px;
-	margin:-15px 0px 0px 0px;
-	padding:10px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-	z-index:999;
+	margin: -15px 0 0 0;
+	padding: 10px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+	z-index: 999;
 }
 
 #onyx-actionsList-list > li {
-	margin:0px;
-	padding:0px;
-	list-style:none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 #onyx-actionsList-list > li > a {
-	padding:10px 10px 10px 15px;
+	padding: 10px 10px 10px 15px;
 }
 
 #onyx-actionsList-list > li > a:hover {
-	background-color:#DDDDDD;
+	background-color: #ddd;
 }
 
 #onyx-actionsList-list > li:not(:last-child) {
@@ -343,119 +303,110 @@ pre {
 
 /* Links inside the dropdown */
 #onyx-actionsList-list a {
-	color: black;
+	color: #000;
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
 }
 
 /* Change color of dropdown links on hover */
-#onyx-actionsList-list a:hover {background-color: #ddd;}
+#onyx-actionsList-list a:hover {
+	background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-#onyx-actions-actionsList:hover #onyx-actionsList-list {display: block;}
+#onyx-actions-actionsList:hover #onyx-actionsList-list {
+	display: block;
+}
 
 /* END TODO */
 
 #onyx-articleHeader-title {
-	height:44px;
-	margin:0px 15px 15px 15px;
-	vertical-align:bottom;
+	height: 44px;
+	margin: 0 15px 15px 15px;
+	vertical-align: bottom;
 }
 
 #onyx-articleHeader-subtitle {
-	margin:0px 0px 15px 15px;
-	
-	font-style:italic;
+	margin: 0 0 15px 15px;
+	font-style: italic;
 }
 
 #onyx-articleHeader-undelete {
-	margin:0px 0px 15px 15px;
-
-	font-style:italic;
+	margin: 0 0 15px 15px;
+	font-style: italic;
 }
 
-		/* SIDEBAR */
-
+/* SIDEBAR */
 #onyx-pageBody-sidebar {
-	height:100%;
-
-	padding:15px 0px 15px 15px;
+	height: 100%;
+	padding: 15px 0 15px 15px;
 }
 
-		/* ARTICLE CONTENT */
-
+/* ARTICLE CONTENT */
 #onyx-pageBody-content {
-	overflow:hidden;
-
-	padding:0px 0px 15px 15px;
+	overflow: hidden;
+	padding: 0 0 15px 15px;
 }
 
 #onyx-content-siteNotice {
-	margin:0px 15px 15px 15px;
-	padding:15px 15px 5px 15px;
-
-	background-color:#777777;
+	margin: 0 15px 15px 15px;
+	padding: 15px 15px 5px 15px;
+	background-color: #777;
 }
 
-		/* FOOTER */
-
+/* FOOTER */
 #onyx-footer {
-	width:100%;
-
-	margin:0px;
-
-	background-color:#777777;
+	width: 100%;
+	margin: 0;
+	background-color: #777;
 }
 
 #onyx-footer-footerContent {
-	margin-bottom:30px;
-	padding:15px;
+	margin-bottom: 30px;
+	padding: 15px;
 }
 
 #onyx-footerIcons-list {
-	list-style:none;
-	direction:rtl;
+	list-style: none;
+	direction: rtl;
 }
 
 #onyx-footerContent-footerLinks {
-	padding-left:15px;
+	padding-left: 15px;
 }
 
-		/* FLOATING NOTIFICATIONS */
-
+/* FLOATING NOTIFICATIONS */
 #onyx-floating {
-	position:fixed;
-	bottom:35px;
-	right:10px;
+	position: fixed;
+	bottom: 35px;
+	right: 10px;
 }
 
-		/* TOOLBOX */
-
+/* TOOLBOX */
 #onyx-toolbox {
-	position:fixed;
-	z-index:1000;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	height:30px;
-
-	background-color:#444444;
+	position: fixed;
+	z-index: 1000;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	background-color: #444;
 }
 
 #onyx-toolbox-tools {
-	margin:auto;
-	text-align:center;
+	margin: auto;
+	text-align: center;
 }
 
 #onyx-tools-list {
-	list-style:none;
+	list-style: none;
 }
 
 #onyx-tools-list li {
-	display:inline;
+	display: inline;
 }
 
 #onyx-tools-list li:not(:first-child):before {
-	content:" | ";
+	content: " | ";
 }

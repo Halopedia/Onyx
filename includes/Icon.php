@@ -3,7 +3,7 @@
 namespace Onyx;
 
 class Icon {
-	
+
 	private static $icons = [];
 
 	private static $iconSources = [
@@ -75,93 +75,82 @@ class Icon {
 		]
 	];
 
-	public static function getIcon(string $iconName) : ?Icon {
-
-		if (isset(Icon::$icons[$iconName])) {
-
+	public static function getIcon( string $iconName ) : ?Icon {
+		if ( isset( Icon::$icons[$iconName] ) ) {
 			// If the requested icon is already part of the icon array, just return
 			// it immediately
 			return Icon::$icons[$iconName];
-
-		} elseif (isset(Icon::$iconSources[$iconName])) {
-			
+		} elseif ( isset( Icon::$iconSources[$iconName] ) ) {
 			// Otherwise, if the requested icon is part of the iconSources array,
 			// construct a new Icon object using the iconSources info, add it to the
 			// icon array and return it
 			$source = Icon::$iconSources[$iconName];
-			Icon::$icons[$iconName] = new Icon($source['width'],
-					$source['height'], $source['content']);
+			Icon::$icons[$iconName] = new Icon( $source['width'],
+					$source['height'], $source['content'] );
 			return Icon::$icons[$iconName];
-
 		} else {
-			
 			// Finally, if the requested icon is not part of either array, just
 			// return null - no such icon exists
 			return null;
-
 		}
-
 	}
 
 	private $defaultWidth;
 	private $defaultHeight;
 	private $content;
 
-	public function __construct(int $defaultWidth, int $defaultHeight,
-			array $content) {
+	public function __construct( int $defaultWidth, int $defaultHeight,
+			array $content ) {
 		$this->defaultWidth = $defaultWidth;
 		$this->defaultHeight = $defaultHeight;
 		$this->content = $content;
 	}
 
-	public function makeSvg(int $width = -1, int $height = -1,
-			array $attributes = []) : string {
-
-		if ($width < 0) {
+	public function makeSvg( int $width = -1, int $height = -1,
+			array $attributes = [] ) : string {
+		if ( $width < 0 ) {
 			$width = $this->defaultWidth;
 		}
 
-		if ($height < 0) {
+		if ( $height < 0 ) {
 			$height = $this->defaultWidth;
 		}
-		
+
 		$attributes['width'] = $width;
 		$attributes['height'] = $height;
 		$attributes['viewBox'] = "0 0 $width $height";
-		
-		$result = \Html::openElement('svg', $attributes);
-		$result .= $this->makeInnerSvg($width, $height);
-		$result .= \Html::closeElement('svg');
+
+		$result = \Html::openElement( 'svg', $attributes );
+		$result .= $this->makeInnerSvg( $width, $height );
+		$result .= \Html::closeElement( 'svg' );
 
 		return $result;
 	}
 
-	public function makeInnerSvg(int $width = -1, int $height = -1) : string {
-
-		if ($width < 0) {
+	public function makeInnerSvg( int $width = -1, int $height = -1 ) : string {
+		if ( $width < 0 ) {
 			$width = $this->defaultWidth;
 		}
 
-		if ($height < 0) {
+		if ( $height < 0 ) {
 			$height = $this->defaultHeight;
 		}
 
 		$result = '';
 
-		foreach ($this->content as $element) {
-			$result .= $this->makeElement($result, $element, $width, $height);
+		foreach ( $this->content as $element ) {
+			$result .= $this->makeElement( $result, $element, $width, $height );
 		}
 
 		return $result;
 	}
 
-	protected function makeElement(string &$result, array $element,
-			int $width, int $height) : void {
+	protected function makeElement( string &$result, array $element,
+			int $width, int $height ) : void {
 
 		// TODO: Implement rescaling of element to match the given width and height
-		
-		$result .= \Html::element($element['type'], $element['attributes']);
 
+		$result .= \Html::element( $element['type'], $element['attributes'] );
 	}
-	
+
 }
