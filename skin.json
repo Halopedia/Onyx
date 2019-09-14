@@ -1,46 +1,50 @@
 {
-  "name": "Onyx",
-  "author": "Daniel Beard",
-  "url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
-  "license-name": "GPL-2.0+",
-  "type": "skin",
+	"name": "Onyx",
+	"author": "Daniel Beard",
+	"url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
 
-  "namemsg": "onyx-skin-name",
-  "descriptionmsg": "onyx-skin-desc",
+	"namemsg": "onyx-skin-name",
+	"descriptionmsg": "onyx-skin-desc",
 
-  "ValidSkinNames": {
-    "onyx": "Onyx"
-  },
+	"ValidSkinNames": {
+		"onyx": "Onyx"
+	},
 
-  "AutoloadClasses": {
-    "SkinOnyx": "includes/SkinOnyx.php",
-    "OnyxTemplate": "includes/OnyxTemplate.php",
-    "Icon": "includs/Icon.php"
-  },
+	"AutoloadClasses": {
+		"SkinOnyx": "includes/SkinOnyx.php",
+		"OnyxTemplate": "includes/OnyxTemplate.php",
+		"Icon": "includs/Icon.php"
+	},
 
-  "MessageDirs": {
-    "Onyx": "i18n"
-  },
+	"MessageDirs": {
+		"Onyx": "i18n"
+	},
 
-  "ResourceModules": {
-    "skins.onyx.styles": {
-      "styles": {
-        "resources/onyx-screen.css": { "media": "screen" },
-        "resources/onyx-print.css": { "media": "print"}
-      }
-    },
+	"ResourceModules": {
+		"skins.onyx.styles": {
+			"styles": {
+				"resources/onyx-screen.css": {
+					"media": "screen"
+				},
+				"resources/onyx-print.css": {
+					"media": "print"
+				}
+			}
+		},
 
-    "skins.onyx.js": {
-      "scripts": [
-        "resources/onyx.js"
-      ],
-      "dependencies": [],
-      "position": "top"
-    }
-  },
+		"skins.onyx.js": {
+			"scripts": [
+				"resources/onyx.js"
+			],
+			"dependencies": [],
+			"position": "top"
+		}
+	},
 
-  "ResourceFileModulePaths": {
-    "localBasePath": "",
-    "remoteSkinPath": "Onyx"
-  }
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Onyx"
+	}
 }
