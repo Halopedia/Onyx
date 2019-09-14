@@ -523,7 +523,7 @@ class OnyxTemplate extends BaseTemplate {
     // links there
     if (!empty($info['href'])) {
       $html .= Html::openElement('a', ['href' => $info['href'],
-          'title' => $info['title']]);
+          'title' => $info['title'] ?? '']);
     }
 
     // Open a <div> for the button, setting the onclick event if necessary

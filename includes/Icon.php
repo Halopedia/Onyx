@@ -2,8 +2,6 @@
 
 namespace Onyx;
 
-require_once 'includes/Html.php';
-
 class Icon {
   
   private static $icons = [];
@@ -111,30 +109,29 @@ class Icon {
 
   public function __construct(int $defaultWidth, int $defaultHeight,
       array $content) {
-    $this->$defaultWidth = $defaultWidth;
-    $this->$defaultHeight = $defaultHeight;
-    $this->$content = $content;
+    $this->defaultWidth = $defaultWidth;
+    $this->defaultHeight = $defaultHeight;
+    $this->content = $content;
   }
 
   public function makeSvg(int $width = -1, int $height = -1,
       array $attributes = []) : string {
 
     if ($width < 0) {
-      $width = $this->$defaultWidth;
+      $width = $this->defaultWidth;
     }
 
     if ($height < 0) {
-      $height = $this->$defaultWidth;
+      $height = $this->defaultWidth;
     }
     
     $attributes['width'] = $width;
     $attributes['height'] = $height;
     $attributes['viewBox'] = "0 0 $width $height";
     
-    // DEBUG: Why does this break?
-    $result = Html::openElement('svg', $attributes);
+    $result = \Html::openElement('svg', $attributes);
     $result .= $this->makeInnerSvg($width, $height);
-    $result .= Html::closeElement('svg');
+    $result .= \Html::closeElement('svg');
 
     return $result;
   }
@@ -142,19 +139,20 @@ class Icon {
   public function makeInnerSvg(int $width = -1, int $height = -1) : string {
 
     if ($width < 0) {
-      $width = $this->$defaultWidth;
+      $width = $this->defaultWidth;
     }
 
     if ($height < 0) {
-      $height = $this->$defaultHeight;
+      $height = $this->defaultHeight;
     }
 
     $result = '';
 
-    foreach ($this->$content as $element) {
-      $this->makeElement($result, $element, $width, $height);
+    foreach ($this->content as $element) {
+      $result .= $this->makeElement($result, $element, $width, $height);
     }
 
+    return $result;
   }
 
   protected function makeElement(string &$result, array $element,
@@ -162,10 +160,8 @@ class Icon {
 
     // TODO: Implement rescaling of element to match the given width and height
     
-    $result .= Html::element($element['type'], $element['attributes']);
+    $result .= \Html::element($element['type'], $element['attributes']);
 
   }
   
 }
-
-?>
