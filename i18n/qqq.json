@@ -5,5 +5,6 @@
 		]
 	},
 	"onyx-skin-name": "{{name}}",
-	"onyx-skin-desc": "{{desc|what=skin|name=Onyx|url=https://www.halopedia.org/Halopedia:Skins/Onyx}}"
+	"onyx-skin-desc": "{{desc|what=skin|name=Onyx|url=https://www.halopedia.org/Halopedia:Skins/Onyx}}",
+	"onyx-action-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}"
 }
