@@ -15,7 +15,7 @@
 	"AutoloadClasses": {
 		"SkinOnyx": "includes/SkinOnyx.php",
 		"OnyxTemplate": "includes/OnyxTemplate.php",
-		"Icon": "includs/Icon.php"
+		"Onyx\\Icon": "includes/Icon.php"
 	},
 
 	"MessagesDirs": {

@@ -6,8 +6,6 @@
  * @ingroup Skins
  */
 
-require_once 'Icon.php';
-
 class OnyxTemplate extends BaseTemplate {
 
 	/* TODO:
