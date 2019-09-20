@@ -38,8 +38,7 @@
 			"scripts": [
 				"resources/onyx.js"
 			],
-			"dependencies": [],
-			"position": "top"
+			"dependencies": []
 		}
 	},
 
