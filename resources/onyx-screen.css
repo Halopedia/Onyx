@@ -407,6 +407,10 @@ pre {
 	display: inline;
 }
 
+#onyx-tools-list li a {
+	color: #fff;
+}
+
 #onyx-tools-list li:not(:first-child):before {
 	content: " | ";
 }
