@@ -38,7 +38,9 @@
 			"scripts": [
 				"resources/onyx.js"
 			],
-			"dependencies": []
+			"dependencies": [
+				"mediawiki.cookie"
+			]
 		}
 	},
 
