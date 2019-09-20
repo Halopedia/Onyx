@@ -966,8 +966,9 @@ class OnyxTemplate extends BaseTemplate {
 			$html .= $this->makeListItem( $key, $toolboxItem );
 		}
 
-		// TODO: Include a call to
-		//			 wfRunHooks('SkinTemplateToolboxEnd', array(&$this));
+		// Avoid PHP 7.1 warnings
+		$skin = $this;
+		Hooks::run( 'SkinTemplateToolboxEnd', [ &$skin, true ] );
 
 		// End unordered list
 		$html .= Html::closeElement( 'ul' );
