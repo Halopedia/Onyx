@@ -2,7 +2,7 @@
 	"name": "Onyx",
 	"author": "Daniel Beard",
 	"url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
-	"license-name": "GPL-2.0+",
+	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 
 	"namemsg": "onyx-skin-name",
