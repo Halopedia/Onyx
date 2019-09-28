@@ -1,10 +1,10 @@
 .onyx-pageAligned {
-  width:1440px;
+	width: 1440px;
 }
 
 #onyx-banner,
 #onyx-footer,
 #onyx-floating,
 #onyx-toolbox {
-  display:none;
+	display: none;
 }

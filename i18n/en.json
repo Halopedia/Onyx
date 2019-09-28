@@ -1,8 +1,10 @@
 {
-  "@metadata": {
-    "authors": [ "Daniel Beard" ]
-  },
-
-  "onyx-skin-name": "Onyx",
-  "onyx-skin-desc": "Onyx is a MediaWiki skin designed to emulate and improve upon the Oasis skin used by Wikia."
+	"@metadata": {
+		"authors": [
+			"Daniel Beard"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Skin designed to emulate and improve upon the Oasis skin used by Wikia",
+	"onyx-action-addsection": "Add new section"
 }
