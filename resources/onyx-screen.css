@@ -2,6 +2,8 @@ body {
   margin:0px;
   padding:0px;
 
+  fill:none;
+
   font-family:"Roboto", sans-serif;
 }
 
@@ -93,13 +95,20 @@ pre {
 }
 
 .mw-indicators {
-  display:inline-block;
-  margin-left:15px;
+  float:right;
+  font-size:18px;
+  height:44px;
+  overflow:hidden;
 }
 
 .mw-indicator {
-  display:inline-block;
-  margin:15px 15px 15px 0px;
+  display:inline-flex;
+  margin-left:15px;
+  height:44px;
+  overflow:hidden;
+  flex-direction:column;
+  align-content:center;
+  justify-content:center;
 }
 
     /* ONYX CLASSES */
@@ -117,23 +126,31 @@ pre {
   margin-right:auto;
 }
 
+.onyx-articleContainer {
+  display:table;
+  width:100%;
+}
+
+.onyx-articleAligned {
+  display:table-cell;
+}
+
 /*
  * This class is used to align elements with the page's sidebar, so that they
  * are in line with it vertically, and have the same width. This only works if
- * the element is a child of an element of the onyx-pageAligned class.
+ * the element is a child of an element of the onyx-pageAligned class, and a
+ * direct child of the onyx-articleContainer class.
 */
 .onyx-sidebarAligned {
-  float:right;
+  display:table-cell;
   max-width:30vw;
-  width:360px;
+  width:340px;
 }
 
 /*
  * This class is used to style all buttons on the Onyx skin.
 */
 .onyx-button {
-  height:28px;
-  
   border:1px solid transparent;
   padding:10px;
 
@@ -155,15 +172,19 @@ pre {
  * those that the user is most likely to click on (Edit, etc).
 */
 .onyx-button-primary {
-  border:1px solid #444444;
+  border:1px solid #333333;
 
   color:#FFFFFF;
-  background-color:#444444;
+  background-color:#333333;
+  
+  stroke:#FFFFFF;
+  stroke-width:2px;
 
   transition:0.4s;
 }
 
-.onyx-button-primary:hover {
+.onyx-button-primary:hover,
+.onyx-dropdown:hover > .onyx-button-primary {
   border:1px solid #777777;
 
   color:#FFFFFF;
@@ -176,17 +197,23 @@ pre {
  * This class is used to style auxiliary buttons in the Onyx skin.
 */
 .onyx-button-secondary {
-  border:1px solid #444444;
+  border:1px solid #333333;
 
-  color:#444444;
+  color:#333333;
+
+  stroke:#333333;
+  stroke-width:2px;
 
   transition:0.4s;
 }
 
-.onyx-button-secondary:hover {
+.onyx-button-secondary:hover,
+.onyx-dropdown:hover > .onyx-button-secondary {
   border:1px solid #777777;
 
   color:#777777;
+
+  stroke:#777777;
 
   transition:0.4s;
 }
@@ -196,15 +223,69 @@ pre {
  * and Toggle Sidebar).
 */
 .onyx-button-action {
-  min-width:160px;
+  height:28px;
 
-  margin:15px 15px 15px 0px;
+  margin:15px 0px 15px 15px;
+}
+
+.onyx-button-action>span {
+  margin:auto 20px;
 }
 
 .onyx-button-text {
   margin:auto;
 
   vertical-align:middle;
+}
+
+.onyx-dropdown {
+  position:relative;
+}
+
+.onyx-dropdown-list {
+  display:none;
+  position:absolute;
+  right:0px;
+  background-color:#EEEEEE;
+  min-width:200px;
+  margin:0px;
+  padding:10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+  z-index:999;
+}
+
+.onyx-dropdown:hover > .onyx-dropdown-list {
+  display:block;
+}
+
+.onyx-dropdown-list > li {
+  margin:0px;
+  padding:0px;
+  list-style:none;
+}
+
+.onyx-dropdown-list > li:not(:last-child) {
+  border-bottom:1px solid #999999;
+}
+
+.onyx-dropdown-list > li > a {
+  color:#000000;
+  padding:10px 10px 10px 15px;
+  text-decoration:none;
+  display:block;
+}
+
+.onyx-dropdown-list > li > a:hover {
+  background-color:#DDDDDD;
+}
+
+.onyx-dropdown .onyx-dropdown-icon {
+  transition:0.4s;
+}
+
+.onyx-dropdown:hover .onyx-dropdown-icon {
+  transform:rotate(180deg);
+  transition:0.4s;
 }
 
 .onyx-footerIcons-listItem {
@@ -221,29 +302,78 @@ pre {
   top:0px;
   left:0px;
   width:100%;
-  height:65px;
+  height:55px;
 
   margin:0px;
+  padding:0px;
 
+  background-color:#222222;
+}
+
+#onyx-banner-bannerLogo {
+  padding:5px 15px;
+  
+  float:left;
+}
+
+#onyx-bannerLogo-image {
+  width:auto;
+  max-height:45px;
+}
+
+#onyx-banner-userOptions {
+  float:right;
+
+  padding:0px 15px;
+}
+
+#onyx-personalTools-userButton {
+  display:flex;
+  justify-content:center;
+  height:45px;
+  padding:5px 15px;
+  transition:0.4s;
+}
+
+#onyx-userOptions-personalTools:hover > #onyx-personalTools-userButton {
   background-color:#444444;
+  transition:0.4s;
+}
+
+#onyx-userButton-avatar {
+  display:inline-block;
+  stroke:#FFFFFF;
+  stroke-width:2px;
+  height:29px;
+  margin:8px 15px 8px 0px;
+}
+
+#onyx-userButton-label {
+  display:inline-block;
+  height:25px;
+  font-size:20px;
+  color:#FFFFFF;
+  margin:5px 0px;
+  padding:5px 0px;
+  cursor:default;
+}
+
+#onyx-userButton-icon {
+  height:15px;
+  margin:15px 0px 15px 15px;
+  display:inline-block;
+
+  stroke:#FFFFFF;
+  stroke-width:2px;
+  fill:#FFFFFF;
 }
 
     /* PAGE */
 
 #onyx-page {
-  margin-top:90px;
-  margin-bottom:25px;
+  margin:85px auto 30px auto;
 
   background-color:#DDDDDD;
-}
-
-#onyx-page:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0; 
 }
 
 #onyx-page-pageBody {
@@ -256,11 +386,11 @@ pre {
   height:150px;
 }
 
-#onyx-wikiHeader-logo {
+#onyx-wikiHeader-headerLogo {
   float:left;
 }
 
-#onyx-logo-image {
+#onyx-headerLogo-image {
   width:auto;
   height:auto;
   max-height:135px;
@@ -294,68 +424,30 @@ pre {
 
 #onyx-articleHeader-actions {
   float:right;
+  padding-right:15px;
+}
+
+#onyx-actions-actionsList {
+  display:inline-block;
+  margin:15px 0px 15px 2px;
+  padding:0px;
 }
 
 #onyx-actionsList-button {
   min-width:28px;
-  margin-left:-13px;
   cursor:auto;
-}
-
-/* TODO: Extract all dropdown styling that is not specific to the content actions dropdown into classes, so it can be reused elsewhere (e.g. nav) */
-
-/* The container <div> - needed to position the dropdown content */
-#onyx-actions-actionsList {
-  position:relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-#onyx-actionsList-list {
-  display: none;
-  position: absolute;
-  right:15px;
-  background-color: #f1f1f1;
-  min-width: 214px;
-  margin:-15px 0px 0px 0px;
-  padding:10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-  z-index:999;
-}
-
-#onyx-actionsList-list > li {
   margin:0px;
-  padding:0px;
-  list-style:none;
 }
 
-#onyx-actionsList-list > li > a {
-  padding:10px 10px 10px 15px;
+#onyx-actionsList-dropdownIcon {
+  margin:7px;
+  fill:white;
+  height:14px;
 }
 
-#onyx-actionsList-list > li > a:hover {
-  background-color:#DDDDDD;
+#onyx-actionsList-list {
+  margin:0px;
 }
-
-#onyx-actionsList-list > li:not(:last-child) {
-  border-bottom: 1px solid #a2a9b1;
-}
-
-/* Links inside the dropdown */
-#onyx-actionsList-list a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-#onyx-actionsList-list a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-#onyx-actions-actionsList:hover #onyx-actionsList-list {display: block;}
-
-/* END TODO */
 
 #onyx-articleHeader-title {
   height:44px;
@@ -383,6 +475,37 @@ pre {
   padding:15px 0px 15px 15px;
 }
 
+#onyx-pageBody-sidebar h1 {
+  font-size:26px;
+}
+
+#onyx-pageBody-sidebar h2 {
+  font-size:24px;
+}
+
+#onyx-pageBody-sidebar h3 {
+  font-size:22px;
+}
+
+#onyx-pageBody-sidebar h4 {
+  font-size:20px;
+}
+
+#onyx-sidebar-stickyModules {
+  position:sticky;
+  top:55px;
+}
+
+#onyx-pageContents-list {
+  list-style:none;
+  margin:0px 0px 0px 25px; 
+}
+
+#onyx-pageContents-itemPrefix {
+  margin:0px 10px 0px 0px;
+  color:#444444;
+}
+
     /* ARTICLE CONTENT */
 
 #onyx-pageBody-content {
@@ -393,9 +516,17 @@ pre {
 
 #onyx-content-siteNotice {
   margin:0px 15px 15px 15px;
-  padding:15px 15px 5px 15px;
+  padding:15px 15px 15px 15px;
 
-  background-color:#777777;
+  background-color:#a2a9b1;
+}
+
+#onyx-siteNotice-closeButton {
+  float:right;
+}
+
+#localNotice {
+  margin-bottom:11px;
 }
 
     /* FOOTER */
@@ -438,22 +569,33 @@ pre {
   bottom:0px;
   left:0px;
   width:100%;
-  height:30px;
+  height:19px;
+  padding:3px;
 
-  background-color:#444444;
+  background-color:#222222;
 }
 
 #onyx-toolbox-tools {
-  margin:auto;
+  margin:0px auto;
+  padding:0px;
   text-align:center;
+
+  font-size:10pt;
 }
 
 #onyx-tools-list {
   list-style:none;
+  margin:0px;
+  padding:0px;
 }
 
-#onyx-tools-list li {
+#onyx-tools-list>li {
   display:inline;
+  color:#FFFFFF;
+}
+
+#onyx-tools-list>li>a {
+  color:#FFFFFF;
 }
 
 #onyx-tools-list li:not(:first-child):before {

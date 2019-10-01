@@ -6,7 +6,9 @@
  * @ingroup Skins
  */
 
+require_once 'Config.php';
 require_once 'Icon.php';
+require_once 'ExtraSkinData.php';
 
 class OnyxTemplate extends BaseTemplate {
 
@@ -19,7 +21,7 @@ class OnyxTemplate extends BaseTemplate {
    * FUTURE EXTENSIONS:
    * 
    * - Implement dark scheme using CSS media query prefers-color-scheme: dark
-   * - Read Onyx-specific configuration settings from MediaWiki:Onyx.ini
+   * - Read Onyx-specific configuration settings from MediaWiki:Onyx.ini (Use WikiPage)
    * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
    * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
    * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
@@ -39,6 +41,10 @@ class OnyxTemplate extends BaseTemplate {
     //       custom navigation and toolbox, etc) and add it to the data array
     //       so that those features can be constructed in the same manner as
     //       the ones using the standard MediaWiki API
+
+    $config = new Onyx\Config();
+
+    Onyx\ExtraSkinData::extractAndUpdate($this->data, $config);
 
     // Initialise HTML string as a empty string
     $html = '';
@@ -63,7 +69,6 @@ class OnyxTemplate extends BaseTemplate {
 
     // Print the entire page's HTML code at once
     echo $html;
-
   }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -86,13 +91,14 @@ class OnyxTemplate extends BaseTemplate {
     $html .= Html::openElement('section', ['id' => 'onyx-banner']);
 
     // Open container div for banner content
-    $html .= Html::openElement('div', ['id' => 'onyx-banner-content']);
+    $html .= Html::openElement('div', ['id' => 'onyx-banner-content',
+        'class' => 'onyx-pageAligned']);
 
     // Build banner logo (floats on the left of the div)
     $this->buildBannerLogo($html);
     
     // Build user options/login button (floats on the right of the div)
-    $this->buildUserOptions($html);
+    $this->buildPersonalTools($html);
 
     // Build the search bar
     $this->buildSearchBar($html);
@@ -116,12 +122,87 @@ class OnyxTemplate extends BaseTemplate {
     // Open container div
     $html .= Html::openElement('div', ['id' => 'onyx-banner-bannerLogo']);
 
-    // TODO: Build logo
+    // Open link element
+    $html .= Html::openElement('a',
+        array_merge(['href' => $this->data['nav_urls']['mainpage']['href']],
+            Linker::tooltipAndAccesskeyAttribs('p-logo')));
+    
+    // Insert logo image
+    $html .= Html::rawElement('img', ['id' => 'onyx-bannerLogo-image',
+        'src' => $this->get('logopath'), 'alt' => $this->get('sitename')]);
+    
+    // Close link element
+    $html .= Html::closeElement('a');
 
     // Close container div
     $html .= Html::closeElement('div');
 
   }
+
+  /**
+   * Builds HTML code to present the user account-related options to the reader
+   * and appends it to the string passed to it.
+   * 
+   * @param $html string The string onto which the HTML should be appended
+   */
+  protected function buildPersonalTools(string &$html) : void {
+    
+    // Open container div
+    $html .= Html::openElement('div', ['id' => 'onyx-banner-userOptions']);
+
+    $html .= Html::openElement('div',
+        ['id' => 'onyx-userOptions-personalTools',
+        'class' => 'onyx-dropdown']);
+
+
+    $html .= Html::openElement('div', ['id' => 'onyx-personalTools-userButton',
+        'class' => 'onyx-dropdown-button']);
+
+    // TODO: If SocialProfile is installed, display the user's avatar image
+    //       here (and maybe hide text? - decide what looks best once
+    //       implemented)
+
+    $html .= Html::rawElement('div', ['id' => 'onyx-userButton-avatar'],
+        Onyx\Icon::getIcon('avatar')->makeSvg(28, 28));
+
+    $html .= Html::rawElement('span', ['id' => 'onyx-userButton-label'],
+        empty($this->data['username']) ? 'Anonymous' : $this->get('username'));
+
+    $html .= Html::rawElement('div', ['id' => 'onyx-userButton-icon',
+        'class' => 'onyx-dropdown-icon'],
+        Onyx\Icon::getIcon('dropdown')->makeSvg(14, 14));
+    
+    $html .= Html::closeElement('div');
+    
+    $html .= Html::openElement('ul', ['id' => 'onyx-personalTools-list',
+        'class' => 'onyx-dropdown-list']);
+    
+    foreach ($this->data['personal_urls'] as $key => $item) {
+
+      switch ($key) {
+        case 'userpage':
+          $item['text'] = 'User page';
+          break;
+        case 'mytalk':
+          $item['text'] = 'User talk';
+          break;
+        default:
+          break;
+      }
+
+      $html .= $this->makeListItem($key, $item);
+    }
+    
+    $html .= Html::closeElement('ul');
+
+    $html .= Html::closeElement('div');
+
+    // Close container div
+    $html .= Html::closeElement('div');
+
+  }
+
+ // protected function buildUserOptions
 
   /**
    * Builds HTML code to present the search form to the user, and appends it to
@@ -136,23 +217,28 @@ class OnyxTemplate extends BaseTemplate {
 
     // TODO: Build search bar
 
-    // Close container div
-    $html .= Html::closeElement('div');
+    $html .= Html::openElement( 'div', [ 'class' => 'mw-portlet', 'id' => 'p-search' ] );
 
-  }
+		$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ],
+			Html::rawElement( 'div', [ 'id' => 'simpleSearch' ],
+				Html::rawElement( 'div', [ 'id' => 'searchInput-container' ],
+					$this->makeSearchInput( [
+						'id' => 'searchInput'
+					] )
+				) .
+				Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
+				$this->makeSearchButton(
+					'fulltext',
+					[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+				) .
+				$this->makeSearchButton(
+					'go',
+					[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+				)
+			)
+		);
 
-  /**
-   * Builds HTML code to present the user account-related options to the reader
-   * and appends it to the string passed to it.
-   * 
-   * @param $html string The string onto which the HTML should be appended
-   */
-  protected function buildUserOptions(string $html) : void {
-    
-    // Open container div
-    $html .= Html::openElement('div', ['id' => 'onyx-banner-userOptions']);
-
-    // TODO: Build user options menu
+		$html .= Html::closeElement( 'div' );
 
     // Close container div
     $html .= Html::closeElement('div');
@@ -184,13 +270,14 @@ class OnyxTemplate extends BaseTemplate {
 
     // Open container element for page body (i.e. actual content such as the
     // article and the sidebar)
-    $html .= Html::openElement('section', ['id' => 'onyx-page-pageBody']);
-
-    // Build the sidebar
-    $this->buildSidebar($html);
+    $html .= Html::openElement('section', ['id' => 'onyx-page-pageBody',
+        'class' => 'onyx-articleContainer']);
 
     // Build the article content
     $this->buildArticle($html);
+
+    // Build the sidebar
+    $this->buildSidebar($html);
 
     // Close container element for page body
     $html .= Html::closeElement('section');
@@ -272,7 +359,7 @@ class OnyxTemplate extends BaseTemplate {
   protected function buildHeaderLogo(string &$html) : void {
 
     // Open container div for logo
-    $html .= Html::openElement('div', ['id' => 'onyx-wikiHeader-logo']);
+    $html .= Html::openElement('div', ['id' => 'onyx-wikiHeader-headerLogo']);
     
     // Open link element
     $html .= Html::openElement('a',
@@ -280,7 +367,7 @@ class OnyxTemplate extends BaseTemplate {
             Linker::tooltipAndAccesskeyAttribs('p-logo')));
     
     // Insert logo image
-    $html .= Html::rawElement('img', ['id' => 'onyx-logo-image',
+    $html .= Html::rawElement('img', ['id' => 'onyx-headerLogo-image',
         'src' => $this->get('logopath'), 'alt' => $this->get('sitename')]);
     
     // Close link element
@@ -381,9 +468,6 @@ class OnyxTemplate extends BaseTemplate {
 
     // Open container div for article action options
     $html .= Html::openElement('div', ['id' => 'onyx-articleHeader-actions']);
-    
-    // Insert page status indicators
-    $html .= $this->getIndicators();
 
     // Build content action buttons
     $this->buildActionButtons($html);
@@ -391,11 +475,22 @@ class OnyxTemplate extends BaseTemplate {
     // Close container div for action options
     $html .= Html::closeElement('div');
 
+    // Open h1 element for article title
+    $html .= Html::openElement('h1',
+        ['id' => 'onyx-articleHeader-title']);
+    
+    // Insert page status indicators (these will float right inside the h1
+    // element)
+    $html .= $this->getIndicators();
+
     // Insert article title
-    $html .= Html::rawElement('h1',
-        ['id' => 'onyx-articleHeader-title'],
+    $html .= Html::rawElement('span',
+        ['id' => 'onyx-title-text'],
         $this->get('title'));
     
+    // Close h1 element
+    $html .= Html::closeElement('h1');
+
     // If it exists, insert the subtitle
     if (!empty($this->data['subtitle'])) {
       $html .= Html::rawElement('div',
@@ -427,12 +522,14 @@ class OnyxTemplate extends BaseTemplate {
   protected function buildActionButtons(string &$html) : void {
     $edit = null;
     $talk = null;
-    $sidebar = array('id' => 'onyx-actions-toggleSidebar',
+    $sidebar = ['id' => 'onyx-actions-toggleSidebar',
         'class' => 'onyx-button onyx-button-secondary onyx-button-action',
         'onclick' => 'onyx_toggleSidebar();',
-        'imgSrc' => '../skins/Onyx/resources/icons/sidebar-collapse.svg',
-        'text' => 'Sidebar');
-    $dropdown = array();
+        'imgType' => 'svg',
+        'imgSrc' => 'sidebar',
+        'text' => 'Sidebar',
+        'title' => 'Expand or collapse the sidebar'];
+    $dropdown = [];
 
     // Sort through the flat content actions array provided by the API, and
     // extract, discard and modify what is necessary
@@ -451,17 +548,21 @@ class OnyxTemplate extends BaseTemplate {
         // button's icon
         case 'edit':
           $edit = $tab;
-          $edit['imgSrc'] = '../skins/Onyx/resources/icons/edit.svg';
+          $edit['imgType'] = 'svg';
+          $edit['imgSrc'] = 'edit';
           break;
         case 'viewsource':
           $edit = $tab;
-          $edit['imgSrc'] = '../skins/Onyx/resources/icons/view.svg';
+          $edit['imgType'] = 'svg';
+          $edit['imgSrc'] = 'view';
           break;
         // If the action is talk, assign the tab array to the talk variable and
         // specify the path to the button icon
         case 'talk':
           $talk = $tab;
-          $talk['imgSrc'] = '../skins/Onyx/resources/icons/talk.svg';
+          $talk['text'] = 'Talk';
+          $talk['imgType'] = 'svg';
+          $talk['imgSrc'] = 'talk';
           break;
         // If the action is add section, then replace the tooltip (which is, by
         // default, just a '+') with 'Add new section', a more appropriate
@@ -536,9 +637,19 @@ class OnyxTemplate extends BaseTemplate {
           'class' => $info['class']]);
     }
 
-    // If the button is to have an icon, create an appropriate <img> element
-    if ($info['imgSrc']) {
-      $html .= Html::rawElement('img', ['src' => $info['imgSrc']]);
+    // If the button is to have an icon, display the icon in the format
+    // corresponding to the given image type
+    switch ($info['imgType']) {
+      case 'svg':
+        $icon = Onyx\Icon::getIcon($info['imgSrc']);
+        if (!isset($icon)) {
+          break;
+        }
+        $html .= $icon->makeSvg(28, 28, ['class' => 'onyx-button-icon']);
+        break;
+      default:
+        $html .= Html::rawElement('img', ['src' => $info['imgSrc']]);
+        break;
     }
 
     // Place the button text in a <span> element
@@ -567,14 +678,19 @@ class OnyxTemplate extends BaseTemplate {
     $html .= Html::openElement('div', ['class' => 'onyx-dropdown',
         'id' => 'onyx-actions-actionsList']);
 
-    // Create a button div that will display the list when hovered over (this
-    // is achieved via CSS styling of the onyx-dropdown, onyx-dropdown-button
-    // and onyx-dropdown-list classes)
-    $html .= Html::rawElement('div', ['class' => 'onyx-button '
+    // Open a div for a button that will display the list when hovered over
+    // (this is achieved via CSS styling of the onyx-dropdown,
+    // onyx-dropdown-button, onyx-dropdown-icon and onyx-dropdown-list classes)
+    $html .= Html::openElement('div', ['class' => 'onyx-button '
         .'onyx-button-primary onyx-button-action onyx-dropdown-button',
-        'id' => 'onyx-actionsList-button'],
-          Onyx\Icon::getIcon('dropdown')->makeSvg());
+        'id' => 'onyx-actionsList-button']);
     
+    $html .= Html::rawElement('div', ['id' => 'onyx-actionsList-dropdownIcon',
+          'class' => 'onyx-dropdown-icon'],
+          Onyx\Icon::getIcon('dropdown')->makeSvg(14, 14));
+    
+    $html .= Html::closeElement('div');
+
     // Open an <ul> element to contain the list itself
     $html .= Html::openElement('ul', ['class' => 'onyx-dropdown-list',
         'id' => 'onyx-actionsList-list']);
@@ -671,8 +787,6 @@ class OnyxTemplate extends BaseTemplate {
    */
   protected function buildRecentChangesModule(string &$html) : void {
 
-    global $wgOut;
-    
     // Open container div for module
     $html .= Html::openElement('div',
         ['id' => 'onyx-staticModules-recentChanges',
@@ -686,11 +800,38 @@ class OnyxTemplate extends BaseTemplate {
     // Open container div for module content
     $html .= Html::openElement('div', ['id' => 'onyx-recentChanges-content']);
     
-    // TODO: Insert recent changes information
-    
-    // Reference for this function:
+    // Open unordered list
+    $html .= Html::openElement('ul');
 
-    // https://github.com/wikimedia/mediawiki-extensions-SocialProfile/blob/master/UserActivity/includes/SiteActivityHook.php
+    $currentTime = DateTime::createFromFormat('YmdHis', wfTimestampNow());
+
+    foreach ($this->data['onyx_recentChanges'] as $recentChange) {
+
+      $time = DateTime::createFromFormat('YmdHis', $recentChange['timestamp']);
+
+      $html .= Html::openElement('li');
+
+      $page = Title::newFromText($recentChange['title'], $recentChange['namespace']);
+
+      $html .= Html::openElement('a', ['href' => $page->getInternalURL()]);
+      $html .= Html::rawElement('span', [], $page->getFullText());
+      $html .= Html::closeElement('a');
+
+      $user = Title::newFromText($recentChange['user'], NS_USER);
+
+      $html .= Html::openElement('a', ['href' => $user->getInternalURL()]);
+      $html .= Html::rawElement('span', [], $user->getText());
+      $html .= Html::closeElement('a');
+
+      $timeDiff = self::getDateTimeDiffString($currentTime->diff($time)).' ago';
+
+      $html .= Html::rawElement('span', [], $timeDiff);
+
+      $html .= Html::closeElement('li');
+    }
+
+    // Close unordered list
+    $html .= Html::closeElement('ul');
 
     // Close container div for module content
     $html .= Html::closeElement('div');
@@ -698,6 +839,22 @@ class OnyxTemplate extends BaseTemplate {
     // Close container div for module
     $html .= Html::closeElement('div');
 
+  }
+
+  protected static function getDateTimeDiffString(DateInterval $interval) {
+    if ($interval->y > 0) {
+      return $interval->format('%y years');
+    } elseif ($interval->m > 0) {
+      return $interval->format('%m months');
+    } elseif ($interval->d > 0) {
+      return $interval->format('%d days');
+    } elseif ($interval->h > 0) {
+      return $interval->format('%h hours');
+    } elseif ($interval->i > 0) {
+      return $interval->format('%i minutes');
+    } else {
+      return $interval->format('%s seconds');
+    }
   }
 
   /**
@@ -708,27 +865,10 @@ class OnyxTemplate extends BaseTemplate {
    * @param $html string The string onto which the HTML should be appended
    */
   protected function buildPageContentsModule(string &$html) : void {
-
-    // HACK: The following function uses messy-looking regexes and is
-    //       generally very inelegant. Ideally, at some point in future, the
-    //       entire OnyxTemplate class should be refactored such that all extra
-    //       data needed by some of Onyx's unique functionalities is extracted
-    //       or otherwise gathered by some helper class, and then added to the
-    //       data array before the page begins being built at all. Then, these
-    //       unique parts of the skin can be constructed in the manner as the
-    //       parts that use the data provided by the default MediaWiki API.
-
-    // Use regexes to extract the raw HTML for every header in the body
-    // content. In order to avoid accidentally matching the header contained in
-    // the table of contents generated by the parser, we specify that
-    // immediately within the header, a span tag must be opened (this is the
-    // case for all headers naturally generated by the parser in the page body)
-    $numHeadings = preg_match_all("/<h[123456][^>]*><span[^>]*>.*<\/h[123456]>/",
-      $this->data['bodycontent'], $headings);
     
     // If there are not at least two headings on the page, don't bother to
     // render the page contents module at all
-    if ($numHeadings <= 2) {
+    if (empty($this->data['onyx_pageContents'])) {
       return;
     }
 
@@ -745,26 +885,7 @@ class OnyxTemplate extends BaseTemplate {
     // Open container div for module content
     $html .= Html::openElement('div', ['id' => 'onyx-pageContents-content']);
     
-    // Open ordered list tag for contents list
-    $html .= Html::openElement('ol', ['id' => 'onyx-pageContents-list']);
-
-    // Loop through the headings, delete the unnecessary parts of the raw HTML
-    // using regexes, to isolate only the heading title, then add this as a
-    // list element to the HTML
-
-    // TODO: Add links, and implement code to display subheading as tree
-    //       rather than a flat list
-    for ($i = 0; $i < $numHeadings; $i++) {
-      $headings[0][$i] = preg_replace(
-          "/(<span[^>]*class=\"[^\"]*mw-editsection-bracket[^\"]*\"[^>]*>[^<]*<\/span>)"
-          ."|edit"
-          ."|(<[^>]*>)/",
-           '', $headings[0][$i]);
-      $html .= Html::rawElement('li', [], $headings[0][$i]);
-    }
-
-    // Close unordered list tag for contents lsit
-    $html .= Html::closeElement('ol');
+    $this->buildPageContentsModuleList($html, $this->data['onyx_pageContents']);
 
     // Close container div for module content
     $html .= Html::closeElement('div');
@@ -772,6 +893,34 @@ class OnyxTemplate extends BaseTemplate {
     // Close container div for module
     $html .= Html::closeElement('div');
 
+  }
+
+  protected function buildPageContentsModuleList(string &$html,
+      array $headings) : void {
+
+    $html .= Html::openElement('ul', ['id' => 'onyx-pageContents-list']);
+
+    foreach ($headings as $heading) {
+      $html .= Html::openElement('li', ['id' => 'onyx-pageContents-listItem']);
+
+      $html .= Html::openElement('a', ['href' => '#'.$heading['href-id']]);
+
+      $html .= Html::element('span', ['id' => 'onyx-pageContents-itemPrefix'],
+          $heading['prefix']);
+
+      $html .= Html::element('span', ['id' => 'onyx-pageContents-itemLabel'],
+          $heading['name']);
+      
+      $html .= Html::closeElement('a');
+
+      if (!empty($heading['children'])) {
+        $this->buildPageContentsModuleList($html, $heading['children']);
+      }
+
+      $html .= Html::closeElement('li');
+    }
+
+    $html .= Html::closeElement('ul');
   }
 
   /**
@@ -818,8 +967,20 @@ class OnyxTemplate extends BaseTemplate {
 
     // If it exists, display the site notice at the top of the article
     if (!empty($this->data['sitenotice'])) {
-      $html .= Html::rawElement('div', ['id' => 'onyx-content-siteNotice'],
-          $this->get('sitenotice'));
+      /*$html .= Html::rawElement('div', ['id' => 'onyx-content-siteNotice'],
+          $this->get('sitenotice'));*/
+      $html .= Html::openElement('div', ['id' => 'onyx-content-siteNotice']);
+
+      $html .= Html::rawElement('div',
+          ['class' => 'onyx-button onyx-button-primary',
+          'id' => 'onyx-siteNotice-closeButton',
+          'onclick' => 'onyx_closeSiteNotice()'],
+          Onyx\Icon::getIcon('close')->makeSvg(14, 14,
+              ['id' => 'onyx-siteNotice-closeIcon']));
+      
+      $html .= $this->get('sitenotice');
+
+      $html .= Html::closeElement('div');
     }
 
     // Insert the content of the article itself
@@ -864,14 +1025,15 @@ class OnyxTemplate extends BaseTemplate {
     
     // Open container element for footer content
     $html .= Html::openElement('div',
-        ['id' => 'onyx-footer-footerContent', 'class' => 'onyx-pageAligned']);
-
-    // Build the footer icons
-    $this->buildFooterIcons($html);
+        ['id' => 'onyx-footer-footerContent',
+        'class' => 'onyx-pageAligned onyx-articleContainer']);
 
     // Build the footer links
     $this->buildFooterLinks($html);
 
+    // Build the footer icons
+    $this->buildFooterIcons($html);
+    
     // Close container element for footer content
     $html .= Html::closeElement('div');
 
