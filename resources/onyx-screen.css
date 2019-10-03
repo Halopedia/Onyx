@@ -118,7 +118,7 @@ pre {
 /*
  * This class is used to align elements with the fixed-width page itself, so
  * that they are in line with it vertically, and have the same width.
-*/
+ */
 .onyx-pageAligned {
 	max-width:90vw;
 	width:1440px;
@@ -151,7 +151,7 @@ pre {
 
 /*
  * This class is used to style all buttons on the Onyx skin.
-*/
+ */
 .onyx-button {
 	border:1px solid transparent;
 	padding:10px;
@@ -180,7 +180,7 @@ pre {
 /*
  * This class is used to style primary buttons in the Onyx skin, which are
  * those that the user is most likely to click on (Edit, etc).
-*/
+ */
 .onyx-button-primary {
 	border:1px solid #333333;
 
@@ -425,7 +425,6 @@ pre {
 	display:inline;
 	margin-right:15px;
 }
-
 
 #onyx-header-articleHeader {
 	width:100%;

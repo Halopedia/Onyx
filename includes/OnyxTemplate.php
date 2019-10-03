@@ -6,8 +6,6 @@
  * @ingroup Skins
  */
 
- // TODO: MERGE THIS!
-
 class OnyxTemplate extends BaseTemplate {
 
 	/* TODO:
@@ -104,7 +102,6 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Close container section for banner
 		$html .= Html::closeElement( 'section' );
-
 	}
 
 	/**
@@ -240,7 +237,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////             PAGE             ////////////////////////
+////////////////////////               PAGE           ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -248,7 +245,7 @@ class OnyxTemplate extends BaseTemplate {
 	/**
 	 * Builds HTML code to present the bulk of the webpage - the actual page
 	 * content itself and appends it to the string passed to it.
-	 * 
+	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildPage( string &$html ) : void {
@@ -280,7 +277,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////            HEADER            ////////////////////////
+////////////////////////           HEADER             ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -292,7 +289,6 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildHeader( string &$html ) : void {
-		
 		// Open container element for header
 		$html .= Html::openElement( 'header', [ 'id' => 'onyx-page-header' ] );
 
@@ -304,17 +300,16 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Close container element
 		$html .= Html::closeElement( 'header' );
-
 	}
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////         WIKI HEADER          ////////////////////////
+////////////////////////           WIKI HEADER        ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-	
+
 	/**
 	 * Builds HTML code to present global header for wiki pages, containing
 	 * content such as the logo, navigation links and wiki name/tagline, and then
@@ -337,7 +332,6 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );
-
 	}
 
 	/**
@@ -388,7 +382,6 @@ class OnyxTemplate extends BaseTemplate {
 		
 		// Close container div
 		$html .= Html::closeElement( 'div' );
-
 	}
 
 	/**
@@ -398,14 +391,13 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildGlobalNav( string &$html ) : void {
-
 		// Open container element for navigation links
 		$html .= Html::openElement( 'nav', [ 'id' => 'onyx-wikiHeader-navigation' ] );
 
 		// Open container element for list
 		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-navigation-list' ] );
 
-		// Unset the searh, toolbox and languages options from the sidebar array,
+		// Unset the search, toolbox and languages options from the sidebar array,
 		// so that only the navigation will be displayed
 		unset( $this->data['sidebar']['SEARCH'] );
 		unset( $this->data['sidebar']['TOOLBOX'] );
@@ -433,7 +425,6 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Close container element for global nav
 		$html .= Html::closeElement( 'nav' );
-
 	}
 
 //////////////////////////////////////////////////////////////////////////////
@@ -524,7 +515,6 @@ class OnyxTemplate extends BaseTemplate {
 		// Sort through the flat content actions array provided by the API, and
 		// extract, discard and modify what is necessary
 		foreach ( $this->data['content_actions'] as $key => $tab ) {
-
 			// Discard any content actions of the form 'nstab-***'. These correspond
 			// to the options to view the page itself, which have no need to be
 			// presented to the user when they are already on the page
@@ -559,7 +549,7 @@ class OnyxTemplate extends BaseTemplate {
 				// message for a drop-down list format and then DELIBERATELY fall
 				// through to the default case
 				case 'addsection':
-					$tab['text'] = 'Add new section';
+					$tab['text'] = $skin->msg( 'onyx-action-addsection' )->escaped();
 				// Finally, if the content action is none of the above, add it to the
 				// growing array of miscellaneous content actions to be displayed in a
 				// drop-down list beneath the edit/view soure button
@@ -569,7 +559,7 @@ class OnyxTemplate extends BaseTemplate {
 			}
 		}
 
-		// Add Onyx-specific ids and classes to the edit and talk buttons 
+		// Add Onyx-specific IDs and classes to the edit and talk buttons
 		if ( !empty( $edit ) ) {
 			$edit['id'] .= ' onyx-actions-edit';
 			$edit['class'] .= ' onyx-button onyx-button-primary onyx-button-action';
@@ -598,7 +588,6 @@ class OnyxTemplate extends BaseTemplate {
 		// Finally, display the sidebar toggle button, which will always be
 		// available
 		$this->buildActionButton( $html, $sidebar );
-
 	}
 
 	/**
@@ -609,7 +598,6 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $info array An array with the necessary info to build the button
 	 */
 	protected function buildActionButton( string &$html, array $info ) : void {
-
 		// If the button links to another page, surround it in an <a> element that
 		// links there
 		if ( !empty( $info['href'] ) ) {
@@ -660,7 +648,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 * @param $info array An array of items which should be placed in the list
 	 */
-	protected function buildActionDropdown(string &$html, array $items) : void {
+	protected function buildActionDropdown( string &$html, array $items) : void {
 		// Open a <div> element to contain the entire drop-down
 		$html .= Html::openElement( 'div', [
 			'class' => 'onyx-dropdown',
@@ -707,7 +695,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////         PAGE SIDEBAR         ////////////////////////
+////////////////////////        PAGE SIDEBAR          ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -719,7 +707,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildSidebar( string &$html ) : void {
-		// Open containder element for sidebar
+		// Open container element for sidebar
 		$html .= Html::openElement( 'aside', [
 			'id' => 'onyx-pageBody-sidebar',
 			'class' => 'onyx-sidebarAligned'
@@ -968,7 +956,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildStickyCustomModule(string &$html) : void {
+	protected function buildStickyCustomModule( string &$html ) : void {
 		global $wgOut;
 		
 		// Open container div for module
@@ -988,7 +976,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////         PAGE CONTENT         ////////////////////////
+////////////////////////        PAGE CONTENT          ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -1046,7 +1034,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////            FOOTER            ////////////////////////
+////////////////////////        FOOTER                ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -1159,7 +1147,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////           TOOLBOX            ////////////////////////
+////////////////////////            TOOLBOX           ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -1188,7 +1176,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Avoid PHP 7.1 warnings
 		$skin = $this;
 
-		Hooks::run( 'SkinTemplateToolboxEnd', [&$skin, true ] );
+		Hooks::run( 'SkinTemplateToolboxEnd', [ &$skin, true ] );
 
 		// End unordered list
 		$html .= Html::closeElement( 'ul' );
@@ -1201,4 +1189,3 @@ class OnyxTemplate extends BaseTemplate {
 	}
 
 }
-?>

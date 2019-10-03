@@ -1,53 +1,53 @@
 {
-  "name": "Onyx",
-  "author": "Daniel Beard",
-  "url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
-  "license-name": "GPL-2.0-or-later",
-  "type": "skin",
+	"name": "Onyx",
+	"author": "Daniel Beard",
+	"url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
+	"license-name": "GPL-2.0-or-later",
+	"type": "skin",
 
-  "namemsg": "onyx-skin-name",
-  "descriptionmsg": "onyx-skin-desc",
+	"namemsg": "onyx-skin-name",
+	"descriptionmsg": "onyx-skin-desc",
 
-  "ValidSkinNames": {
-    "onyx": "Onyx"
-  },
+	"ValidSkinNames": {
+		"onyx": "Onyx"
+	},
 
-  "AutoloadClasses": {
-    "SkinOnyx": "includes/SkinOnyx.php",
-    "OnyxTemplate": "includes/OnyxTemplate.php",
-    "Onyx\\Icon": "includes/Icon.php",
-    "Onyx\\Config": "includes/Config.php",
-    "Onyx\\ExtraSkinData": "includes/ExtraSkinData.php"
-  },
+	"AutoloadClasses": {
+		"SkinOnyx": "includes/SkinOnyx.php",
+		"OnyxTemplate": "includes/OnyxTemplate.php",
+		"Onyx\\Icon": "includes/Icon.php",
+		"Onyx\\Config": "includes/Config.php",
+		"Onyx\\ExtraSkinData": "includes/ExtraSkinData.php"
+	},
 
-  "MessagesDirs": {
-    "Onyx": "i18n"
-  },
+	"MessagesDirs": {
+		"Onyx": "i18n"
+	},
 
-  "ResourceModules": {
-    "skins.onyx.styles": {
-      "styles": {
-        "resources/onyx-screen.css": {
-          "media": "screen"
-        },
-        "resources/onyx-print.css": {
-          "media": "print"
-        }
-      }
-    },
+	"ResourceModules": {
+		"skins.onyx.styles": {
+			"styles": {
+				"resources/onyx-screen.css": {
+					"media": "screen"
+				},
+				"resources/onyx-print.css": {
+					"media": "print"
+				}
+			}
+		},
 
-    "skins.onyx.js": {
-      "scripts": [
-        "resources/onyx.js"
-      ],
-      "dependencies": [
-        "mediawiki.cookie"
-      ]
-    }
-  },
+		"skins.onyx.js": {
+			"scripts": [
+				"resources/onyx.js"
+			],
+			"dependencies": [
+				"mediawiki.cookie"
+			]
+		}
+	},
 
-  "ResourceFileModulePaths": {
-    "localBasePath": "",
-    "remoteSkinPath": "Onyx"
-  }
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Onyx"
+	}
 }
