@@ -52,6 +52,10 @@ pre {
 
 		/* MEDIAWIKI CLASSES */
 
+.mw-notification-area {
+	top:55px!important;
+}
+
 .toc {
 	min-width:300px;
 

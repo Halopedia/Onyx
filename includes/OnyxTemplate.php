@@ -500,6 +500,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildActionButtons( string &$html ) : void {
+		$skin = $this->getSkin();
 		$edit = null;
 		$talk = null;
 		$sidebar = [
@@ -549,7 +550,7 @@ class OnyxTemplate extends BaseTemplate {
 				// message for a drop-down list format and then DELIBERATELY fall
 				// through to the default case
 				case 'addsection':
-					$tab['text'] = $skin->msg( 'onyx-action-addsection' )->escaped();
+					$tab['text'] = $skin->msg( 'onyx-actions-addsection' )->escaped();
 				// Finally, if the content action is none of the above, add it to the
 				// growing array of miscellaneous content actions to be displayed in a
 				// drop-down list beneath the edit/view soure button
