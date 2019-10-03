@@ -6,7 +6,32 @@
 	},
 	"onyx-skin-name": "{{name}}",
 	"onyx-skin-desc": "{{desc|what=skin|name=Onyx|url=https://www.halopedia.org/Halopedia:Skins/Onyx}}",
+
+	"onyx-personaltools-anonusername": "Text of the username label on the banner when the user is not logged in",
+	"onyx-personaltools-userpage": "Text of the link in the banner dropdown menu that leads to the user's page",
+	"onyx-personaltools-usertalk": "Text of the link in the banner dropdown menu that leads to the user's talk page",
+
+	"onyx-actions-talk": "Text of the talk page button",
 	"onyx-actions-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}",
+	
 	"onyx-sidebar-label": "Text of the label for the button to toggle the page sidebar visibility",
-	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility"
+	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility",
+
+	"onyx-recentchanges-title": "Text of the recent changes module heading on the sidebar",
+	"onyx-pagecontents-title": "Text of the page contents module heading on the sidebar",
+
+	"onyx-timediff-prefix": "Prefix to any time difference expressed in text. Should include a space at the end if used. Leave the field with an empty string if not used.",
+	"onyx-timediff-suffix": "Suffix to any time difference expressed in text. Should include a space at the start if used. Leave the field with an empty string if not used.", 
+	"onyx-timediff-year-plural": "Plural form of the word year. Please insert '%y' where the number of years should go in the sentence.",
+	"onyx-timediff-year-single": "Singular form of the word year. Please insert '%y' where the number of years should go in the sentence.",
+	"onyx-timediff-month-plural": "Plural form of the word month. Please insert '%m' where the number of months should go in the sentence.",
+	"onyx-timediff-month-single": "Singular form of the word month. Please insert '%m' where the number of months should go in the sentence.",
+	"onyx-timediff-day-plural": "Plural form of the word day. Please insert '%d' where the number of days should go in the sentence.",
+	"onyx-timediff-day-single": "Singular form of the word day. Please insert '%d' where the number of days should go in the sentence.",
+	"onyx-timediff-hour-plural": "Plural form of the word hour. Please insert '%h' where the number of hours should go in the sentence.",
+	"onyx-timediff-hour-single": "Singular form of the word hour. Please insert '%h' where the number of hours should go in the sentence.",
+	"onyx-timediff-minute-plural": "Plural form of the word minute. Please insert '%i' where the number of minutes should go in the sentence.",
+	"onyx-timediff-minute-single": "Singular form of the word minute. Please insert '%i' where the number of minutes should go in the sentence.",
+	"onyx-timediff-second-plural": "Plural form of the word second. Please insert '%s' where the number of seconds should go in the sentence.",
+	"onyx-timediff-second-single": "Singular form of the word second. Please insert '%s' where the number of seconds should go in the sentence."
 }

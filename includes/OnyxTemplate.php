@@ -138,6 +138,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildPersonalTools(string &$html) : void {
+		$skin = $this->getSkin();
 		
 		// Open container div
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-userOptions' ] );
@@ -158,7 +159,9 @@ class OnyxTemplate extends BaseTemplate {
 			Onyx\Icon::getIcon( 'avatar' )->makeSvg( 28, 28 ) );
 
 		$html .= Html::rawElement( 'span', [ 'id' => 'onyx-userButton-label' ],
-			empty( $this->data['username'] ) ? 'Anonymous' : $this->get( 'username' ) );
+			empty( $this->data['username'] )
+				? $skin->msg( 'onyx-personaltools-anonusername' )->escaped()
+				: $this->get( 'username' ) );
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-icon',
 			'class' => 'onyx-dropdown-icon' ],
@@ -173,10 +176,10 @@ class OnyxTemplate extends BaseTemplate {
 
 			switch ( $key ) {
 				case 'userpage':
-					$item['text'] = 'User page';
+					$item['text'] = $skin->msg( 'onyx-personaltools-userpage' )->escaped();
 					break;
 				case 'mytalk':
-					$item['text'] = 'User talk';
+					$item['text'] = $skin->msg( 'onyx-personaltools-usertalk' )->escaped();
 					break;
 				default:
 					break;
@@ -508,8 +511,8 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-button onyx-button-secondary onyx-button-action',
 			'imgType' => 'svg',
 			'imgSrc' => 'sidebar',
-			'text' => 'Sidebar',
-			'title' => 'Expand or collapse the sidebar'
+			'text' => $skin->msg( 'onyx-sidebar-label' )->escaped(),
+			'title' => $skin->msg( 'onyx-sidebar-tooltip' )->escaped()
 		];
 		$dropdown = [];
 
@@ -541,7 +544,7 @@ class OnyxTemplate extends BaseTemplate {
 				// specify the path to the button icon
 				case 'talk':
 					$talk = $tab;
-					$talk['text'] = 'Talk';
+					$talk['text'] = $skin->msg( 'onyx-actions-talk' )->escaped();
 					$talk['imgType'] = 'svg';
 					$talk['imgSrc'] = 'talk';
 					break;
@@ -772,6 +775,8 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildRecentChangesModule( string &$html ) : void {
+		$skin = $this->getSkin();
+
 		// Open container div for module
 		$html .= Html::openElement('div', [
 			'id' => 'onyx-staticModules-recentChanges',
@@ -782,7 +787,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'h2', [
 			'id' => 'onyx-recentChanges-heading',
 			'class' => 'onyx-sidebarHeading onyx-sidebarHeading-static'
-			], 'Recent Changes');
+			], $skin->msg( 'onyx-recentchanges-title' )->escaped());
 		
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-recentChanges-content' ] );
@@ -800,7 +805,7 @@ class OnyxTemplate extends BaseTemplate {
 			$time = DateTime::createFromFormat('YmdHis', $recentChange['timestamp']);
 
 			// Get a string representing the time difference
-			$timeDiff = self::getDateTimeDiffString( $currentTime->diff( $time ) ) . ' ago';
+			$timeDiff = $this->getDateTimeDiffString( $currentTime->diff( $time ) );
 
 			// Get the title of the page that was edited
 			$page = Title::newFromText( $recentChange['title'], $recentChange['namespace'] );
@@ -844,20 +849,32 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $interval DateInterval The interval to generate a representation of
 	 */
-	protected static function getDateTimeDiffString( DateInterval $interval ) {
+	protected function getDateTimeDiffString( DateInterval $interval ) : string {
+		$skin = $this->getSkin();
 		if ( $interval->y > 0 ) {
-			return $interval->format( '%y years' );
+			$num = $interval->y;
+			$msg = 'onyx-timediff-year';
 		} elseif ( $interval->m > 0 ) {
-			return $interval->format( '%m months' );
+			$num = $interval->m;
+			$msg = 'onyx-timediff-month';
 		} elseif ( $interval->d > 0 ) {
-			return $interval->format( '%d days' );
+			$num = $interval->d;
+			$msg = 'onyx-timediff-day';
 		} elseif ( $interval->h > 0 ) {
-			return $interval->format( '%h hours' );
+			$num = $interval->h;
+			$msg = 'onyx-timediff-hour';
 		} elseif ( $interval->i > 0 ) {
-			return $interval->format( '%i minutes' );
+			$num = $interval->i;
+			$msg = 'onyx-timediff-minute';
 		} else {
-			return $interval->format( '%s seconds' );
+			$num = $interval->s;
+			$msg = 'onyx-timediff-second';
 		}
+		$msg .= $num === 1 ? '-single' : '-plural';
+		$msg = $skin->msg( $msg )->text();
+		return $skin->msg( 'onyx-timediff-prefix' )->escaped()
+			. htmlspecialchars( $interval->format( $msg ))
+			. $skin->msg( 'onyx-timediff-suffix' )->escaped();
 	}
 
 	/**
@@ -868,6 +885,8 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildPageContentsModule( string &$html ) : void {
+		$skin = $this->getSkin();
+
 		// If, for whatever reason, Onyx\ExtraSkinData has not provided the page
 		// contents (due to config settings or lack of enough headings),
 		// do nothing
@@ -877,7 +896,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Also do nothing if we're on NS_SPECIAL (or oter virtual namespaces, though
 		// de facto only NS_SPECIAL pages are exposed in the UI)
-		if ($this->getSkin()->getTitle()->getNamespace() < 0) {
+		if ($skin->getTitle()->getNamespace() < 0) {
 			return;
 		}
 
@@ -891,7 +910,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'h2', [
 			'id' => 'onyx-pageContents-heading',
 			'class' => 'onyx-sidebarHeading onyx-sidebarHeading-sticky'
-			], 'Contents' );
+			], $skin->msg( 'onyx-pagecontents-title' )->escaped() );
 		
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-content' ] );
@@ -1035,7 +1054,7 @@ class OnyxTemplate extends BaseTemplate {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////                              ////////////////////////
-////////////////////////        FOOTER                ////////////////////////
+////////////////////////            FOOTER            ////////////////////////
 ////////////////////////                              ////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////

@@ -504,6 +504,14 @@ pre {
 	font-size:20px;
 }
 
+#onyx-recentChanges-heading {
+	text-transform: capitalize;
+}
+
+#onyx-pageContents-heading {
+	text-transform: capitalize;
+}
+
 #onyx-recentChanges-content>ul {
 	list-style:none;
 	margin: 0 0 0 10px;
