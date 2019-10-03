@@ -2,7 +2,7 @@
   "name": "Onyx",
   "author": "Daniel Beard",
   "url": "https://www.halopedia.org/Halopedia:Skins/Onyx",
-  "license-name": "GPL-2.0+",
+  "license-name": "GPL-2.0-or-later",
   "type": "skin",
 
   "namemsg": "onyx-skin-name",
@@ -15,18 +15,24 @@
   "AutoloadClasses": {
     "SkinOnyx": "includes/SkinOnyx.php",
     "OnyxTemplate": "includes/OnyxTemplate.php",
-    "Icon": "includs/Icon.php"
+    "Onyx\\Icon": "includes/Icon.php",
+    "Onyx\\Config": "includes/Config.php",
+    "Onyx\\ExtraSkinData": "includes/ExtraSkinData.php"
   },
 
-  "MessageDirs": {
+  "MessagesDirs": {
     "Onyx": "i18n"
   },
 
   "ResourceModules": {
     "skins.onyx.styles": {
       "styles": {
-        "resources/onyx-screen.css": { "media": "screen" },
-        "resources/onyx-print.css": { "media": "print"}
+        "resources/onyx-screen.css": {
+          "media": "screen"
+        },
+        "resources/onyx-print.css": {
+          "media": "print"
+        }
       }
     },
 
@@ -34,8 +40,9 @@
       "scripts": [
         "resources/onyx.js"
       ],
-      "dependencies": [],
-      "position": "top"
+      "dependencies": [
+        "mediawiki.cookie"
+      ]
     }
   },
 

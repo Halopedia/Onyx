@@ -8,19 +8,18 @@
 
  class SkinOnyx extends SkinTemplate {
 
-  var $skinname = 'onyx';
-  var $stylename = 'Onyx';
-  var $template = 'OnyxTemplate';
-  var $useHeadElement = true;
+  public $skinname = 'onyx',
+    $stylename = 'Onyx',
+    $template = 'OnyxTemplate';
   
   /**
    * This function adds JavaScript to the skin, via ResourceLoader.
    * 
    * @param OutputPage $out
    */
-  public function initPage(OutputPage $out) : void {
-    parent::initPage($out);
-    $out->addModules('skins.onyx.js');
+  public function initPage( OutputPage $out ) : void {
+    parent::initPage( $out );
+    $out->addModules( 'skins.onyx.js' );
   }
 
   /**
@@ -28,8 +27,11 @@
    * 
    * @param OutputPage $out
    */
-  function setupSkinUserCss(OutputPage $out) : void {
-    parent::setupSkinUserCss($out);
-    $out->addModuleStyles(array('mediawiki.skinning.interface', 'skins.onyx.styles'));
+  function setupSkinUserCss( OutputPage $out ) : void {
+    parent::setupSkinUserCss( $out );
+    $out->addModuleStyles( [
+      'mediawiki.skinning.interface',
+      'skins.onyx.styles'
+    ] );
   }
  }

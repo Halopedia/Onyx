@@ -1,138 +1,140 @@
+/* TODO: MERGE THIS! */
+
 body {
-  margin:0px;
-  padding:0px;
+	margin:0;
+	padding:0;
 
-  fill:none;
+	fill:none;
 
-  font-family:"Roboto", sans-serif;
+	font-family:"Roboto", sans-serif;
 }
 
 h1 {
-  padding:15px 15px 5px 5px;
+	padding:15px 15px 5px 5px;
 
-  font-size:36px;
+	font-size:36px;
 }
 
 h2 {
-  padding:15px 15px 5px 5px;
+	padding:15px 15px 5px 5px;
 
-  font-size:28px;
+	font-size:28px;
 }
 
 h3 {
-  font-size:24px;
+	font-size:24px;
 }
 
 h4 {
-  font-size:20px;
+	font-size:20px;
 }
 
 ul {
-  list-style-type: square;
+	list-style-type: square;
 }
 
 code {
-  border:none;
+	border:none;
 
-  font-family:"Roboto Mono", monospace;
+	font-family:"Roboto Mono", monospace;
 
-  background-color:#AAAAAA;
+	background-color:#AAAAAA;
 }
 
 pre {
-  border:none;
-  padding:15px;
+	border:none;
+	padding:15px;
 
-  font-family:"Roboto Mono", monospace;
+	font-family:"Roboto Mono", monospace;
 
-  background-color:#AAAAAA;
+	background-color:#AAAAAA;
 }
 
-    /* MEDIAWIKI CLASSES */
+		/* MEDIAWIKI CLASSES */
 
 .toc {
-  min-width:300px;
+	min-width:300px;
 
-  margin:15px;
-  border:none;
-  padding:5px 5px 0px 0px;
+	margin:15px;
+	border:none;
+	padding:5px 5px 0 0;
 
-  background-color:transparent;
+	background-color:transparent;
 }
 
 .toctitle {
-  padding:0px 0px 5px 5px;
+	padding:0 0 5px 5px;
 
-  border-bottom:1px solid #a2a9b1;
+	border-bottom:1px solid #a2a9b1;
 
-  text-align:left !important;
+	text-align:left !important;
 }
 
 .toctogglespan {
-  float:right;
+	float:right;
 
-  margin:0px 5px;
+	margin:0 5px;
 }
 
 .tocnumber {
-  color:#444444;
+	color:#444444;
 }
 
 .mw-editsection-bracket {
-  display:none;
+	display:none;
 }
 
 .thumbinner {
-  border:none !important;
+	border:none !important;
 
-  background-color:#AAAAAA !important;
+	background-color:#AAAAAA !important;
 }
 
 .catlinks {
-  border:none !important;
+	border:none !important;
 
-  background-color:#AAAAAA !important;
+	background-color:#AAAAAA !important;
 }
 
 .mw-indicators {
-  float:right;
-  font-size:18px;
-  height:44px;
-  overflow:hidden;
+	float:right;
+	font-size:18px;
+	height:44px;
+	overflow:hidden;
 }
 
 .mw-indicator {
-  display:inline-flex;
-  margin-left:15px;
-  height:44px;
-  overflow:hidden;
-  flex-direction:column;
-  align-content:center;
-  justify-content:center;
+	display:inline-flex;
+	margin-left:15px;
+	height:44px;
+	overflow:hidden;
+	flex-direction:column;
+	align-content:center;
+	justify-content:center;
 }
 
-    /* ONYX CLASSES */
+		/* ONYX CLASSES */
 
 /*
  * This class is used to align elements with the fixed-width page itself, so
  * that they are in line with it vertically, and have the same width.
 */
 .onyx-pageAligned {
-  max-width:90vw;
-  width:1440px;
-  min-width:50vw;
+	max-width:90vw;
+	width:1440px;
+	min-width:50vw;
 
-  margin-left:auto;
-  margin-right:auto;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .onyx-articleContainer {
-  display:table;
-  width:100%;
+	display:table;
+	width:100%;
 }
 
 .onyx-articleAligned {
-  display:table-cell;
+	display:table-cell;
 }
 
 /*
@@ -142,29 +144,37 @@ pre {
  * direct child of the onyx-articleContainer class.
 */
 .onyx-sidebarAligned {
-  display:table-cell;
-  max-width:30vw;
-  width:340px;
+	display:table-cell;
+	max-width:30vw;
+	width:340px;
 }
 
 /*
  * This class is used to style all buttons on the Onyx skin.
 */
 .onyx-button {
-  border:1px solid transparent;
-  padding:10px;
+	border:1px solid transparent;
+	padding:10px;
 
-  display:inline-flex;
+	display:inline-flex;
 
-  align-content: center;
-  align-items: center;
+	align-content: center;
+	align-items: center;
 
-  text-align:center;
-  vertical-align:middle;
+	text-align:center;
+	vertical-align:middle;
 
-  text-transform: uppercase;
+	text-transform: uppercase;
 
-  cursor:pointer;
+	cursor:pointer;
+
+	/* Disable selection of button text */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+		 -moz-user-select: none;
+			-ms-user-select: none;
+					user-select: none;
 }
 
 /*
@@ -172,50 +182,50 @@ pre {
  * those that the user is most likely to click on (Edit, etc).
 */
 .onyx-button-primary {
-  border:1px solid #333333;
+	border:1px solid #333333;
 
-  color:#FFFFFF;
-  background-color:#333333;
-  
-  stroke:#FFFFFF;
-  stroke-width:2px;
+	color:#FFFFFF;
+	background-color:#333333;
+	
+	stroke:#FFFFFF;
+	stroke-width:2px;
 
-  transition:0.4s;
+	transition:0.4s;
 }
 
 .onyx-button-primary:hover,
 .onyx-dropdown:hover > .onyx-button-primary {
-  border:1px solid #777777;
+	border:1px solid #777777;
 
-  color:#FFFFFF;
-  background-color:#777777;
+	color:#FFFFFF;
+	background-color:#777777;
 
-  transition:0.4s;
+	transition:0.4s;
 }
 
 /*
  * This class is used to style auxiliary buttons in the Onyx skin.
 */
 .onyx-button-secondary {
-  border:1px solid #333333;
+	border:1px solid #333333;
 
-  color:#333333;
+	color:#333333;
 
-  stroke:#333333;
-  stroke-width:2px;
+	stroke:#333333;
+	stroke-width:2px;
 
-  transition:0.4s;
+	transition:0.4s;
 }
 
 .onyx-button-secondary:hover,
 .onyx-dropdown:hover > .onyx-button-secondary {
-  border:1px solid #777777;
+	border:1px solid #777777;
 
-  color:#777777;
+	color:#777777;
 
-  stroke:#777777;
+	stroke:#777777;
 
-  transition:0.4s;
+	transition:0.4s;
 }
 
 /*
@@ -223,381 +233,390 @@ pre {
  * and Toggle Sidebar).
 */
 .onyx-button-action {
-  height:28px;
+	height:28px;
 
-  margin:15px 0px 15px 15px;
+	margin:15px 0 15px 15px;
 }
 
 .onyx-button-action>span {
-  margin:auto 20px;
+	margin:auto 20px;
 }
 
 .onyx-button-text {
-  margin:auto;
+	margin:auto;
 
-  vertical-align:middle;
+	vertical-align:middle;
 }
 
 .onyx-dropdown {
-  position:relative;
+	position:relative;
 }
 
 .onyx-dropdown-list {
-  display:none;
-  position:absolute;
-  right:0px;
-  background-color:#EEEEEE;
-  min-width:200px;
-  margin:0px;
-  padding:10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-  z-index:999;
+	display:none;
+	position:absolute;
+	right:0;
+	background-color:#EEEEEE;
+	min-width:200px;
+	margin:0;
+	padding:10px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+	z-index:999;
 }
 
 .onyx-dropdown:hover > .onyx-dropdown-list {
-  display:block;
+	display:block;
 }
 
 .onyx-dropdown-list > li {
-  margin:0px;
-  padding:0px;
-  list-style:none;
+	margin:0;
+	padding:0;
+	list-style:none;
 }
 
 .onyx-dropdown-list > li:not(:last-child) {
-  border-bottom:1px solid #999999;
+	border-bottom:1px solid #999999;
 }
 
 .onyx-dropdown-list > li > a {
-  color:#000000;
-  padding:10px 10px 10px 15px;
-  text-decoration:none;
-  display:block;
+	color:#000000;
+	padding:10px 10px 10px 15px;
+	text-decoration:none;
+	display:block;
 }
 
 .onyx-dropdown-list > li > a:hover {
-  background-color:#DDDDDD;
+	background-color:#DDDDDD;
 }
 
 .onyx-dropdown .onyx-dropdown-icon {
-  transition:0.4s;
+	transition:0.4s;
 }
 
 .onyx-dropdown:hover .onyx-dropdown-icon {
-  transform:rotate(180deg);
-  transition:0.4s;
+	transform:rotate(180deg);
+	transition:0.4s;
 }
 
 .onyx-footerIcons-listItem {
-  display:inline-block;
+	display:inline-block;
 
-  margin:0px 15px 15px 0px;
+	margin:0 15px 15px 0;
 }
 
-    /* BANNER */
+		/* BANNER */
 
 #onyx-banner {
-  position:fixed;
-  z-index:1000;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:55px;
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
+	width:100%;
+	height:55px;
 
-  margin:0px;
-  padding:0px;
+	margin:0;
+	padding:0;
 
-  background-color:#222222;
+	background-color:#222222;
 }
 
 #onyx-banner-bannerLogo {
-  padding:5px 15px;
-  
-  float:left;
+	padding:5px 15px;
+	
+	float:left;
 }
 
 #onyx-bannerLogo-image {
-  width:auto;
-  max-height:45px;
+	width:auto;
+	max-height:45px;
 }
 
 #onyx-banner-userOptions {
-  float:right;
+	float:right;
 
-  padding:0px 15px;
+	padding:0 15px;
 }
 
 #onyx-personalTools-userButton {
-  display:flex;
-  justify-content:center;
-  height:45px;
-  padding:5px 15px;
-  transition:0.4s;
+	display:flex;
+	justify-content:center;
+	height:45px;
+	padding:5px 15px;
+	transition:0.4s;
 }
 
 #onyx-userOptions-personalTools:hover > #onyx-personalTools-userButton {
-  background-color:#444444;
-  transition:0.4s;
+	background-color:#444444;
+	transition:0.4s;
 }
 
 #onyx-userButton-avatar {
-  display:inline-block;
-  stroke:#FFFFFF;
-  stroke-width:2px;
-  height:29px;
-  margin:8px 15px 8px 0px;
+	display:inline-block;
+	stroke:#FFFFFF;
+	stroke-width:2px;
+	height:29px;
+	margin:8px 15px 8px 0;
 }
 
 #onyx-userButton-label {
-  display:inline-block;
-  height:25px;
-  font-size:20px;
-  color:#FFFFFF;
-  margin:5px 0px;
-  padding:5px 0px;
-  cursor:default;
+	display:inline-block;
+	height:25px;
+	font-size:20px;
+	color:#FFFFFF;
+	margin:5px 0;
+	padding:5px 0;
+	cursor:default;
 }
 
 #onyx-userButton-icon {
-  height:15px;
-  margin:15px 0px 15px 15px;
-  display:inline-block;
+	height:15px;
+	margin:15px 0 15px 15px;
+	display:inline-block;
 
-  stroke:#FFFFFF;
-  stroke-width:2px;
-  fill:#FFFFFF;
+	stroke:#FFFFFF;
+	stroke-width:2px;
+	fill:#FFFFFF;
 }
 
-    /* PAGE */
+		/* PAGE */
 
 #onyx-page {
-  margin:85px auto 30px auto;
+	margin:85px auto 30px auto;
 
-  background-color:#DDDDDD;
+	background-color:#DDDDDD;
 }
 
 #onyx-page-pageBody {
-  margin-right:15px;
+	margin-right:15px;
 }
 
-    /* HEADER */
+		/* HEADER */
 
 #onyx-header-wikiHeader {
-  height:150px;
+	height:150px;
 }
 
 #onyx-wikiHeader-headerLogo {
-  float:left;
+	float:left;
 }
 
 #onyx-headerLogo-image {
-  width:auto;
-  height:auto;
-  max-height:135px;
-  margin:15px 15px 0px 15px;
+	width:auto;
+	height:auto;
+	max-height:135px;
+	margin:15px 15px 0 15px;
 }
 
 #onyx-wikiHeader-tagline {
-  margin-left:15px;
+	margin-left:15px;
 }
 
 #onyx-wikiHeader-navigation {
-  overflow:hidden;
+	overflow:hidden;
 }
 
 #onyx-navigation-list {
-  list-style:none;
-  display:inline;
-  margin:5px 15px 5px 15px;
+	list-style:none;
+	display:inline;
+	margin:5px 15px 5px 15px;
 }
 
 #onyx-navigation-list>li {
-  display:inline;
-  margin-right:15px;
+	display:inline;
+	margin-right:15px;
 }
 
 
 #onyx-header-articleHeader {
-  width:100%;
-  min-height:80px;
+	width:100%;
+	min-height:80px;
 }
 
 #onyx-articleHeader-actions {
-  float:right;
-  padding-right:15px;
+	float:right;
+	padding-right:15px;
 }
 
 #onyx-actions-actionsList {
-  display:inline-block;
-  margin:15px 0px 15px 2px;
-  padding:0px;
+	display:inline-block;
+	margin:15px 0 15px 2px;
+	padding:0;
 }
 
 #onyx-actionsList-button {
-  min-width:28px;
-  cursor:auto;
-  margin:0px;
+	min-width:28px;
+	cursor:auto;
+	margin:0;
 }
 
 #onyx-actionsList-dropdownIcon {
-  margin:7px;
-  fill:white;
-  height:14px;
+	margin:7px;
+	fill:white;
+	height:14px;
 }
 
 #onyx-actionsList-list {
-  margin:0px;
+	margin:0;
 }
 
 #onyx-articleHeader-title {
-  height:44px;
-  margin:0px 15px 15px 15px;
-  vertical-align:bottom;
+	height:44px;
+	margin:0 15px 15px 15px;
+	vertical-align:bottom;
 }
 
 #onyx-articleHeader-subtitle {
-  margin:0px 0px 15px 15px;
-  
-  font-style:italic;
+	margin:0 0 15px 15px;
+	
+	font-style:italic;
 }
 
 #onyx-articleHeader-undelete {
-  margin:0px 0px 15px 15px;
+	margin:0 0 15px 15px;
 
-  font-style:italic;
+	font-style:italic;
 }
 
-    /* SIDEBAR */
+		/* SIDEBAR */
 
 #onyx-pageBody-sidebar {
-  height:100%;
+	height:100%;
 
-  padding:15px 0px 15px 15px;
+	padding:0 0 15px 15px;
 }
 
 #onyx-pageBody-sidebar h1 {
-  font-size:26px;
+	font-size:26px;
 }
 
 #onyx-pageBody-sidebar h2 {
-  font-size:24px;
+	font-size:24px;
 }
 
 #onyx-pageBody-sidebar h3 {
-  font-size:22px;
+	font-size:22px;
 }
 
 #onyx-pageBody-sidebar h4 {
-  font-size:20px;
+	font-size:20px;
+}
+
+#onyx-recentChanges-content>ul {
+	list-style:none;
+	margin: 0 0 0 10px;
 }
 
 #onyx-sidebar-stickyModules {
-  position:sticky;
-  top:55px;
+	position:sticky;
+	top:55px;
 }
 
 #onyx-pageContents-list {
-  list-style:none;
-  margin:0px 0px 0px 25px; 
+	list-style:none;
+	margin:0 0 0 25px; 
 }
 
 #onyx-pageContents-itemPrefix {
-  margin:0px 10px 0px 0px;
-  color:#444444;
+	margin:0 10px 0 0;
+	color:#444444;
 }
 
-    /* ARTICLE CONTENT */
+		/* ARTICLE CONTENT */
 
 #onyx-pageBody-content {
-  overflow:hidden;
+	overflow:hidden;
 
-  padding:0px 0px 15px 15px;
+	padding:0 0 15px 15px;
 }
 
 #onyx-content-siteNotice {
-  margin:0px 15px 15px 15px;
-  padding:15px 15px 15px 15px;
+	margin:0 15px 15px 15px;
+	padding:15px 15px 15px 15px;
 
-  background-color:#a2a9b1;
+	background-color:#a2a9b1;
 }
 
 #onyx-siteNotice-closeButton {
-  float:right;
+	float:right;
 }
 
 #localNotice {
-  margin-bottom:11px;
+	margin-bottom:11px;
 }
 
-    /* FOOTER */
+		/* FOOTER */
 
 #onyx-footer {
-  width:100%;
+	width:100%;
 
-  margin:0px;
+	margin:0;
 
-  background-color:#777777;
+	background-color:#777777;
 }
 
 #onyx-footer-footerContent {
-  margin-bottom:30px;
-  padding:15px;
+	margin-bottom:30px;
+	padding:15px;
 }
 
 #onyx-footerIcons-list {
-  list-style:none;
-  direction:rtl;
+	list-style:none;
+	direction:rtl;
 }
 
 #onyx-footerContent-footerLinks {
-  padding-left:15px;
+	padding-left:15px;
 }
 
-    /* FLOATING NOTIFICATIONS */
+		/* FLOATING NOTIFICATIONS */
 
 #onyx-floating {
-  position:fixed;
-  bottom:35px;
-  right:10px;
+	position:fixed;
+	bottom:35px;
+	right:10px;
 }
 
-    /* TOOLBOX */
+		/* TOOLBOX */
 
 #onyx-toolbox {
-  position:fixed;
-  z-index:1000;
-  bottom:0px;
-  left:0px;
-  width:100%;
-  height:19px;
-  padding:3px;
+	position:fixed;
+	z-index:1000;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:19px;
+	padding:3px;
 
-  background-color:#222222;
+	background-color:#222222;
 }
 
 #onyx-toolbox-tools {
-  margin:0px auto;
-  padding:0px;
-  text-align:center;
+	margin:0 auto;
+	padding:0;
+	text-align:center;
 
-  font-size:10pt;
+	font-size:10pt;
 }
 
 #onyx-tools-list {
-  list-style:none;
-  margin:0px;
-  padding:0px;
+	list-style:none;
+	margin:0;
+	padding:0;
 }
 
 #onyx-tools-list>li {
-  display:inline;
-  color:#FFFFFF;
+	display:inline;
+	color:#FFFFFF;
 }
 
 #onyx-tools-list>li>a {
-  color:#FFFFFF;
+	color:#FFFFFF;
+}
+
+#onyx-tools-list li a {
+	color: #fff;
 }
 
 #onyx-tools-list li:not(:first-child):before {
-  content:" | ";
+	content:" | ";
 }
