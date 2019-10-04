@@ -405,13 +405,13 @@ pre {
 
 #onyx-wikiHeader-headerLogo {
 	float:left;
+	padding:15px 15px 0px 15px;
 }
 
 #onyx-headerLogo-image {
 	width:auto;
 	height:auto;
 	max-height:135px;
-	margin:15px 15px 0 15px;
 }
 
 #onyx-wikiHeader-tagline {
@@ -486,7 +486,6 @@ pre {
 		/* SIDEBAR */
 
 #onyx-pageBody-sidebar {
-
 	padding:0 15px 15px 0;
 }
 
@@ -527,7 +526,7 @@ pre {
 }
 
 .onyx-sidebarModule {
-	margin: 0 0 15px 0;
+	padding:15px 0 0 0;
 }
 
 #onyx-recentChanges-heading {
@@ -602,14 +601,6 @@ pre {
 
 #onyx-footerContent-footerLinks {
 	padding-left:15px;
-}
-
-		/* FLOATING NOTIFICATIONS */
-
-#onyx-floating {
-	position:fixed;
-	bottom:35px;
-	right:10px;
 }
 
 		/* TOOLBOX */
