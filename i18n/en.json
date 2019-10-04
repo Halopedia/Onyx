@@ -5,33 +5,16 @@
 		]
 	},
 	"onyx-skin-name": "Onyx",
-	"onyx-skin-desc": "Skin designed to emulate and improve upon the Oasis skin used by Wikia.",
+	"onyx-skin-desc": "A skin designed to emulate and improve upon the Oasis skin used by Wikia.",
 
 	"onyx-personaltools-anonusername": "Anonymous",
 	"onyx-personaltools-userpage": "User page",
 	"onyx-personaltools-usertalk": "User talk",
+	"onyx-personaltools-anontalk": "Talk page",
 
 	"onyx-actions-talk": "Talk",
 	"onyx-actions-addsection": "Add new section",
 
 	"onyx-sidebar-label": "Sidebar",
 	"onyx-sidebar-tooltip": "Expand or collapse the sidebar",
-
-	"onyx-recentchanges-title": "Recent changes",
-	"onyx-pagecontents-title": "Contents",
-
-	"onyx-timediff-prefix": "",
-	"onyx-timediff-suffix": " ago", 
-	"onyx-timediff-year-plural": "%y years",
-	"onyx-timediff-year-single": "%y year",
-	"onyx-timediff-month-plural": "%m months",
-	"onyx-timediff-month-single": "%m month",
-	"onyx-timediff-day-plural": "%d days",
-	"onyx-timediff-day-single": "%d day",
-	"onyx-timediff-hour-plural": "%h hours",
-	"onyx-timediff-hour-single": "%h hour",
-	"onyx-timediff-minute-plural": "%i minutes",
-	"onyx-timediff-minute-single": "%i minute",
-	"onyx-timediff-second-plural": "%s seconds",
-	"onyx-timediff-second-single": "%s second"
 }

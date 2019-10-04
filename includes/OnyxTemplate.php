@@ -181,6 +181,8 @@ class OnyxTemplate extends BaseTemplate {
 				case 'mytalk':
 					$item['text'] = $skin->msg( 'onyx-personaltools-usertalk' )->escaped();
 					break;
+				case 'anontalk':
+				$item['text'] = $skin->msg( 'onyx-personaltools-anontalk' )->escaped();
 				default:
 					break;
 			}
@@ -787,7 +789,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'h2', [
 			'id' => 'onyx-recentChanges-heading',
 			'class' => 'onyx-sidebarHeading onyx-sidebarHeading-static'
-			], $skin->msg( 'onyx-recentchanges-title' )->escaped());
+			], $skin->msg( 'recentchanges' )->escaped());
 		
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-recentChanges-content' ] );
@@ -843,6 +845,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::closeElement( 'div' );
 	}
 
+
 	/**
 	 * Generates a textual representation of a DateInterval, ignoring all but the
 	 * largest denomination of time
@@ -852,29 +855,21 @@ class OnyxTemplate extends BaseTemplate {
 	protected function getDateTimeDiffString( DateInterval $interval ) : string {
 		$skin = $this->getSkin();
 		if ( $interval->y > 0 ) {
-			$num = $interval->y;
-			$msg = 'onyx-timediff-year';
+			$msg = $skin->msg( 'years', $interval->y );
 		} elseif ( $interval->m > 0 ) {
-			$num = $interval->m;
-			$msg = 'onyx-timediff-month';
+			$msg = $skin->msg( 'months', $interval->m );
+		} elseif ( $interval->d > 7 ) {
+			$msg = $skin->msg( 'weeks', ($interval->d / 7) );
 		} elseif ( $interval->d > 0 ) {
-			$num = $interval->d;
-			$msg = 'onyx-timediff-day';
+			$msg = $skin->msg( 'days', $interval->d );
 		} elseif ( $interval->h > 0 ) {
-			$num = $interval->h;
-			$msg = 'onyx-timediff-hour';
+			$msg = $skin->msg( 'hours', $interval->h );
 		} elseif ( $interval->i > 0 ) {
-			$num = $interval->i;
-			$msg = 'onyx-timediff-minute';
+			$msg = $skin->msg( 'minutes', $interval->i );
 		} else {
-			$num = $interval->s;
-			$msg = 'onyx-timediff-second';
+			$msg = $skin->msg( 'seconds', $interval->s );
 		}
-		$msg .= $num === 1 ? '-single' : '-plural';
-		$msg = $skin->msg( $msg )->text();
-		return $skin->msg( 'onyx-timediff-prefix' )->escaped()
-			. htmlspecialchars( $interval->format( $msg ))
-			. $skin->msg( 'onyx-timediff-suffix' )->escaped();
+		return $skin->msg( 'ago', $msg );
 	}
 
 	/**
@@ -910,7 +905,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'h2', [
 			'id' => 'onyx-pageContents-heading',
 			'class' => 'onyx-sidebarHeading onyx-sidebarHeading-sticky'
-			], $skin->msg( 'onyx-pagecontents-title' )->escaped() );
+			], $skin->msg( 'toc' )->escaped() );
 		
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-content' ] );
