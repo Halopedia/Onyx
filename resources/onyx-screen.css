@@ -1,5 +1,3 @@
-/* TODO: MERGE THIS! */
-
 body {
 	margin:0;
 	padding:0;
@@ -85,6 +83,11 @@ pre {
 
 .tocnumber {
 	color:#444444;
+}
+
+.mw-headline {
+	margin-top:-60px;
+	padding-top:60px;
 }
 
 .mw-editsection-bracket {
@@ -540,6 +543,19 @@ pre {
 #onyx-recentChanges-content>ul {
 	list-style:none;
 	margin: 0 0 0 10px;
+}
+
+#onyx-recentChanges-content>ul>li {
+	margin:7.5px 0;
+}
+
+.onyx-recentChanges-info {
+	font-size:10pt;
+	color:#333333;
+}
+
+.onyx-recentChanges-info a {
+	color:#333333;
 }
 
 #onyx-sidebar-stickyModules {

@@ -824,18 +824,27 @@ class OnyxTemplate extends BaseTemplate {
 			// Open list item for recent change
 			$html .= Html::openElement( 'li' );
 
+			$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-page' ] );
+
 			// Create a link to the edited page
 			$html .= Html::openElement( 'a', [ 'href' => $page->getInternalURL() ] );
-			$html .= Html::rawElement( 'span', [], $page->getFullText() );
+			$html .= $page->getFullText();
 			$html .= Html::closeElement( 'a' );
+
+			$html .= Html::closeElement( 'div' );
+
+			$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-info' ] );
 
 			// Create a link to the user who edited it
 			$html .= Html::openElement( 'a', [ 'href' => $user->getInternalURL() ] );
-			$html .= Html::rawElement( 'span', [], $user->getText() );
+			$html .= $user->getText();
 			$html .= Html::closeElement( 'a' );
 
 			// Display how long ago it was edited
-			$html .= Html::rawElement( 'span', [], $timeDiff );
+			$html .= ' • ';
+			$html .= $timeDiff;
+
+			$html .= Html::closeElement( 'div' );
 
 			// Close the list item
 			$html .= Html::closeElement( 'li' );
