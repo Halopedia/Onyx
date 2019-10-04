@@ -7,6 +7,7 @@ body {
 	fill:none;
 
 	font-family:"Roboto", sans-serif;
+	font-size:12pt;
 }
 
 h1 {
@@ -396,10 +397,6 @@ pre {
 	background-color:#DDDDDD;
 }
 
-#onyx-page-pageBody {
-	margin-right:15px;
-}
-
 		/* HEADER */
 
 #onyx-header-wikiHeader {
@@ -489,25 +486,48 @@ pre {
 		/* SIDEBAR */
 
 #onyx-pageBody-sidebar {
-	height:100%;
 
-	padding:0 0 15px 15px;
+	padding:0 15px 15px 0;
 }
 
 #onyx-pageBody-sidebar h1 {
 	font-size:26px;
+	margin-top:0;
+	padding-top:0;
 }
 
 #onyx-pageBody-sidebar h2 {
 	font-size:24px;
+	margin-top:0;
+	padding-top:0;
 }
 
 #onyx-pageBody-sidebar h3 {
 	font-size:22px;
+	margin-top:0;
+	padding-top:0;
 }
 
 #onyx-pageBody-sidebar h4 {
 	font-size:20px;
+	margin-top:0;
+	padding-top:0;
+}
+
+#onyx-pageBody-sidebar h5 {
+	font-size:18px;
+	margin-top:0;
+	padding-top:0;
+}
+
+#onyx-pageBody-sidebar h6 {
+	font-size:16px;
+	margin-top:0;
+	padding-top:0;
+}
+
+.onyx-sidebarModule {
+	margin: 0 0 15px 0;
 }
 
 #onyx-recentChanges-heading {
@@ -543,7 +563,7 @@ pre {
 #onyx-pageBody-content {
 	overflow:hidden;
 
-	padding:0 0 15px 15px;
+	padding:0 15px 15px 15px;
 }
 
 #onyx-content-siteNotice {
