@@ -187,6 +187,12 @@ class OnyxTemplate extends BaseTemplate {
 					break;
 			}
 
+			$tooltip = $skin->msg( 'tooltip-pt-'.$key );
+
+			if ( !empty( $tooltip ) ) {
+				$item['title'] = $tooltip->escaped();
+			}
+
 			$html .= $this->makeListItem( $key, $item );
 		}
 		

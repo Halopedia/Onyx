@@ -19,5 +19,5 @@
 	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility",
 
 	"onyx-recentchanges-title": "Text of the recent changes module heading on the sidebar",
-	"onyx-pagecontents-title": "Text of the page contents module heading on the sidebar",
+	"onyx-pagecontents-title": "Text of the page contents module heading on the sidebar"
 }
