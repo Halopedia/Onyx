@@ -53,7 +53,9 @@ pre {
 		/* MEDIAWIKI CLASSES */
 
 .mw-notification-area {
-	top:55px!important;
+	top:unset!important;
+	bottom:25px!important;
+	position:fixed!important;
 }
 
 .toc {
@@ -119,19 +121,6 @@ pre {
 
 		/* ONYX CLASSES */
 
-/*
- * This class is used to align elements with the fixed-width page itself, so
- * that they are in line with it vertically, and have the same width.
- */
-.onyx-pageAligned {
-	max-width:90vw;
-	width:1440px;
-	min-width:50vw;
-
-	margin-left:auto;
-	margin-right:auto;
-}
-
 .onyx-articleContainer {
 	display:table;
 	width:100%;
@@ -139,6 +128,19 @@ pre {
 
 .onyx-articleAligned {
 	display:table-cell;
+}
+
+/*
+ * This class is used to align elements with the fixed-width page itself, so
+ * that they are in line with it vertically, and have the same width.
+ */
+ .onyx-pageAligned {
+	max-width:90vw;
+	width:1440px;
+	min-width:50vw;
+
+	margin-left:auto;
+	margin-right:auto;
 }
 
 /*
@@ -300,6 +302,10 @@ pre {
 .onyx-dropdown:hover .onyx-dropdown-icon {
 	transform:rotate(180deg);
 	transition:0.4s;
+}
+
+#onyx-footerIcons-list {
+	margin:0;
 }
 
 .onyx-footerIcons-listItem {
@@ -566,8 +572,7 @@ pre {
 }
 
 #onyx-footer-footerContent {
-	margin-bottom:30px;
-	padding:15px;
+	padding:15px 15px 40px 15px;
 }
 
 #onyx-footerIcons-list {
