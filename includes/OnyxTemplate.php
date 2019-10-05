@@ -1114,22 +1114,20 @@ class OnyxTemplate extends BaseTemplate {
 		// Open unordered list element for icon list
 		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-footerIcons-list' ] );
 
-		// TODO: Split blocks of footer icons appropriately (i.e. make a new list
-		//       for each iteration of the outer loop)
-
 		// Loop through each footer icon and generate a list item element
 		// which contains the icon to display
 		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-
-			$html .= Html::openElement( 'li', [
-				'class' => 'onyx-footerIcons-listItem'
-			] );
 			
 			foreach ( $footerIcons as $icon ) {
+				$html .= Html::openElement( 'li', [
+					'class' => 'onyx-footerIcons-listItem'
+				] );
+
 				$html .= $this->getSkin()->makeFooterIcon( $icon );
+
+				$html .= Html::closeElement( 'li' );
 			}
 
-			$html .= Html::closeElement( 'li' );
 		}
 
 		// Close unordered list element
@@ -1150,25 +1148,23 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-footerContent-footerLinks'
 		] );
-		
-		// Open unordered list element for link list
-		$html .= Html::openElement('ul', ['id' => 'onyx-footerLinks-list' ] );
 
-		// TODO: Migrate to using getFooterLinks() instead of
-		//       getFooterLinks('flat'), so that footer links can be divided into
-		//       categories.
+		foreach ( $this->getFooterLinks() as $category => $links ) {
+			// Open unordered list element for link list
+			$html .= Html::openElement('ul', [
+				'id' => "onyx-footerLinks-$category",
+				'class' => 'onyx-footerLinks-list'
+			 ] );
 
-		// Loop through each footer link and generate a list item element
-		// which contains the link text
-		foreach ( $this->getFooterLinks( 'flat' ) as $link ) {
-			$html .= Html::rawElement( 'li', [
-				'class' => 'onyx-footerLinks-listItem'
-				], $this->get( $link )
-			);
+			foreach ( $links as $key ) {
+				$html .= Html::rawElement( 'li', [
+					'class' => 'onyx-footerLinks-listItem'
+					], $this->get( $key )
+				);
+			}
+			// Close unordered list element
+			$html .= Html::closeElement( 'ul' );
 		}
-
-		// Close unordered list element
-		$html .= Html::closeElement( 'ul' );
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );

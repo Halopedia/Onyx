@@ -633,6 +633,36 @@ pre {
 	padding-left:15px;
 }
 
+.onyx-footerLinks-list {
+	list-style:none;
+	font-size:10pt;
+	color:#222222;
+	margin:0;
+	padding:0;
+}
+
+.onyx-footerLinks-divider {
+	display:none;
+}
+
+#onyx-footerLinks-info {
+	margin:0;
+	padding:0;
+}
+
+#onyx-footerLinks-info>li {
+	margin:0 0 10px 0;
+}
+
+#onyx-footerLinks-places>li {
+	display:inline;
+	padding:0 0px 5px 0;
+}
+
+#onyx-footerLinks-places>li:not(:first-child):before {
+	content:' | ';
+}
+
 		/* TOOLBOX */
 
 #onyx-toolbox {
@@ -675,5 +705,5 @@ pre {
 }
 
 #onyx-tools-list li:not(:first-child):before {
-	content:" | ";
+	content:' | ';
 }
