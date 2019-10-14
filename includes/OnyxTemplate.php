@@ -868,7 +868,7 @@ class OnyxTemplate extends BaseTemplate {
 		} elseif ( $interval->m > 0 ) {
 			$msg = $skin->msg( 'months', $interval->m );
 		} elseif ( $interval->d > 7 ) {
-			$msg = $skin->msg( 'weeks', ( $interval->d / 7 ) );
+			$msg = $skin->msg( 'weeks', round( $interval->d / 7 ) );
 		} elseif ( $interval->d > 0 ) {
 			$msg = $skin->msg( 'days', $interval->d );
 		} elseif ( $interval->h > 0 ) {
