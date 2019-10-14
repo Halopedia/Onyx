@@ -49,5 +49,6 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteSkinPath": "Onyx"
-	}
+	},
+	"manifest_version": 2
 }
