@@ -40,7 +40,7 @@ class ExtraSkinData {
 		
 		global $wgMemc;
 
-		$amount = $config->getSetting( 'sidebar-modules', 'recent-changes-amount' );
+		$amount = (int)$config->getSetting( 'sidebar-modules', 'recent-changes-amount' );
 
 		$cacheKey = $wgMemc->makeKey( 'onyx_recentChanges', $amount );
 
@@ -60,7 +60,7 @@ class ExtraSkinData {
 				[ 'rc_bot <> 1', 'rc_type <> '.RC_EXTERNAL, 'rc_type <> '.RC_LOG,
 				'rc_id IN (SELECT MAX(rc_id) FROM recentchanges GROUP BY rc_namespace, rc_title)' ],
 				__METHOD__,
-				[ 'ORDER BY' => 'rc_id DESC', 'LIMIT' => "$amount", 'OFFSET' => '0' ]
+				[ 'ORDER BY' => 'rc_id DESC', 'LIMIT' => $amount, 'OFFSET' => 0 ]
 			);
 
 			$actors = [];
