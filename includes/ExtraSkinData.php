@@ -129,7 +129,7 @@ class ExtraSkinData {
 			array &$result, int &$index, int $level, string $prefix,
 			array $headings ) : void {
 
-		if ( $level < $headings['levels'][$index] ) {
+		if ( isset( $headings['levels'][$index] ) && $level < $headings['levels'][$index] ) {
 			self::recursivelyParsePageContents( $result, $index, $level + 1,
 					$prefix, $headings );
 		}
