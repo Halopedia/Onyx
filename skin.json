@@ -52,7 +52,8 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"onyx": {
-			"+ext.socialprofile.userstats.css": "resources/skinStyles/ext.socialprofile.userstats.css"
+			"+ext.socialprofile.userstats.css": "resources/skinStyles/ext.socialprofile.userstats.css",
+			"+mediawiki.special.userlogin.signup.styles": "resources/skinStyles/mediawiki.special.userlogin.signup.styles.css"
 		}
 	},
 	"manifest_version": 2
