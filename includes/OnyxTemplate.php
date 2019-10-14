@@ -149,12 +149,15 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-personalTools-userButton',
 			'class' => 'onyx-dropdown-button' ] );
 
-		// TODO: If SocialProfile is installed, display the user's avatar image
-		//       here (and maybe hide text? - decide what looks best once
-		//       implemented)
+		if ( class_exists( 'wAvatar' ) ) {
+			$avatar = new wAvatar( $skin->getUser()->getId(), 'm' );
+			$avatarElement = $avatar->getAvatarURL();
+		} else {
+			$avatarElement = Onyx\Icon::getIcon( 'avatar' )->makeSvg( 28, 28 );
+		}
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-avatar' ],
-			Onyx\Icon::getIcon( 'avatar' )->makeSvg( 28, 28 ) );
+			$avatarElement );
 
 		$html .= Html::rawElement( 'span', [ 'id' => 'onyx-userButton-label' ],
 			empty( $this->data['username'] )
