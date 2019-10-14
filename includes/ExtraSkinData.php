@@ -69,7 +69,7 @@ class ExtraSkinData {
 
 			foreach ( $rawRecentChanges as $recentChange ) {
 
-				$actor = $actors[$recentChange->rc_actor];
+				$actor = isset( $actors[$recentChange->rc_actor] ) ? $actors[$recentChange->rc_actor] : '';
 
 				if ( empty( $actor ) ) {
 
