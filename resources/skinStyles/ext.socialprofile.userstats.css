@@ -1,0 +1,6 @@
+/* Make ranking numbers visible on Special:TopUsers and other related special
+ * pages (e.g. Special:TopFansByStatistic, etc.)
+ */
+.top-fan-num {
+	color: #000;
+}

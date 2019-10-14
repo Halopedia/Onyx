@@ -50,5 +50,10 @@
 		"localBasePath": "",
 		"remoteSkinPath": "Onyx"
 	},
+	"ResourceModuleSkinStyles": {
+		"onyx": {
+			"+ext.socialprofile.userstats.css": "resources/skinStyles/ext.socialprofile.userstats.css"
+		}
+	},
 	"manifest_version": 2
 }
