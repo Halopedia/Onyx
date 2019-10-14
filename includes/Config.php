@@ -3,7 +3,7 @@
 namespace Onyx;
 
 class Config {
-	
+
 	private const DEFAULT_CONFIG = [
 		'customisation' => [
 			'logo-banner-source' => 'File:Onyx-logo-banner.png',
@@ -55,7 +55,7 @@ class Config {
 		foreach( $newOptions as $category => $options ) {
 			if ( array_key_exists( $category, Config::VALID_OPTIONS )
 					&& is_array( $options ) ) {
-				foreach( $options as $name => $value ) {
+				foreach ( $options as $name => $value ) {
 					if ( in_array( $name, Config::VALID_OPTIONS[$category] )
 							&& is_string( $value ) ) {
 						$this->options[$name] = $value;
@@ -78,7 +78,7 @@ class Config {
 
 	public function getSetting( string $category, string $option ) {
 		if ( isset( $this->options[$category] )
-				&& isset($this->options[$category][$option] ) ) {
+				&& isset( $this->options[$category][$option] ) ) {
 			return $this->options[$category][$option];
 		} else {
 			return null;
