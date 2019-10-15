@@ -17,7 +17,6 @@ class OnyxTemplate extends BaseTemplate {
 	 * FUTURE EXTENSIONS:
 	 *
 	 * - Implement dark scheme using CSS media query prefers-color-scheme: dark
-	 * - Read Onyx-specific configuration settings from MediaWiki:Onyx.ini (Use WikiPage)
 	 * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
 	 * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
 	 * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
@@ -28,9 +27,6 @@ class OnyxTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the page in HTML form.
 	 */
 	public function execute() : void {
-		// TODO: Load config options from MediaWiki:Onyx.ini and, if enabled by the
-		//       wiki, from User:CURRENT_USER/Onyx.ini
-
 		// TODO: Gather all additional data required by the unique features of the
 		//       Onyx skin (recent changes and page contents sidebar modules,
 		//       custom navigation and toolbox, etc) and add it to the data array
@@ -874,7 +870,7 @@ class OnyxTemplate extends BaseTemplate {
 		} elseif ( $interval->m > 0 ) {
 			$msg = $skin->msg( 'months', $interval->m );
 		} elseif ( $interval->d > 7 ) {
-			$msg = $skin->msg( 'weeks', ($interval->d / 7) );
+			$msg = $skin->msg( 'weeks', floor( $interval->d / 7 ) );
 		} elseif ( $interval->d > 0 ) {
 			$msg = $skin->msg( 'days', $interval->d );
 		} elseif ( $interval->h > 0 ) {

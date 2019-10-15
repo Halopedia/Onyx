@@ -21,11 +21,11 @@ class ExtraSkinData {
 			Config $config ) : void {
 		self::getNavigation( $data, $config );
 
-		if ( $config->isEnabled( 'sidebar-modules', 'recent-changes' ) ) {
+		if ( $config->isEnabled( 'enable-recent-changes-module' ) ) {
 			self::getRecentChanges( $data, $config );
 		}
 
-		if ( $config->isEnabled( 'sidebar-modules', 'page-contents' ) ) {
+		if ( $config->isEnabled( 'enable-page-contents-module' ) ) {
 			self::getPageContents( $data, $config );
 		}
 	}
@@ -40,7 +40,9 @@ class ExtraSkinData {
 		
 		global $wgMemc;
 
-		$amount = $config->getSetting( 'sidebar-modules', 'recent-changes-amount' );
+		$amount = $config->getInteger( 'recent-changes-amount' );
+
+		$cacheExpiryTime = $config->getInteger( 'recent-changes-cache-expiry-time' );
 
 		$cacheKey = $wgMemc->makeKey( 'onyx_recentChanges', $amount );
 
@@ -110,7 +112,7 @@ class ExtraSkinData {
 				];
 			}
 
-			$wgMemc->set( $cacheKey, $recentChanges, self::CACHE_EXPIRY_TIME );
+			$wgMemc->set( $cacheKey, $recentChanges, $cacheExpiryTime );
 
 		}
 
@@ -124,8 +126,10 @@ class ExtraSkinData {
 		
 		$num = preg_match_all( self::PAGE_CONTENTS_REGEX, $data['bodytext'],
 				$headings);
-		
-		if ( $num < $config->getSetting( 'sidebar-modules', 'page-contents-min-headings' ) ) {
+
+		$min = $config->getInteger( 'page-contents-min-headings' );
+
+		if ( $num < $min ) {
 			return;
 		}
 		
