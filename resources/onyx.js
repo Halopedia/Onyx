@@ -43,8 +43,11 @@
 	}
 
 	function closeSiteNotice() {
-		document.getElementById('onyx-content-siteNotice').remove();
-		console.log('Onyx: Closed site notice')
+		// @todo Apparently this doesn't work in IE. jQuery probably works, so if
+		// IE compatibility is something we care about, this should do the trick:
+		// $( '#onyx-content-siteNotice' ).remove();
+		document.getElementById( 'onyx-content-siteNotice' ).remove();
+		console.log( 'Onyx: Closed site notice' );
 		mw.cookie.set( 'onyx-siteNotice-state', 'closed', { expires: 7 } );
 	}
 

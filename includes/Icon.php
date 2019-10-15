@@ -8,9 +8,7 @@ class Icon {
 	private static $icons = [];
 
 	private static $iconSources = [
-
 		// TODO: Make this 28x28
-
 		'avatar' => [
 			'width' => 28,
 			'height' => 28,
@@ -169,15 +167,12 @@ class Icon {
 		]
 	];
 
-	public static function getIcon(string $iconName) : ?Icon {
+	public static function getIcon( string $iconName ) : ?Icon {
 		if ( isset( Icon::$icons[$iconName] ) ) {
-
 			// If the requested icon is already part of the icon array, just return
 			// it immediately
 			return Icon::$icons[$iconName];
-
 		} elseif ( isset( Icon::$iconSources[$iconName] ) ) {
-			
 			// Otherwise, if the requested icon is part of the iconSources array,
 			// construct a new Icon object using the iconSources info, add it to the
 			// icon array and return it
@@ -185,15 +180,11 @@ class Icon {
 			Icon::$icons[$iconName] = new Icon( $source['width'], $source['height'],
 					$source['content'] );
 			return Icon::$icons[$iconName];
-
 		} else {
-			
 			// Finally, if the requested icon is not part of either array, just
 			// return null - no such icon exists
 			return null;
-
 		}
-
 	}
 
 	private $defaultWidth;
@@ -216,11 +207,11 @@ class Icon {
 		if ( $height < 0 ) {
 			$height = $this->defaultWidth;
 		}
-		
+
 		$attributes['width'] = $width;
 		$attributes['height'] = $height;
 		$attributes['viewBox'] = "0 0 $width $height";
-		
+
 		$result = Html::openElement( 'svg', $attributes );
 		$result .= $this->makeInnerSvg( $width, $height );
 		$result .= Html::closeElement( 'svg' );
@@ -250,7 +241,7 @@ class Icon {
 			int $width, int $height ) : void {
 
 		// TODO: Implement rescaling of element to match the given width and height
-		
+
 		$result .= Html::element( $element['type'], $element['attributes'] );
 	}
 
