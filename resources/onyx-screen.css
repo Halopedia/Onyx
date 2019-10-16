@@ -295,12 +295,16 @@ pre {
 
 #onyx-banner-bannerLogo {
 	padding: 5px 15px;
+	height: 45px;
 	float: left;
+	display: flex;
+	align-items: center;
 }
 
 #onyx-bannerLogo-image {
 	width: auto;
 	max-height: 45px;
+	max-width: 350px;
 }
 
 #onyx-banner-userOptions {
@@ -364,11 +368,15 @@ pre {
 #onyx-wikiHeader-headerLogo {
 	float: left;
 	padding: 15px;
+	height: 135px;
+	display: flex;
+	align-items: center;
 }
 
 #onyx-headerLogo-image {
 	width: auto;
 	height: auto;
+	max-width: 400px;
 	max-height: 135px;
 }
 
