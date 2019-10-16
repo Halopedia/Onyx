@@ -121,7 +121,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Insert logo image
 		$html .= Html::rawElement( 'img', [ 'id' => 'onyx-bannerLogo-image',
-			'src' => $this->get( 'logopath' ), 'alt' => $this->get( 'sitename' ) ] );
+			'src' => $config->getString( 'banner-logo' ), 'alt' => $this->get( 'sitename' ) ] );
 
 		// Close link element
 		$html .= Html::closeElement( 'a' );
@@ -362,7 +362,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Insert logo image
 		$html .= Html::rawElement( 'img', [
 			'id' => 'onyx-headerLogo-image',
-			'src' => $this->get( 'logopath' ),
+			'src' => $config->getString( 'header-logo' ),
 			'alt' => $this->get( 'sitename' )
 		] );
 
