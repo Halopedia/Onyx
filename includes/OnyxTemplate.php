@@ -6,6 +6,10 @@
  * @ingroup Skins
  */
 
+use Onyx\Config;
+use Onyx\ExtraSkinData;
+use Onyx\Icon;
+
 class OnyxTemplate extends BaseTemplate {
 
 	/* TODO:
@@ -33,9 +37,9 @@ class OnyxTemplate extends BaseTemplate {
 		//       so that those features can be constructed in the same manner as
 		//       the ones using the standard MediaWiki API
 
-		$config = new Onyx\Config();
+		$config = new Config();
 
-		Onyx\ExtraSkinData::extractAndUpdate( $this->data, $config );
+		ExtraSkinData::extractAndUpdate( $this->data, $config );
 
 		// Initialise HTML string as a empty string
 		$html = '';
@@ -44,16 +48,16 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= $this->get( 'headelement' );
 
 		// Build banner
-		$this->buildBanner( $html );
+		$this->buildBanner( $html, $config );
 
 		// Build page content
-		$this->buildPage( $html );
+		$this->buildPage( $html, $config );
 
 		// Build footer
-		$this->buildFooter( $html );
+		$this->buildFooter( $html, $config );
 
 		// Build toolbox
-		$this->buildToolbox( $html );
+		$this->buildToolbox( $html, $config );
 
 		// Concatenate auto-generated trail onto HTML string
 		$html .= $this->getTrail();
@@ -76,7 +80,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildBanner( string &$html ) : void {
+	protected function buildBanner( string &$html, Config $config ) : void {
 		// Open container section for banner
 		$html .= Html::openElement( 'section', [ 'id' => 'onyx-banner' ] );
 
@@ -85,13 +89,13 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-pageAligned' ] );
 
 		// Build banner logo (floats on the left of the div)
-		$this->buildBannerLogo( $html );
+		$this->buildBannerLogo( $html, $config );
 
 		// Build user options/login button (floats on the right of the div)
-		$this->buildPersonalTools( $html );
+		$this->buildPersonalTools( $html, $config );
 
 		// Build the search bar
-		$this->buildSearchBar( $html );
+		$this->buildSearchBar( $html, $config );
 
 		// Close container div for banner content
 		$html .= Html::closeElement( 'div' );
@@ -106,7 +110,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildBannerLogo( string &$html ) : void {
+	protected function buildBannerLogo( string &$html, Config $config ) : void {
 		// Open container div
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-bannerLogo' ] );
 
@@ -132,7 +136,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildPersonalTools( string &$html ) : void {
+	protected function buildPersonalTools( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
 
 		// Open container div
@@ -149,7 +153,7 @@ class OnyxTemplate extends BaseTemplate {
 			$avatar = new wAvatar( $skin->getUser()->getId(), 'm' );
 			$avatarElement = $avatar->getAvatarURL();
 		} else {
-			$avatarElement = Onyx\Icon::getIcon( 'avatar' )->makeSvg( 28, 28 );
+			$avatarElement = Icon::getIcon( 'avatar' )->makeSvg( 28, 28 );
 		}
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-avatar' ],
@@ -162,7 +166,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-icon',
 			'class' => 'onyx-dropdown-icon' ],
-			Onyx\Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
+			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
 
 		$html .= Html::closeElement( 'div' );
 
@@ -206,7 +210,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildSearchBar( string &$html ) : void {
+	protected function buildSearchBar( string &$html, Config $config ) : void {
 		// Open container div
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-search' ] );
 
@@ -254,13 +258,13 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildPage( string &$html ) : void {
+	protected function buildPage( string &$html, Config $config ) : void {
 		// Open container element for page
 		$html .= Html::openElement( 'main',
 			[ 'id' => 'onyx-page', 'class' => 'onyx-pageAligned mw-body' ] );
 
 		// Build the header
-		$this->buildHeader( $html );
+		$this->buildHeader( $html, $config );
 
 		// Open container element for page body (i.e. actual content such as the
 		// article and the sidebar)
@@ -268,10 +272,10 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-articleContainer' ] );
 
 		// Build the article content
-		$this->buildArticle( $html );
+		$this->buildArticle( $html, $config );
 
 		// Build the sidebar
-		$this->buildSidebar( $html );
+		$this->buildSidebar( $html, $config );
 
 		// Close container element for page body
 		$html .= Html::closeElement( 'section' );
@@ -294,15 +298,15 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildHeader( string &$html ) : void {
+	protected function buildHeader( string &$html, Config $config ) : void {
 		// Open container element for header
 		$html .= Html::openElement( 'header', [ 'id' => 'onyx-page-header' ] );
 
 		// Build wiki header
-		$this->buildWikiHeader( $html );
+		$this->buildWikiHeader( $html, $config );
 
 		// Build article header
-		$this->buildArticleHeader( $html );
+		$this->buildArticleHeader( $html, $config );
 
 		// Close container element
 		$html .= Html::closeElement( 'header' );
@@ -323,18 +327,18 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildWikiHeader( string &$html ) : void {
+	protected function buildWikiHeader( string &$html, Config $config ) : void {
 		// Open container div for wiki header
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-header-wikiHeader' ] );
 
 		// Build the header logo
-		$this->buildHeaderLogo( $html );
+		$this->buildHeaderLogo( $html, $config );
 
 		// Build the tagline heading
-		$this->buildTagline( $html );
+		$this->buildTagline( $html, $config );
 
 		// Build the global navigation options
-		$this->buildGlobalNav( $html );
+		$this->buildGlobalNav( $html, $config );
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );
@@ -346,7 +350,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildHeaderLogo( string &$html ) : void {
+	protected function buildHeaderLogo( string &$html, Config $config ) : void {
 		// Open container div for logo
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-wikiHeader-headerLogo' ] );
 
@@ -375,7 +379,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildTagline( string &$html ) : void {
+	protected function buildTagline( string &$html, Config $config ) : void {
 		// Open container div for tagline
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-wikiHeader-tagline' ] );
 
@@ -396,7 +400,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildGlobalNav( string &$html ) : void {
+	protected function buildGlobalNav( string &$html, Config $config ) : void {
 		// Open container element for navigation links
 		$html .= Html::openElement( 'nav', [ 'id' => 'onyx-wikiHeader-navigation' ] );
 
@@ -448,7 +452,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildArticleHeader( string &$html ) : void {
+	protected function buildArticleHeader( string &$html, Config $config ) : void {
 		// Open container div for article header
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-header-articleHeader' ] );
 
@@ -456,7 +460,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-articleHeader-actions' ] );
 
 		// Build content action buttons
-		$this->buildActionButtons( $html );
+		$this->buildActionButtons( $html, $config );
 
 		// Close container div for action options
 		$html .= Html::closeElement( 'div' );
@@ -504,7 +508,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildActionButtons( string &$html ) : void {
+	protected function buildActionButtons( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
 		$edit = null;
 		$talk = null;
@@ -577,23 +581,23 @@ class OnyxTemplate extends BaseTemplate {
 
 		// If the edit content action is available, display it as a button
 		if ( $edit !== null ) {
-			$this->buildActionButton( $html, $edit );
+			$this->buildActionButton( $html, $config, $edit );
 		}
 
 		// If there are one or more miscellaneous content actions available,
 		// display them as a drop-down list following the edit button
 		if ( sizeof( $dropdown ) > 0 ) {
-			$this->buildActionDropdown( $html, $dropdown );
+			$this->buildActionDropdown( $html, $config, $dropdown );
 		}
 
 		// If the talk content action is available, display it as a button
 		if ( $talk !== null ) {
-			$this->buildActionButton( $html, $talk );
+			$this->buildActionButton( $html, $config, $talk );
 		}
 
 		// Finally, display the sidebar toggle button, which will always be
 		// available
-		$this->buildActionButton( $html, $sidebar );
+		$this->buildActionButton( $html, $config, $sidebar );
 	}
 
 	/**
@@ -603,7 +607,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 * @param $info array An array with the necessary info to build the button
 	 */
-	protected function buildActionButton( string &$html, array $info ) : void {
+	protected function buildActionButton( string &$html, Config $config, array $info ) : void {
 		// If the button links to another page, surround it in an <a> element that
 		// links there
 		if ( !empty( $info['href'] ) ) {
@@ -620,7 +624,7 @@ class OnyxTemplate extends BaseTemplate {
 			// corresponding to the given image type
 			switch ( $info['imgType'] ) {
 				case 'svg':
-					$icon = Onyx\Icon::getIcon( $info['imgSrc'] );
+					$icon = Icon::getIcon( $info['imgSrc'] );
 					if ( !isset($icon) ) {
 						break;
 					}
@@ -654,7 +658,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 * @param $info array An array of items which should be placed in the list
 	 */
-	protected function buildActionDropdown( string &$html, array $items ) : void {
+	protected function buildActionDropdown( string &$html, Config $config, array $items ) : void {
 		// Open a <div> element to contain the entire drop-down
 		$html .= Html::openElement( 'div', [
 			'class' => 'onyx-dropdown',
@@ -674,7 +678,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::rawElement( 'div', [
 			'id' => 'onyx-actionsList-dropdownIcon',
 			'class' => 'onyx-dropdown-icon'
-			], Onyx\Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
+			], Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
 
 			// Close the button div
 		$html .= Html::closeElement( 'div' );
@@ -712,7 +716,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildSidebar( string &$html ) : void {
+	protected function buildSidebar( string &$html, Config $config ) : void {
 		// Open container element for sidebar
 		$html .= Html::openElement( 'aside', [
 			'id' => 'onyx-pageBody-sidebar',
@@ -723,10 +727,10 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-sidebar-staticModules' ] );
 
 		// Build the static custom sidebar module
-		$this->buildStaticCustomModule( $html );
+		$this->buildStaticCustomModule( $html, $config );
 
 		// Build the recent changes module
-		$this->buildRecentChangesModule( $html );
+		$this->buildRecentChangesModule( $html, $config );
 
 		// Close container div for static modules
 		$html .= Html::closeElement( 'div' );
@@ -735,10 +739,10 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-sidebar-stickyModules' ] );
 
 		// Build the article contents navigation module
-		$this->buildPageContentsModule( $html );
+		$this->buildPageContentsModule( $html, $config );
 
 		// Build the sticky custom module
-		$this->buildStickyCustomModule( $html );
+		$this->buildStickyCustomModule( $html, $config );
 
 		// Close container div for sticky modules
 		$html .= Html::closeElement( 'div' );
@@ -753,7 +757,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildStaticCustomModule( string &$html ) : void {
+	protected function buildStaticCustomModule( string &$html, Config $config ) : void {
 		global $wgOut;
 
 		// Open container div for module
@@ -776,7 +780,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildRecentChangesModule( string &$html ) : void {
+	protected function buildRecentChangesModule( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
 
 		// Open container div for module
@@ -887,7 +891,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildPageContentsModule( string &$html ) : void {
+	protected function buildPageContentsModule( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
 
 		// If, for whatever reason, Onyx\ExtraSkinData has not provided the page
@@ -918,7 +922,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-content' ] );
 
-		$this->buildPageContentsModuleList( $html, $this->data['onyx_pageContents'] );
+		$this->buildPageContentsModuleList( $html, $config, $this->data['onyx_pageContents'] );
 
 		// Close container div for module content
 		$html .= Html::closeElement( 'div' );
@@ -934,7 +938,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $headings array The list of page headings generated by Onyx\ExtraSkinData
 	 */
 	protected function buildPageContentsModuleList( string &$html,
-			array $headings ) : void {
+			Config $config, array $headings ) : void {
 		// Open the unordered list element that will contain the list
 		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-pageContents-list' ] );
 
@@ -962,7 +966,7 @@ class OnyxTemplate extends BaseTemplate {
 			// If the heading has any subheadings, then recursively build the list
 			// for those too
 			if ( !empty( $heading['children'] ) ) {
-				$this->buildPageContentsModuleList( $html, $heading['children'] );
+				$this->buildPageContentsModuleList( $html, $config, $heading['children'] );
 			}
 
 			// Close the list item for the heading
@@ -979,7 +983,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildStickyCustomModule( string &$html ) : void {
+	protected function buildStickyCustomModule( string &$html, Config $config ) : void {
 		global $wgOut;
 
 		// Open container div for module
@@ -1010,7 +1014,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildArticle( string &$html ) : void {
+	protected function buildArticle( string &$html, Config $config ) : void {
 		// Open container element for article
 		$html .= Html::openElement( 'article', [ 'id' => 'onyx-pageBody-content' ] );
 
@@ -1022,7 +1026,7 @@ class OnyxTemplate extends BaseTemplate {
 			$html .= Html::rawElement( 'div', [
 				'class' => 'onyx-button onyx-button-primary',
 				'id' => 'onyx-siteNotice-closeButton'
-				], Onyx\Icon::getIcon( 'close' )->makeSvg( 14, 14,
+				], Icon::getIcon( 'close' )->makeSvg( 14, 14,
 					[ 'id' => 'onyx-siteNotice-closeIcon' ] )
 			);
 
@@ -1068,7 +1072,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildFooter( string &$html ) : void {
+	protected function buildFooter( string &$html, Config $config ) : void {
 		// Open container element for footer
 		$html .= Html::openElement( 'footer', [ 'id' => 'onyx-footer' ] );
 
@@ -1079,10 +1083,10 @@ class OnyxTemplate extends BaseTemplate {
 		] );
 
 		// Build the footer links
-		$this->buildFooterLinks( $html );
+		$this->buildFooterLinks( $html, $config );
 
 		// Build the footer icons
-		$this->buildFooterIcons( $html );
+		$this->buildFooterIcons( $html, $config );
 
 		// Close container element for footer content
 		$html .= Html::closeElement( 'div' );
@@ -1097,7 +1101,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildFooterIcons( string &$html ) : void {
+	protected function buildFooterIcons( string &$html, Config $config ) : void {
 		// Open container div for icons
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-footerContent-footerIcons',
@@ -1134,7 +1138,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildFooterLinks( string &$html ) : void {
+	protected function buildFooterLinks( string &$html, Config $config ) : void {
 		// Open container div for footer links
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-footerContent-footerLinks'
@@ -1175,7 +1179,7 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildToolbox( string &$html ) : void {
+	protected function buildToolbox( string &$html, Config $config ) : void {
 		// Open container element for toolbox
 		$html .= Html::openElement( 'section', [ 'id' => 'onyx-toolbox' ] );
 
