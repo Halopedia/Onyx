@@ -19,6 +19,8 @@ class ExtraSkinData {
 
 	public static function extractAndUpdate( array &$data,
 			Config $config ) : void {
+		self::getNotifications( $data, $config );
+
 		self::getNavigation( $data, $config );
 
 		if ( $config->isEnabled( 'enable-recent-changes-module' ) ) {
@@ -28,6 +30,31 @@ class ExtraSkinData {
 		if ( $config->isEnabled( 'enable-page-contents-module' ) ) {
 			self::getPageContents( $data, $config );
 		}
+	}
+
+	protected static function getNotifications( array &$data,
+			Config $config ) : void {
+		$data['onyx_notifications'] = [
+			'numNotifs' => 0,
+			'numMessages' => 0,
+			'notifs' => [],
+			'messages' => []
+		];
+
+		$numNotifs = &$data['onyx_notifications']['numNotifs'];
+		$numMessages = &$data['onyx_notifications']['numMessages'];
+		$notifs = &$data['onyx_notifications']['notifs'];
+		$messages = &$data['onyx_notifications']['messages'];
+
+		if ( !empty( $data['newtalk'] ) ) {
+			$messages[] = [
+				'text' => $data['newtalk']
+			];
+			$numMessages++;
+		}
+
+		// TODO: Implement support for notifications in other extensions - such as
+		// Echo notifications and SocialProfile
 	}
 
 	protected static function getNavigation( array &$data,
@@ -68,7 +95,13 @@ class ExtraSkinData {
 			$recentChanges = [];
 
 			foreach ( $rawRecentChanges as $recentChange ) {
-				$actor = isset( $actors[$recentChange->rc_actor] ) ? $actors[$recentChange->rc_actor] : '';
+				if ( empty( $recentChange->rc_actor ) ) {
+					$actorId = $recentChange->rc_user_text;
+				} else {
+					$actorId = $recentChange->rc_actor;
+				}
+
+				$actor = isset( $actors[$actorId] ) ? $actors[$actorId] : '';
 
 				if ( empty( $actor ) ) {
 					$actorRaw = $database->selectRow(
@@ -89,7 +122,7 @@ class ExtraSkinData {
 						$actor['anon'] = empty( $actorRaw->actor_user );
 					}
 
-					$actors[$recentChange->rc_actor] = $actor;
+					$actors[$actorId] = $actor;
 				}
 
 				$recentChanges[] = [

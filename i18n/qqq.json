@@ -7,6 +7,9 @@
 	"onyx-skin-name": "{{name}}",
 	"onyx-skin-desc": "{{desc|what=skin|name=Onyx|url=https://www.halopedia.org/Halopedia:Skins/Onyx}}",
 
+	"onyx-notifications-nonotifs": "Message displayed to the user if they have no unread notifications",
+	"onyx-notifications-nomessages": "Message displayed to the user if they have no unread messages",
+
 	"onyx-personaltools-anonusername": "Text of the username label on the banner when the user is not logged in",
 	"onyx-personaltools-userpage": "Text of the link in the banner dropdown menu that leads to the user's page",
 	"onyx-personaltools-usertalk": "Text of the link in the banner dropdown menu that leads to the user's talk page",
@@ -16,8 +19,5 @@
 	"onyx-actions-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}",
 	
 	"onyx-sidebar-label": "Text of the label for the button to toggle the page sidebar visibility",
-	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility",
-
-	"onyx-recentchanges-title": "Text of the recent changes module heading on the sidebar",
-	"onyx-pagecontents-title": "Text of the page contents module heading on the sidebar"
+	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility"
 }

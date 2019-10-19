@@ -107,6 +107,10 @@ pre {
 	justify-content: center;
 }
 
+.postedit-container {
+	top: 55px!important;
+}
+
 /* ONYX CLASSES */
 .onyx-articleContainer {
 	display: table;
@@ -153,6 +157,7 @@ pre {
 	text-align: center;
 	vertical-align: middle;
 	text-transform: uppercase;
+	text-decoration: none;
 	cursor: pointer;
 	/* Disable selection of button text */
 	-webkit-touch-callout: none;
@@ -161,6 +166,10 @@ pre {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.onyx-button:hover {
+	text-decoration: none;
 }
 
 /*
@@ -218,7 +227,7 @@ pre {
 
 .onyx-button-text {
 	margin: auto;
-	vertical-align: middle;
+	text-decoration: none;
 }
 
 .onyx-dropdown {
@@ -251,14 +260,21 @@ pre {
 	border-bottom: 1px solid #999;
 }
 
-.onyx-dropdown-list > li > a {
+.onyx-dropdown-list > li > a:only-child {
 	color: #000;
 	padding: 10px 10px 10px 15px;
 	text-decoration: none;
 	display: block;
 }
 
-.onyx-dropdown-list > li > a:hover {
+.onyx-dropdown-list > li:not(:has(a:first-child)) {
+	color: #000;
+	padding: 10px 10px 10px 15px;
+	text-decoration: none;
+	display: block;
+}
+
+.onyx-dropdown-list > li > a:only-child:hover {
 	background-color: #ddd;
 }
 
@@ -271,6 +287,48 @@ pre {
 	transition: 0.4s;
 }
 
+.onyx-bannerOption {
+	display:inline-block;
+}
+
+.onyx-bannerOption-button {
+	display: flex;
+	padding: 5px 15px;
+	align-items: center;
+	height: 45px;
+	transition: 0.4s;
+}
+
+.onyx-bannerOption:hover > .onyx-bannerOption-button {
+	background-color: #444;
+	transition: 0.4s;
+}
+
+.onyx-bannerOption-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-items: center;
+	stroke: #fff;
+	stroke-width: 2px;
+	height: 45px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.onyx-bannerOption-dropdownIcon {
+	height: 15px;
+	margin: 15px 0 15px 15px;
+	display: inline-block;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill: #fff;
+}
+
+.onyx-emptyListMessage {
+	padding: 10px 10px 10px 15px;
+	font-style: italic;
+}
+
 #onyx-footerIcons-list {
 	margin: 0 0 -15px 0;
 }
@@ -278,6 +336,30 @@ pre {
 .onyx-footerIcons-listItem {
 	display: inline-block;
 	margin: 0 15px 15px 0;
+}
+
+.onyx-notifications-numNotifs {
+	background-color: #FF0000;
+	color: #FFFFFF;
+	font-size: 8pt;
+	font-weight: bolder;
+	padding: 3px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	min-width: 13px;
+	height: 13px;
+	border-radius: 9px;
+	/* Disable selection of notification number text */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 /* BANNER */
@@ -312,25 +394,16 @@ pre {
 	padding: 0 15px;
 }
 
-#onyx-personalTools-userButton {
-	display: flex;
-	justify-content: center;
-	height: 45px;
-	padding: 5px 15px;
-	transition: 0.4s;
+#onyx-notifications-list {
+	min-width: 300px;
 }
 
-#onyx-userOptions-personalTools:hover > #onyx-personalTools-userButton {
-	background-color: #444;
-	transition: 0.4s;
+#onyx-messages-list {
+	min-width: 300px;
 }
 
 #onyx-userButton-avatar {
-	display: inline-block;
-	stroke: #fff;
-	stroke-width: 2px;
-	height: 29px;
-	margin: 8px 15px 8px 0;
+	margin-right: 15px;
 }
 
 #onyx-userButton-label {
@@ -341,15 +414,13 @@ pre {
 	margin: 5px 0;
 	padding: 5px 0;
 	cursor: default;
-}
-
-#onyx-userButton-icon {
-	height: 15px;
-	margin: 15px 0 15px 15px;
-	display: inline-block;
-	stroke: #fff;
-	stroke-width: 2px;
-	fill: #fff;
+	/* Disable selection of username text */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 /* PAGE */
@@ -409,6 +480,7 @@ pre {
 
 #onyx-navigation-list > li > a {
 	color: #333;
+	font-weight: bold;
 }
 
 #onyx-header-articleHeader {

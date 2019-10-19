@@ -14,7 +14,6 @@ class OnyxTemplate extends BaseTemplate {
 
 	/* TODO:
 	 *
-	 * - Personal tools
 	 * - Language links
 	 * - Search form
 	 *
@@ -31,12 +30,6 @@ class OnyxTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the page in HTML form.
 	 */
 	public function execute() : void {
-		// TODO: Gather all additional data required by the unique features of the
-		//       Onyx skin (recent changes and page contents sidebar modules,
-		//       custom navigation and toolbox, etc) and add it to the data array
-		//       so that those features can be constructed in the same manner as
-		//       the ones using the standard MediaWiki API
-
 		$config = new Config();
 
 		ExtraSkinData::extractAndUpdate( $this->data, $config );
@@ -92,7 +85,7 @@ class OnyxTemplate extends BaseTemplate {
 		$this->buildBannerLogo( $html, $config );
 
 		// Build user options/login button (floats on the right of the div)
-		$this->buildPersonalTools( $html, $config );
+		$this->buildUserOptions( $html, $config );
 
 		// Build the search bar
 		$this->buildSearchBar( $html, $config );
@@ -136,18 +129,27 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * @param $html string The string onto which the HTML should be appended
 	 */
-	protected function buildPersonalTools( string &$html, Config $config ) : void {
-		$skin = $this->getSkin();
-
+	protected function buildUserOptions( string &$html, Config $config ) : void {
 		// Open container div
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-userOptions' ] );
 
+		$this->buildNotifications( $html, $config );
+
+		$this->buildPersonalTools( $html, $config );
+
+		// Close container div
+		$html .= Html::closeElement( 'div' );
+	}
+
+	protected function buildPersonalTools( string &$html, Config $config ) : void {
+		$skin = $this->getSkin();
+
 		$html .= Html::openElement( 'div',
 			[ 'id' => 'onyx-userOptions-personalTools',
-			'class' => 'onyx-dropdown' ] );
+			'class' => 'onyx-dropdown onyx-bannerOption' ] );
 
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-personalTools-userButton',
-			'class' => 'onyx-dropdown-button' ] );
+			'class' => 'onyx-dropdown-button onyx-bannerOption-button' ] );
 
 		if ( class_exists( 'wAvatar' ) ) {
 			$avatar = new wAvatar( $skin->getUser()->getId(), 'm' );
@@ -156,7 +158,8 @@ class OnyxTemplate extends BaseTemplate {
 			$avatarElement = Icon::getIcon( 'avatar' )->makeSvg( 28, 28 );
 		}
 
-		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-avatar' ],
+		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-avatar',
+			'class' => 'onyx-bannerOption-icon' ],
 			$avatarElement );
 
 		$html .= Html::rawElement( 'span', [ 'id' => 'onyx-userButton-label' ],
@@ -165,7 +168,7 @@ class OnyxTemplate extends BaseTemplate {
 				: $this->get( 'username' ) );
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-userButton-icon',
-			'class' => 'onyx-dropdown-icon' ],
+			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon' ],
 			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
 
 		$html .= Html::closeElement( 'div' );
@@ -182,7 +185,8 @@ class OnyxTemplate extends BaseTemplate {
 					$item['text'] = $skin->msg( 'onyx-personaltools-usertalk' )->escaped();
 					break;
 				case 'anontalk':
-				$item['text'] = $skin->msg( 'onyx-personaltools-anontalk' )->escaped();
+					$item['text'] = $skin->msg( 'onyx-personaltools-anontalk' )->escaped();
+					break;
 				default:
 					break;
 			}
@@ -199,8 +203,114 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::closeElement( 'ul' );
 
 		$html .= Html::closeElement( 'div' );
+	}
 
-		// Close container div
+	// HACK: This function is inelegant, and should be refactored so that the
+	//       construction of the icons and list is done by one function which is
+	//       called multiple times, but supplied with different info
+	protected function buildNotifications( string &$html, Config $config ) : void {
+		$skin = $this->getSkin();
+
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-userOptions-notifications',
+			'class' => 'onyx-dropdown onyx-bannerOption' ] );
+
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-notifications-notifsButton',
+			'class' => 'onyx-dropdown-button onyx-bannerOption-button' ] );
+
+		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-notifsButton-icon',
+			'class' => 'onyx-bannerOption-icon' ],
+			Icon::getIcon( 'notification' )->makeSvg( 28, 28 ) );
+		
+		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-notifsButton-icon',
+			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon' ],
+			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
+		
+		if ( $this->data['onyx_notifications']['numNotifs'] > 0 ) {
+			$html .= Html::element( 'div', [ 'id' => 'onyx-notifsButton-numNotifs',
+				'class' => 'onyx-notifications-numNotifs' ],
+				$this->data['onyx_notifications']['numNotifs']);
+		}
+		
+		$html .= Html::closeElement( 'div' );
+		
+		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-notifications-list',
+			'class' => 'onyx-dropdown-list' ] );
+
+		if ( $this->data['onyx_notifications']['numNotifs'] > 0 ) {
+			foreach ( $this->data['onyx_notifications']['notifs'] as $notif ) {
+				$html .= Html::openElement( 'li' );
+				
+				if ( !empty( $notif['href'] ) ) {
+					$html .= Html::openElement( 'a', [ 'href' => $notif['href'] ] );
+				}
+
+				$html .= $notif['text'];
+
+				if ( !empty( $notif['href'] ) ) {
+					$html .= Html::closeElement( 'a' );
+				}
+
+				$html .= Html::closeElement( 'li' );
+			}
+		} else {
+			$html .= Html::element( 'li', [
+				'class' => 'onyx-emptyListMessage' ],
+				$skin->msg( 'onyx-notifications-nonotifs' ) );
+		}
+
+		$html .= Html::closeElement( 'ul' );
+
+		$html .= Html::closeElement( 'div' );
+
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-userOptions-messages',
+			'class' => 'onyx-dropdown onyx-bannerOption' ] );
+		
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-messages-messagesButton',
+			'class' => 'onyx-dropdown-button onyx-bannerOption-button' ] );
+
+		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-messagesButton-icon',
+			'class' => 'onyx-bannerOption-icon' ],
+			Icon::getIcon( 'message' )->makeSvg( 28, 28 ) );
+		
+		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-messagesButton-icon',
+			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon' ],
+			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
+
+		if ( $this->data['onyx_notifications']['numMessages'] > 0 ) {
+			$html .= Html::element( 'div', [ 'id' => 'onyx-messagesButton-numMessages',
+				'class' => 'onyx-notifications-numNotifs' ],
+				$this->data['onyx_notifications']['numMessages']);
+		}
+
+		$html .= Html::closeElement( 'div' );
+
+		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-messages-list',
+			'class' => 'onyx-dropdown-list' ] );
+
+		if ( $this->data['onyx_notifications']['numMessages'] > 0 ) {
+			foreach ( $this->data['onyx_notifications']['messages'] as $message ) {
+				$html .= Html::openElement( 'li' );
+				
+				if ( !empty( $message['href'] ) ) {
+					$html .= Html::openElement( 'a', [ 'href' => $message['href'] ] );
+				}
+
+				$html .= $message['text'];
+
+				if ( !empty( $message['href'] ) ) {
+					$html .= Html::closeElement( 'a' );
+				}
+
+				$html .= Html::closeElement( 'li' );
+			}
+		} else {
+			$html .= Html::element( 'li', [
+				'class' => 'onyx-emptyListMessage' ],
+				$skin->msg( 'onyx-notifications-nomessages' ) );
+		}
+
+		$html .= Html::closeElement( 'ul' );
+
 		$html .= Html::closeElement( 'div' );
 	}
 

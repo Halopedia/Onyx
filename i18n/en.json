@@ -7,6 +7,9 @@
 	"onyx-skin-name": "Onyx",
 	"onyx-skin-desc": "A skin designed to emulate and improve upon the Oasis skin used by Wikia.",
 
+	"onyx-notifications-nonotifs": "You have no new notifications!",
+	"onyx-notifications-nomessages": "You have no new messages!",
+
 	"onyx-personaltools-anonusername": "Anonymous",
 	"onyx-personaltools-userpage": "User page",
 	"onyx-personaltools-usertalk": "User talk",
