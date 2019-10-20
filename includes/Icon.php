@@ -135,6 +135,30 @@ class Icon {
 				]
 			]
 		],
+		'sun' => [
+			'width' => 28,
+			'height' => 28,
+			'content' => [
+				[
+					'type' => 'path',
+					'attributes' => [
+						'd' => 'M 9 14 A 5 5 180 0 1 19 14 A 5 5 180 0 1 9 14 Z M 14 6 L 14 2 Z M 14 22 L 14 26 Z M 2 14 L 6 14 Z M 22 14 L 26 14 Z M 5 5 L 8 8 Z M 20 8 L 23 5 Z M 20 20 L 23 23 Z M 5 23 L 8 20 Z'
+					]
+				]
+			]
+		],
+		'moon' => [
+			'width' => 28,
+			'height' => 28,
+			'content' => [
+				[
+					'type' => 'path',
+					'attributes' => [
+						'd' => 'M 16 2 A 12 12 360 1 1 2 16 M 16 2 A 6 6 240 1 1 2 16'
+					]
+				]
+			]
+		],
 		'dropdown' => [
 			'width' => 14,
 			'height' => 14,
