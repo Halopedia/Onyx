@@ -381,6 +381,7 @@ pre {
 	float: left;
 	display: flex;
 	align-items: center;
+	justify-items: center;
 }
 
 #onyx-bannerLogo-image {
