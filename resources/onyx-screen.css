@@ -403,6 +403,10 @@ p {
 
 #onyx-banner-search {
 	min-width: 400px;
+}
+
+#searchform {
+	width: 100%;
 	display: flex;
 }
 
