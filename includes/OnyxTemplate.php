@@ -533,9 +533,9 @@ class OnyxTemplate extends BaseTemplate {
 			}
 
 			if ( is_array( $box['content'] ) ) {
-				array_reverse ( $box['content'] );
+				$content = array_reverse ( $box['content'] );
 
-				foreach ( $box['content'] as $key => $item ) {
+				foreach ( $content as $key => $item ) {
 					$html .= $this->makeListItem( $key, $item );
 				}
 			} else {
