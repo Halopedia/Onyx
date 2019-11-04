@@ -476,6 +476,11 @@ p {
 	right: 0;
 	position: absolute;
 	margin: 15px;
+
+	/* HACK: Prevents navigation from overlapping with header logo, but in future
+					 it should be replaced so that the width of the navigation is dynamic
+					 with respect to the logo width and page width. */
+	max-width: 1040px;
 }
 
 #onyx-navigation-list {
