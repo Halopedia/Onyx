@@ -84,11 +84,11 @@ class OnyxTemplate extends BaseTemplate {
 		// Build banner logo (floats on the left of the div)
 		$this->buildBannerLogo( $html, $config );
 
-		// Build user options/login button (floats on the right of the div)
-		$this->buildUserOptions( $html, $config );
-
 		// Build the search bar
 		$this->buildSearchBar( $html, $config );
+
+		// Build user options/login button (floats on the right of the div)
+		$this->buildUserOptions( $html, $config );
 
 		// Close container div for banner content
 		$html .= Html::closeElement( 'div' );
@@ -324,34 +324,28 @@ class OnyxTemplate extends BaseTemplate {
 		// Open container div
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-search' ] );
 
-		// TODO: Reorganise this function so that the output is more easily formatted
+		// Open search form
+		$html .= Html::rawElement( 'form', [
+			'action' => $this->get( 'wgScript' ),
+			'id' => 'searchform',
+			'class' => 'mw-search onyx-search-form'
+		] );
 
-		$html .= Html::openElement( 'div', [ 'class' => 'mw-portlet', 'id' => 'p-search' ] );
+		// Insert search bar
+		$html .= $this->makeSearchInput( [
+			'id' => 'onyx-search-input'
+		] );
 
-		$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ],
-			Html::rawElement( 'div', [ 'id' => 'simpleSearch' ],
-				Html::rawElement( 'div', [ 'id' => 'searchInput-container' ],
-					$this->makeSearchInput( [
-						'id' => 'searchInput'
-					] )
-				) .
-				Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
-				$this->makeSearchButton(
-					'fulltext',
-					[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-				) .
-				$this->makeSearchButton(
-					'go',
-					[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-				)
-			)
-		);
+		// Insert search button
+		$html .= $this->makeSearchButton( 'go', [
+			'id' => 'onyx-search-button',
+		] );
 
-		$html .= Html::closeElement( 'div' );
+		// Close form
+		$html .= Html::closeElement( 'form' );
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );
-
 	}
 
 //////////////////////////////////////////////////////////////////////////////

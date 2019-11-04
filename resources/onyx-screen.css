@@ -66,6 +66,7 @@ p {
 	text-align: left !important;
 }
 
+.toctoggle,
 .toctogglespan {
 	float: right;
 	margin: 0 5px;
@@ -379,6 +380,11 @@ p {
 	background-color: #222;
 }
 
+#onyx-banner-content {
+	display: flex;
+	justify-content: space-between;
+}
+
 #onyx-banner-bannerLogo {
 	padding: 5px 15px;
 	height: 45px;
@@ -390,8 +396,38 @@ p {
 
 #onyx-bannerLogo-image {
 	width: auto;
+	height: auto;
 	max-height: 45px;
 	max-width: 350px;
+}
+
+#onyx-banner-search {
+	min-width: 400px;
+	display: flex;
+}
+
+#onyx-search-input {
+	width: 100%;
+	font-size: 24px;
+	border: none;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+	background:	transparent;
+	color:	white;
+	padding: 5px;
+	margin: 7px 5px;
+	transition: 0.4s;
+}
+
+#onyx-search-input:focus {
+	border-bottom: 2px solid white;
+	transition: 0.4s;
+}
+
+#onyx-search-button {
+	width: 45px;
+	height: 45px;
+	min-width: 45px;
+	margin: 5px;
 }
 
 #onyx-banner-userOptions {
