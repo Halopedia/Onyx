@@ -523,16 +523,16 @@ p {
 
 #onyx-navigation-list {
 	list-style: none;
-	display: inline;
 	margin: 0;
 	display: flex;
 	flex-wrap: wrap-reverse;
 	direction: rtl;
+	justify-content: space-between;
 }
 
 #onyx-navigation-list > li {
 	display: inline;
-	margin: 5px 15px 0 15px;
+	margin: 5px 10px;
 	color: #333;
 }
 
