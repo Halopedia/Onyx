@@ -325,7 +325,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-search' ] );
 
 		// Open search form
-		$html .= Html::rawElement( 'form', [
+		$html .= Html::openElement( 'form', [
 			'action' => $this->get( 'wgScript' ),
 			'id' => 'searchform',
 			'class' => 'mw-search onyx-search-form'
@@ -526,6 +526,8 @@ class OnyxTemplate extends BaseTemplate {
 			}
 
 			if ( is_array( $box['content'] ) ) {
+				array_reverse ( $box['content'] );
+
 				foreach ( $box['content'] as $key => $item ) {
 					$html .= $this->makeListItem( $key, $item );
 				}
