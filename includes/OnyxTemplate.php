@@ -521,7 +521,7 @@ class OnyxTemplate extends BaseTemplate {
 			// In some instances, getSidebar() will include the toolbox even when
 			// data['sidebar']['TOOLBOX'] is unset, so skip any boxNames that don't
 			// equal 'navigation'
-			if ( $boxName !== 'navigation' ) {
+			if ( strtolower( $boxName ) !== 'navigation' ) {
 				continue;
 			}
 
