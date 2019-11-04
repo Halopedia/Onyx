@@ -41,6 +41,10 @@ pre {
 	background-color: #aaa;
 }
 
+p {
+	margin: 10px 0;
+}
+
 /* MEDIAWIKI CLASSES */
 .mw-notification-area {
 	top: unset !important;
@@ -574,7 +578,7 @@ pre {
 }
 
 .onyx-sidebarModule {
-	padding: 15px 0 0 0;
+	padding: 0 0 15px 0;
 }
 
 #onyx-recentChanges-heading {
@@ -605,7 +609,7 @@ pre {
 
 #onyx-sidebar-stickyModules {
 	position: sticky;
-	top: 55px;
+	top: 65px;
 }
 
 #onyx-pageContents-list {
@@ -628,6 +632,7 @@ pre {
 	margin: 0 15px 15px 15px;
 	padding: 15px 15px 15px 15px;
 	background-color: #a2a9b1;
+	min-height: 36px;
 }
 
 #onyx-siteNotice-closeButton {
