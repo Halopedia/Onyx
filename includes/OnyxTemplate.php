@@ -881,7 +881,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Static page
 		// and insert it into the page
-		$html .= $wgOut->parseAsContent( '{{Onyx/Sidebar/Static}}' );
+		$html .= $wgOut->parse( '{{Onyx/Sidebar/Static}}' );
 
 		// Close container div for module
 		$html .= Html::closeElement( 'div' );
@@ -1107,7 +1107,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Sticky page
 		// and insert it into the page
-		$html .= $wgOut->parseAsContent( '{{Onyx/Sidebar/Sticky}}' );
+		$html .= $wgOut->parse( '{{Onyx/Sidebar/Sticky}}' );
 
 		// Close container div for module
 		$html .= Html::closeElement( 'div' );
