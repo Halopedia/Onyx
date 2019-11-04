@@ -496,9 +496,9 @@ class OnyxTemplate extends BaseTemplate {
 		// Create heading element containing the tagline, or alternatively the wiki
 		// name if no tagline is available
 		$html .= Html::rawElement( 'h1', [ 'id' => 'onyx' ],
-			empty( $this->data['tagline'] )
-			? $this->data['sitename']
-			: $this->data['tagline'] );
+			$this->getSkin()->msg( 'tagline' )->exists()
+			? $this->getSkin()->msg( 'tagline' )->parse()
+			: $this->data['sitename'] );
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );
