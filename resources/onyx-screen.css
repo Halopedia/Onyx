@@ -119,6 +119,7 @@ p {
 /* ONYX CLASSES */
 .onyx-articleContainer {
 	display: table;
+	table-layout: fixed;
 	width: 100%;
 }
 
@@ -402,10 +403,11 @@ p {
 }
 
 #onyx-banner-search {
-	min-width: 400px;
+	width: 100%;
+	display: flex;
 }
 
-#searchform {
+#onyx-search-form {
 	width: 100%;
 	display: flex;
 }
@@ -418,7 +420,7 @@ p {
 	background:	transparent;
 	color:	white;
 	padding: 5px;
-	margin: 7px 5px;
+	margin: 7px 0;
 	transition: 0.4s;
 }
 
@@ -431,10 +433,11 @@ p {
 	width: 45px;
 	height: 45px;
 	min-width: 45px;
-	margin: 5px;
+	margin: 5px 0 5px 15px;
 }
 
 #onyx-banner-userOptions {
+	display: flex;
 	float: right;
 	padding: 0 15px;
 }
@@ -451,14 +454,9 @@ p {
 	margin-right: 15px;
 }
 
-/* HACK: Reducing the size of the avatar image to 28x28 fixes an issue where
-				 the other banner options would appear offset by 1px from the top of
-				 the banner. Eventually, this should be changed so that the avatar is
-				 displayed at its native 30x30 size while not causing the bug with the
-				 other banner options. */
 #onyx-userButton-avatar > img {
-	width: 28px;
-	height: 28px;
+	width: 30px;
+	height: 30px;
 }
 
 #onyx-userButton-label {

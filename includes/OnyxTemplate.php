@@ -327,8 +327,14 @@ class OnyxTemplate extends BaseTemplate {
 		// Open search form
 		$html .= Html::openElement( 'form', [
 			'action' => $this->get( 'wgScript' ),
-			'id' => 'searchform',
-			'class' => 'mw-search onyx-search-form'
+			'id' => 'onyx-search-form'
+		] );
+
+		// Insert hidden search title
+		$html .= Html::element( 'input', [
+			'type' => 'hidden',
+			'name' => 'title',
+			'value' => $this->get( 'searchtitle' )
 		] );
 
 		// Insert search bar
@@ -339,6 +345,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Insert search button
 		$html .= $this->makeSearchButton( 'go', [
 			'id' => 'onyx-search-button',
+			'class' => ''
 		] );
 
 		// Close form
