@@ -26,6 +26,7 @@
 		}
 	}
 
+	// Toggle whether the sidebar is visible or not
 	function toggleSidebar() {
 		var $sidebar = $( '#onyx-pageBody-sidebar' );
 		if ( $sidebar.css( 'visibility' ) === 'visible'
@@ -42,19 +43,35 @@
 			// Set a 30-day cookie
 			mw.cookie.set( 'OnyxSidebarState', 'visible', { expires: 30 } );
 		}
+		updateFooterHeight();
 	}
 
+	// Close the site notice box
 	function closeSiteNotice() {
 		$( '#onyx-content-siteNotice' ).remove();
 		console.log( 'Onyx: Closed site notice' );
 		mw.cookie.set( 'OnyxSiteNoticeState', 'closed', { expires: 30 } );
+		updateFooterHeight();
 	}
 
+	// Update footer height
+	function updateFooterHeight() {
+		var $footer = $( '#onyx-footer' );
+		$footer.height( 'auto' );
+		if ( $(window).height() > $footer.offset().top + $footer.outerHeight( false )) {
+			$footer.outerHeight( $(window).height() - $footer.offset().top, false );
+		}
+	}
+
+	// On page load
 	$( function () {
 		$( '#onyx-actions-toggleSidebar' ).click( toggleSidebar );
 		$( '#onyx-siteNotice-closeButton' ).click( closeSiteNotice );
 		loadSidebarState();
 		loadSiteNoticeState();
+		updateFooterHeight();
 	} );
+
+	$(window).resize( updateFooterHeight );
 
 } )( jQuery, mediaWiki );
