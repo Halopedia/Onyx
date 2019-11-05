@@ -2,22 +2,24 @@
 
 	// Load sidebar state from the cookie (or at least try)
 	function loadSidebarState() {
-		var cookie = mw.cookie.get( 'onyx-sidebar-state' ),
+		var cookie = mw.cookie.get( 'OnyxSidebarState' ),
 			$sidebar = $( '#onyx-pageBody-sidebar' );
-		if ( !cookie || cookie == 'visible' ) {
-			// Cookie is unset or is set to 'visible'
-			$sidebar.show();
-			$sidebar.css( 'visibility', 'visible' );
-		} else {
-			// Cookie is presumably set to 'hidden'
+		console.log( `Onyx:\ Loaded sidebar cookie,\ value\ =\ "${cookie}"` );
+		if ( cookie && cookie == 'hidden' ) {
+			// Cookie exists and is set to 'hidden'
 			$sidebar.hide();
 			$sidebar.css( 'visibility', 'hidden' );
+		} else {
+			// Cookie is unset or is set to any value other than 'hidden'
+			$sidebar.show();
+			$sidebar.css( 'visibility', 'visible' );
 		}
 	}
 
 	function loadSiteNoticeState() {
-		var cookie = mw.cookie.get( 'onyx-siteNotice-state' ),
+		var cookie = mw.cookie.get( 'OnyxSiteNoticeState' ),
 			$siteNotice = $( '#onyx-content-siteNotice' );
+			console.log( `Onyx:\ Loaded site notice cookie,\ value\ =\ "${cookie}"` );
 		if ( cookie && cookie == 'closed' ) {
 			$siteNotice.remove();
 		}
@@ -32,13 +34,13 @@
 			sidebar.style.visibility = 'hidden';
 			console.log( 'Onyx: Collapsed sidebar' );
 			// Set a 30-day cookie
-			mw.cookie.set( 'onyx-sidebar-state', 'hidden', { expires: 30 } );
+			mw.cookie.set( 'OnyxSidebarState', 'hidden', { expires: 30 } );
 		} else {
 			sidebar.style.display = 'table-cell';
 			sidebar.style.visibility = 'visible';
 			console.log( 'Onyx: Expanded sidebar' );
 			// Set a 30-day cookie
-			mw.cookie.set( 'onyx-sidebar-state', 'visible', { expires: 30 } );
+			mw.cookie.set( 'OnyxSidebarState', 'visible', { expires: 30 } );
 		}
 	}
 
@@ -46,9 +48,9 @@
 		// @todo Apparently this doesn't work in IE. jQuery probably works, so if
 		// IE compatibility is something we care about, this should do the trick:
 		// $( '#onyx-content-siteNotice' ).remove();
-		document.getElementById( 'onyx-content-siteNotice' ).remove();
+		$( '#onyx-content-siteNotice' ).remove();
 		console.log( 'Onyx: Closed site notice' );
-		mw.cookie.set( 'onyx-siteNotice-state', 'closed', { expires: 7 } );
+		mw.cookie.set( 'OnyxSiteNoticeState', 'closed', { expires: 30 } );
 	}
 
 	$( function () {
