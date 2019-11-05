@@ -1,5 +1,10 @@
 ( function( $, mw ) {
 
+	const SECS = 1;
+	const MINS = 60 * SECS;
+	const HOURS = 60 * MINS;
+	const DAYS = 24 * HOURS;
+
 	// Load sidebar state from the cookie (or at least try)
 	function loadSidebarState() {
 		var cookie = mw.cookie.get( 'OnyxSidebarState' ),
@@ -35,13 +40,13 @@
 			$sidebar.css('visibility', 'hidden');
 			console.log( 'Onyx: Collapsed sidebar' );
 			// Set a 30-day cookie
-			mw.cookie.set( 'OnyxSidebarState', 'hidden', { expires: 30 } );
+			mw.cookie.set( 'OnyxSidebarState', 'hidden', { expires: (30 * DAYS) } );
 		} else {
 			$sidebar.show();
 			$sidebar.css('visibility', 'visible');
 			console.log( 'Onyx: Expanded sidebar' );
 			// Set a 30-day cookie
-			mw.cookie.set( 'OnyxSidebarState', 'visible', { expires: 30 } );
+			mw.cookie.set( 'OnyxSidebarState', 'visible', { expires: (30 * DAYS) } );
 		}
 		updateFooterHeight();
 	}
@@ -50,7 +55,7 @@
 	function closeSiteNotice() {
 		$( '#onyx-content-siteNotice' ).remove();
 		console.log( 'Onyx: Closed site notice' );
-		mw.cookie.set( 'OnyxSiteNoticeState', 'closed', { expires: 30 } );
+		mw.cookie.set( 'OnyxSiteNoticeState', 'closed', { expires: (7 * DAYS) } );
 		updateFooterHeight();
 	}
 
