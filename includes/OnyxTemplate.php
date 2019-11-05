@@ -339,13 +339,20 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Insert search bar
 		$html .= $this->makeSearchInput( [
-			'id' => 'onyx-search-input'
+			'id' => 'searchInput',
+			'class' => 'onyx-search-input'
 		] );
 
 		// Insert search button
 		$html .= $this->makeSearchButton( 'go', [
-			'id' => 'onyx-search-button',
-			'class' => ''
+			'id' => 'searchButton',
+			'class' => 'onyx-search-button'
+		] );
+
+		// Insert fallback search button
+		$html .= $this->makeSearchButton( 'fulltext', [
+			'id' => 'mw-searchButton',
+			'class' => 'mw-fallbackSearchButton onyx-search-button'
 		] );
 
 		// Close form

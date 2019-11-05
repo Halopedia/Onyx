@@ -412,25 +412,24 @@ p {
 	display: flex;
 }
 
-#onyx-search-input {
+#searchInput {
 	width: 100%;
-	font-size: 24px;
+	font-size: 20px;
 	border: none;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 	background:	transparent;
-	color:	white;
-	padding: 5px;
-	margin: 7px 0;
+	color: white;
+	padding: 0 5px;
+	margin: 10px 0;
 	transition: 0.4s;
 }
 
-#onyx-search-input:focus {
+#searchInput:focus {
 	border-bottom: 2px solid white;
 	transition: 0.4s;
 }
 
-#onyx-search-button {
-	width: 45px;
+.onyx-search-button {
 	height: 45px;
 	min-width: 45px;
 	margin: 5px 0 5px 15px;
