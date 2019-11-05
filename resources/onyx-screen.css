@@ -573,7 +573,7 @@ p {
 }
 
 #onyx-articleHeader-title {
-	height: 44px;
+	min-height: 44px;
 	margin: 0 15px 15px 15px;
 	vertical-align: bottom;
 }
