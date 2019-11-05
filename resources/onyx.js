@@ -28,7 +28,8 @@
 
 	function toggleSidebar() {
 		var $sidebar = $( '#onyx-pageBody-sidebar' );
-		if ( sidebar.style.visibility === 'visible' || sidebar.style.visibility === '' ) {
+		if ( $sidebar.css( 'visibility' ) === 'visible'
+			|| $sidebar.css( 'visibility' ) === '' ) {
 			$sidebar.hide();
 			$sidebar.css('visibility', 'hidden');
 			console.log( 'Onyx: Collapsed sidebar' );
