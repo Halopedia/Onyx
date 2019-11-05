@@ -16,6 +16,7 @@
 		}
 	}
 
+	// Load site notice state from the cookie (or at least try to)
 	function loadSiteNoticeState() {
 		var cookie = mw.cookie.get( 'OnyxSiteNoticeState' ),
 			$siteNotice = $( '#onyx-content-siteNotice' );
@@ -26,18 +27,16 @@
 	}
 
 	function toggleSidebar() {
-		// Both 'visibility' and 'display' seem to be empty on the initial page load, not sure why
-		// @todo FIXME: This could be simplified a lot with jQuery. But hey, this works, so there's that.
-		var sidebar = document.getElementById( 'onyx-pageBody-sidebar' );
+		var $sidebar = $( '#onyx-pageBody-sidebar' );
 		if ( sidebar.style.visibility === 'visible' || sidebar.style.visibility === '' ) {
-			sidebar.style.display = 'none';
-			sidebar.style.visibility = 'hidden';
+			$sidebar.hide();
+			$sidebar.css('visibility', 'hidden');
 			console.log( 'Onyx: Collapsed sidebar' );
 			// Set a 30-day cookie
 			mw.cookie.set( 'OnyxSidebarState', 'hidden', { expires: 30 } );
 		} else {
-			sidebar.style.display = 'table-cell';
-			sidebar.style.visibility = 'visible';
+			$sidebar.show();
+			$sidebar.css('visibility', 'visible');
 			console.log( 'Onyx: Expanded sidebar' );
 			// Set a 30-day cookie
 			mw.cookie.set( 'OnyxSidebarState', 'visible', { expires: 30 } );
@@ -45,9 +44,6 @@
 	}
 
 	function closeSiteNotice() {
-		// @todo Apparently this doesn't work in IE. jQuery probably works, so if
-		// IE compatibility is something we care about, this should do the trick:
-		// $( '#onyx-content-siteNotice' ).remove();
 		$( '#onyx-content-siteNotice' ).remove();
 		console.log( 'Onyx: Closed site notice' );
 		mw.cookie.set( 'OnyxSiteNoticeState', 'closed', { expires: 30 } );
