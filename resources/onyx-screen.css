@@ -41,10 +41,6 @@ pre {
 	background-color: #aaa;
 }
 
-p {
-	margin: 10px 0;
-}
-
 /* MEDIAWIKI CLASSES */
 .mw-notification-area {
 	top: unset !important;
@@ -118,13 +114,15 @@ p {
 
 /* ONYX CLASSES */
 .onyx-articleContainer {
-	display: table;
-	table-layout: fixed;
-	width: 100%;
+	display: grid;
+	grid-column-gap: 15px;
+	grid-template-columns: auto 340px;
+	padding: 0 15px;
 }
 
 .onyx-articleAligned {
-	display: table-cell;
+	grid-row: 1;
+	grid-column: 1;
 }
 
 /*
@@ -146,7 +144,8 @@ p {
  * direct child of the onyx-articleContainer class.
 */
 .onyx-sidebarAligned {
-	display: table-cell;
+	grid-row: 1;
+	grid-column: 2;
 	max-width: 30vw;
 	width: 340px;
 }
@@ -590,7 +589,7 @@ p {
 
 /* SIDEBAR */
 #onyx-pageBody-sidebar {
-	padding: 0 15px 15px 0;
+	padding: 0;
 }
 
 #onyx-pageBody-sidebar h1 {
@@ -677,7 +676,7 @@ p {
 /* ARTICLE CONTENT */
 #onyx-pageBody-content {
 	overflow: hidden;
-	padding: 0 15px 15px 15px;
+	padding: 0 0 15px 0;
 }
 
 #onyx-content-siteNotice {
@@ -703,16 +702,12 @@ p {
 }
 
 #onyx-footer-footerContent {
-	padding: 15px 15px 40px 15px;
-}
-
-#onyx-footerIcons-list {
-	list-style: none;
-	direction: rtl;
+	padding-top: 15px;
+	padding-bottom: 40px;
 }
 
 #onyx-footerContent-footerLinks {
-	padding-left: 15px;
+	padding-left:15px;
 }
 
 .onyx-footerLinks-list {
@@ -743,6 +738,11 @@ p {
 
 #onyx-footerLinks-places > li:not(:first-child):before {
 	content: ' | ';
+}
+
+#onyx-footerIcons-list {
+	list-style: none;
+	direction: rtl;
 }
 
 /* TOOLBOX */
