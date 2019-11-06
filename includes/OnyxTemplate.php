@@ -1065,7 +1065,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Loop through the list of headings provided
 		foreach ( $headings as $heading ) {
 			// Open a list item for the heading
-			$html .= Html::openElement( 'li', [ 'id' => 'onyx-pageContents-listItem' ] );
+			$html .= Html::openElement( 'li', [ 'class' => 'onyx-pageContents-listItem' ] );
 
 			// Open a link that points to the heading's location
 			$html .= Html::openElement( 'a', [ 'href' => '#' . $heading['href-id'] ] );
