@@ -485,14 +485,17 @@ pre {
 	height: 165px;
 	position: relative;
 	background-color: #ccc;
+	display: grid;
+	grid-template-columns: min-content auto;
 }
 
 #onyx-wikiHeader-headerLogo {
-	float: left;
 	padding: 15px;
 	height: 135px;
 	display: flex;
 	align-items: center;
+	grid-row: 1;
+	grid-column: 1;
 }
 
 #onyx-headerLogo-image {
@@ -503,20 +506,19 @@ pre {
 }
 
 #onyx-wikiHeader-tagline {
-	margin: 0 15px;
+	grid-row: 1;
+	grid-column: 2;
+	margin: 0 15px 0 0;
 }
 
 #onyx-wikiHeader-navigation {
+	grid-row: 1;
+	grid-column: 2;
 	overflow: hidden;
 	bottom: 0;
 	right: 0;
 	position: absolute;
-	margin: 15px;
-
-	/* HACK: Prevents navigation from overlapping with header logo, but in future
-					 it should be replaced so that the width of the navigation is dynamic
-					 with respect to the logo width and page width. */
-	max-width: 1040px;
+	margin: 15px 15px 15px 0;
 }
 
 #onyx-navigation-list {
