@@ -64,7 +64,7 @@ class ExtraSkinData {
 
 	protected static function getRecentChanges( array &$data,
 			Config $config ) : void {
-		global $wgMemc;
+		global $wgMemc, $wgVersion;
 
 		$amount = $config->getInteger( 'recent-changes-amount' );
 
@@ -80,12 +80,29 @@ class ExtraSkinData {
 
 			$database = wfGetDB( DB_REPLICA );
 
+			if ( version_compare( $wgVersion, '1.34', '>=' ) ) {
+				// rc_user & rc_user_text are gone in 1.34
+				$fields = [
+					'rc_timestamp', 'rc_actor', 'rc_namespace',
+					'rc_title', 'rc_type',
+				];
+			} else {
+				$fields = [
+					'rc_timestamp', 'rc_actor', 'rc_namespace',
+					'rc_title', 'rc_type',
+					'rc_user', 'rc_user_text'
+				];
+			}
+
 			$rawRecentChanges = $database->select(
 				'recentchanges',
-				[ 'rc_timestamp', 'rc_actor', 'rc_namespace', 'rc_title', 'rc_type',
-					'rc_user', 'rc_user_text' ],
-				[ 'rc_bot <> 1', 'rc_type <> '.RC_EXTERNAL, 'rc_type <> '.RC_LOG,
-				'rc_id IN (SELECT MAX(rc_id) FROM recentchanges GROUP BY rc_namespace, rc_title)' ],
+				$fields,
+				[
+					'rc_bot <> 1',
+					'rc_type <> ' . RC_EXTERNAL,
+					'rc_type <> ' . RC_LOG,
+					"rc_id IN (SELECT MAX(rc_id) FROM {$database->tableName( 'recentchanges' )} GROUP BY rc_namespace, rc_title)"
+				],
 				__METHOD__,
 				[ 'ORDER BY' => 'rc_id DESC', 'LIMIT' => $amount, 'OFFSET' => 0 ]
 			);
@@ -107,7 +124,8 @@ class ExtraSkinData {
 					$actorRaw = $database->selectRow(
 						'actor',
 						[ 'actor_user', 'actor_name' ],
-						[ "actor_id = $recentChange->rc_actor" ]
+						[ 'actor_id' => $recentChange->rc_actor ],
+						__METHOD__
 					);
 
 					$actor = [];

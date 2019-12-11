@@ -925,46 +925,48 @@ class OnyxTemplate extends BaseTemplate {
 		$currentTime = DateTime::createFromFormat( 'YmdHis', wfTimestampNow() );
 
 		// Loop through all the recent changes provided by Onyx\ExtraSkinData
-		foreach ( $this->data['onyx_recentChanges'] as $recentChange ) {
-			// Get the time the edit was made
-			$time = DateTime::createFromFormat( 'YmdHis', $recentChange['timestamp'] );
+		if ( !empty( $this->data['onyx_recentChanges'] ) ) {
+			foreach ( $this->data['onyx_recentChanges'] as $recentChange ) {
+				// Get the time the edit was made
+				$time = DateTime::createFromFormat( 'YmdHis', $recentChange['timestamp'] );
 
-			// Get a string representing the time difference
-			$timeDiff = $this->getDateTimeDiffString( $currentTime->diff( $time ) );
+				// Get a string representing the time difference
+				$timeDiff = $this->getDateTimeDiffString( $currentTime->diff( $time ) );
 
-			// Get the title of the page that was edited
-			$page = Title::newFromText( $recentChange['title'], $recentChange['namespace'] );
+				// Get the title of the page that was edited
+				$page = Title::newFromText( $recentChange['title'], $recentChange['namespace'] );
 
-			// Get the title of the userpage of the user who edited it
-			$user = Title::newFromText( $recentChange['user'], NS_USER );
+				// Get the title of the userpage of the user who edited it
+				$user = Title::newFromText( $recentChange['user'], NS_USER );
 
-			// Open list item for recent change
-			$html .= Html::openElement( 'li' );
+				// Open list item for recent change
+				$html .= Html::openElement( 'li' );
 
-			$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-page' ] );
+				$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-page' ] );
 
-			// Create a link to the edited page
-			$html .= Html::openElement( 'a', [ 'href' => $page->getInternalURL() ] );
-			$html .= $page->getFullText();
-			$html .= Html::closeElement( 'a' );
+				// Create a link to the edited page
+				$html .= Html::openElement( 'a', [ 'href' => $page->getInternalURL() ] );
+				$html .= $page->getFullText();
+				$html .= Html::closeElement( 'a' );
 
-			$html .= Html::closeElement( 'div' );
+				$html .= Html::closeElement( 'div' );
 
-			$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-info' ] );
+				$html .= Html::openElement( 'div', [ 'class' => 'onyx-recentChanges-info' ] );
 
-			// Create a link to the user who edited it
-			$html .= Html::openElement( 'a', [ 'href' => $user->getInternalURL() ] );
-			$html .= $user->getText();
-			$html .= Html::closeElement( 'a' );
+				// Create a link to the user who edited it
+				$html .= Html::openElement( 'a', [ 'href' => $user->getInternalURL() ] );
+				$html .= $user->getText();
+				$html .= Html::closeElement( 'a' );
 
-			// Display how long ago it was edited
-			$html .= ' • ';
-			$html .= $timeDiff;
+				// Display how long ago it was edited
+				$html .= ' • ';
+				$html .= $timeDiff;
 
-			$html .= Html::closeElement( 'div' );
+				$html .= Html::closeElement( 'div' );
 
-			// Close the list item
-			$html .= Html::closeElement( 'li' );
+				// Close the list item
+				$html .= Html::closeElement( 'li' );
+			}
 		}
 
 		// Close unordered list

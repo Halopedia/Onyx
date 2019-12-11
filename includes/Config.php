@@ -87,20 +87,24 @@ class Config {
 			// assigned global variables. If a valid setting is found, assign it and
 			// skip to the next option
 			if ( isset( $wgOnyxConfig ) && is_array( $wgOnyxConfig ) ) {
-				$setting =  $wgOnyxConfig[$name];
+				$setting = $wgOnyxConfig[$name];
 
-				if ( isset( $setting )
-					&& gettype( $setting ) === self::CONFIG_TYPES[$name] ) {
+				if (
+					isset( $setting ) &&
+					gettype( $setting ) === self::CONFIG_TYPES[$name]
+				) {
 					$value = $setting;
 				}
 			}
 
 			// Otherwise, check the global variable name associated with the option,
 			// and assign the setting to the option if it is a valid setting
-			$setting = $GLOBALS[self::CONFIG_NAMES[$name]];
+			$setting = isset( $GLOBALS[self::CONFIG_NAMES[$name]] ) && $GLOBALS[self::CONFIG_NAMES[$name]] ? $GLOBALS[self::CONFIG_NAMES[$name]] : false;
 
-			if ( isset( $setting )
-				&& gettype( $setting ) === self::CONFIG_TYPES[$name] ) {
+			if (
+				isset( $setting ) &&
+				gettype( $setting ) === self::CONFIG_TYPES[$name]
+			) {
 				$value = $setting;
 			}
 		}
