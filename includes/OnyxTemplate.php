@@ -1031,6 +1031,13 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildRecentChangesModule( string &$html, Config $config ) : void {
+		if (
+			!$config->isEnabled( 'enable-recent-changes-module' )
+			|| empty( $this->data['onyx_recentChanges'] )
+			|| count( $this->data['onyx_recentChanges'] ) <= 0
+		) {
+			return;
+		}
 		$skin = $this->getSkin();
 
 		// Open container div for module
