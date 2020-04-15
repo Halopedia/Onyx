@@ -19,5 +19,7 @@
 	"onyx-actions-addsection": "Add new section",
 
 	"onyx-sidebar-label": "Sidebar",
-	"onyx-sidebar-tooltip": "Expand or collapse the sidebar"
+	"onyx-sidebar-tooltip": "Expand or collapse the sidebar",
+
+	"onyx-pagecontents-backtotop": "Back to top"
 }

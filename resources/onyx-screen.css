@@ -116,7 +116,7 @@ pre {
 .onyx-articleContainer {
 	display: grid;
 	grid-column-gap: 15px;
-	grid-template-columns: auto 340px;
+	grid-template-columns: 1fr min-content;
 	padding: 0 15px;
 }
 
@@ -223,7 +223,7 @@ pre {
  */
 .onyx-button-action {
 	height: 28px;
-	margin: 15px 0 15px 15px;
+	margin: 15px 0 15px 0;
 }
 
 .onyx-button-action > span {
@@ -265,18 +265,15 @@ pre {
 	border-bottom: 1px solid #999;
 }
 
-.onyx-dropdown-list > li > a:only-child {
+.onyx-dropdown-list > li > *:only-child {
 	color: #000;
-	padding: 10px 10px 10px 15px;
+	padding: 5px 5px 5px 5px;
 	text-decoration: none;
 	display: block;
 }
 
-.onyx-dropdown-list > li:not(:has(a:first-child)) {
-	color: #000;
+.onyx-dropdown-list > li > a:only-child {
 	padding: 10px 10px 10px 15px;
-	text-decoration: none;
-	display: block;
 }
 
 .onyx-dropdown-list > li > a:only-child:hover {
@@ -313,20 +310,44 @@ pre {
 	display: inline-flex;
 	align-items: center;
 	justify-items: center;
-	stroke: #fff;
+	stroke: #bbbbbb;
 	stroke-width: 2px;
 	height: 45px;
 	margin-top: 0;
 	margin-bottom: 0;
+	transition: 0.4s;
+}
+
+.onyx-bannerOption:hover .onyx-bannerOption-icon {
+	stroke: #ffffff;
+	transition: 0.4s;
+}
+
+#onyx-userButton-avatar > img {
+	border: 2px solid #bbbbbb;
+	border-radius: 16px;
+	transition: 0.4s;
+}
+
+#onyx-userOptions-personalTools:hover #onyx-userButton-avatar > img {
+	border-color: #ffffff;
+	transition: 0.4s;
 }
 
 .onyx-bannerOption-dropdownIcon {
 	height: 15px;
 	margin: 15px 0 15px 15px;
 	display: inline-block;
-	stroke: #fff;
+	stroke: #bbbbbb;
 	stroke-width: 2px;
-	fill: #fff;
+	fill: #bbbbbb;
+	transition: 0.4s;
+}
+
+.onyx-bannerOption:hover .onyx-bannerOption-dropdownIcon {
+	stroke: #ffffff;
+	fill: #ffffff;
+	transition: 0.4s;
 }
 
 .onyx-emptyListMessage {
@@ -420,9 +441,12 @@ pre {
 	color: white;
 	padding: 0 5px;
 	margin: 10px 0;
+	border-radius: 0;
+	-webkit-appearance: none;
 	transition: 0.4s;
 }
 
+#searchInput:not(:placeholder-shown),
 #searchInput:focus {
 	border-bottom: 2px solid white;
 	transition: 0.4s;
@@ -440,12 +464,9 @@ pre {
 	padding: 0 15px;
 }
 
-#onyx-notifications-list {
-	min-width: 300px;
-}
-
+#onyx-notifications-list,
 #onyx-messages-list {
-	min-width: 300px;
+	min-width: 350px;
 }
 
 #onyx-userButton-avatar {
@@ -461,10 +482,12 @@ pre {
 	display: inline-block;
 	height: 25px;
 	font-size: 20px;
-	color: #fff;
+	color: #bbbbbb;
 	margin: 5px 0;
 	padding: 5px 0;
 	cursor: default;
+	white-space: nowrap;
+	transition: 0.4s;
 	/* Disable selection of username text */
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -472,6 +495,11 @@ pre {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+#onyx-userOptions-personalTools:hover #onyx-userButton-label {
+	color: #ffffff;
+	transition: 0.4s;
 }
 
 /* PAGE */
@@ -486,7 +514,7 @@ pre {
 	position: relative;
 	background-color: #ccc;
 	display: grid;
-	grid-template-columns: min-content auto;
+	grid-template-columns: max-content auto;
 }
 
 #onyx-wikiHeader-headerLogo {
@@ -549,6 +577,14 @@ pre {
 #onyx-articleHeader-actions {
 	float: right;
 	padding-right: 15px;
+}
+
+#onyx-articleHeader-actions > * {
+	margin-left: 15px;
+}
+
+#onyx-articleHeader-actions > a:hover {
+	text-decoration: none;
 }
 
 #onyx-actions-actionsList {
@@ -630,8 +666,21 @@ pre {
 	padding-top: 0;
 }
 
-.onyx-sidebarModule {
-	padding: 0 0 15px 0;
+.onyx-sidebarModule:not(:last-child) {
+	padding-bottom: 15px;
+}
+
+.onyx-sidebarModule-custom {
+	padding-left: 15px;
+}
+
+.onyx-sidebarModule-custom h1,
+.onyx-sidebarModule-custom h2,
+.onyx-sidebarModule-custom h3,
+.onyx-sidebarModule-custom h4,
+.onyx-sidebarModule-custom h5,
+.onyx-sidebarModule-custom h6 {
+	margin-left: -15px;
 }
 
 #onyx-recentChanges-heading {
@@ -642,9 +691,13 @@ pre {
 	text-transform: capitalize;
 }
 
+#onyx-recentChanges-content {
+	padding-left: 15px;
+}
+
 #onyx-recentChanges-content > ul {
 	list-style: none;
-	margin: 0 0 0 15px;
+	margin-left: 0;
 }
 
 #onyx-recentChanges-content > ul > li {
@@ -662,17 +715,94 @@ pre {
 
 #onyx-sidebar-stickyModules {
 	position: sticky;
-	top: 65px;
+	max-height: calc(100vh - (55px + 25px + 30px));
+	top: 70px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-top: 15px;
 }
 
-#onyx-pageContents-list {
+#onyx-pageContents-content {
+	margin-left: 15px;
+}
+
+#onyx-pageContents-backToTop {
+	margin-bottom: 5px;
+}
+
+.onyx-pageContents-list {
 	list-style: none;
-	margin: 0 0 0 25px; 
 }
 
-#onyx-pageContents-itemPrefix {
+#onyx-pageContents-content > .onyx-pageContents-list {
+	margin-left: 0;
+}
+
+
+.onyx-pageContents-listItem > ul {
+	display: none;
+	margin-left: 20px;
+}
+
+.onyx-pageContents-expandButton {
+	cursor: pointer;
+}
+
+.onyx-pageContents-expandButton,
+.onyx-pageContents-noExpandIcon {
+	display: inline-flex;
+	min-width: 20px;
+	min-height: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.onyx-pageContents-expandButton svg,
+.onyx-pageContents-noExpandIcon svg {
+	fill: #444;
+}
+
+.onyx-pageContents-expandButton > svg {
+	transform: rotate(-90deg);
+	transition: 0.4s;
+}
+
+.onyx-pageContents-softExpanded > .onyx-pageContents-expandButton > svg,
+.onyx-pageContents-hardExpanded > .onyx-pageContents-expandButton > svg {
+	transform: rotate(0deg);
+	transition: 0.4s;
+}
+
+.onyx-pageContents-forceCollapsed > .onyx-pageContents-expandButton > svg {
+	transform: rotate(-90deg);
+	transition: 0.4s;
+}
+
+.onyx-pageContents-softExpanded > ul,
+.onyx-pageContents-hardExpanded > ul {
+	display: block;
+}
+
+.onyx-pageContents-forceCollapsed > ul {
+	display: none;
+}
+
+.onyx-pageContents-listItem.onyx-pageContents-selected > a {
+	font-weight: bold;
+	pointer-events: none;
+}
+
+.onyx-pageContents-listItem > a:hover {
+	text-decoration: none;
+}
+
+.onyx-pageContents-itemPrefix {
 	margin: 0 10px 0 0;
 	color: #444;
+}
+
+a:hover .onyx-pageContents-itemLabel {
+	text-decoration: underline;
 }
 
 /* ARTICLE CONTENT */
@@ -754,8 +884,11 @@ pre {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 19px;
-	padding: 3px;
+	height: 25px;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
 	background-color: #222;
 }
 
@@ -787,4 +920,33 @@ pre {
 
 #onyx-tools-list li:not(:first-child):before {
 	content: ' | ';
+}
+
+#file img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media all and (max-width: 1280px) {
+	#onyx-userButton-label {
+		display: none;
+	}
+
+	#onyx-userButton-avatar {
+		margin-right: 0;
+	}
+
+	.onyx-articleContainer {
+		grid-template-columns: 100%;
+	}
+
+	.onyx-articleAligned {
+		grid-row: 1;
+		grid-column: 1;
+	}
+
+	.onyx-sidebarAligned {
+		grid-row: 2;
+		grid-column: 1;
+	}
 }

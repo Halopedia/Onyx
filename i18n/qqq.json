@@ -19,5 +19,7 @@
 	"onyx-actions-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}",
 	
 	"onyx-sidebar-label": "Text of the label for the button to toggle the page sidebar visibility",
-	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility"
+	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility",
+
+	"onyx-pagecontents-backtotop": "Text of the link that returns people to the top of the page in the page contents module"
 }

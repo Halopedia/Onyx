@@ -24,7 +24,23 @@ class OnyxTemplate extends BaseTemplate {
 	 * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
 	 * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
 	 * - Support VisualEditor
+	 * 
+	 * NOTES:
+	 * 
+	 *  - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
+	 *    are called instead of building stuff manually - BaseTameplate calls the
+	 *    appropriate hooks for us
 	 */
+
+	/**
+	 * Lists all the Special pages which are whitelisted for the page contents
+	 * module; i.e. for which the page contents module should be rendered, if
+	 * enabled.
+	 */
+	const PAGE_CONTENTS_SPECIAL_PAGE_WHITELIST = [
+		'Interwiki', 'ListGroupRights', 'MediaStatistics', 'Sitenotice',
+		'SpecialPages', 'Version'
+	];
 
 	/**
 	 * Outputs the entire contents of the page in HTML form.
@@ -33,6 +49,8 @@ class OnyxTemplate extends BaseTemplate {
 		$config = new Config();
 
 		ExtraSkinData::extractAndUpdate( $this->data, $config );
+
+		// TODO: Migrate to Mustache templates - see TemplateParser and https://www.mediawiki.org/wiki/Manual:HTML_templates
 
 		// Initialise HTML string as a empty string
 		$html = '';
@@ -253,9 +271,12 @@ class OnyxTemplate extends BaseTemplate {
 				$html .= Html::closeElement( 'li' );
 			}
 		} else {
-			$html .= Html::element( 'li', [
-				'class' => 'onyx-emptyListMessage' ],
-				$skin->msg( 'onyx-notifications-nonotifs' ) );
+			$html .= Html::openElement( 'li', [
+				'class' => 'onyx-emptyListMessage' ] );
+			
+			$html .= Html::element( 'div', [], $skin->msg( 'onyx-notifications-nonotifs' ) );
+
+			$html .= Html::closeElement( 'li' );
 		}
 
 		$html .= Html::closeElement( 'ul' );
@@ -304,9 +325,13 @@ class OnyxTemplate extends BaseTemplate {
 				$html .= Html::closeElement( 'li' );
 			}
 		} else {
-			$html .= Html::element( 'li', [
-				'class' => 'onyx-emptyListMessage' ],
+			$html .= Html::openElement( 'li', [
+				'class' => 'onyx-emptyListMessage' ] );
+			
+			$html .= Html::rawElement( 'div', [],
 				$skin->msg( 'onyx-notifications-nomessages' ) );
+			
+			$html .= Html::closeElement( 'li' );
 		}
 
 		$html .= Html::closeElement( 'ul' );
@@ -883,12 +908,16 @@ class OnyxTemplate extends BaseTemplate {
 		// Open container div for module
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-staticModules-custom',
-			'class' => 'onyx-sidebarModule onyx-sidebarModule-static'
+			'class' => 'onyx-sidebarModule onyx-sidebarModule-static onyx-sidebarModule-custom'
 		] );
 
 		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Static page
 		// and insert it into the page
 		$html .= $wgOut->parse( '{{Onyx/Sidebar/Static}}' );
+
+		// NOTE: WikiPage solution isn't ideal for this, as {{PAGENAME}} still
+		//       will return the name of the page that the page the source is in,
+		//       not the page currently being viewed
 
 		// Close container div for module
 		$html .= Html::closeElement( 'div' );
@@ -1014,23 +1043,21 @@ class OnyxTemplate extends BaseTemplate {
 	protected function buildPageContentsModule( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
 
-		// If, for whatever reason, Onyx\ExtraSkinData has not provided the page
-		// contents (due to config settings or lack of enough headings),
-		// do nothing
-		if ( empty( $this->data['onyx_pageContents'] ) ) {
-			return;
-		}
-
-		// Also do nothing if we're on NS_SPECIAL (or oter virtual namespaces, though
-		// de facto only NS_SPECIAL pages are exposed in the UI)
-		if ( $skin->getTitle()->getNamespace() < 0 ) {
+		// Do nothing if we're on NS_SPECIAL (or other virtual namespaces, though
+		// de facto only NS_SPECIAL pages are exposed in the UI), unless the page
+		// has been specifically whitelisted for the inclusion of the module
+		if ( $skin->getTitle()->getNamespace() < 0 &&
+			!( $skin->getTitle()->getNamespace() == NS_SPECIAL 
+			&& in_array( $skin->getTitle()->getText(), self::PAGE_CONTENTS_SPECIAL_PAGE_WHITELIST ) ) ) {
 			return;
 		}
 
 		// Open container div for module
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-stickyModules-pageContents',
-			'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky'
+			'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky',
+			'data-min-headings' => $config->getInteger( 'page-contents-min-headings' ),
+			'data-enable-highlighting' => true
 		] );
 
 		// Insert module title
@@ -1042,7 +1069,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Open container div for module content
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-content' ] );
 
-		$this->buildPageContentsModuleList( $html, $config, $this->data['onyx_pageContents'] );
+		$this->buildPageContentsModuleList( $html, $config, [] );
 
 		// Close container div for module content
 		$html .= Html::closeElement( 'div' );
@@ -1059,9 +1086,32 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildPageContentsModuleList( string &$html,
 			Config $config, array $headings ) : void {
-		// Open the unordered list element that will contain the list
-		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-pageContents-list' ] );
+		$html .= Html::openElement( 'template', [ 'id' => 'onyx-pageContents-expandButtonTemplate' ] );
 
+		$html .= Html::rawElement( 'div', [ 'class' => 'onyx-pageContents-expandButton '],
+			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 )
+		);
+
+		$html .= Html::closeElement( 'template' );
+
+		$html .= Html::openElement( 'template', [ 'id' => 'onyx-pageContents-noExpandIconTemplate' ] );
+
+		$html .= Html::rawElement( 'div', [ 'class' => 'onyx-pageContents-noExpandIcon '],
+			Icon::getIcon( 'bullet' )->makeSvg( 14, 14 )
+		);
+
+		$html .= Html::closeElement( 'template' );
+		
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-backToTop' ] );
+
+		$html .= Html::element( 'a', [ 'href' => '#' ], '↑ '.$this->getSkin()->msg( 'onyx-pagecontents-backtotop' )->escaped() );
+		
+		$html .= Html::closeElement( 'div' );
+
+		// Open the unordered list element that will contain the list
+		$html .= Html::openElement( 'ul', [ 'class' => 'onyx-pageContents-list' ] );
+
+		/*
 		// Loop through the list of headings provided
 		foreach ( $headings as $heading ) {
 			// Open a list item for the heading
@@ -1072,12 +1122,12 @@ class OnyxTemplate extends BaseTemplate {
 
 			// Display the heading's prefix (e.g. '2.3.1')
 			$html .= Html::element( 'span', [
-				'id' => 'onyx-pageContents-itemPrefix'
+				'class' => 'onyx-pageContents-itemPrefix'
 				], $heading['prefix'] );
 
 			// Display the heading's title
 			$html .= Html::element( 'span', [
-				'id' => 'onyx-pageContents-itemLabel'
+				'class' => 'onyx-pageContents-itemLabel'
 				], $heading['name'] );
 
 			// Close the link
@@ -1092,6 +1142,7 @@ class OnyxTemplate extends BaseTemplate {
 			// Close the list item for the heading
 			$html .= Html::closeElement( 'li' );
 		}
+		*/
 
 		// Close the list
 		$html .= Html::closeElement( 'ul' );
@@ -1109,7 +1160,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Open container div for module
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-stickyModules-custom',
-			'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky'
+			'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky onyx-sidebarModule-custom'
 		] );
 
 		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Sticky page
@@ -1140,7 +1191,10 @@ class OnyxTemplate extends BaseTemplate {
 
 		// If it exists, display the site notice at the top of the article
 		if ( !empty( $this->data['sitenotice'] ) ) {
-			$html .= Html::openElement( 'div', [ 'id' => 'onyx-content-siteNotice' ] );
+			$html .= Html::openElement( 'div', [
+				'id' => 'onyx-content-siteNotice',
+				'data-site-notice-hash' => hash( 'crc32b', $this->get( 'sitenotice' ) )
+			] );
 
 			// Display the site notice close button
 			$html .= Html::rawElement( 'div', [
@@ -1261,7 +1315,8 @@ class OnyxTemplate extends BaseTemplate {
 	protected function buildFooterLinks( string &$html, Config $config ) : void {
 		// Open container div for footer links
 		$html .= Html::openElement( 'div', [
-			'id' => 'onyx-footerContent-footerLinks'
+			'id' => 'onyx-footerContent-footerLinks',
+			'class' => 'onyx-articleAligned'
 		] );
 
 		foreach ( $this->getFooterLinks() as $category => $links ) {

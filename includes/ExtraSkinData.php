@@ -2,20 +2,13 @@
 
 namespace Onyx;
 
+use \Html;
+
 class ExtraSkinData {
 
 	// The time, in seconds, before cached data should be considered expired
 	// and hence should be refreshed from the database
 	private const CACHE_EXPIRY_TIME = 30;
-
-	// Matches any <hX> element (where X = 1, 2, 3, 4, 5 or 6) where the first
-	// child is a <span> element with the mw-headline class and a specified id,
-	// and with no restrictions placed on what (if anything) follows the first
-	// child. It will capture three pieces of information: the heading "level"
-	// (i.e. the X in hX), the id of the span and the textual content of the
-	// span
-	private const PAGE_CONTENTS_REGEX
-		= '/<h(?<levels>[123456])[^>]*><span[^>]*class="(?:[^"]* )?mw-headline(?: [^"]*)?"[^>]*id="(?<ids>[^" ]*)[^"]*"[^>]*>(?<names>[^<]*)<\/span>.*<\/h[123456]>/';
 
 	public static function extractAndUpdate( array &$data,
 			Config $config ) : void {
@@ -25,10 +18,6 @@ class ExtraSkinData {
 
 		if ( $config->isEnabled( 'enable-recent-changes-module' ) ) {
 			self::getRecentChanges( $data, $config );
-		}
-
-		if ( $config->isEnabled( 'enable-page-contents-module' ) ) {
-			self::getPageContents( $data, $config );
 		}
 	}
 
@@ -48,7 +37,7 @@ class ExtraSkinData {
 
 		if ( !empty( $data['newtalk'] ) ) {
 			$messages[] = [
-				'text' => $data['newtalk']
+				'text' => Html::rawElement( 'div', [], $data['newtalk'] )
 			];
 			$numMessages++;
 		}
@@ -140,27 +129,6 @@ class ExtraSkinData {
 		}
 
 		$data['onyx_recentChanges'] = $recentChanges;
-	}
-
-	protected static function getPageContents( array &$data,
-			Config $config ) : void {
-		$headings = [];
-
-		$num = preg_match_all( self::PAGE_CONTENTS_REGEX, $data['bodytext'],
-				$headings);
-
-		$min = $config->getInteger( 'page-contents-min-headings' );
-
-		if ( $num < $min ) {
-			return;
-		}
-
-		$data['onyx_pageContents'] = [];
-
-		$index = 0;
-
-		self::recursivelyParsePageContents( $data['onyx_pageContents'], $index, 1,
-			'', $headings );
 	}
 
 	protected static function recursivelyParsePageContents(

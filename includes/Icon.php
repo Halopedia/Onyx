@@ -106,7 +106,7 @@ class Icon {
 				[
 					'type' => 'path',
 					'attributes' => [
-						'd' => 'M 2 19 L 7 14 L 7 8 A 4 4 180 0 1 21 8 L 21 14 L 26 19 Z M 18 23 A 4 4 180 0 1 10 23 Z'
+						'd' => 'M 2 21 L 6 15 L 6 10 A 5 5 180 0 1 22 10 L 22 15 L 26 21 Z M 18 21.5 A 4 4.5 180 0 1 10 21.5'
 					]
 				]
 			]
@@ -167,6 +167,18 @@ class Icon {
 					'type' => 'path',
 					'attributes' => [
 						'd' => 'M 2 5 L 12 5 L 7 10 Z'
+					]
+				]
+			]
+		],
+		'bullet' => [
+			'width' => 14,
+			'height' => 14,
+			'content' => [
+				[
+					'type' => 'path',
+					'attributes' => [
+						'd' => 'M 7 4 A 3 3 180 0 0 7 10 A 3 3 180 0 0 7 4 Z'
 					]
 				]
 			]
