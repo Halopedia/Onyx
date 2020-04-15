@@ -350,13 +350,24 @@
 	 * list as the user scrolls
 	 */
 	function addPageContentsEventHandlers() {
+		var $headings = $( HEADING_QUERY );
+		// Return immediately if there are no headings - there would be no point
+		// in adding event handlers in that case
+		if ( $headings.length <= 0 ) {
+			console.log( 'Onyx: No headings found, no event handlers registered.' );
+			return;
+		}
+		// Return immediately if the page contents module has been disabled - there
+		// would be no point in adding event handlers in that case
+		if ( $( '#onyx-pageContents-content' ).length <= 0 ) {
+			console.log( 'Onyx: Page contents module disabled, no event handlers registered.' );
+		}
 		// Pre-generate the necessary data structures, because doing so within the
 		// event handlers would cause noticable lag - *especially* in the scroll
 		// event handler. Performance is critical for the scroll event handler, as
 		// it can cause scrolling to feel laggy for the user on slower machines, if
 		// not performant enough
 		var $banner = $( '#onyx-banner' );
-		var $headings = $( HEADING_QUERY );
 		var sections = [ {
 			$begin: null,
 			$end: $( $headings[0] ),
@@ -415,7 +426,7 @@
 				}
 			} );
 		} );
-		// If the highlighting is enabled, return before the scroll event handler
+		// If the highlighting is disabled, return before the scroll event handler
 		// is added
 		if ( $( '#onyx-stickyModules-pageContents' ).data( 'enableHighlighting' ) === false ) {
 			return;
