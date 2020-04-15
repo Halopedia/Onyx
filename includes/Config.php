@@ -20,8 +20,8 @@ class Config {
 		'recent-changes-amount' => 7,
 		'enable-page-contents-module' => true,
 		'page-contents-min-headings' => 3,
-		'custom-sidebar-static-source' => 'Template:Onyx/Sidebar/Sticky',
-		'custom-sidebar-sticky-source' => 'Template:Onyx/Sidebar/Static',
+		'custom-sidebar-static-source' => 'Template:Onyx/Sidebar/Static',
+		'custom-sidebar-sticky-source' => 'Template:Onyx/Sidebar/Sticky',
 		'use-html5' => true
 	];
 

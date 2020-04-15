@@ -42,8 +42,9 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	public function execute() : void {
 		$config = new Config();
+		$skin = $this->getSkin();
 
-		ExtraSkinData::extractAndUpdate( $this->data, $config );
+		ExtraSkinData::extractAndUpdate( $this->data, $config, $skin );
 
 		// TODO: Migrate to Mustache templates - see TemplateParser and https://www.mediawiki.org/wiki/Manual:HTML_templates
 
@@ -1007,7 +1008,9 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildStaticCustomModule( string &$html, Config $config ) : void {
-		global $wgOut;
+		if ( empty( $this->data['onyx_customSidebarStatic'] ) ) {
+			return;
+		}
 
 		// Open container div for module
 		$html .= Html::openElement( 'div', [
@@ -1015,13 +1018,7 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-sidebarModule onyx-sidebarModule-static onyx-sidebarModule-custom'
 		] );
 
-		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Static page
-		// and insert it into the page
-		$html .= $wgOut->parse( '{{Onyx/Sidebar/Static}}' );
-
-		// NOTE: WikiPage solution isn't ideal for this, as {{PAGENAME}} still
-		//       will return the name of the page that the page the source is in,
-		//       not the page currently being viewed
+		$html .= $this->data['onyx_customSidebarStatic'];
 
 		// Close container div for module
 		$html .= Html::closeElement( 'div' );
@@ -1225,17 +1222,16 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildStickyCustomModule( string &$html, Config $config ) : void {
-		global $wgOut;
+		if ( empty( $this->data['onyx_customSidebarSticky'] ) ) {
+			return;
+		}
 
 		// Open container div for module
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-stickyModules-custom',
 			'class' => 'onyx-sidebarModule onyx-sidebarModule-sticky onyx-sidebarModule-custom'
 		] );
-
-		// Have the MediaWiki parser output the Template:Onyx/Sidebar/Sticky page
-		// and insert it into the page
-		$html .= $wgOut->parse( '{{Onyx/Sidebar/Sticky}}' );
+		$html .= $this->data['onyx_customSidebarSticky'];
 
 		// Close container div for module
 		$html .= Html::closeElement( 'div' );

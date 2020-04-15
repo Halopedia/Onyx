@@ -681,12 +681,12 @@ pre {
 	padding-left: 15px;
 }
 
-.onyx-sidebarModule-custom h1,
-.onyx-sidebarModule-custom h2,
-.onyx-sidebarModule-custom h3,
-.onyx-sidebarModule-custom h4,
-.onyx-sidebarModule-custom h5,
-.onyx-sidebarModule-custom h6 {
+.onyx-sidebarModule-custom > h1,
+.onyx-sidebarModule-custom > h2,
+.onyx-sidebarModule-custom > h3,
+.onyx-sidebarModule-custom > h4,
+.onyx-sidebarModule-custom > h5,
+.onyx-sidebarModule-custom > h6 {
 	margin-left: -15px;
 }
 

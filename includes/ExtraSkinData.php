@@ -11,10 +11,12 @@ class ExtraSkinData {
 	private const CACHE_EXPIRY_TIME = 30;
 
 	public static function extractAndUpdate( array &$data,
-			Config $config ) : void {
+			Config $config, \Skin $skin ) : void {
 		self::getNotifications( $data, $config );
 
 		self::getNavigation( $data, $config );
+
+		self::getCustomSidebarModules( $data, $config, $skin );
 
 		if ( $config->isEnabled( 'enable-recent-changes-module' ) ) {
 			self::getRecentChanges( $data, $config );
@@ -149,36 +151,32 @@ class ExtraSkinData {
 		$data['onyx_recentChanges'] = $recentChanges;
 	}
 
-	protected static function recursivelyParsePageContents(
-			array &$result, int &$index, int $level, string $prefix,
-			array $headings ) : void {
+	protected static function getCustomSidebarModules( array &$data,
+			Config $config, \Skin $skin ) : void {
+		$data['onyx_customSidebarStatic'] = self::renderPage( $config->getString( 'custom-sidebar-static-source' ), $skin );
+		$data['onyx_customSidebarSticky'] = self::renderPage( $config->getString( 'custom-sidebar-sticky-source' ), $skin );
+	}
 
-		if ( isset( $headings['levels'][$index] ) && $level < $headings['levels'][$index] ) {
-			self::recursivelyParsePageContents( $result, $index, $level + 1,
-					$prefix, $headings );
+	protected static function renderPage( string $name, \Skin $skin ) : ?string {
+		if ( empty( $name ) ) {
+			return null;
 		}
-
-		$numHeadings = 1;
-
-		while ( isset( $headings['levels'][$index] )
-				&& $level <= $headings['levels'][$index] ) {
-
-			$currentHeading = [
-				'href-id' => $headings['ids'][$index],
-				'prefix' => $prefix . $numHeadings,
-				'name' => $headings['names'][$index],
-				'children' => []
-			];
-
-			$index++;
-
-			self::recursivelyParsePageContents( $currentHeading['children'],
-					$index, $level + 1, $currentHeading['prefix'] . '.', $headings );
-
-			array_push( $result, $currentHeading );
-
-			$numHeadings++;
+		$title = \Title::newFromText( $name );
+		if ( empty( $title ) ) {
+			return null;
 		}
+		$page = \WikiPage::factory( $title );
+		if ( empty( $page ) ) {
+			return null;
+		}
+		$parserOpt = $page->makeParserOptions( $skin->getContext() );
+		$parserOut = $page->getParserOutput( $parserOpt );
+		$text = $parserOut->getText( [
+      'allowTOC' => false,
+      'enableSectionEditLinks' => false,
+      'unwrap' => true,
+		] );
+		return $text;
 	}
 
 }
