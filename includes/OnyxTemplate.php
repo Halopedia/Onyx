@@ -624,20 +624,6 @@ class OnyxTemplate extends BaseTemplate {
 		// Close h1 element
 		$html .= Html::closeElement( 'h1' );
 
-		// If it exists, insert the subtitle
-		if ( !empty( $this->data['subtitle'] ) ) {
-			$html .= Html::rawElement( 'div',
-				[ 'id' => 'onyx-articleHeader-subtitle' ],
-				$this->get( 'subtitle' ) );
-		}
-
-		// If it exists, insert the article undelete message
-		if ( !empty( $this->data['subtitle'] ) ) {
-			$html .= Html::rawElement('div',
-				[ 'id' => 'onyx-articleHeader-undelete' ],
-				$this->get( 'undelete' ) );
-		}
-
 		// Close container div for article header
 		$html .= Html::closeElement( 'div' );
 	}
@@ -1272,6 +1258,20 @@ class OnyxTemplate extends BaseTemplate {
 	protected function buildArticle( string &$html, Config $config ) : void {
 		// Open container element for article
 		$html .= Html::openElement( 'article', [ 'id' => 'onyx-pageBody-content' ] );
+
+		// If it exists, insert the page subtitle
+		if ( !empty( $this->data['subtitle'] ) ) {
+			$html .= Html::rawElement( 'div',
+				[ 'id' => 'onyx-pageContent-subtitle' ],
+				$this->get( 'subtitle' ) );
+		}
+
+		// If it exists, insert the article undelete message
+		if ( !empty( $this->data['undelete'] ) ) {
+			$html .= Html::rawElement('div',
+				[ 'id' => 'onyx-pageContent-undelete' ],
+				$this->get( 'undelete' ) );
+		}
 
 		// If it exists, display the site notice at the top of the article
 		if ( !empty( $this->data['sitenotice'] ) ) {

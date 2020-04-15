@@ -615,20 +615,20 @@ pre {
 	vertical-align: bottom;
 }
 
-#onyx-articleHeader-subtitle {
-	margin: 0 0 15px 15px;
-	font-style: italic;
-}
-
-#onyx-articleHeader-undelete {
-	margin: 0 0 15px 15px;
-	font-style: italic;
-}
-
 /* PAGE BODY */
 
 #onyx-page-pageBody {
 	padding: 0 15px 0 15px;
+}
+
+#onyx-pageContent-subtitle {
+	margin: 0 0 15px 15px;
+	font-style: italic;
+}
+
+#onyx-pageContent-undelete {
+	margin: 0 0 15px 15px;
+	font-style: italic;
 }
 
 /* SIDEBAR */
