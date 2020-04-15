@@ -162,7 +162,8 @@ class ExtraSkinData {
 			return null;
 		}
 		$title = \Title::newFromText( $name );
-		if ( empty( $title ) ) {
+		if ( empty( $title )
+				|| $title->getNamespace() < 0 ) {
 			return null;
 		}
 		$page = \WikiPage::factory( $title );
