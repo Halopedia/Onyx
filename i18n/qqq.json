@@ -17,6 +17,9 @@
 
 	"onyx-actions-talk": "Text of the talk page button",
 	"onyx-actions-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}",
+	"onyx-actions-cancel": "Text of the cancel edit button",
+	"onyx-actions-cancel": "Text of the back button",
+	"onyx-actions-backtopage": "Text of the return to article button",
 	
 	"onyx-sidebar-label": "Text of the label for the button to toggle the page sidebar visibility",
 	"onyx-sidebar-tooltip": "Text of the tooltip for the button to toggle the page sidebar visibility",

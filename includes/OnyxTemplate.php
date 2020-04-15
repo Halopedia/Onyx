@@ -16,20 +16,15 @@ class OnyxTemplate extends BaseTemplate {
 	 *
 	 * - Language links
 	 * - Search form
+	 * - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
+	 *   are called instead of building stuff manually - BaseTameplate calls the
+	 *   appropriate hooks for us
 	 *
 	 * FUTURE EXTENSIONS:
 	 *
 	 * - Implement dark scheme using CSS media query prefers-color-scheme: dark
 	 * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
-	 * - Read Onyx-specific toolbox links from MediaWiki:Onyx-toolbox
-	 * - Read user-defined Onyx toolbox links from User:USERNAME/Onyx-toolbox
 	 * - Support VisualEditor
-	 * 
-	 * NOTES:
-	 * 
-	 *  - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
-	 *    are called instead of building stuff manually - BaseTameplate calls the
-	 *    appropriate hooks for us
 	 */
 
 	/**
@@ -658,6 +653,11 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildActionButtons( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
+		$isEditing = false;
+		$isHistory = false;
+		$isSpecialAction = false;
+		$isTalkPage = !empty( $skin->getTitle() ) ? $skin->getTitle()->isTalkPage() : false;
+		$view = null;
 		$edit = null;
 		$talk = null;
 		$sidebar = [
@@ -673,13 +673,6 @@ class OnyxTemplate extends BaseTemplate {
 		// Sort through the flat content actions array provided by the API, and
 		// extract, discard and modify what is necessary
 		foreach ( $this->data['content_actions'] as $key => $tab ) {
-			// Discard any content actions of the form 'nstab-***'. These correspond
-			// to the options to view the page itself, which have no need to be
-			// presented to the user when they are already on the page
-			if ( substr( $key, 0, 6 ) === 'nstab-' ) {
-				continue;
-			}
-
 			switch ( $key ) {
 				// If the action is edit or view source, assign the tab array to the
 				// edit variable, and specify the path to the image to use as the
@@ -688,11 +681,17 @@ class OnyxTemplate extends BaseTemplate {
 					$edit = $tab;
 					$edit['imgType'] = 'svg';
 					$edit['imgSrc'] = 'edit';
+					if ( stripos( $tab['class'], 'selected' ) !== false ) {
+						$isEditing = true;
+					}
 					break;
 				case 'viewsource':
 					$edit = $tab;
 					$edit['imgType'] = 'svg';
 					$edit['imgSrc'] = 'view';
+					if ( stripos( $tab['class'], 'selected' ) !== false ) {
+						$isEditing = true;
+					}
 					break;
 				// If the action is talk, assign the tab array to the talk variable and
 				// specify the path to the button icon
@@ -712,35 +711,151 @@ class OnyxTemplate extends BaseTemplate {
 				// growing array of miscellaneous content actions to be displayed in a
 				// drop-down list beneath the edit/view soure button
 				default:
-					$dropdown[$key] = $tab;
+					if ( substr( $key, 0, 6 ) === 'nstab-' ) {
+						$view = $tab;
+					} else {
+						if ( stripos( $tab['class'], 'selected' ) === false ) {
+							$dropdown[$key] = $tab;
+						} else {
+							if ( $key === 'history' ) {
+								$isHistory = true;
+							} else {
+								$isSpecialAction = true;
+							}
+						}
+					}
 					break;
 			}
 		}
 
-		// Add Onyx-specific IDs and classes to the edit and talk buttons
+		// Add Onyx-specific IDs to the view, edit and talk buttons
+		if ( !empty( $view ) ) {
+			$view['id'] .= ' onyx-actions-view';
+		}
 		if ( !empty( $edit ) ) {
 			$edit['id'] .= ' onyx-actions-edit';
-			$edit['class'] .= ' onyx-button onyx-button-primary onyx-button-action';
 		}
 		if ( !empty( $talk ) ) {
 			$talk['id'] .= ' onyx-actions-talk';
-			$talk['class'] .= ' onyx-button onyx-button-secondary onyx-button-action';
 		}
 
-		// If the edit content action is available, display it as a button
-		if ( $edit !== null ) {
-			$this->buildActionButton( $html, $config, $edit );
+		$primary;
+		$secondary;
+		if ( $isEditing || $isSpecialAction ) {
+			if ( $isTalkPage ) {
+				// Primary button leads back to talk page
+				if ( !empty( $talk ) ) {
+					$talk['imgType'] = 'svg';
+					$talk['imgSrc'] = 'cancel';
+					$talk['text'] = $skin->msg( 'onyx-actions-cancel' )->escaped();
+					$primary = $talk;
+				}
+				// Secondary button leads back to article
+				if ( !empty( $view ) ) {
+					$view['imgType'] = 'svg';
+					$view['imgSrc'] = 'back';
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$secondary = $view;
+				}
+			} else {
+				// Primary button leads back to article
+				if ( !empty( $view ) ) {
+					$view['imgType'] = 'svg';
+					$view['imgSrc'] = 'cancel';
+					$view['text'] = $skin->msg( 'onyx-actions-cancel' )->escaped();
+					$primary = $view;
+				}
+				// Secondary button leads to talk page
+				if ( !empty( $talk ) ) {
+					$talk['imgType'] = 'svg';
+					$talk['imgSrc'] = 'talk';
+					$secondary = $talk;
+				}
+			}
+			// Edit pushed to dropdown
+			if ( !$isEditing && !empty( $edit ) ) {
+				array_unshift( $dropdown, $edit );
+			}
+		} else if ( $isHistory ) {
+			if ( $isTalkPage ) {
+				// Primary button leads back to talk page
+				if ( !empty( $talk ) ) {
+					$talk['imgType'] = 'svg';
+					$talk['imgSrc'] = 'back';
+					$talk['text'] = $skin->msg( 'onyx-actions-back' )->escaped();
+					$primary = $talk;
+				}
+				// Secondary button leads back to article
+				if ( !empty( $view ) ) {
+					$view['imgType'] = 'svg';
+					$view['imgSrc'] = 'back';
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$secondary = $view;
+				}
+			} else {
+				// Primary button leads back to article
+				if ( !empty( $view ) ) {
+					$view['imgType'] = 'svg';
+					$view['imgSrc'] = 'back';
+					$view['text'] = $skin->msg( 'onyx-actions-back' )->escaped();
+					$primary = $view;
+				}
+				// Secondary button leads to talk page
+				if ( !empty( $talk ) ) {
+					$secondary = $talk;
+				}
+			}
+			// Edit pushed to dropdown
+			if ( !empty( $edit ) ) {
+				array_unshift( $dropdown, $edit );
+			}
+		} else {
+			if ( $isTalkPage ) {
+				// Primary button leads to talk page edit
+				if ( !empty( $edit ) ) {
+					$primary = $edit;
+				}
+				// Secondary button leads back to article
+				if ( !empty( $view ) ) {
+					$view['imgType'] = 'svg';
+					$view['imgSrc'] = 'back';
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$secondary = $view;
+				}
+			} else {
+				// Primary button leads to article edit
+				if ( !empty( $edit ) ) {
+					$primary = $edit;
+				}
+				// Secondary button leads to talk page
+				if ( !empty( $view ) ) {
+					$secondary = $talk;
+				}
+			}
+		}
+
+		// Add Onyx-specific classes to the primary and secondary buttons
+		if ( !empty( $primary ) ) {
+			$primary['class'] .= ' onyx-button onyx-button-primary onyx-button-action';
+		}
+		if ( !empty( $secondary ) ) {
+			$secondary['class'] .= ' onyx-button onyx-button-secondary onyx-button-action';
+		}
+
+		// If the primary content action is available, display it as a button
+		if ( $primary !== null ) {
+			$this->buildActionButton( $html, $config, $primary );
 		}
 
 		// If there are one or more miscellaneous content actions available,
-		// display them as a drop-down list following the edit button
+		// display them as a drop-down list following the primary button
 		if ( sizeof( $dropdown ) > 0 ) {
 			$this->buildActionDropdown( $html, $config, $dropdown );
 		}
 
-		// If the talk content action is available, display it as a button
-		if ( $talk !== null ) {
-			$this->buildActionButton( $html, $config, $talk );
+		// If the secondary content action is available, display it as a button
+		if ( $secondary !== null ) {
+			$this->buildActionButton( $html, $config, $secondary );
 		}
 
 		// Finally, display the sidebar toggle button, which will always be
@@ -1113,44 +1228,8 @@ class OnyxTemplate extends BaseTemplate {
 		
 		$html .= Html::closeElement( 'div' );
 
-		// Open the unordered list element that will contain the list
-		$html .= Html::openElement( 'ul', [ 'class' => 'onyx-pageContents-list' ] );
-
-		/*
-		// Loop through the list of headings provided
-		foreach ( $headings as $heading ) {
-			// Open a list item for the heading
-			$html .= Html::openElement( 'li', [ 'class' => 'onyx-pageContents-listItem' ] );
-
-			// Open a link that points to the heading's location
-			$html .= Html::openElement( 'a', [ 'href' => '#' . $heading['href-id'] ] );
-
-			// Display the heading's prefix (e.g. '2.3.1')
-			$html .= Html::element( 'span', [
-				'class' => 'onyx-pageContents-itemPrefix'
-				], $heading['prefix'] );
-
-			// Display the heading's title
-			$html .= Html::element( 'span', [
-				'class' => 'onyx-pageContents-itemLabel'
-				], $heading['name'] );
-
-			// Close the link
-			$html .= Html::closeElement( 'a' );
-
-			// If the heading has any subheadings, then recursively build the list
-			// for those too
-			if ( !empty( $heading['children'] ) ) {
-				$this->buildPageContentsModuleList( $html, $config, $heading['children'] );
-			}
-
-			// Close the list item for the heading
-			$html .= Html::closeElement( 'li' );
-		}
-		*/
-
-		// Close the list
-		$html .= Html::closeElement( 'ul' );
+		// Create the unordered list element that will contain the list
+		$html .= Html::element( 'ul', [ 'class' => 'onyx-pageContents-list' ] );
 	}
 
 	/**
