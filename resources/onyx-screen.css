@@ -115,9 +115,8 @@ pre {
 /* ONYX CLASSES */
 .onyx-articleContainer {
 	display: grid;
-	grid-column-gap: 15px;
 	grid-template-columns: 1fr min-content;
-	padding: 0 15px;
+	width: 100%;
 }
 
 .onyx-articleAligned {
@@ -148,6 +147,7 @@ pre {
 	grid-column: 2;
 	max-width: 30vw;
 	width: 340px;
+	padding-left: 15px;
 }
 
 /*
@@ -361,7 +361,7 @@ pre {
 
 .onyx-footerIcons-listItem {
 	display: inline-block;
-	margin: 0 15px 15px 0;
+	margin: 0 0 15px 15px;
 }
 
 .onyx-notifications-numNotifs {
@@ -625,9 +625,16 @@ pre {
 	font-style: italic;
 }
 
+/* PAGE BODY */
+
+#onyx-page-pageBody {
+	padding: 0 15px 0 15px;
+}
+
 /* SIDEBAR */
+
 #onyx-pageBody-sidebar {
-	padding: 0;
+	padding-bottom: 15px;
 }
 
 #onyx-pageBody-sidebar h1 {
@@ -834,12 +841,15 @@ a:hover .onyx-pageContents-itemLabel {
 }
 
 #onyx-footer-footerContent {
-	padding-top: 15px;
-	padding-bottom: 40px;
+	padding: 0 15px 40px 15px;
 }
 
 #onyx-footerContent-footerLinks {
-	padding-left:15px;
+	padding-top: 15px;
+}
+
+#onyx-footerContent-footerIcons {
+	padding-top: 15px;
 }
 
 .onyx-footerLinks-list {
@@ -948,5 +958,16 @@ a:hover .onyx-pageContents-itemLabel {
 	.onyx-sidebarAligned {
 		grid-row: 2;
 		grid-column: 1;
+		padding-left: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#onyx-footerIcons-list {
+		direction: ltr;
+	}
+
+	.onyx-footerIcons-listItem {
+		margin: 0 15px 15px 0;
 	}
 }

@@ -411,14 +411,17 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Open container element for page body (i.e. actual content such as the
 		// article and the sidebar)
-		$html .= Html::openElement( 'section', [ 'id' => 'onyx-page-pageBody',
-			'class' => 'onyx-articleContainer' ] );
+		$html .= Html::openElement( 'section', [ 'id' => 'onyx-page-pageBody' ] );
+
+		$html .= Html::openElement( 'div', [ 'class' => 'onyx-articleContainer' ] );
 
 		// Build the article content
 		$this->buildArticle( $html, $config );
 
 		// Build the sidebar
 		$this->buildSidebar( $html, $config );
+
+		$html .= Html::closeElement( 'div' );
 
 		// Close container element for page body
 		$html .= Html::closeElement( 'section' );
@@ -1254,8 +1257,15 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Open container element for footer content
 		$html .= Html::openElement( 'div', [
-			'id' => 'onyx-footer-footerContent',
-			'class' => 'onyx-pageAligned onyx-articleContainer'
+			'class' => 'onyx-pageAligned'
+		] );
+
+		$html .= Html::openElement( 'div', [
+			'id' => 'onyx-footer-footerContent'
+		] );
+
+		$html .= Html::openElement( 'div', [
+			'class' => 'onyx-articleContainer'
 		] );
 
 		// Build the footer links
@@ -1263,6 +1273,10 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Build the footer icons
 		$this->buildFooterIcons( $html, $config );
+
+		$html .= Html::closeElement( 'div' );
+
+		$html .= Html::closeElement( 'div' );
 
 		// Close container element for footer content
 		$html .= Html::closeElement( 'div' );
