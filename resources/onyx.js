@@ -33,14 +33,15 @@
 	/**
 	 * A shorthand for a selector query that will select all of the headings in
 	 * the main body of the article, save for those within the table of contents
-	 * included in some articles
+	 * included in some articles, or built-in headings on pages such as the
+	 * history page
 	 */
-	const HEADING_QUERY = '#mw-content-text h1:not(.toc h1), '
-		+ '#mw-content-text h2:not(.toc h2), '
-		+ '#mw-content-text h3:not(.toc h3), '
-		+ '#mw-content-text h4:not(.toc h4), '
-		+ '#mw-content-text h5:not(.toc h5), '
-		+ '#mw-content-text h6:not(.toc h6)';
+	const HEADING_QUERY = '#mw-content-text h1:not(.toc h1, .diff-currentversion-title), '
+		+ '#mw-content-text h2:not(.toc h2, .diff-currentversion-title), '
+		+ '#mw-content-text h3:not(.toc h3, .diff-currentversion-title), '
+		+ '#mw-content-text h4:not(.toc h4, .diff-currentversion-title), '
+		+ '#mw-content-text h5:not(.toc h5, .diff-currentversion-title), '
+		+ '#mw-content-text h6:not(.toc h6, .diff-currentversion-title)';
 
 		/* FUNCTIONS */
 
@@ -187,13 +188,16 @@
 			var $label = $( '<span/> ', { class: 'onyx-pageContents-itemLabel' } )
 				.html( getName( $headings[i] ) );
 			var $listItem = $( '<li/>', { class: 'onyx-pageContents-listItem' } );
-			if ( getId( $headings[i] ) != null ) {
-				var $link = $( '<a/>', { href: `#${getId( $headings[i] )}` } )
-					.append( $prefix, $label );
-				$listItem.append( $link );
-			} else {
-				$listItem.append( $prefix, $label );
+			var $id = getId( $headings[i] );
+			if ( !getId( $headings[i] ) ) {
+				// If it doesn't already have an id, give it a custom unique one, so
+				// that we can link to it from the page contents
+				$id = `onyx-heading-noId${i}`;
+				$( $headings[i] ).attr( 'id', $id );
 			}
+			var $link = $( '<a/>', { href: `#${$id}` } )
+				.append( $prefix, $label );
+			$listItem.append( $link );
 			// Create a new unordered list to store the subheadings of this heading
 			var $nestedList = $( '<ul/>', { class: 'onyx-pageContents-list' } );
 			// Recurse down a level, passing this new list as the $dest for all list
