@@ -15,7 +15,8 @@ class OnyxTemplate extends BaseTemplate {
 	/* TODO:
 	 *
 	 * - Language links
-	 * - Search form
+	 * - Search form - button search icon
+	 * - Edit section links - icons
 	 * - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
 	 *   are called instead of building stuff manually - BaseTameplate calls the
 	 *   appropriate hooks for us
