@@ -641,10 +641,12 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildActionButtons( string &$html, Config $config ) : void {
 		$skin = $this->getSkin();
+		$title = $skin->getTitle();
+		$talkTitle = empty( $title ) ? null : $title->getTalkPageIfDefined();
 		$isEditing = false;
 		$isHistory = false;
 		$isSpecialAction = false;
-		$isTalkPage = !empty( $skin->getTitle() ) ? $skin->getTitle()->isTalkPage() : false;
+		$isTalkPage = !empty( $title ) ? $title->isTalkPage() : false;
 		$view = null;
 		$edit = null;
 		$talk = null;
@@ -736,6 +738,12 @@ class OnyxTemplate extends BaseTemplate {
 					$talk['imgType'] = 'svg';
 					$talk['imgSrc'] = 'cancel';
 					$talk['text'] = $skin->msg( 'onyx-actions-cancel' )->escaped();
+					// Set href to the talk URL, so that if the talk page doesn't exist,
+					// clicking the button while editing it doesn't use the redlink URL
+					// that would take the user straight back to edit page
+					if ( !empty( $talkTitle ) ) {
+						$talk['href'] = $talkTitle->getLinkURL();
+					}
 					$primary = $talk;
 				}
 				// Secondary button leads back to article
@@ -751,6 +759,12 @@ class OnyxTemplate extends BaseTemplate {
 					$view['imgType'] = 'svg';
 					$view['imgSrc'] = 'cancel';
 					$view['text'] = $skin->msg( 'onyx-actions-cancel' )->escaped();
+					// Set href to the page URL, so that if the page doesn't exist,
+					// clicking the button while editing it doesn't use the redlink URL
+					// that would take the user straight back to edit page
+					if ( !empty( $title ) ) {
+						$view['href'] = $title->getLinkURL();
+					}
 					$primary = $view;
 				}
 				// Secondary button leads to talk page
