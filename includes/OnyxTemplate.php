@@ -742,7 +742,7 @@ class OnyxTemplate extends BaseTemplate {
 				if ( !empty( $view ) ) {
 					$view['imgType'] = 'svg';
 					$view['imgSrc'] = 'back';
-					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage', $view['text'] )->escaped();
 					$secondary = $view;
 				}
 			} else {
@@ -777,7 +777,7 @@ class OnyxTemplate extends BaseTemplate {
 				if ( !empty( $view ) ) {
 					$view['imgType'] = 'svg';
 					$view['imgSrc'] = 'back';
-					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage', $view['text'] )->escaped();
 					$secondary = $view;
 				}
 			} else {
@@ -807,7 +807,7 @@ class OnyxTemplate extends BaseTemplate {
 				if ( !empty( $view ) ) {
 					$view['imgType'] = 'svg';
 					$view['imgSrc'] = 'back';
-					$view['text'] = $skin->msg( 'onyx-actions-backtopage' )->escaped();
+					$view['text'] = $skin->msg( 'onyx-actions-backtopage', $view['text'] )->escaped();
 					$secondary = $view;
 				}
 			} else {

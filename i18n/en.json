@@ -19,7 +19,7 @@
 	"onyx-actions-addsection": "Add new section",
 	"onyx-actions-cancel": "Cancel",
 	"onyx-actions-back": "Back",
-	"onyx-actions-backtopage": "Back to page",
+	"onyx-actions-backtopage": "Back to $1",
 
 	"onyx-sidebar-label": "Sidebar",
 	"onyx-sidebar-tooltip": "Expand or collapse the sidebar",
