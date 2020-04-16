@@ -762,6 +762,7 @@ pre {
 	min-height: 20px;
 	justify-content: center;
 	align-items: center;
+	user-select: none;
 }
 
 .onyx-pageContents-expandButton svg,
@@ -921,10 +922,6 @@ a:hover .onyx-pageContents-itemLabel {
 }
 
 #onyx-tools-list > li > a {
-	color: #fff;
-}
-
-#onyx-tools-list li a {
 	color: #fff;
 }
 
