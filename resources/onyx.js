@@ -182,22 +182,34 @@
 		// dealing with
 		while ( $headings[i] != null
 			&& level <= getLevel( $headings[i] ) ) {
+			// Add an invisible element to the heading to link to from the page
+			// contents list. This allows the element to be styled in such a way that
+			// pressing a link to 
+			var id = getId( $headings[i] );
+			if ( id == null || id == '' ) {
+				id = `onyx-section-noId${i}`;
+			} else {
+				// Remove the id from whatever element had it previously, if any. The
+				// HTML id should be unique. We do not simply generate new unique ids,
+				// so that the built-in MediaWiki ToC still works, and so users can
+				// click a sidebar ToC link and then copy the URL, and it will still
+				// lead to the correct subheading even on other skins
+				$( `#${id} ` ).removeAttr( 'id' );
+			}
+			var $linkDest = $( '<div/>', {
+				class: 'onyx-section-begin',
+				id: id
+			} );
+			$( $headings[i] ).prepend( $linkDest );
 			// Construct a list item to insert into the list
 			var $prefix = $( '<span/>', { class: 'onyx-pageContents-itemPrefix' } )
 				.html( `${prefix}${n}` );
 			var $label = $( '<span/> ', { class: 'onyx-pageContents-itemLabel' } )
 				.html( getName( $headings[i] ) );
-			var $listItem = $( '<li/>', { class: 'onyx-pageContents-listItem' } );
-			var $id = getId( $headings[i] );
-			if ( !getId( $headings[i] ) ) {
-				// If it doesn't already have an id, give it a custom unique one, so
-				// that we can link to it from the page contents
-				$id = `onyx-heading-noId${i}`;
-				$( $headings[i] ).attr( 'id', $id );
-			}
-			var $link = $( '<a/>', { href: `#${$id}` } )
+			var $link = $( '<a/>', { href: `#${id}` } )
 				.append( $prefix, $label );
-			$listItem.append( $link );
+			var $listItem = $( '<li/>', { class: 'onyx-pageContents-listItem' } )
+				.append( $link );
 			// Create a new unordered list to store the subheadings of this heading
 			var $nestedList = $( '<ul/>', { class: 'onyx-pageContents-list' } );
 			// Recurse down a level, passing this new list as the $dest for all list
@@ -354,7 +366,7 @@
 	 * list as the user scrolls
 	 */
 	function addPageContentsEventHandlers() {
-		var $headings = $( HEADING_QUERY );
+		var $headings = $( '.onyx-section-begin' );
 		// Return immediately if there are no headings - there would be no point
 		// in adding event handlers in that case
 		if ( $headings.length <= 0 ) {
@@ -374,17 +386,17 @@
 		var $banner = $( '#onyx-banner' );
 		var sections = [ {
 			$begin: null,
-			$end: $( $headings[0] ),
+			$end: $( $headings[0] ).parent(),
 			id: null,
 			$link: $(),
 			$parents: $()
 		} ];
 		for ( var i = 0; i < $headings.length; i++ ) {
 			sections[i + 1] = {
-				$begin: $( $headings[i] ),
-				$end: $headings[i + 1] == null ? null : $( $headings[i + 1] ),
-				id: getId( $headings[i] ),
-				$link: $( `.onyx-pageContents-listItem a[href="#${getId( $headings[i] )}"]` ).parent(),
+				$begin: $( $headings[i] ).parent(),
+				$end: $headings[i + 1] == null ? null : $( $headings[i + 1] ).parent(),
+				id: $( $headings[i] ).attr( 'id' ),
+				$link: $( `.onyx-pageContents-listItem a[href="#${$( $headings[i] ).attr( 'id' )}"]` ).parent(),
 				$parents: $()
 			};
 			var $elem = sections[i + 1].$link;
