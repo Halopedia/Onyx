@@ -15,16 +15,24 @@ class OnyxTemplate extends BaseTemplate {
 	/* TODO:
 	 *
 	 * - Language links
-	 * - Search form - button search icon
+	 * 
 	 * - Edit section links - icons
+	 * 
 	 * - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
 	 *   are called instead of building stuff manually - BaseTameplate calls the
 	 *   appropriate hooks for us
+	 * 
+	 * - Migrate to Mustache templates - see TemplateParser and
+	 * 	 https://www.mediawiki.org/wiki/Manual:HTML_templates
+	 * 
+	 * - Migrate to LESS for stylesheets - can just slot in in place of CSS
 	 *
 	 * FUTURE EXTENSIONS:
 	 *
 	 * - Implement dark scheme using CSS media query prefers-color-scheme: dark
+	 * 
 	 * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
+	 * 
 	 * - Support VisualEditor
 	 */
 
@@ -46,8 +54,6 @@ class OnyxTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 
 		ExtraSkinData::extractAndUpdate( $this->data, $config, $skin );
-
-		// TODO: Migrate to Mustache templates - see TemplateParser and https://www.mediawiki.org/wiki/Manual:HTML_templates
 
 		// Initialise HTML string as a empty string
 		$html = '';
@@ -365,7 +371,17 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-search-input'
 		] );
 
-		$html .= Html::openElement('div');
+		$html .= Html::openElement( 'div', [
+			'id' => 'onyx-search-buttonContainer',
+			'class' => 'onyx-bannerOption-button'
+		] );
+
+		// Insert search icon
+		$html .= Html::rawElement( 'div', [
+			'id' => 'onyx-search-buttonIcon',
+			'class' => 'onyx-bannerOption-icon' ],
+			Icon::getIcon( 'search' )->makeSvg( 28, 28 )
+		);
 
 		// Insert search button
 		$html .= $this->makeSearchButton( 'go', [
@@ -379,7 +395,7 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'mw-fallbackSearchButton onyx-search-button'
 		] );
 
-		$html .= Html::closeElement('div');
+		$html .= Html::closeElement( 'div' );
 
 		// Close form
 		$html .= Html::closeElement( 'form' );
@@ -633,9 +649,6 @@ class OnyxTemplate extends BaseTemplate {
 		// Close container div for article header
 		$html .= Html::closeElement( 'div' );
 	}
-
-	// TODO: Clean up the following three functions (buildActionButtons,
-	//       buildActionButton and buildActionDropdown).
 
 	/**
 	 * Builds HTML code to present the content action options to the user, and

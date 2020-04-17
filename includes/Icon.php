@@ -99,6 +99,18 @@ class Icon {
 				]
 			]
 		],
+		'search' => [
+			'width' => 28,
+			'height' => 28,
+			'content' => [
+				[
+					'type' => 'path',
+					'attributes' => [
+						'd' => 'M 12 2 A 10 10 0 0 0 12 22 A 10 10 0 0 0 12 2 Z M 19 19 L 26 26'
+					]
+				]
+			]
+		],
 		'notification' => [
 			'width' => 28,
 			'height' => 28,

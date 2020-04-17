@@ -296,7 +296,8 @@ pre {
 	transition: 0.4s;
 }
 
-.onyx-bannerOption:hover > .onyx-bannerOption-button {
+.onyx-bannerOption:hover > .onyx-bannerOption-button,
+#onyx-search-buttonContainer:hover {
 	background-color: #444;
 	transition: 0.4s;
 }
@@ -313,7 +314,8 @@ pre {
 	transition: 0.4s;
 }
 
-.onyx-bannerOption:hover .onyx-bannerOption-icon {
+.onyx-bannerOption:hover .onyx-bannerOption-icon,
+#onyx-search-buttonContainer:hover > #onyx-search-buttonIcon {
 	stroke: #ffffff;
 	transition: 0.4s;
 }
@@ -417,6 +419,8 @@ pre {
 	max-width: 350px;
 }
 
+	/* SEARCH FORM */
+
 #onyx-banner-search {
 	width: 100%;
 	display: flex;
@@ -447,10 +451,21 @@ pre {
 	transition: 0.4s;
 }
 
+#onyx-search-buttonContainer {
+	position: relative;
+	margin-left: 5px;
+}
+
 .onyx-search-button {
-	height: 45px;
-	min-width: 45px;
-	margin: 5px 0 5px 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: transparent !important;
+	background: transparent !important;
+	border: none !important;
+	margin: 0 !important;
 }
 
 #onyx-banner-userOptions {
