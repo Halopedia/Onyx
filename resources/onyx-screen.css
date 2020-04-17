@@ -835,7 +835,8 @@ a:hover .onyx-pageContents-itemLabel {
 
 /* ARTICLE CONTENT */
 #onyx-pageBody-content {
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
 	padding: 0 0 15px 0;
 }
 
