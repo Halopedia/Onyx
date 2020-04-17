@@ -365,6 +365,8 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-search-input'
 		] );
 
+		$html .= Html::openElement('div');
+
 		// Insert search button
 		$html .= $this->makeSearchButton( 'go', [
 			'id' => 'searchButton',
@@ -376,6 +378,8 @@ class OnyxTemplate extends BaseTemplate {
 			'id' => 'mw-searchButton',
 			'class' => 'mw-fallbackSearchButton onyx-search-button'
 		] );
+
+		$html .= Html::closeElement('div');
 
 		// Close form
 		$html .= Html::closeElement( 'form' );
@@ -644,6 +648,7 @@ class OnyxTemplate extends BaseTemplate {
 		$title = $skin->getTitle();
 		$talkTitle = empty( $title ) ? null : $title->getTalkPageIfDefined();
 		$isEditing = false;
+		$isViewSource = false;
 		$isHistory = false;
 		$isSpecialAction = false;
 		$isTalkPage = !empty( $title ) ? $title->isTalkPage() : false;
@@ -680,7 +685,7 @@ class OnyxTemplate extends BaseTemplate {
 					$edit['imgType'] = 'svg';
 					$edit['imgSrc'] = 'view';
 					if ( stripos( $tab['class'], 'selected' ) !== false ) {
-						$isEditing = true;
+						$isViewSource = true;
 					}
 					break;
 				// If the action is talk, assign the tab array to the talk variable and
@@ -778,7 +783,7 @@ class OnyxTemplate extends BaseTemplate {
 			if ( !$isEditing && !empty( $edit ) ) {
 				array_unshift( $dropdown, $edit );
 			}
-		} else if ( $isHistory ) {
+		} else if ( $isHistory || $isViewSource ) {
 			if ( $isTalkPage ) {
 				// Primary button leads back to talk page
 				if ( !empty( $talk ) ) {
@@ -808,7 +813,7 @@ class OnyxTemplate extends BaseTemplate {
 				}
 			}
 			// Edit pushed to dropdown
-			if ( !empty( $edit ) ) {
+			if ( !$isViewSource && !empty( $edit ) ) {
 				array_unshift( $dropdown, $edit );
 			}
 		} else {
