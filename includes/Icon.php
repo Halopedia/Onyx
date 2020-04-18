@@ -130,7 +130,7 @@ class Icon {
 				[
 					'type' => 'path',
 					'attributes' => [
-						'd' => 'M 2 6 L 26 6 L 26 24 L 2 24 Z M 2 9 L 14 19 L 26 9 L 26 24 L 2 24 Z M 2 24 L 10 16 Z M 26 24 L 18 16 Z'
+						'd' => 'M 2 5 L 26 5 L 26 23 L 2 23 Z M 2 9 L 14 19 L 26 9 L 26 23 L 2 23 Z M 2 23 L 10 15 Z M 26 23 L 18 15 Z'
 					]
 				]
 			]
