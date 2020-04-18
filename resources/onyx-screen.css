@@ -465,6 +465,7 @@ pre {
 	color: transparent !important;
 	background: transparent !important;
 	border: none !important;
+	border-radius: 0 !important;
 	margin: 0 !important;
 }
 
