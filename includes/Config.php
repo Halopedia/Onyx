@@ -58,7 +58,7 @@ class Config {
 		'banner-logo' => 'wgOnyxBannerLogo',
 		'use-banner-logo-image' => 'wgOnyxUserBannerLogoImage',
 		'header-logo' => 'wgOnyxHeaderLogo',
-		'use-sys-message-for-header-tagline' => 'wgOnyxUserSysMessageForHeaderTagline',
+		'use-sys-message-for-header-tagline' => 'wgOnyxUseSysMessageForHeaderTagline',
 		'header-tagline-sys-message-source' => 'wgOnyxHeaderTaglineSysMessageSource',
 		'show-sidebar-by-default' => 'wgOnyxShowSidebarByDefault',
 		'show-sidebar-by-default-on-edit' => 'wgOnyxShowSidebarByDefaultOnEdit',
