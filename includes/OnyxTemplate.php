@@ -543,15 +543,24 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildTagline( string &$html, Config $config ) : void {
+		$skin = $this->getSkin();
+
 		// Open container div for tagline
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-wikiHeader-tagline' ] );
 
-		// Create heading element containing the tagline, or alternatively the wiki
-		// name if no tagline is available
-		$html .= Html::rawElement( 'h1', [ 'id' => 'onyx' ],
-			$this->getSkin()->msg( 'tagline' )->exists()
-			? $this->getSkin()->msg( 'tagline' )->parse()
-			: $this->data['sitename'] );
+		if ( $config->isEnabled( 'use-sys-message-for-header-tagline' ) ) {
+			$msg = $skin->msg( $config->getString( 'header-tagline-sys-message-source' ) )->exists()
+				? $skin->msg( $config->getString( 'header-tagline-sys-message-source' ) )
+				: $this->getSkin()->msg( 'tagline' );
+			$tagline = $msg->exists()
+				? $msg->parse()
+				: $this->data['sitename'];
+		} else {
+			$tagline = $this->data['sitename'];
+		}
+
+		// Create heading element containing the tagline
+		$html .= Html::rawElement( 'h1', [ 'id' => 'onyx' ], $tagline );
 
 		// Close container div
 		$html .= Html::closeElement( 'div' );
