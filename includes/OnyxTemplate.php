@@ -197,7 +197,16 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-personalTools-list',
 			'class' => 'onyx-dropdown-list' ] );
 
-		foreach ( $this->data['personal_urls'] as $key => $item ) {
+		$personalUrls = $this->data['personal_urls'];
+		// If we have Echo icons, remove them from the user menu
+		if ( isset( $personalUrls['notifications-alert'] ) && $personalUrls['notifications-alert'] ) {
+			unset( $personalUrls['notifications-alert'] );
+		}
+		if ( isset( $personalUrls['notifications-notice'] ) && $personalUrls['notifications-notice'] ) {
+			unset( $personalUrls['notifications-notice'] );
+		}
+
+		foreach ( $personalUrls as $key => $item ) {
 			switch ( $key ) {
 				case 'userpage':
 					$item['text'] = $skin->msg( 'onyx-personaltools-userpage' )->escaped();
