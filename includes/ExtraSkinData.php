@@ -145,7 +145,6 @@ class ExtraSkinData {
 			}
 
 			$wgMemc->set( $cacheKey, $recentChanges, $cacheExpiryTime );
-
 		}
 
 		$data['onyx_recentChanges'] = $recentChanges;
@@ -161,22 +160,29 @@ class ExtraSkinData {
 		if ( empty( $name ) ) {
 			return null;
 		}
+
 		$title = \Title::newFromText( $name );
-		if ( empty( $title )
-				|| $title->getNamespace() < 0 ) {
+		if ( empty( $title ) || $title->getNamespace() < 0 ) {
 			return null;
 		}
+
 		$page = \WikiPage::factory( $title );
 		if ( empty( $page ) ) {
 			return null;
 		}
+
 		$parserOpt = $page->makeParserOptions( $skin->getContext() );
 		$parserOut = $page->getParserOutput( $parserOpt );
-		$text = $parserOut->getText( [
-      'allowTOC' => false,
-      'enableSectionEditLinks' => false,
-      'unwrap' => true,
-		] );
+		$text = null;
+
+		if ( $parserOut ) {
+			$text = $parserOut->getText( [
+				'allowTOC' => false,
+				'enableSectionEditLinks' => false,
+				'unwrap' => true,
+			] );
+		}
+
 		return $text;
 	}
 
