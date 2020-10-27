@@ -598,6 +598,10 @@ pre {
 	text-decoration: none;
 }
 
+.client-nojs #onyx-actions-toggleSidebar {
+	display: none;
+}
+
 #onyx-actions-actionsList {
 	display: inline-block;
 	margin: 15px 0 15px 2px;
