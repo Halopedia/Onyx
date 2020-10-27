@@ -98,7 +98,7 @@
 		var $contentsModule = $( '#onyx-stickyModules-pageContents' );
 		// If the contents module DOM element doesn't exist, it means the page
 		// contents module was disabled server-side, so do nothing
-		if ( $contentsModule == null || $contentsModule[0] == null) {
+		if ( $contentsModule == null || $contentsModule[0] == null ) {
 			console.log( 'Onyx: Page contents module disabled server-side.' );
 			return;
 		}
@@ -153,7 +153,7 @@
 	 */
 	function recursivelyBuildPageContentsList( $dest, pos, level, prefix, $headings ) {
 		// Guard for index going out of bounds
-		if ( $headings[pos.index] == null) {
+		if ( $headings[pos.index] == null ) {
 			return pos;
 		}
 		// If we're not at the right depth to process the current heading, recurse
@@ -180,8 +180,7 @@
 		// Loop through the $headings array until we either hit its end, or
 		// encounter a heading that's below the level that we're meant to be
 		// dealing with
-		while ( $headings[i] != null
-			&& level <= getLevel( $headings[i] ) ) {
+		while ( $headings[i] != null && level <= getLevel( $headings[i] ) ) {
 			// Add an invisible element to the heading to link to from the page
 			// contents list. This allows the element to be styled in such a way that
 			// pressing a link to 
@@ -307,8 +306,10 @@
 	 */
 	function toggleSidebar() {
 		var $sidebar = $( '#onyx-pageBody-sidebar' );
-		if ( $sidebar.css( 'visibility' ) === 'visible'
-			|| $sidebar.css( 'visibility' ) === '' ) {
+		if (
+			$sidebar.css( 'visibility' ) === 'visible' ||
+			$sidebar.css( 'visibility' ) === ''
+		) {
 			// If currently visible, hide the sidebar
 			$sidebar.hide();
 			$sidebar.css( 'visibility', 'hidden' );
@@ -353,10 +354,10 @@
 		var $footer = $( '#onyx-footer' );
 		// Reset the footer height to its default value
 		$footer.height( 'auto' );
-		if ( $(window).height() > $footer.offset().top + $footer.outerHeight( false )) {
+		if ( $( window ).height() > $footer.offset().top + $footer.outerHeight( false ) ) {
 			// If the footer is not large enough to fill the bottom of the page,
 			// resize its outer height accordingly
-			$footer.outerHeight( $(window).height() - $footer.offset().top, false );
+			$footer.outerHeight( $( window ).height() - $footer.offset().top, false );
 		}
 	}
 
@@ -404,7 +405,7 @@
 			// parent of it, up to the root of the page contents list - i.e. every
 			// list item that needs to have its contents set to "expanded" in order
 			// for the current list item and its direct child list to be visible
-			while ( $elem.prop('tagName') == 'LI' || $elem.prop('tagName') == 'UL' ) {
+			while ( $elem.prop( 'tagName' ) == 'LI' || $elem.prop( 'tagName' ) == 'UL' ) {
 				if ( $elem.hasClass( 'onyx-pageContents-listItem' ) ) {
 					sections[i + 1].$parents = $.merge( sections[i + 1].$parents, $elem );
 				}

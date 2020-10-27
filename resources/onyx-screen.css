@@ -104,7 +104,7 @@ pre {
 }
 
 .postedit-container {
-	top: 55px!important;
+	top: 55px !important;
 }
 
 /* ONYX CLASSES */
@@ -123,7 +123,7 @@ pre {
  * This class is used to align elements with the fixed-width page itself, so
  * that they are in line with it vertically, and have the same width.
  */
- .onyx-pageAligned {
+.onyx-pageAligned {
 	max-width: 90vw;
 	width: 1440px;
 	min-width: 50vw;
@@ -136,7 +136,7 @@ pre {
  * are in line with it vertically, and have the same width. This only works if
  * the element is a child of an element of the onyx-pageAligned class, and a
  * direct child of the onyx-articleContainer class.
-*/
+ */
 .onyx-sidebarAligned {
 	grid-row: 1;
 	grid-column: 2;
@@ -242,7 +242,7 @@ pre {
 	min-width: 200px;
 	margin: 0;
 	padding: 10px;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 	z-index: 999;
 }
 
@@ -760,7 +760,6 @@ pre {
 #onyx-pageContents-content > .onyx-pageContents-list {
 	margin-left: 0;
 }
-
 
 .onyx-pageContents-listItem > ul {
 	display: none;
