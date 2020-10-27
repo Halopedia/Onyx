@@ -765,8 +765,8 @@ class OnyxTemplate extends BaseTemplate {
 			$talk['id'] .= ' onyx-actions-talk';
 		}
 
-		$primary;
-		$secondary;
+		$primary = null;
+		$secondary = null;
 		if ( $isEditing || $isSpecialAction ) {
 			if ( $isTalkPage ) {
 				// Primary button leads back to talk page
