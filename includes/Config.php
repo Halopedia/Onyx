@@ -17,7 +17,7 @@ class Config {
 		'show-sidebar-by-default' => true,
 		'show-sidebar-by-default-on-edit' => false,
 		'show-sidebar-by-default-on-main-page' => false,
-		'enable-recent-changes-module' => true,
+		'enable-recent-changes-module' => false,
 		'recent-changes-cache-expiry-time' => 30,
 		'recent-changes-amount' => 7,
 		'enable-page-contents-module' => true,

@@ -1514,7 +1514,7 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-tools-list' ] );
 
 		// Make a list item for each of the tool links
-		foreach ( $this->getToolbox() as $key => $toolboxItem ) {
+		foreach ( $this->data['sidebar']['TOOLBOX'] ?? [] as $key => $toolboxItem ) {
 			$html .= $this->makeListItem( $key, $toolboxItem );
 		}
 
