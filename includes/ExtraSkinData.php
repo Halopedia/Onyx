@@ -56,8 +56,6 @@ class ExtraSkinData {
 
 	protected static function getRecentChanges( array &$data,
 			Config $config ) : void {
-		global $wgVersion;
-
 		$amount = $config->getInteger( 'recent-changes-amount' );
 		$cacheExpiryTime = $config->getInteger( 'recent-changes-cache-expiry-time' );
 
@@ -71,23 +69,12 @@ class ExtraSkinData {
 
 			$database = wfGetDB( DB_REPLICA );
 
-			if ( version_compare( $wgVersion, '1.34', '>=' ) ) {
-				// rc_user & rc_user_text are gone in 1.34
-				$fields = [
-					'rc_timestamp', 'rc_actor', 'rc_namespace',
-					'rc_title', 'rc_type',
-				];
-			} else {
-				$fields = [
-					'rc_timestamp', 'rc_actor', 'rc_namespace',
-					'rc_title', 'rc_type',
-					'rc_user', 'rc_user_text'
-				];
-			}
-
 			$rawRecentChanges = $database->select(
 				'recentchanges',
-				$fields,
+				[
+					'rc_timestamp', 'rc_actor', 'rc_namespace',
+					'rc_title', 'rc_type',
+				],
 				[
 					'rc_bot <> 1',
 					'rc_type <> ' . RC_EXTERNAL,
@@ -103,12 +90,7 @@ class ExtraSkinData {
 			$recentChanges = [];
 
 			foreach ( $rawRecentChanges as $recentChange ) {
-				if ( empty( $recentChange->rc_actor ) ) {
-					$actorId = $recentChange->rc_user_text;
-				} else {
-					$actorId = $recentChange->rc_actor;
-				}
-
+				$actorId = $recentChange->rc_actor;
 				$actor = isset( $actors[$actorId] ) ? $actors[$actorId] : '';
 
 				if ( empty( $actor ) ) {
@@ -120,16 +102,8 @@ class ExtraSkinData {
 					);
 
 					$actor = [];
-
-					if ( empty( $actorRaw ) ) {
-						// If no results are found in the actors table, default to the
-						// deprecated rc_user_text and rc_user fields
-						$actor['name'] = $recentChange->rc_user_text;
-						$actor['anon'] = empty( $recentChange->rc_user );
-					} else {
-						$actor['name'] = $actorRaw->actor_name;
-						$actor['anon'] = empty( $actorRaw->actor_user );
-					}
+					$actor['name'] = $actorRaw->actor_name;
+					$actor['anon'] = empty( $actorRaw->actor_user );
 
 					$actors[$actorId] = $actor;
 				}
