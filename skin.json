@@ -30,6 +30,7 @@
 
 	"ResourceModules": {
 		"skins.onyx.styles": {
+			"class": "ResourceLoaderSkinModule",
 			"styles": {
 				"resources/onyx-screen.css": {
 					"media": "screen"
