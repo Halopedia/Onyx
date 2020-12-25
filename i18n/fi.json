@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"onyx-skin-desc": "Ulkoasu, joka on suunniteltu Wikian käyttämän Oasis-ulkoasun kaltaiseksi, parannelluksi versioksi.",
+	"onyx-notifications-nonotifs": "Sinulla ei ole uusia ilmoituksia!",
+	"onyx-notifications-nomessages": "Sinulla ei ole uusia viestejä!",
+	"onyx-personaltools-anonusername": "Anonyymi",
+	"onyx-personaltools-userpage": "Käyttäjäsivu",
+	"onyx-personaltools-usertalk": "Käyttäjän keskustelusivu",
+	"onyx-personaltools-anontalk": "Keskustelusivu",
+	"onyx-actions-talk": "Keskustelu",
+	"onyx-actions-addsection": "Lisää uusi osio",
+	"onyx-actions-cancel": "Peruuta",
+	"onyx-actions-back": "Takaisin",
+	"onyx-actions-backtopage": "Takaisin sivulle $1",
+	"onyx-sidebar-label": "Sivupalkki",
+	"onyx-sidebar-tooltip": "Näytä tai piilota sivupalkki",
+	"onyx-pagecontents-backtotop": "Takaisin sivun alkuun"
+}
