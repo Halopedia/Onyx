@@ -3,6 +3,7 @@
 namespace Onyx;
 
 use \Html;
+use \MediaWiki\MediaWikiServices;
 
 class ExtraSkinData {
 
@@ -55,15 +56,14 @@ class ExtraSkinData {
 
 	protected static function getRecentChanges( array &$data,
 			Config $config ) : void {
-		global $wgMemc, $wgVersion;
+		global $wgVersion;
 
 		$amount = $config->getInteger( 'recent-changes-amount' );
-
 		$cacheExpiryTime = $config->getInteger( 'recent-changes-cache-expiry-time' );
 
-		$cacheKey = $wgMemc->makeKey( 'onyx_recentChanges', $amount );
-
-		$recentChanges = $wgMemc->get( $cacheKey );
+		$cacheObj = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$cacheKey = $cacheObj->makeKey( 'onyx_recentChanges', $amount );
+		$recentChanges = $cacheObj->get( $cacheKey );
 
 		if ( empty( $recentChanges ) ) {
 			// If the recentChanges variable is empty, then we will need to fetch the
@@ -144,7 +144,7 @@ class ExtraSkinData {
 				];
 			}
 
-			$wgMemc->set( $cacheKey, $recentChanges, $cacheExpiryTime );
+			$cacheObj->set( $cacheKey, $recentChanges, $cacheExpiryTime );
 		}
 
 		$data['onyx_recentChanges'] = $recentChanges;
