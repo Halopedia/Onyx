@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Daniel Beard"
+			"Daniel Beard",
+			"Robby"
 		]
 	},
 	"onyx-skin-name": "{{name}}",
@@ -14,7 +15,7 @@
 	"onyx-personaltools-anontalk": "Text of the link in the banner dropdown menu that leads to an anonymous user's talk page",
 	"onyx-actions-talk": "Text of the talk page button",
 	"onyx-actions-addsection": "Text of the new section drop-down menu item, shown on talk pages.\n\nSee also:\n* {{msg-mw|Addsection}}\n* {{msg-mw|Accesskey-ca-addsection}}\n* {{msg-mw|Tooltip-ca-addsection}}",
-	"onyx-actions-cancel": "Text of the cancel edit button",
+	"onyx-actions-cancel": "Text of the cancel edit button\n{{identical|Cancel}}",
 	"onyx-actions-back": "Text of the back button",
 	"onyx-actions-backtopage": "Text of the return to page button",
 	"onyx-sidebar-label": "Text of the label for the button to toggle the page sidebar visibility",

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"onyx-notifications-nonotifs": "Non hai nuove notifiche!",
+	"onyx-notifications-nomessages": "Non hai nuovi messaggi!",
+	"onyx-personaltools-anonusername": "Anonimo",
+	"onyx-personaltools-userpage": "Pagina utente",
+	"onyx-personaltools-usertalk": "Discussioni utente",
+	"onyx-personaltools-anontalk": "Pagina di discussione",
+	"onyx-actions-talk": "Discussione",
+	"onyx-actions-addsection": "Aggiungi nuova sezione",
+	"onyx-actions-cancel": "Annulla",
+	"onyx-actions-back": "Indietro",
+	"onyx-actions-backtopage": "Torna a $1",
+	"onyx-sidebar-label": "Barra laterale",
+	"onyx-sidebar-tooltip": "Espandi o comprimi la barra laterale",
+	"onyx-pagecontents-backtotop": "Torna all'inizio"
+}

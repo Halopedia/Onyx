@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Un habillage conçu pour simuler et améliorer l’habillage Oasis utilisé par Wikia.",
+	"onyx-notifications-nonotifs": "Vous n’avez pas de nouvelle notification !",
+	"onyx-notifications-nomessages": "Vous n’avez pas de nouveau message !",
+	"onyx-personaltools-anonusername": "Anonyme",
+	"onyx-personaltools-userpage": "Page utilisateur",
+	"onyx-personaltools-usertalk": "Discussion utilisateur",
+	"onyx-personaltools-anontalk": "Page de discussion",
+	"onyx-actions-talk": "Discussion",
+	"onyx-actions-addsection": "Ajouter une nouvelle section",
+	"onyx-actions-cancel": "Annuler",
+	"onyx-actions-back": "Retour",
+	"onyx-actions-backtopage": "Retour à $1",
+	"onyx-sidebar-label": "Barre latérale",
+	"onyx-sidebar-tooltip": "Développer ou réduire la barre latérale",
+	"onyx-pagecontents-backtotop": "Retour à l’accueil"
+}

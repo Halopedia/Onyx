@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac"
+		]
+	},
+	"onyx-notifications-nonotifs": "У вас нет новых уведомлений!",
+	"onyx-notifications-nomessages": "У вас нет новых сообщений!",
+	"onyx-personaltools-userpage": "Страница участника",
+	"onyx-personaltools-usertalk": "Обсуждение участника",
+	"onyx-actions-talk": "Обсуждение",
+	"onyx-actions-cancel": "Отмена",
+	"onyx-actions-back": "Назад",
+	"onyx-sidebar-label": "Боковая панель"
+}

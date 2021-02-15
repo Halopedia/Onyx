@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hanna Tardos"
+		]
+	},
+	"onyx-notifications-nonotifs": "Nincsenek olvasatlan értesítéseid!",
+	"onyx-notifications-nomessages": "Nincsenek új üzeneteid!",
+	"onyx-personaltools-anonusername": "Névtelen",
+	"onyx-personaltools-userpage": "Felhasználói lap",
+	"onyx-personaltools-usertalk": "Szerkesztővita",
+	"onyx-personaltools-anontalk": "Vitalap",
+	"onyx-actions-talk": "Vita",
+	"onyx-actions-addsection": "Új szakasz hozzáadása",
+	"onyx-actions-cancel": "Mégse",
+	"onyx-actions-back": "Vissza",
+	"onyx-actions-backtopage": "Vissza ide: $1",
+	"onyx-sidebar-label": "Oldalsáv",
+	"onyx-sidebar-tooltip": "Oldalsáv megnyitása/elrejtése",
+	"onyx-pagecontents-backtotop": "Vissza a tetejére"
+}

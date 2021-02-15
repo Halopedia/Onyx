@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alan Mena"
+		]
+	},
+	"onyx-notifications-nomessages": "No tens missatges nous!",
+	"onyx-personaltools-anonusername": "Anònim",
+	"onyx-personaltools-usertalk": "Discussió de l'usuari",
+	"onyx-personaltools-anontalk": "Pàgina de discussió",
+	"onyx-actions-talk": "Parla",
+	"onyx-actions-addsection": "Afegeix una nova secció",
+	"onyx-actions-back": "Torna",
+	"onyx-actions-backtopage": "Torna a $1",
+	"onyx-sidebar-tooltip": "Expandir o col·lapsar la barra lateral"
+}

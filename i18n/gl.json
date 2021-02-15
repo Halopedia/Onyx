@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maria zaos"
+		]
+	},
+	"onyx-notifications-nonotifs": "Non ten avisos novos",
+	"onyx-notifications-nomessages": "Non ten mensaxes novas",
+	"onyx-personaltools-anonusername": "Anónimo",
+	"onyx-personaltools-userpage": "Páxina de usuario",
+	"onyx-personaltools-usertalk": "Conversa de usuario",
+	"onyx-personaltools-anontalk": "Páxina de conversa",
+	"onyx-actions-talk": "Conversa",
+	"onyx-actions-addsection": "Engadir nova sección",
+	"onyx-actions-cancel": "Cancelar",
+	"onyx-actions-back": "Volver",
+	"onyx-actions-backtopage": "Volver a $1",
+	"onyx-sidebar-tooltip": "Expandir ou contraer a barra",
+	"onyx-pagecontents-backtotop": "volver arriba"
+}

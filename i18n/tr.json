@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joseph"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Wikia tarafından kullanılan Oasis görünümüne benzemek ve geliştirmek için tasarlanmış bir görünüm.",
+	"onyx-notifications-nonotifs": "Yeni bildiriminiz yok!",
+	"onyx-notifications-nomessages": "Yeni mesajınız yok!",
+	"onyx-personaltools-anonusername": "Anonim",
+	"onyx-personaltools-userpage": "Kullanıcı sayfası",
+	"onyx-personaltools-usertalk": "Kullanıcı mesaj",
+	"onyx-personaltools-anontalk": "Tartışma sayfası",
+	"onyx-actions-talk": "Tartışma",
+	"onyx-actions-addsection": "Yeni bölüm ekle",
+	"onyx-actions-cancel": "İptal",
+	"onyx-actions-back": "Geri",
+	"onyx-actions-backtopage": "$1 sayfasına geri dön",
+	"onyx-sidebar-label": "Kenar çubuğu",
+	"onyx-sidebar-tooltip": "Kenar çubuğunu genişlet ya da kapat",
+	"onyx-pagecontents-backtotop": "Başa dön"
+}

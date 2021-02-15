@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"আফতাবুজ্জামান"
+		]
+	},
+	"onyx-skin-name": "ওনিক্স",
+	"onyx-notifications-nonotifs": "আপনার নতুন কোনো বিজ্ঞপ্তি নেই।",
+	"onyx-notifications-nomessages": "আপনার নতুন কোনো বার্তা নেই!",
+	"onyx-personaltools-anonusername": "নামহীন",
+	"onyx-personaltools-userpage": "ব্যবহারকারী পাতা",
+	"onyx-personaltools-usertalk": "ব্যবহারকারী আলাপ",
+	"onyx-personaltools-anontalk": "আলাপ পাতা",
+	"onyx-actions-talk": "আলোচনা",
+	"onyx-actions-addsection": "নতুন অনুচ্ছেদ যোগ করুন",
+	"onyx-actions-cancel": "বাতিল",
+	"onyx-actions-back": "পিছনে",
+	"onyx-actions-backtopage": "$1-এ ফেরত যান",
+	"onyx-sidebar-label": "পার্শ্বদণ্ড",
+	"onyx-sidebar-tooltip": "পার্শ্বদণ্ড প্রসারণ বা সঙ্কোচন করুন",
+	"onyx-pagecontents-backtotop": "উপরে ফিরে যান"
+}

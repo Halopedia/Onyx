@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahrada2016"
+		]
+	},
+	"onyx-skin-desc": "Qola Omborrii wikiyaadhaan tajaajiluufii guddisuuf saxaxame.",
+	"onyx-notifications-nonotifs": "Yadachiisa haaraa hin qabdu!",
+	"onyx-notifications-nomessages": "Ergaa haaraa hin qabdu!",
+	"onyx-personaltools-anonusername": "Maqamaleessa",
+	"onyx-personaltools-userpage": "Fuula fayyadamaa",
+	"onyx-personaltools-usertalk": "Haasaa fayyadamaa",
+	"onyx-personaltools-anontalk": "Fuula haasaa",
+	"onyx-actions-talk": "Haasaa",
+	"onyx-actions-addsection": "Kutaa haaraa dabali",
+	"onyx-actions-cancel": "Haqi",
+	"onyx-actions-back": "Duuba",
+	"onyx-actions-backtopage": "Gara $1 deebi'i",
+	"onyx-sidebar-label": "Axarroona",
+	"onyx-sidebar-tooltip": "Handaqa diriirsi ykn dachaasi",
+	"onyx-pagecontents-backtotop": "Garoliitti deebi'i"
+}

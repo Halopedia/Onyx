@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mainframe98"
+		]
+	},
+	"onyx-notifications-nonotifs": "U hebt geen nieuwe meldingen!",
+	"onyx-notifications-nomessages": "U hebt geen nieuwe berichten!",
+	"onyx-personaltools-anonusername": "Anoniem",
+	"onyx-personaltools-userpage": "Gebruikerspagina",
+	"onyx-personaltools-usertalk": "Gebruikersoverleg",
+	"onyx-personaltools-anontalk": "Overlegpagina",
+	"onyx-actions-talk": "Overleg",
+	"onyx-actions-addsection": "Nieuw kopje toevoegen",
+	"onyx-actions-cancel": "Annuleren",
+	"onyx-actions-back": "Terug",
+	"onyx-actions-backtopage": "Terug naar $1",
+	"onyx-pagecontents-backtotop": "Terug naar boven"
+}

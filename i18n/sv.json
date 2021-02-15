@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sabelöga",
+			"WikiPhoenix"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Ett utseende som designats för att efterlikna och bygga på utseendet Oasis som användes av Wikia.",
+	"onyx-notifications-nonotifs": "Du har inga nya aviseringar!",
+	"onyx-notifications-nomessages": "Du har inga nya meddelanden!",
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Användarsida",
+	"onyx-personaltools-usertalk": "Användardiskussion",
+	"onyx-personaltools-anontalk": "Diskussionssida",
+	"onyx-actions-talk": "Diskussion",
+	"onyx-actions-addsection": "Lägg till nytt avsnitt",
+	"onyx-actions-cancel": "Avbryt",
+	"onyx-actions-back": "Tillbaka",
+	"onyx-actions-backtopage": "Tillbaka till $1",
+	"onyx-sidebar-label": "Sidofält",
+	"onyx-sidebar-tooltip": "Visa eller kollapsa sidofältet",
+	"onyx-pagecontents-backtotop": "Tillbaka till början"
+}

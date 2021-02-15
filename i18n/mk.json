@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"onyx-skin-name": "Оникс",
+	"onyx-skin-desc": "Руво предвидено да го подражава и подобрува рувото Оаза засновано на Викија.",
+	"onyx-notifications-nonotifs": "Немате нови известувања!",
+	"onyx-notifications-nomessages": "Немате нови пораки!",
+	"onyx-personaltools-anonusername": "Анонимен",
+	"onyx-personaltools-userpage": "Корисничка страница",
+	"onyx-personaltools-usertalk": "Разговор со корисник",
+	"onyx-personaltools-anontalk": "Разговорна страница",
+	"onyx-actions-talk": "Разговор",
+	"onyx-actions-addsection": "Додај нов поднаслов",
+	"onyx-actions-cancel": "Откажи",
+	"onyx-actions-back": "Назад",
+	"onyx-actions-backtopage": "Назад на $1",
+	"onyx-sidebar-label": "Страничник",
+	"onyx-sidebar-tooltip": "Расклопи или склопи го страничникот",
+	"onyx-pagecontents-backtotop": "Најгоре"
+}

@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardoaddad"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Uma pele projetada para emular e melhorar a pele Oasis usada pela Wikia",
+	"onyx-notifications-nonotifs": "Você não tem novas notificações!",
+	"onyx-notifications-nomessages": "Você não tem novas mensagens!",
+	"onyx-personaltools-anonusername": "Anônimo",
+	"onyx-personaltools-userpage": "Pagina de usuário",
+	"onyx-personaltools-usertalk": "Página de discussão do usuário",
+	"onyx-personaltools-anontalk": "Página de discussão",
+	"onyx-actions-talk": "Discussão",
+	"onyx-actions-addsection": "Adicionar nova seção",
+	"onyx-actions-cancel": "Cancelar",
+	"onyx-actions-back": "Voltar",
+	"onyx-actions-backtopage": "Voltar para $1",
+	"onyx-sidebar-label": "Barra lateral",
+	"onyx-sidebar-tooltip": "Expandir ou recolher a barra lateral",
+	"onyx-pagecontents-backtotop": "Voltar ao topo"
+}

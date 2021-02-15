@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"onyx-notifications-nonotifs": "새 알림이 없습니다!",
+	"onyx-notifications-nomessages": "새 메시지가 없습니다!",
+	"onyx-personaltools-anonusername": "익명",
+	"onyx-personaltools-userpage": "사용자 문서",
+	"onyx-personaltools-usertalk": "사용자토론",
+	"onyx-personaltools-anontalk": "토론 문서",
+	"onyx-actions-talk": "토론",
+	"onyx-actions-addsection": "새 문단 추가",
+	"onyx-actions-cancel": "취소",
+	"onyx-actions-back": "뒤로",
+	"onyx-actions-backtopage": "$1(으)로 돌아가기",
+	"onyx-sidebar-label": "사이드바",
+	"onyx-sidebar-tooltip": "사이드바를 펼치거나 접습니다",
+	"onyx-pagecontents-backtotop": "맨 위로 돌아가기"
+}

@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-notifications-nonotifs": "Dir hutt keng nei Notifikatiounen!",
+	"onyx-notifications-nomessages": "Dir hutt keng nei Messagen!",
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Benotzersäit",
+	"onyx-personaltools-usertalk": "Benotzer Diskussioun",
+	"onyx-personaltools-anontalk": "Diskussiounssäit",
+	"onyx-actions-talk": "Diskutéieren",
+	"onyx-actions-addsection": "Neien Abschnitt derbäisetzen",
+	"onyx-actions-cancel": "Ofbriechen",
+	"onyx-actions-back": "Zréck",
+	"onyx-actions-backtopage": "Zréck op $1",
+	"onyx-pagecontents-backtotop": "Zréck no uewen"
+}

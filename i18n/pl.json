@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rail"
+		]
+	},
+	"onyx-skin-name": "Onyks",
+	"onyx-skin-desc": "Skórka zaprojektowana, aby naśladować i usprawnić skórkę Oasis wykorzystywaną przez Fandom",
+	"onyx-notifications-nonotifs": "Nie masz nowych powiadomień!",
+	"onyx-notifications-nomessages": "Nie masz nowych wiadomości!",
+	"onyx-personaltools-anonusername": "Anonimowy użytkownik",
+	"onyx-personaltools-userpage": "Strona użytkownika",
+	"onyx-personaltools-usertalk": "Dyskusja użytkownika",
+	"onyx-personaltools-anontalk": "Strona dyskusji",
+	"onyx-actions-talk": "Dyskusja",
+	"onyx-actions-addsection": "Dodaj nową sekcję",
+	"onyx-actions-cancel": "Anuluj",
+	"onyx-actions-back": "Wstecz",
+	"onyx-actions-backtopage": "Wróć do $1",
+	"onyx-sidebar-label": "Pasek boczny",
+	"onyx-sidebar-tooltip": "Rozwiń lub zwiń ten panel",
+	"onyx-pagecontents-backtotop": "Powrót do góry"
+}
