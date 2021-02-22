@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "'Nu ski proggettate pe emulà e migliorà 'u skin Oasis ausate da Uicchia.",
+	"onyx-notifications-nonotifs": "Non ge tìne notifeche nove!",
+	"onyx-notifications-nomessages": "Non ge tìne messàgge nuève!",
+	"onyx-personaltools-anonusername": "Anonime",
+	"onyx-personaltools-userpage": "Pàgene de l'utende",
+	"onyx-personaltools-usertalk": "'Ngazzaminde de l'utende",
+	"onyx-personaltools-anontalk": "Pàgene de le 'ngazzaminde",
+	"onyx-actions-talk": "'Ngazzamende",
+	"onyx-actions-addsection": "Aggiunge 'na seziona nove",
+	"onyx-actions-cancel": "Annulle",
+	"onyx-actions-back": "Rrete",
+	"onyx-actions-backtopage": "Tuèrne a $1",
+	"onyx-sidebar-label": "Barre laterale",
+	"onyx-sidebar-tooltip": "Spanne o achiude 'a barre laterale",
+	"onyx-pagecontents-backtotop": "Tuèrne sus"
+}

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"A2y4"
+		]
+	},
+	"onyx-notifications-nonotifs": "新しい通知はありません!",
+	"onyx-notifications-nomessages": "新しいメッセージはありません!",
+	"onyx-personaltools-anonusername": "匿名",
+	"onyx-personaltools-userpage": "利用者ページ",
+	"onyx-personaltools-anontalk": "トークページ",
+	"onyx-actions-talk": "トーク",
+	"onyx-actions-cancel": "キャンセル",
+	"onyx-actions-backtopage": "$1 に戻る",
+	"onyx-sidebar-label": "サイドバー"
+}

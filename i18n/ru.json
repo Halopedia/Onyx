@@ -1,15 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Okras"
 		]
 	},
 	"onyx-notifications-nonotifs": "У вас нет новых уведомлений!",
 	"onyx-notifications-nomessages": "У вас нет новых сообщений!",
+	"onyx-personaltools-anonusername": "Аноним",
 	"onyx-personaltools-userpage": "Страница участника",
 	"onyx-personaltools-usertalk": "Обсуждение участника",
+	"onyx-personaltools-anontalk": "Страница обсуждения",
 	"onyx-actions-talk": "Обсуждение",
+	"onyx-actions-addsection": "Добавить новый раздел",
 	"onyx-actions-cancel": "Отмена",
 	"onyx-actions-back": "Назад",
-	"onyx-sidebar-label": "Боковая панель"
+	"onyx-actions-backtopage": "Вернуться к $1",
+	"onyx-sidebar-label": "Боковая панель",
+	"onyx-sidebar-tooltip": "Развернуть или свернуть боковую панель",
+	"onyx-pagecontents-backtotop": "Вернуться наверх"
 }

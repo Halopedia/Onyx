@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Verdy p"
 		]
 	},
 	"onyx-skin-name": "Onyx",
 	"onyx-skin-desc": "Un habillage conçu pour simuler et améliorer l’habillage Oasis utilisé par Wikia.",
-	"onyx-notifications-nonotifs": "Vous n’avez pas de nouvelle notification !",
-	"onyx-notifications-nomessages": "Vous n’avez pas de nouveau message !",
+	"onyx-notifications-nonotifs": "Vous n’avez aucune nouvelle notification !",
+	"onyx-notifications-nomessages": "Vous n’avez aucun nouveau message !",
 	"onyx-personaltools-anonusername": "Anonyme",
 	"onyx-personaltools-userpage": "Page utilisateur",
 	"onyx-personaltools-usertalk": "Discussion utilisateur",

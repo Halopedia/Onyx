@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Subarupan"
+		]
+	},
+	"onyx-notifications-nonotifs": "侬呒没新个通知！",
+	"onyx-personaltools-anonusername": "匿名",
+	"onyx-personaltools-userpage": "用户页",
+	"onyx-actions-talk": "讲张",
+	"onyx-actions-cancel": "取消",
+	"onyx-actions-back": "转去",
+	"onyx-sidebar-label": "侧边栏",
+	"onyx-sidebar-tooltip": "扩展或取消侧边栏"
+}

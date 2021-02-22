@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "一種設計來模仿和改善由 Wikia 所使用 Oasis 外觀的外觀。",
+	"onyx-notifications-nonotifs": "你沒有新的通知！",
+	"onyx-notifications-nomessages": "你沒有新的訊息！",
+	"onyx-personaltools-anonusername": "匿名",
+	"onyx-personaltools-userpage": "使用者頁面",
+	"onyx-personaltools-usertalk": "使用者討論",
+	"onyx-personaltools-anontalk": "討論頁",
+	"onyx-actions-talk": "討論",
+	"onyx-actions-addsection": "添加新的段落",
+	"onyx-actions-cancel": "取消",
+	"onyx-actions-back": "返回",
+	"onyx-actions-backtopage": "返回到$1",
+	"onyx-sidebar-label": "側邊欄",
+	"onyx-sidebar-tooltip": "展開或折叠側邊欄",
+	"onyx-pagecontents-backtotop": "返回頂端"
+}

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Zhang8569"
+		]
+	},
+	"onyx-notifications-nonotifs": "你没有新的通知！",
+	"onyx-notifications-nomessages": "你没有新消息！",
+	"onyx-personaltools-anonusername": "匿名用户",
+	"onyx-personaltools-userpage": "用户页面",
+	"onyx-personaltools-usertalk": "用户讨论",
+	"onyx-personaltools-anontalk": "讨论页面",
+	"onyx-actions-talk": "讨论",
+	"onyx-actions-addsection": "新增章节",
+	"onyx-actions-cancel": "取消",
+	"onyx-actions-back": "后退",
+	"onyx-actions-backtopage": "返回至$1",
+	"onyx-sidebar-label": "侧边栏",
+	"onyx-sidebar-tooltip": "扩展或取消侧边栏",
+	"onyx-pagecontents-backtotop": "返回顶部"
+}
