@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"FF11",
+			"Gebu"
+		]
+	},
+	"onyx-notifications-nonotifs": "Du hast keine neuen Benachrichtigungen!",
+	"onyx-notifications-nomessages": "Du hast keine neuen Nachrichten!",
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Benutzerseite",
+	"onyx-personaltools-usertalk": "Benutzer Diskussion",
+	"onyx-personaltools-anontalk": "Diskussionsseite",
+	"onyx-actions-talk": "Diskussion",
+	"onyx-actions-addsection": "Neuen Abschnitt hinzufügen",
+	"onyx-actions-cancel": "Abbrechen",
+	"onyx-actions-back": "Zurück",
+	"onyx-actions-backtopage": "Zurück zu $1",
+	"onyx-sidebar-label": "Seitenleiste",
+	"onyx-sidebar-tooltip": "Öffne oder schließe die Sidebar",
+	"onyx-pagecontents-backtotop": "Zurück nach oben"
+}

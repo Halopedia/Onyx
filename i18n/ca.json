@@ -1,16 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Alan Mena"
+			"Alan Mena",
+			"Mguix"
 		]
 	},
+	"onyx-notifications-nonotifs": "No tens cap notificació nova!",
 	"onyx-notifications-nomessages": "No tens missatges nous!",
 	"onyx-personaltools-anonusername": "Anònim",
+	"onyx-personaltools-userpage": "Pàgina d'usuari",
 	"onyx-personaltools-usertalk": "Discussió de l'usuari",
 	"onyx-personaltools-anontalk": "Pàgina de discussió",
 	"onyx-actions-talk": "Parla",
 	"onyx-actions-addsection": "Afegeix una nova secció",
 	"onyx-actions-back": "Torna",
 	"onyx-actions-backtopage": "Torna a $1",
-	"onyx-sidebar-tooltip": "Expandir o col·lapsar la barra lateral"
+	"onyx-sidebar-label": "Barra lateral",
+	"onyx-sidebar-tooltip": "Expandir o col·lapsar la barra lateral",
+	"onyx-pagecontents-backtotop": "Torna a dalt"
 }
