@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bikarhêner"
+		]
+	},
+	"onyx-notifications-nomessages": "Peyamên nû ji te re tine!",
+	"onyx-personaltools-anonusername": "Anonîm",
+	"onyx-personaltools-userpage": "Rûpela bikarhênerê",
+	"onyx-actions-cancel": "Betal bike",
+	"onyx-actions-back": "Vegere",
+	"onyx-actions-backtopage": "Vegere $1",
+	"onyx-sidebar-label": "Kêlekbend",
+	"onyx-sidebar-tooltip": "Kêlekbendê berfireh bike an bigire",
+	"onyx-pagecontents-backtotop": "Vegere Jorê"
+}
