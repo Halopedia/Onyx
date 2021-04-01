@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Brugerside",
+	"onyx-personaltools-usertalk": "Brugerdiskussion",
+	"onyx-personaltools-anontalk": "Diskussionsside",
+	"onyx-actions-talk": "Diskussion",
+	"onyx-actions-cancel": "Annuller",
+	"onyx-actions-back": "Tilbage",
+	"onyx-actions-backtopage": "Tilbage til $1",
+	"onyx-pagecontents-backtotop": "Tilbage til toppen"
+}
