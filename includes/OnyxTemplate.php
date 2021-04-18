@@ -1425,6 +1425,8 @@ class OnyxTemplate extends BaseTemplate {
 	 * @param $html string The string onto which the HTML should be appended
 	 */
 	protected function buildFooterIcons( string &$html, Config $config ) : void {
+		$skin = $this->getSkin();
+
 		// Open container div for icons
 		$html .= Html::openElement( 'div', [
 			'id' => 'onyx-footerContent-footerIcons',
@@ -1436,13 +1438,18 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Loop through each footer icon and generate a list item element
 		// which contains the icon to display
-		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-			foreach ( $footerIcons as $icon ) {
+		$footerIcons = $this->get( 'footericons' );
+		foreach ( $footerIcons as $footerIconsKey => &$footerIconsBlock ) {
+			foreach ( $footerIconsBlock as $footerIconKey => $footerIcon ) {
+				if ( !isset( $footerIcon['src'] ) ) {
+					unset( $footerIconsBlock[$footerIconKey] );
+				}
+
 				$html .= Html::openElement( 'li', [
 					'class' => 'onyx-footerIcons-listItem'
 				] );
 
-				$html .= $this->getSkin()->makeFooterIcon( $icon );
+				$html .= $skin->makeFooterIcon( $footerIcon );
 
 				$html .= Html::closeElement( 'li' );
 			}
