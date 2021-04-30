@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chinamoonroll"
+		]
+	},
+	"onyx-skin-name": "Oniks",
+	"onyx-skin-desc": "Kules kadisain antuk emulasi miwah paningkatan saking kules Oasis sané kaanggén Wikia.",
+	"onyx-notifications-nonotifs": "Ida tan madué paingetan anyar!",
+	"onyx-notifications-nomessages": "Ida tan madué sewala anyar!",
+	"onyx-personaltools-anonusername": "Anonim",
+	"onyx-personaltools-userpage": "Kaca sang anganggé",
+	"onyx-personaltools-usertalk": "Pabligbagan anganggé",
+	"onyx-personaltools-anontalk": "Kaca pabligbagan",
+	"onyx-actions-talk": "Pabligbagan",
+	"onyx-actions-addsection": "Tambah wagian anyar",
+	"onyx-actions-cancel": "Wangdé",
+	"onyx-actions-back": "Walik",
+	"onyx-actions-backtopage": "Walik nuju $1",
+	"onyx-sidebar-label": "Bar sisi",
+	"onyx-sidebar-tooltip": "Jimbarang utawi alitang bar sisi",
+	"onyx-pagecontents-backtotop": "Walik nuju duur"
+}
