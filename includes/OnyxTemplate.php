@@ -19,7 +19,7 @@ class OnyxTemplate extends BaseTemplate {
 	 * - Edit section links - icons
 	 * 
 	 * - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
-	 *   are called instead of building stuff manually - BaseTameplate calls the
+	 *   are called instead of building stuff manually - BaseTemplate calls the
 	 *   appropriate hooks for us
 	 * 
 	 * - Migrate to Mustache templates - see TemplateParser and
@@ -359,7 +359,10 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildSearchBar( string &$html, Config $config ) : void {
 		// Open container div
-		$html .= Html::openElement( 'div', [ 'id' => 'onyx-banner-search' ] );
+		$html .= Html::openElement( 'div', [
+			'id' => 'onyx-banner-search',
+			'role' => 'search'
+		] );
 
 		// Open search form
 		$html .= Html::openElement( 'form', [
@@ -430,7 +433,7 @@ class OnyxTemplate extends BaseTemplate {
 	protected function buildPage( string &$html, Config $config ) : void {
 		// Open container element for page
 		$html .= Html::openElement( 'main',
-			[ 'id' => 'onyx-page', 'class' => 'onyx-pageAligned mw-body' ] );
+			[ 'id' => 'onyx-page', 'class' => 'onyx-pageAligned mw-body', 'role' => 'main' ] );
 
 		// Build the header
 		$this->buildHeader( $html, $config );
@@ -524,7 +527,7 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildHeaderLogo( string &$html, Config $config ) : void {
 		// Open container div for logo
-		$html .= Html::openElement( 'div', [ 'id' => 'onyx-wikiHeader-headerLogo' ] );
+		$html .= Html::openElement( 'div', [ 'id' => 'onyx-wikiHeader-headerLogo', 'role' => 'banner' ] );
 
 		// Open link element
 		$html .= Html::openElement( 'a',
@@ -603,7 +606,7 @@ class OnyxTemplate extends BaseTemplate {
 			}
 
 			if ( is_array( $box['content'] ) ) {
-				$content = array_reverse ( $box['content'] );
+				$content = array_reverse( $box['content'] );
 
 				foreach ( $content as $key => $item ) {
 					$html .= $this->makeListItem( $key, $item );
@@ -926,7 +929,7 @@ class OnyxTemplate extends BaseTemplate {
 			switch ( $info['imgType'] ) {
 				case 'svg':
 					$icon = Icon::getIcon( $info['imgSrc'] );
-					if ( !isset($icon) ) {
+					if ( !isset( $icon ) ) {
 						break;
 					}
 					$html .= $icon->makeSvg( 28, 28, [ 'class' => 'onyx-button-icon' ] );
@@ -1386,7 +1389,13 @@ class OnyxTemplate extends BaseTemplate {
 	 */
 	protected function buildFooter( string &$html, Config $config ) : void {
 		// Open container element for footer
-		$html .= Html::openElement( 'footer', [ 'id' => 'onyx-footer' ] );
+		$html .= Html::openElement( 'footer', [
+			'id' => 'onyx-footer',
+			'class' => 'mw-footer',
+			'role' => 'contentinfo',
+			'lang' => $this->get( 'userlang' ),
+			'dir' => $this->get( 'dir' )
+		] );
 
 		// Open container element for footer content
 		$html .= Html::openElement( 'div', [
