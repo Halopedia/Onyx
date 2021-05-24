@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"onyx-skin-desc": "Un apparentia concipite pro emular e meliorar le apparentia Oasis usate per Wikia.",
+	"onyx-notifications-nonotifs": "Tu non ha nove notificationes!",
+	"onyx-notifications-nomessages": "Tu non ha nove messages!",
+	"onyx-personaltools-anonusername": "Anonyme",
+	"onyx-personaltools-userpage": "Pagina de usator",
+	"onyx-personaltools-usertalk": "Discussion usator",
+	"onyx-personaltools-anontalk": "Pagina de discussion",
+	"onyx-actions-talk": "Discussion",
+	"onyx-actions-addsection": "Adder nove section",
+	"onyx-actions-cancel": "Cancellar",
+	"onyx-actions-back": "Retro",
+	"onyx-actions-backtopage": "Retornar a $1",
+	"onyx-sidebar-label": "Barra lateral",
+	"onyx-sidebar-tooltip": "Displicar o plicar le barra lateral",
+	"onyx-pagecontents-backtotop": "Retro al initio"
+}
