@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Max.kronstadt"
+		]
+	},
+	"onyx-skin-desc": "Un aspect proiectat să imite și să îmbunătățească aspectul Oasis utilizat de Wikia.",
+	"onyx-notifications-nonotifs": "Nu aveți notificări necitite",
+	"onyx-notifications-nomessages": "Nu aveți mesaje noi.",
+	"onyx-personaltools-anonusername": "Anonim",
+	"onyx-personaltools-userpage": "Pagină de utilizator",
+	"onyx-personaltools-usertalk": "Discuție utilizator",
+	"onyx-personaltools-anontalk": "Pagină de discuții",
+	"onyx-actions-talk": "Discuție",
+	"onyx-actions-addsection": "Adaugă secțiune nouă",
+	"onyx-actions-cancel": "Revocare",
+	"onyx-actions-back": "Înapoi",
+	"onyx-actions-backtopage": "Înapoi la $1",
+	"onyx-sidebar-label": "Bară laterală",
+	"onyx-sidebar-tooltip": "Extinde sau restrânge bara laterală",
+	"onyx-pagecontents-backtotop": "Înapoi sus"
+}
