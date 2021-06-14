@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ата"
+		]
+	},
+	"onyx-skin-desc": "Тема оформлення, розроблена для відтворення і покращення теми Oasis із Wikia.",
+	"onyx-notifications-nonotifs": "У вас немає нових сповіщень!",
+	"onyx-notifications-nomessages": "У вас немає нових повідомлень!",
+	"onyx-personaltools-anonusername": "Анонім",
+	"onyx-personaltools-userpage": "Сторінка користувача",
+	"onyx-personaltools-usertalk": "Обговорення користувача",
+	"onyx-personaltools-anontalk": "Сторінка обговорення",
+	"onyx-actions-talk": "Обговорення",
+	"onyx-actions-addsection": "Додати новий розділ",
+	"onyx-actions-cancel": "Скасувати",
+	"onyx-actions-back": "Назад",
+	"onyx-actions-backtopage": "Назад до $1",
+	"onyx-sidebar-label": "Бічна панель",
+	"onyx-sidebar-tooltip": "Розгорнути чи згорнути бічну панель",
+	"onyx-pagecontents-backtotop": "Повернутись угору"
+}
