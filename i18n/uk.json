@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Ата"
 		]
 	},
+	"onyx-skin-name": "Onyx",
 	"onyx-skin-desc": "Тема оформлення, розроблена для відтворення і покращення теми Oasis із Wikia.",
 	"onyx-notifications-nonotifs": "У вас немає нових сповіщень!",
 	"onyx-notifications-nomessages": "У вас немає нових повідомлень!",
