@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lakejason0",
 			"Zhang8569"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "一款致力于模拟并改进Wikia的Oasis皮肤的皮肤。",
 	"onyx-notifications-nonotifs": "你没有新的通知！",
 	"onyx-notifications-nomessages": "你没有新消息！",
 	"onyx-personaltools-anonusername": "匿名用户",
