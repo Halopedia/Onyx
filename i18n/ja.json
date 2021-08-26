@@ -1,16 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"A2y4"
+			"A2y4",
+			"しぃ"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Wikiaで使用されているOasisスキンを模倣し、改良したスキンです。",
 	"onyx-notifications-nonotifs": "新しい通知はありません!",
 	"onyx-notifications-nomessages": "新しいメッセージはありません!",
 	"onyx-personaltools-anonusername": "匿名",
 	"onyx-personaltools-userpage": "利用者ページ",
+	"onyx-personaltools-usertalk": "利用者・トーク",
 	"onyx-personaltools-anontalk": "トークページ",
 	"onyx-actions-talk": "トーク",
+	"onyx-actions-addsection": "新しいセクションの追加",
 	"onyx-actions-cancel": "キャンセル",
+	"onyx-actions-back": "戻る",
 	"onyx-actions-backtopage": "$1 に戻る",
-	"onyx-sidebar-label": "サイドバー"
+	"onyx-sidebar-label": "サイドバー",
+	"onyx-sidebar-tooltip": "サイドバーの拡大・縮小",
+	"onyx-pagecontents-backtotop": "トップに戻る"
 }
