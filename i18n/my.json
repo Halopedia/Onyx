@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"onyx-notifications-nonotifs": "အသိပေးချက်သစ်များ မရှိပါ။",
+	"onyx-notifications-nomessages": "မက်ဆေ့အသစ်များ မရောက်ရှိပါ",
+	"onyx-personaltools-anonusername": "အမည်မသိ",
+	"onyx-personaltools-userpage": "အသုံးပြုသူ စာမျက်နှာ",
+	"onyx-personaltools-usertalk": "အသုံးပြုသူ ဆွေးနွေးခန်း",
+	"onyx-personaltools-anontalk": "ဆွေးနွေးချက် စာမျက်နှာ",
+	"onyx-actions-talk": "ဆွေးနွေး",
+	"onyx-actions-cancel": "မလုပ်တော့ပါ",
+	"onyx-actions-back": "နောက်သို့",
+	"onyx-actions-backtopage": "$1 သို့ ပြန်သွားရန်",
+	"onyx-pagecontents-backtotop": "ထိပ်ဆုံးသို့ ပြန်သွားရန်"
+}
