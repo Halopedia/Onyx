@@ -3,9 +3,11 @@
 		"authors": [
 			"FF-11",
 			"FF11",
-			"Gebu"
+			"Gebu",
+			"Umlaut"
 		]
 	},
+	"onyx-skin-name": "Onyx",
 	"onyx-notifications-nonotifs": "Du hast keine neuen Benachrichtigungen!",
 	"onyx-notifications-nomessages": "Du hast keine neuen Nachrichten!",
 	"onyx-personaltools-anonusername": "Anonym",
