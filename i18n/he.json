@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"onyx-skin-name": "אוניקס",
+	"onyx-skin-desc": "עיצוב שנוצר בשביל לדמות ולעשות משהו טוב יותר מעיצוב Oasis שמשמש את ויקיה.",
+	"onyx-notifications-nonotifs": "אין לך התראות חדשות!",
+	"onyx-notifications-nomessages": "אין לך הודעות חדשות!",
+	"onyx-personaltools-anonusername": "אלמוני",
+	"onyx-personaltools-userpage": "דף משתמש",
+	"onyx-personaltools-usertalk": "שיחת משתמש",
+	"onyx-personaltools-anontalk": "דף שיחה",
+	"onyx-actions-talk": "שיחה",
+	"onyx-actions-addsection": "הוסף פרק חדש",
+	"onyx-actions-cancel": "ביטול",
+	"onyx-actions-back": "חזרה",
+	"onyx-actions-backtopage": "חזרה אל $1",
+	"onyx-sidebar-label": "סרגל צד",
+	"onyx-sidebar-tooltip": "הרחבה או צמצום של סרגל הצד",
+	"onyx-pagecontents-backtotop": "חזרה למעלה"
+}
