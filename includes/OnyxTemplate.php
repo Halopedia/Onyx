@@ -247,29 +247,32 @@ class OnyxTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-notifications-notifsButton',
 			'class' => 'onyx-dropdown-button onyx-bannerOption-button' ] );
 
-		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-notifsButton-icon',
-			'class' => 'onyx-bannerOption-icon' ],
+		$html .= Html::rawElement( 'div', [
+			'class' => 'onyx-bannerOption-icon onyx-notifsButton-icon' ],
 			Icon::getIcon( 'notification' )->makeSvg( 28, 28 ) );
-		
-		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-notifsButton-icon',
-			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon' ],
+
+		$html .= Html::rawElement( 'div', [
+			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon onyx-notifsButton-icon' ],
 			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
-		
+
 		if ( $this->data['onyx_notifications']['numNotifs'] > 0 ) {
 			$html .= Html::element( 'div', [ 'id' => 'onyx-notifsButton-numNotifs',
 				'class' => 'onyx-notifications-numNotifs' ],
-				$this->data['onyx_notifications']['numNotifs']);
+				$this->data['onyx_notifications']['numNotifs']
+			);
 		}
-		
+
 		$html .= Html::closeElement( 'div' );
-		
-		$html .= Html::openElement( 'ul', [ 'id' => 'onyx-notifications-list',
-			'class' => 'onyx-dropdown-list' ] );
+
+		$html .= Html::openElement( 'ul', [
+			'id' => 'onyx-notifications-list',
+			'class' => 'onyx-dropdown-list'
+		] );
 
 		if ( $this->data['onyx_notifications']['numNotifs'] > 0 ) {
 			foreach ( $this->data['onyx_notifications']['notifs'] as $notif ) {
 				$html .= Html::openElement( 'li' );
-				
+
 				if ( !empty( $notif['href'] ) ) {
 					$html .= Html::openElement( 'a', [ 'href' => $notif['href'] ] );
 				}
@@ -297,22 +300,23 @@ class OnyxTemplate extends BaseTemplate {
 
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-userOptions-messages',
 			'class' => 'onyx-dropdown onyx-bannerOption' ] );
-		
+
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-messages-messagesButton',
 			'class' => 'onyx-dropdown-button onyx-bannerOption-button' ] );
 
-		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-messagesButton-icon',
-			'class' => 'onyx-bannerOption-icon' ],
+		$html .= Html::rawElement( 'div', [
+			'class' => 'onyx-bannerOption-icon onyx-messagesButton-icon' ],
 			Icon::getIcon( 'message' )->makeSvg( 28, 28 ) );
-		
-		$html .= Html::rawElement( 'div', [ 'id' => 'onyx-messagesButton-icon',
-			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon' ],
+
+		$html .= Html::rawElement( 'div', [
+			'class' => 'onyx-dropdown-icon onyx-bannerOption-dropdownIcon onyx-messagesButton-icon' ],
 			Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
 
 		if ( $this->data['onyx_notifications']['numMessages'] > 0 ) {
 			$html .= Html::element( 'div', [ 'id' => 'onyx-messagesButton-numMessages',
 				'class' => 'onyx-notifications-numNotifs' ],
-				$this->data['onyx_notifications']['numMessages']);
+				$this->data['onyx_notifications']['numMessages']
+			);
 		}
 
 		$html .= Html::closeElement( 'div' );
