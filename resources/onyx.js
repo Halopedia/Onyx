@@ -193,7 +193,7 @@
 				// so that the built-in MediaWiki ToC still works, and so users can
 				// click a sidebar ToC link and then copy the URL, and it will still
 				// lead to the correct subheading even on other skins
-				$( `#${id} ` ).removeAttr( 'id' );
+				$( '#' + $.escapeSelector( `${id} ` ) ).removeAttr( 'id' );
 			}
 			var $linkDest = $( '<div/>', {
 				class: 'onyx-section-begin',
