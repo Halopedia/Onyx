@@ -15,24 +15,24 @@ class OnyxTemplate extends BaseTemplate {
 	/* TODO:
 	 *
 	 * - Language links
-	 * 
+	 *
 	 * - Edit section links - icons
-	 * 
+	 *
 	 * - Refactor so that *EVERYWHERE* possible, standard BaseTemplate functions
 	 *   are called instead of building stuff manually - BaseTemplate calls the
 	 *   appropriate hooks for us
-	 * 
+	 *
 	 * - Migrate to Mustache templates - see TemplateParser and
 	 * 	 https://www.mediawiki.org/wiki/Manual:HTML_templates
-	 * 
+	 *
 	 * - Migrate to LESS for stylesheets - can just slot in in place of CSS
 	 *
 	 * FUTURE EXTENSIONS:
 	 *
 	 * - Implement dark scheme using CSS media query prefers-color-scheme: dark
-	 * 
+	 *
 	 * - Read Onyx-specific navigation links from MediaWiki:Onyx-navigation
-	 * 
+	 *
 	 * - Support VisualEditor
 	 */
 
@@ -285,7 +285,7 @@ class OnyxTemplate extends BaseTemplate {
 		} else {
 			$html .= Html::openElement( 'li', [
 				'class' => 'onyx-emptyListMessage' ] );
-			
+
 			$html .= Html::element( 'div', [], $skin->msg( 'onyx-notifications-nonotifs' ) );
 
 			$html .= Html::closeElement( 'li' );
@@ -323,7 +323,7 @@ class OnyxTemplate extends BaseTemplate {
 		if ( $this->data['onyx_notifications']['numMessages'] > 0 ) {
 			foreach ( $this->data['onyx_notifications']['messages'] as $message ) {
 				$html .= Html::openElement( 'li' );
-				
+
 				if ( !empty( $message['href'] ) ) {
 					$html .= Html::openElement( 'a', [ 'href' => $message['href'] ] );
 				}
@@ -339,10 +339,10 @@ class OnyxTemplate extends BaseTemplate {
 		} else {
 			$html .= Html::openElement( 'li', [
 				'class' => 'onyx-emptyListMessage' ] );
-			
+
 			$html .= Html::rawElement( 'div', [],
 				$skin->msg( 'onyx-notifications-nomessages' ) );
-			
+
 			$html .= Html::closeElement( 'li' );
 		}
 
@@ -1211,7 +1211,7 @@ class OnyxTemplate extends BaseTemplate {
 		// de facto only NS_SPECIAL pages are exposed in the UI), unless the page
 		// has been specifically whitelisted for the inclusion of the module
 		if ( $skin->getTitle()->getNamespace() < 0 &&
-			!( $skin->getTitle()->getNamespace() == NS_SPECIAL 
+			!( $skin->getTitle()->getNamespace() == NS_SPECIAL
 			&& in_array( $skin->getTitle()->getText(), self::PAGE_CONTENTS_SPECIAL_PAGE_WHITELIST ) ) ) {
 			return;
 		}
@@ -1265,11 +1265,11 @@ class OnyxTemplate extends BaseTemplate {
 		);
 
 		$html .= Html::closeElement( 'template' );
-		
+
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-backToTop' ] );
 
 		$html .= Html::element( 'a', [ 'href' => '#' ], '↑ '.$this->getSkin()->msg( 'onyx-pagecontents-backtotop' )->escaped() );
-		
+
 		$html .= Html::closeElement( 'div' );
 
 		// Create the unordered list element that will contain the list
