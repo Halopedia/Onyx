@@ -16,5 +16,6 @@
 	"onyx-actions-back": "Terug",
 	"onyx-actions-backtopage": "Terug naar $1",
 	"onyx-sidebar-label": "Zijbalk",
+	"onyx-sidebar-tooltip": "Zijbalk in- of uitvouwen",
 	"onyx-pagecontents-backtotop": "Terug naar boven"
 }
