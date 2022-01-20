@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Khun Kt"
+		]
+	},
+	"onyx-notifications-nonotifs": "ဖေႏသေချက်တသာဖိုင်ႏ အဝ်ႏတဝ်း!",
+	"onyx-notifications-nomessages": "နာꩻလိတ်မဲက်သေ့တသာဖုံႏ အဝ်ႏတဝ်း!",
+	"onyx-personaltools-anonusername": "သေတဝ်းအမိဉ်ꩻ",
+	"onyx-personaltools-userpage": "ကေားသုင်ꩻသား လိတ်မဲ့ငါ",
+	"onyx-personaltools-usertalk": "ကေားသုင်ꩻသား အိုင်ကိုမ်ချက်",
+	"onyx-personaltools-anontalk": "အိုင်ကိုမ်ဒေါ့ꩻရီ လိတ်မဲ့ငါ",
+	"onyx-actions-talk": "အိုင်ကိုမ်ဒေါ့ꩻရီ",
+	"onyx-actions-addsection": "ထဲမ်သော့ꩻ အကွို့ꩻတသာ",
+	"onyx-actions-cancel": "မာꩻတဝ်းဒွုမ်",
+	"onyx-actions-back": "သဲင်ꩻချာ",
+	"onyx-actions-backtopage": "သဲင်ꩻချာ $1 ထျꩻ",
+	"onyx-pagecontents-backtotop": "သဲင်ꩻချာ ဆꩻကီထျꩻ"
+}
