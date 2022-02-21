@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Seipinne"
+		]
+	},
+	"onyx-notifications-nonotifs": "Tust iä lah uđđâ almottâsah!",
+	"onyx-notifications-nomessages": "Tust iä lah uđđâ viestah!",
+	"onyx-personaltools-anonusername": "Anonyym",
+	"onyx-personaltools-userpage": "Kevtteesijđo",
+	"onyx-personaltools-usertalk": "Savâstâllâm kevttest",
+	"onyx-personaltools-anontalk": "Savâstâllâmsijđo",
+	"onyx-actions-talk": "Savâstâllâm",
+	"onyx-actions-addsection": "Lasseet uđđâ uási",
+	"onyx-actions-cancel": "Jooskâ",
+	"onyx-actions-back": "Maassâd",
+	"onyx-actions-backtopage": "Maassâd siijđon $1",
+	"onyx-sidebar-label": "Sijđotuálbus",
+	"onyx-sidebar-tooltip": "Čääiti teikkâ čievâ siijđotuálbus",
+	"onyx-pagecontents-backtotop": "Maassâd aalgân"
+}
