@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Huñvreüs"
+		]
+	},
+	"onyx-notifications-nonotifs": "N'ho peus kemenn nevez ebet!",
+	"onyx-notifications-nomessages": "N'hoc'h eus kemennadenn nevez ebet!",
+	"onyx-personaltools-anonusername": "Dizanv",
+	"onyx-personaltools-userpage": "Pajenn implijer",
+	"onyx-personaltools-usertalk": "Kaozeadenn an implijer",
+	"onyx-personaltools-anontalk": "Pajenn gaozeal",
+	"onyx-actions-talk": "Kaozeal",
+	"onyx-actions-addsection": "Ouzhpennañ ur gaoz nevez",
+	"onyx-actions-cancel": "Nullañ",
+	"onyx-actions-back": "Distreiñ",
+	"onyx-actions-backtopage": "Distreiñ da $1",
+	"onyx-sidebar-label": "Barrenn gostez",
+	"onyx-pagecontents-backtotop": "Distreiñ d'an deroù"
+}
