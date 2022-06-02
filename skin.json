@@ -21,6 +21,7 @@
 			"class": "SkinOnyx",
 			"args": [ {
 				"name": "onyx",
+				"bodyOnly": true,
 				"responsive": true,
 				"scripts": [
 					"skins.onyx.js"
