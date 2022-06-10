@@ -21,7 +21,7 @@ class SkinOnyx extends SkinTemplate {
 	public function initPage( OutputPage $out ) {
 		$pre136 = version_compare( MW_VERSION, '1.36', '<' );
 		$module = $pre136 ? 'mediawiki.skinning.interface' : 'skins.onyx.styles.future';
-		$out->addModule( $module );
+		$out->addModules( $module );
 		parent::initPage( $out );
 	}
 }
