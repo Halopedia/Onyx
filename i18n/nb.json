@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Ei drakt designet for å etterligne og forbedre Oasis-drakta som brukes i Wikia.",
+	"onyx-notifications-nonotifs": "Du har ingen nye varsler!",
+	"onyx-notifications-nomessages": "Du har ingen nye beskjeder!",
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Brukerside",
+	"onyx-personaltools-usertalk": "Brukerdiskusjon",
+	"onyx-personaltools-anontalk": "Diskusjonsside",
+	"onyx-actions-talk": "Diskusjon",
+	"onyx-actions-addsection": "Legg til ny seksjon",
+	"onyx-actions-cancel": "Avbryt",
+	"onyx-actions-back": "Tilbake",
+	"onyx-actions-backtopage": "Tilbake til $1",
+	"onyx-sidebar-label": "Sidefelt",
+	"onyx-sidebar-tooltip": "Utvid eller slå sammen sidefeltet",
+	"onyx-pagecontents-backtotop": "Tilbake til toppen"
+}
