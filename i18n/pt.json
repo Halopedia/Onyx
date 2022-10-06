@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"onyx-skin-name": "Ónix",
+	"onyx-skin-desc": "Um tema desenhado para emular e melhorar o tema Oásis usado pela Wikia.",
+	"onyx-notifications-nonotifs": "Não tem notificações novas!",
+	"onyx-notifications-nomessages": "Não tem mensagens novas!",
+	"onyx-personaltools-anonusername": "Anónimo",
+	"onyx-personaltools-userpage": "Página de utilizador",
+	"onyx-personaltools-usertalk": "Página de discussão do utilizador",
+	"onyx-personaltools-anontalk": "Página de discussão",
+	"onyx-actions-talk": "Discussão",
+	"onyx-actions-addsection": "Adicionar secção nova",
+	"onyx-actions-cancel": "Cancelar",
+	"onyx-actions-back": "Voltar",
+	"onyx-actions-backtopage": "Voltar a $1",
+	"onyx-sidebar-label": "Barra lateral",
+	"onyx-sidebar-tooltip": "Expandir ou recolher a barra lateral",
+	"onyx-pagecontents-backtotop": "Voltar ao topo"
+}
