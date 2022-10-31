@@ -1,13 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
+	"onyx-skin-name": "أونيكس",
+	"onyx-skin-desc": "جلد مصمم لمحاكاة وتحسين بشرة الواحة التي تستخدمها ويكيا.",
+	"onyx-notifications-nonotifs": "ليس لديك إشعارات جديدة!",
+	"onyx-notifications-nomessages": "ليس لديك رسائل جديدة!",
+	"onyx-personaltools-anonusername": "مجهول",
 	"onyx-personaltools-userpage": "صفحة المستخدم",
 	"onyx-personaltools-usertalk": "نقاش المستخدم",
 	"onyx-personaltools-anontalk": "نقاش",
 	"onyx-actions-talk": "نقاش",
 	"onyx-actions-addsection": "أضف قسمًا جديدًا",
-	"onyx-sidebar-label": "الشريط الجانبي"
+	"onyx-actions-cancel": "إلغاء",
+	"onyx-actions-back": "رجوع",
+	"onyx-actions-backtopage": "رجوع إلى $1",
+	"onyx-sidebar-label": "الشريط الجانبي",
+	"onyx-sidebar-tooltip": "قم بتوسيع الشريط الجانبي أو تصغيره",
+	"onyx-pagecontents-backtotop": "العودة إلى الأعلى"
 }
