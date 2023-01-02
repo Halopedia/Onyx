@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Preobleka, zasnovana tako, da posnema in izboljša preobleko Oasis, ki jo uporablja Wikia.",
+	"onyx-notifications-nonotifs": "Nimate novih obvestil!",
+	"onyx-notifications-nomessages": "Nimate novih sporočil!",
+	"onyx-personaltools-anonusername": "Anonimni",
+	"onyx-personaltools-userpage": "Uporabniška stran",
+	"onyx-personaltools-usertalk": "Uporabniški pogovor",
+	"onyx-personaltools-anontalk": "Pogovorna stran",
+	"onyx-actions-talk": "Pogovor",
+	"onyx-actions-addsection": "Dodaj nov razdelek",
+	"onyx-actions-cancel": "Prekliči",
+	"onyx-actions-back": "Nazaj",
+	"onyx-actions-backtopage": "Nazaj na $1",
+	"onyx-sidebar-label": "Stranska vrstica",
+	"onyx-sidebar-tooltip": "Razširi ali strni stransko vrstico",
+	"onyx-pagecontents-backtotop": "Nazaj na vrh"
+}
