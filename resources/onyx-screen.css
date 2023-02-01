@@ -271,7 +271,8 @@ pre {
 	display: block;
 }
 
-.onyx-dropdown-list > li > a:only-child {
+.onyx-dropdown-list > li > a:only-child,
+#ca-anonuserpage {
 	padding: 10px 10px 10px 15px;
 }
 
