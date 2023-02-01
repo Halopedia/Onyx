@@ -107,6 +107,10 @@ pre {
 	top: 55px !important;
 }
 
+.visualClear {
+	clear: both;
+}
+
 /* ONYX CLASSES */
 .onyx-articleContainer {
 	display: grid;
