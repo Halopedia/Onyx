@@ -18,6 +18,6 @@
 	"onyx-actions-back": "Retro",
 	"onyx-actions-backtopage": "Retornar a $1",
 	"onyx-sidebar-label": "Barra lateral",
-	"onyx-sidebar-tooltip": "Displicar o plicar le barra lateral",
+	"onyx-sidebar-tooltip": "Expander o contraher le barra lateral",
 	"onyx-pagecontents-backtotop": "Retro al initio"
 }
