@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kecox15670"
+		]
+	},
+	"onyx-notifications-nonotifs": "Bạn không có thông báo nào mới!",
+	"onyx-notifications-nomessages": "Bạn không có tin nhắn nào mới!",
+	"onyx-personaltools-anonusername": "Vô danh",
+	"onyx-personaltools-usertalk": "Thảo luận của người dùng",
+	"onyx-personaltools-anontalk": "Trang thảo luận",
+	"onyx-actions-talk": "Thảo luận",
+	"onyx-actions-cancel": "Hủy bỏ",
+	"onyx-actions-back": "Quay lại",
+	"onyx-sidebar-tooltip": "Mở rộng hoặc thu gọn thanh bên"
+}
