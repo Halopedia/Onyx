@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maria zaos"
+			"Maria zaos",
+			"Toliño"
 		]
 	},
+	"onyx-skin-desc": "Un tema deseñado para emular e mellorar a aparencia Oasis utilizada por Wikia.",
 	"onyx-notifications-nonotifs": "Non ten avisos novos",
 	"onyx-notifications-nomessages": "Non ten mensaxes novas",
 	"onyx-personaltools-anonusername": "Anónimo",
@@ -15,6 +17,7 @@
 	"onyx-actions-cancel": "Cancelar",
 	"onyx-actions-back": "Volver",
 	"onyx-actions-backtopage": "Volver a $1",
+	"onyx-sidebar-label": "Barra lateral",
 	"onyx-sidebar-tooltip": "Expandir ou contraer a barra",
-	"onyx-pagecontents-backtotop": "volver arriba"
+	"onyx-pagecontents-backtotop": "Volver ao inicio"
 }
