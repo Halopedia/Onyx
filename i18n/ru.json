@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"BerryAVGN",
 			"Kareyac",
 			"Okras"
 		]
 	},
 	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Тема, созданная для подражания и улучшения темы оформления Oasis, используемой в Wikia.",
 	"onyx-notifications-nonotifs": "У вас нет новых уведомлений!",
 	"onyx-notifications-nomessages": "У вас нет новых сообщений!",
 	"onyx-personaltools-anonusername": "Аноним",
