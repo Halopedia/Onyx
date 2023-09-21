@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Lakejason0",
+			"LittlePaw365",
 			"Zhang8569"
 		]
 	},
@@ -17,7 +18,7 @@
 	"onyx-actions-addsection": "新增章节",
 	"onyx-actions-cancel": "取消",
 	"onyx-actions-back": "后退",
-	"onyx-actions-backtopage": "返回至$1",
+	"onyx-actions-backtopage": "返回$1",
 	"onyx-sidebar-label": "侧边栏",
 	"onyx-sidebar-tooltip": "扩展或取消侧边栏",
 	"onyx-pagecontents-backtotop": "返回顶部"
