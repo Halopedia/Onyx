@@ -211,6 +211,12 @@ class OnyxTemplate extends BaseTemplate {
 			unset( $personalUrls['notifications-notice'] );
 		}
 
+		// This is the "you have a new Talk page message" alert thing in recent (MW 1.39+, I guess)
+		// MediaWiki versions...yes, it's in the personal tools area and we don't want that, obviously.
+		if ( isset( $personalUrls['talk-alert'] ) && $personalUrls['talk-alert'] ) {
+			unset( $personalUrls['talk-alert'] );
+		}
+
 		foreach ( $personalUrls as $key => $item ) {
 			switch ( $key ) {
 				case 'userpage':
