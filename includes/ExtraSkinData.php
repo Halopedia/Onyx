@@ -140,7 +140,13 @@ class ExtraSkinData {
 			return null;
 		}
 
-		$page = \WikiPage::factory( $title );
+		if ( method_exists( \MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MediaWiki 1.36+
+			$page = \MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		} else {
+			// @phan-suppress-next-line PhanUndeclaredStaticMethod Removed in MW 1.41 or so
+			$page = \WikiPage::factory( $title );
+		}
 		if ( empty( $page ) ) {
 			return null;
 		}
