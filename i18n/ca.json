@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Alan Mena",
-			"Mguix"
+			"Mguix",
+			"SMP"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Una aparença dissenyada per a emular i millorar la pell Oasis utilitzada per Wikia.",
 	"onyx-notifications-nonotifs": "No tens cap notificació nova!",
 	"onyx-notifications-nomessages": "No tens missatges nous!",
 	"onyx-personaltools-anonusername": "Anònim",
@@ -13,6 +16,7 @@
 	"onyx-personaltools-anontalk": "Pàgina de discussió",
 	"onyx-actions-talk": "Parla",
 	"onyx-actions-addsection": "Afegeix una nova secció",
+	"onyx-actions-cancel": "Cancel·la",
 	"onyx-actions-back": "Torna",
 	"onyx-actions-backtopage": "Torna a $1",
 	"onyx-sidebar-label": "Barra lateral",
