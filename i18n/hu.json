@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dj",
 			"Hanna Tardos"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Ez a felület a Wikia által használt Oasis felületet utánozza és javítja.",
 	"onyx-notifications-nonotifs": "Nincsenek olvasatlan értesítéseid!",
 	"onyx-notifications-nomessages": "Nincsenek új üzeneteid!",
 	"onyx-personaltools-anonusername": "Névtelen",
