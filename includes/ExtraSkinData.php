@@ -140,9 +140,10 @@ class ExtraSkinData {
 			return null;
 		}
 
-		if ( method_exists( \MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+		$services = \MediaWiki\MediaWikiServices::getInstance();
+		if ( method_exists( $services, 'getWikiPageFactory' ) ) {
 			// MediaWiki 1.36+
-			$page = \MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+			$page = $services->getWikiPageFactory()->newFromTitle( $title );
 		} else {
 			// @phan-suppress-next-line PhanUndeclaredStaticMethod Removed in MW 1.41 or so
 			$page = \WikiPage::factory( $title );
