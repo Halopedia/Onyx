@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"onyx-notifications-nonotifs": "Vy ne imajete nove uvědomjenja!",
+	"onyx-notifications-nomessages": "Vy ne imajete nove soobčenja!",
+	"onyx-personaltools-anonusername": "Anonimny koristnik",
+	"onyx-personaltools-userpage": "Koristničska stranica",
+	"onyx-personaltools-usertalk": "Besědna stranica koristnika",
+	"onyx-personaltools-anontalk": "Besědna stranica",
+	"onyx-actions-talk": "Besěda",
+	"onyx-actions-addsection": "Dodati novy razděl",
+	"onyx-actions-cancel": "Anulovati",
+	"onyx-actions-back": "Nazad",
+	"onyx-actions-backtopage": "Nazad na $1",
+	"onyx-sidebar-label": "Bočny panel",
+	"onyx-sidebar-tooltip": "Razvinuti ili svinuti bočny panel",
+	"onyx-pagecontents-backtotop": "Nazad na vrh"
+}
