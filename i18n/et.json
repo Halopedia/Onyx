@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"onyx-personaltools-anonusername": "Anonüümne",
+	"onyx-personaltools-userpage": "Kasutajaleht",
+	"onyx-personaltools-usertalk": "Kasutaja arutelu",
+	"onyx-actions-talk": "Arutelu",
+	"onyx-actions-addsection": "Lisa uus alaosa",
+	"onyx-actions-cancel": "Loobu",
+	"onyx-actions-back": "Tagasi",
+	"onyx-actions-backtopage": "Tagasi lehele $1",
+	"onyx-pagecontents-backtotop": "Tagasi üles"
+}
