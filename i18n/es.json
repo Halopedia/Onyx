@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"onyx-personaltools-anonusername": "Anónimo",
+	"onyx-personaltools-userpage": "Página de usuario",
+	"onyx-personaltools-usertalk": "Usuario discusión",
+	"onyx-personaltools-anontalk": "Página de discusión",
+	"onyx-actions-talk": "Discusión",
+	"onyx-actions-addsection": "Añadir sección nueva",
+	"onyx-actions-cancel": "Cancelar",
+	"onyx-actions-back": "Volver",
+	"onyx-actions-backtopage": "Volver a $1"
+}
