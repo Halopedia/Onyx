@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hakimi97",
 			"Tofeiku"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Kulit yang direka untuk meniru dan memperbaiki kulit Oasis yang digunakan oleh Wikia.",
 	"onyx-notifications-nonotifs": "Tiada pemberitahuan baru!",
 	"onyx-notifications-nomessages": "Tiada pesanan baru!",
 	"onyx-personaltools-anonusername": "Awanama",
@@ -11,8 +14,11 @@
 	"onyx-personaltools-usertalk": "Perbincangan pengguna",
 	"onyx-personaltools-anontalk": "Laman perbincangan",
 	"onyx-actions-talk": "Perbincangan",
+	"onyx-actions-addsection": "Tambah bahagian baru",
 	"onyx-actions-cancel": "Batalkan",
 	"onyx-actions-back": "Kembali",
 	"onyx-actions-backtopage": "Kembali ke $1",
+	"onyx-sidebar-label": "Palang sisi",
+	"onyx-sidebar-tooltip": "Kembang atau runtuhkan palang sisi",
 	"onyx-pagecontents-backtotop": "Kembali ke atas"
 }
