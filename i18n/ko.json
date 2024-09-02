@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Suleiman the Magnificent Television",
 			"Ykhwong"
 		]
 	},
 	"onyx-skin-name": "오닉스",
+	"onyx-skin-desc": "위키아에서 사용하는 오아시스 스킨을 모방하고 개선한 스킨입니다.",
 	"onyx-notifications-nonotifs": "새 알림이 없습니다!",
 	"onyx-notifications-nomessages": "새 메시지가 없습니다!",
 	"onyx-personaltools-anonusername": "익명",
