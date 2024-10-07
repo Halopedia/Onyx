@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Constraque"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Візуална тема, створена ку репродукції і полїпшыня темы Oasis, котрый ся хосноває во Wikia.",
+	"onyx-notifications-nonotifs": "Вы немате новых ознамінь!",
+	"onyx-notifications-nomessages": "Вы немате новых повідомлїнь!",
+	"onyx-personaltools-anonusername": "Анонім",
+	"onyx-personaltools-userpage": "Сторінка хоснователя",
+	"onyx-personaltools-usertalk": "Діскусія з хоснователём",
+	"onyx-personaltools-anontalk": "Діскусна сторінка",
+	"onyx-actions-talk": "Діскусія",
+	"onyx-actions-addsection": "Додати новый роздїл",
+	"onyx-actions-cancel": "Зрушити",
+	"onyx-actions-back": "Назад",
+	"onyx-actions-backtopage": "Назад ку $1",
+	"onyx-sidebar-label": "Бочна панел",
+	"onyx-sidebar-tooltip": "Розгорнути або закрыти бочну панел",
+	"onyx-pagecontents-backtotop": "Назад на верьх"
+}
