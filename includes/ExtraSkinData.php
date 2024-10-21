@@ -59,7 +59,8 @@ class ExtraSkinData {
 		$amount = $config->getInteger( 'recent-changes-amount' );
 		$cacheExpiryTime = $config->getInteger( 'recent-changes-cache-expiry-time' );
 
-		$cacheObj = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$services = MediaWikiServices::getInstance();
+		$cacheObj = $services->getMainWANObjectCache();
 		$cacheKey = $cacheObj->makeKey( 'onyx_recentChanges', $amount );
 		$recentChanges = $cacheObj->get( $cacheKey );
 
@@ -67,7 +68,11 @@ class ExtraSkinData {
 			// If the recentChanges variable is empty, then we will need to fetch the
 			// data from the database itself, rather than relying on the cache
 
-			$database = wfGetDB( DB_REPLICA );
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				$database = $services->getConnectionProvider()->getReplicaDatabase();
+			} else {
+				$database = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			}
 
 			$rawRecentChanges = $database->select(
 				'recentchanges',

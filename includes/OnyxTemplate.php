@@ -6,6 +6,7 @@
  * @ingroup Skins
  */
 
+use MediaWiki\MediaWikiServices;
 use Onyx\Config;
 use Onyx\ExtraSkinData;
 use Onyx\Icon;
@@ -1541,7 +1542,7 @@ class OnyxTemplate extends BaseTemplate {
 		// Avoid PHP 7.1 warnings
 		$skin = $this;
 
-		Hooks::run( 'SkinTemplateToolboxEnd', [ &$skin, true ] );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'SkinTemplateToolboxEnd', [ &$skin, true ] );
 
 		// End unordered list
 		$html .= Html::closeElement( 'ul' );
