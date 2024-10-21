@@ -52,17 +52,11 @@ class OnyxTemplate extends BaseTemplate {
 	public function execute() : void {
 		$config = new Config();
 		$skin = $this->getSkin();
-		$pre139 = version_compare( MW_VERSION, '1.39', '<' );
 
 		ExtraSkinData::extractAndUpdate( $this->data, $config, $skin );
 
 		// Initialise HTML string as a empty string
 		$html = '';
-
-		// Concatenate auto-generated head element onto HTML string
-		if ( $pre139 ) {
-			$html .= $this->get( 'headelement' );
-		}
 
 		// Build banner
 		$this->buildBanner( $html, $config );
@@ -75,11 +69,6 @@ class OnyxTemplate extends BaseTemplate {
 
 		// Build toolbox
 		$this->buildToolbox( $html, $config );
-
-		// Concatenate auto-generated trail onto HTML string
-		if ( $pre139 ) {
-			$html .= $this->getTrail();
-		}
 
 		// Print the entire page's HTML code at once
 		echo $html;
