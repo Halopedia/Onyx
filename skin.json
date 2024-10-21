@@ -18,11 +18,12 @@
 	"ValidSkinNames": {
 		"onyx": {
 			"displayname": "Onyx",
-			"class": "SkinOnyx",
+			"class": "SkinTemplate",
 			"args": [ {
 				"name": "onyx",
 				"bodyOnly": true,
 				"responsive": true,
+				"template": "OnyxTemplate",
 				"scripts": [
 					"skins.onyx.js"
 				],
@@ -34,7 +35,6 @@
 	},
 
 	"AutoloadClasses": {
-		"SkinOnyx": "includes/SkinOnyx.php",
 		"OnyxTemplate": "includes/OnyxTemplate.php",
 		"Onyx\\Icon": "includes/Icon.php",
 		"Onyx\\Config": "includes/Config.php",
@@ -46,7 +46,7 @@
 	},
 
 	"ResourceModules": {
-		"skins.onyx.styles.future": {
+		"skins.onyx.styles": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"content-links": true,
@@ -60,10 +60,7 @@
 				"elements": true,
 				"interface": true,
 				"logo": true
-			}
-		},
-		"skins.onyx.styles": {
-			"class": "MediaWiki\\ResourceLoader\\SkinModule",
+			},
 			"styles": {
 				"resources/onyx-screen.css": {
 					"media": "screen"
