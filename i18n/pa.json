@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cabal"
+		]
+	},
+	"onyx-notifications-nonotifs": "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਨਵੀਂ ਸੂਚਨਾਵਾਂ ਨਹੀਂ ਹਨ!",
+	"onyx-notifications-nomessages": "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਨਵਾਂ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ!",
+	"onyx-personaltools-anonusername": "ਬੇਪਛਾਣ",
+	"onyx-personaltools-userpage": "ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ",
+	"onyx-personaltools-usertalk": "ਵਰਤੋਂਕਾਰ ਗੱਲਬਾਤ",
+	"onyx-personaltools-anontalk": "ਗੱਲਬਾਤ ਸਫ਼ਾ",
+	"onyx-actions-talk": "ਗੱਲਬਾਤ",
+	"onyx-actions-addsection": "ਨਵਾਂ ਭਾਗ ਸ਼ਾਮਲ ਕਰੋ",
+	"onyx-actions-cancel": "ਰੱਦ ਕਰੋ",
+	"onyx-actions-back": "ਪਿੱਛੇ",
+	"onyx-actions-backtopage": "$1 ਉੱਤੇ ਵਾਪਸ ਜਾਓ"
+}
