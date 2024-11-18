@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Een vormgeving die is ontworpen om de door Wikia gebruikte Oasis-vormgeving na te bootsen en te verbeteren.",
 	"onyx-notifications-nonotifs": "U hebt geen nieuwe meldingen!",
 	"onyx-notifications-nomessages": "U hebt geen nieuwe berichten!",
 	"onyx-personaltools-anonusername": "Anoniem",
