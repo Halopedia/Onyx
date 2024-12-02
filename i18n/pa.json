@@ -14,5 +14,6 @@
 	"onyx-actions-addsection": "ਨਵਾਂ ਭਾਗ ਸ਼ਾਮਲ ਕਰੋ",
 	"onyx-actions-cancel": "ਰੱਦ ਕਰੋ",
 	"onyx-actions-back": "ਪਿੱਛੇ",
-	"onyx-actions-backtopage": "$1 ਉੱਤੇ ਵਾਪਸ ਜਾਓ"
+	"onyx-actions-backtopage": "$1 ਉੱਤੇ ਵਾਪਸ ਜਾਓ",
+	"onyx-pagecontents-backtotop": "ਸਿਖਰ 'ਤੇ ਵਾਪਸ ਜਾਓ"
 }
