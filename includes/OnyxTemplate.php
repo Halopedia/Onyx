@@ -743,7 +743,7 @@ class OnyxTemplate extends BaseTemplate {
 					$tab['text'] = $skin->msg( 'onyx-actions-addsection' )->escaped();
 				// Finally, if the content action is none of the above, add it to the
 				// growing array of miscellaneous content actions to be displayed in a
-				// drop-down list beneath the edit/view soure button
+				// drop-down list beneath the edit/view source button
 				default:
 					if ( substr( $key, 0, 6 ) === 'nstab-' ) {
 						$view = $tab;
@@ -989,7 +989,7 @@ class OnyxTemplate extends BaseTemplate {
 			'class' => 'onyx-dropdown-icon'
 			], Icon::getIcon( 'dropdown' )->makeSvg( 14, 14 ) );
 
-			// Close the button div
+		// Close the button div
 		$html .= Html::closeElement( 'div' );
 
 		// Open an <ul> element to contain the list itself
@@ -1273,7 +1273,7 @@ class OnyxTemplate extends BaseTemplate {
 
 		$html .= Html::openElement( 'div', [ 'id' => 'onyx-pageContents-backToTop' ] );
 
-		$html .= Html::element( 'a', [ 'href' => '#' ], '↑ '.$this->getSkin()->msg( 'onyx-pagecontents-backtotop' )->escaped() );
+		$html .= Html::element( 'a', [ 'href' => '#' ], '↑ ' . $this->getSkin()->msg( 'onyx-pagecontents-backtotop' )->escaped() );
 
 		$html .= Html::closeElement( 'div' );
 
