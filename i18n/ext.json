@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"HackerPunki"
+		]
+	},
+	"onyx-personaltools-userpage": "Página d'usuariu",
+	"onyx-personaltools-usertalk": "Carava d'usuariu",
+	"onyx-personaltools-anontalk": "Página de carava",
+	"onyx-actions-talk": "Carava",
+	"onyx-actions-addsection": "Añidil nuea seción",
+	"onyx-actions-cancel": "Suspendel",
+	"onyx-actions-back": "Golvel",
+	"onyx-actions-backtopage": "Golvel a $1"
+}
