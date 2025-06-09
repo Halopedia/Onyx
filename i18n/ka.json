@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mehman97"
+		]
+	},
+	"onyx-personaltools-userpage": "მომხმარებლის გვერდი",
+	"onyx-personaltools-usertalk": "მომხმარებლის განხილვა",
+	"onyx-personaltools-anontalk": "განხილვის გვერდი",
+	"onyx-actions-talk": "განხილვა",
+	"onyx-actions-addsection": "ახალი სექციის დამატება",
+	"onyx-actions-cancel": "გაუქმება",
+	"onyx-actions-back": "უკან",
+	"onyx-actions-backtopage": "$1-ზე დაბრუნება",
+	"onyx-sidebar-label": "გვერდითა ზოლი",
+	"onyx-sidebar-tooltip": "გვერდითა ზოლის გაფართოება ან ჩაკეცვა",
+	"onyx-pagecontents-backtotop": "თავში დაბრუნება"
+}
