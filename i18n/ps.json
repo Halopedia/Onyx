@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"onyx-skin-name": "اونيکس",
+	"onyx-skin-desc": "يوه پوښۍ چې د ويکيا لهٔ خوا کارول کېږي او د اواسيس پوښۍ سيالۍ سره د هغې د ښه کولو په موخه سکښتل شوې.",
+	"onyx-notifications-nonotifs": "تاسې هېڅ نوې خبرتياوې نه لرئ!",
+	"onyx-notifications-nomessages": "تاسې هېڅ نوي پيغامونه نه لرئ!",
+	"onyx-personaltools-anonusername": "ورکنومی",
+	"onyx-personaltools-userpage": "کارن مخ",
+	"onyx-personaltools-usertalk": "کارن خبرې اترې",
+	"onyx-personaltools-anontalk": "خبرو اترو مخ",
+	"onyx-actions-talk": "خبرې اترې",
+	"onyx-actions-addsection": "نوې برخه ورگډول",
+	"onyx-actions-cancel": "ناگارل",
+	"onyx-actions-back": "پر شا کېدل",
+	"onyx-actions-backtopage": "$1 ته پرشاکېدل",
+	"onyx-sidebar-label": "څنگپټه",
+	"onyx-sidebar-tooltip": "څنگپټه غځول يا پرځول",
+	"onyx-pagecontents-backtotop": "بېرته سر ته"
+}
