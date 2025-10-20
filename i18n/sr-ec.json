@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"onyx-personaltools-anontalk": "Страница за разговор",
+	"onyx-actions-talk": "Разговор",
+	"onyx-actions-cancel": "Откажи",
+	"onyx-actions-back": "Назад",
+	"onyx-actions-backtopage": "Назад на $1",
+	"onyx-pagecontents-backtotop": "Назад на врх"
+}
