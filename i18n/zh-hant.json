@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"Peterxy12"
 		]
 	},
 	"onyx-skin-name": "Onyx",
-	"onyx-skin-desc": "一種設計來模仿和改善由 Wikia 所使用 Oasis 外觀的外觀。",
+	"onyx-skin-desc": "一種設計來模仿和改善由Wikia所使用Oasis外觀的外觀。",
 	"onyx-notifications-nonotifs": "你沒有新的通知！",
 	"onyx-notifications-nomessages": "你沒有新的訊息！",
 	"onyx-personaltools-anonusername": "匿名",
