@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bennylin"
+		]
+	},
+	"onyx-notifications-nonotifs": "ꦱꦩ꧀ꦥꦺꦪꦤ꧀ꦲꦺꦴꦫ​ꦢꦸꦮꦺ​ꦥꦩ꧀ꦧꦶꦮꦫ​ꦲꦚꦂ!",
+	"onyx-notifications-nomessages": "ꦱꦩ꧀ꦥꦺꦪꦤ꧀ꦲꦺꦴꦫ​ꦢꦸꦮꦺ​ꦭꦪꦁ​ꦲꦚꦂ!",
+	"onyx-personaltools-anonusername": "ꦲꦤꦺꦴꦤꦶꦩꦸꦱ꧀",
+	"onyx-personaltools-userpage": "ꦏꦕ​ꦤꦫꦒꦸꦤ",
+	"onyx-personaltools-usertalk": "ꦉꦩ꧀ꦧꦸꦒ꧀ꦒꦤ꧀ꦤꦫꦒꦸꦤ",
+	"onyx-personaltools-anontalk": "ꦏꦕ​ꦉꦩ꧀ꦧꦸꦒ꧀ꦒꦤ꧀",
+	"onyx-actions-talk": "ꦉꦩ꧀ꦧꦸꦒ꧀ꦒꦤ꧀",
+	"onyx-actions-addsection": "ꦠꦩ꧀ꦧꦃ​ꦧꦒꦺꦪꦤ꧀ꦲꦚꦂ",
+	"onyx-actions-cancel": "ꦮꦸꦫꦸꦁ",
+	"onyx-actions-back": "ꦧꦭꦶ",
+	"onyx-actions-backtopage": "ꦧꦭꦶ​ꦩꦼꦚꦁ​$1",
+	"onyx-sidebar-label": "ꦧꦶꦭꦃ​ꦱꦶꦱꦶꦃ",
+	"onyx-sidebar-tooltip": "ꦧꦸꦏꦏ꧀ꦲꦸꦠꦮ​ꦠꦸꦠꦸꦥ꧀ꦧꦶꦭꦃ​ꦱꦶꦱꦶꦃ",
+	"onyx-pagecontents-backtotop": "ꦧꦭꦶ​ꦚꦁ​ꦤ꧀ꦝꦸꦮꦸꦂ"
+}
