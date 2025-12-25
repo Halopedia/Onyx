@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"Saederup92"
 		]
 	},
+	"onyx-notifications-nonotifs": "Du har ingen nye notifikationer!",
+	"onyx-notifications-nomessages": "Du har ingen nye beskeder!",
 	"onyx-personaltools-anonusername": "Anonym",
 	"onyx-personaltools-userpage": "Brugerside",
 	"onyx-personaltools-usertalk": "Brugerdiskussion",
