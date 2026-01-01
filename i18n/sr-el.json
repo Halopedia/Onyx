@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jack Phoenix"
+		]
+	},
+	"onyx-skin-name": "Oniks",
+	"onyx-notifications-nomessages": "Nemate novih poruka!",
+	"onyx-personaltools-anonusername": "Anonimno",
+	"onyx-personaltools-userpage": "Korisnička stranica",
+	"onyx-personaltools-usertalk": "Korisnička stranica za razgovor",
+	"onyx-personaltools-anontalk": "Stranica za razgovor",
+	"onyx-actions-talk": "Razgovor",
+	"onyx-actions-addsection": "Dodaj novi odeljak",
+	"onyx-actions-cancel": "Otkaži",
+	"onyx-actions-back": "Nazad",
+	"onyx-actions-backtopage": "Nazad na $1",
+	"onyx-pagecontents-backtotop": "Nazad na vrh"
+}
