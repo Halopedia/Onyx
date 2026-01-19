@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kecox15670"
+			"Kecox15670",
+			"Nvdtn19"
 		]
 	},
 	"onyx-notifications-nonotifs": "Bạn không có thông báo nào mới!",
 	"onyx-notifications-nomessages": "Bạn không có tin nhắn nào mới!",
-	"onyx-personaltools-anonusername": "Vô danh",
+	"onyx-personaltools-anonusername": "Chưa đăng nhập",
 	"onyx-personaltools-usertalk": "Thảo luận của người dùng",
 	"onyx-personaltools-anontalk": "Trang thảo luận",
 	"onyx-actions-talk": "Thảo luận",
