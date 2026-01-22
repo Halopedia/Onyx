@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -11,7 +12,7 @@
 	"onyx-notifications-nomessages": "새 메시지가 없습니다!",
 	"onyx-personaltools-anonusername": "익명",
 	"onyx-personaltools-userpage": "사용자 문서",
-	"onyx-personaltools-usertalk": "사용자토론",
+	"onyx-personaltools-usertalk": "사용자 토론",
 	"onyx-personaltools-anontalk": "토론 문서",
 	"onyx-actions-talk": "토론",
 	"onyx-actions-addsection": "새 문단 추가",
