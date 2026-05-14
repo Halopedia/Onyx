@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kallmemel"
+		]
+	},
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Un aparensia diseñá pa emulá i mehorá e aparensia Oasis usá dor di Wikia.",
+	"onyx-personaltools-anonusername": "Anónimo",
+	"onyx-personaltools-userpage": "Página di usadó",
+	"onyx-personaltools-usertalk": "Diskushon di usadó",
+	"onyx-personaltools-anontalk": "Página di diskushon",
+	"onyx-actions-talk": "Diskushon",
+	"onyx-actions-addsection": "Agregá sekshon nobo",
+	"onyx-actions-cancel": "Kanselá",
+	"onyx-actions-back": "Bèk",
+	"onyx-actions-backtopage": "Bèk na $1",
+	"onyx-sidebar-label": "Bara lateral",
+	"onyx-sidebar-tooltip": "Ekspandé òf kòleps e bara lateral",
+	"onyx-pagecontents-backtotop": "Bèk na laira"
+}
