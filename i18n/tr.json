@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"HakanIST",
 			"Joseph"
 		]
 	},
+	"onyx-prefs-talkpage": "[[mw:Skin talk:Onyx|{{int:talk}}]]",
 	"onyx-skin-name": "Onyx",
 	"onyx-skin-desc": "Wikia tarafından kullanılan Oasis görünümüne benzemek ve geliştirmek için tasarlanmış bir görünüm.",
 	"onyx-notifications-nonotifs": "Yeni bildiriminiz yok!",
