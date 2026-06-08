@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"onyx-prefs-talkpage": "[[mw:Skin talk:Onyx|{{int:talk}}]]",
+	"onyx-skin-name": "Onyx",
+	"onyx-skin-desc": "Téma vzhľadu navrhnutá na napodobnenie a vylepšenie témy Oasis používanej na Wikii.",
+	"onyx-notifications-nonotifs": "Nemáte žiadne nové upozornenia!",
+	"onyx-notifications-nomessages": "Nemáte žiadne nové správy!",
+	"onyx-personaltools-anonusername": "Anonym",
+	"onyx-personaltools-userpage": "Používateľská stránka",
+	"onyx-personaltools-usertalk": "Diskusia s používateľom",
+	"onyx-personaltools-anontalk": "Diskusná stránka",
+	"onyx-actions-talk": "Diskusia",
+	"onyx-actions-addsection": "Pridať novú sekciu",
+	"onyx-actions-cancel": "Zrušiť",
+	"onyx-actions-back": "Späť",
+	"onyx-actions-backtopage": "Späť na $1",
+	"onyx-sidebar-label": "Bočný panel",
+	"onyx-sidebar-tooltip": "Rozbaliť alebo zbaliť bočný panel",
+	"onyx-pagecontents-backtotop": "Späť na začiatok"
+}
