@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"onyx-skin-name": "Onyx",
@@ -14,7 +15,7 @@
 	"onyx-personaltools-usertalk": "Gebruikersoverleg",
 	"onyx-personaltools-anontalk": "Overlegpagina",
 	"onyx-actions-talk": "Overleg",
-	"onyx-actions-addsection": "Nieuw kopje toevoegen",
+	"onyx-actions-addsection": "Nieuwe sectie toevoegen",
 	"onyx-actions-cancel": "Annuleren",
 	"onyx-actions-back": "Terug",
 	"onyx-actions-backtopage": "Terug naar $1",
