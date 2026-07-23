@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"ऐक्टिवेटेड्"
+		]
+	},
+	"onyx-notifications-nonotifs": "अपनेलागि कौनो नया अधिसूचना न हे !",
+	"onyx-notifications-nomessages": "अपनेलागि कौनो नया सन्देश नै हे !",
+	"onyx-personaltools-anonusername": "अनाम",
+	"onyx-personaltools-userpage": "प्रयोगकर्ता पन्ना",
+	"onyx-personaltools-usertalk": "प्रयोगकर्ता वार्ता",
+	"onyx-personaltools-anontalk": "वार्ता पन्ना",
+	"onyx-actions-talk": "वार्ता",
+	"onyx-actions-addsection": "नया खण्ड जोड़थिन",
+	"onyx-actions-cancel": "निरस्त करथिन",
+	"onyx-actions-back": "पाछे",
+	"onyx-actions-backtopage": "पाछे $1 पर",
+	"onyx-sidebar-label": "साइडबार",
+	"onyx-sidebar-tooltip": "साइडबार के विस्तार करथिन वा सिकोड़थिन",
+	"onyx-pagecontents-backtotop": "वापिस शीर्ष पर"
+}
