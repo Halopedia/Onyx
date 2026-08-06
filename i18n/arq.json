@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bachounda"
+		]
+	},
+	"onyx-skin-name": "أونيكس",
+	"onyx-skin-desc": "تصميم (سكين) مصمم باش يحاكي ويطور تصميم Oasis اللي تستعملو Wikia.",
+	"onyx-notifications-nonotifs": "ما عندكش إشعارات جديدة!",
+	"onyx-notifications-nomessages": "ما عندكش براوات جدُد.",
+	"onyx-personaltools-anonusername": "مجهول",
+	"onyx-personaltools-userpage": "صفحات المستعملين",
+	"onyx-personaltools-usertalk": "نقاش المستخدم",
+	"onyx-personaltools-anontalk": "صفحة النقاش",
+	"onyx-actions-talk": "تناقش",
+	"onyx-actions-addsection": "زيد قسم جديد",
+	"onyx-actions-cancel": "بطّل",
+	"onyx-actions-back": "رجوع",
+	"onyx-actions-backtopage": "رجوع ل$1",
+	"onyx-sidebar-label": "الشريط الجانبي",
+	"onyx-sidebar-tooltip": "وسّع ولا طوي الشريط الجانبي",
+	"onyx-pagecontents-backtotop": "رجّع للفوق"
+}
