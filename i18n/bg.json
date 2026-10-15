@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"onyx-skin-name": "Оникс",
+	"onyx-skin-desc": "Облик, създаден да подражава и подобрява облика „Oasis“, използван от Уикия.",
+	"onyx-notifications-nonotifs": "Нямате нови известия!",
+	"onyx-notifications-nomessages": "Нямате нови съобщения!",
+	"onyx-personaltools-anonusername": "Анонимен",
+	"onyx-personaltools-userpage": "Потребителска страница",
+	"onyx-personaltools-usertalk": "Разговор с потребителя",
+	"onyx-personaltools-anontalk": "Страница за разговор",
+	"onyx-actions-talk": "Разговор",
+	"onyx-actions-addsection": "Добавяне на нов раздел",
+	"onyx-actions-cancel": "Отказ",
+	"onyx-actions-back": "Назад",
+	"onyx-actions-backtopage": "Назад към $1",
+	"onyx-sidebar-label": "Странична лента",
+	"onyx-sidebar-tooltip": "Разгъване или свиване на страничната лента",
+	"onyx-pagecontents-backtotop": "Връщане в началото"
+}
